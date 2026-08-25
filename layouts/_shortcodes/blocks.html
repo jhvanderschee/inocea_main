@@ -1,0 +1,18 @@
+{{ $html := .Inner | markdownify }}
+{{ $items := split $html "<h3" }}
+<div class="blocks">
+  {{ range $i, $item := $items }}
+    {{ if gt (len (strings.TrimSpace $item)) 0 }}
+      {{ $parts := split $item "</h3>" }}
+      {{ $title := index $parts 0 }}
+      {{ $body := index $parts 1 }}
+      {{ $parallax := index (findRE `(?s)<div class="parallax[^"]*"[^>]*>.*?</div>` $body) 0 }}
+      {{ $bodyClean := replaceRE `(?s)<div class="parallax[^"]*"[^>]*>.*?</div>` "" $body }}
+      <div class="block">
+        <h3>{{ replaceRE "^[^>]*>" "" $title | safeHTML }}</h3>
+        {{ with $parallax }}{{ . | safeHTML }}{{ end }}
+        <div class="block-content">{{ $bodyClean | safeHTML }}</div>
+      </div>
+    {{ end }}
+  {{ end }}
+</div>

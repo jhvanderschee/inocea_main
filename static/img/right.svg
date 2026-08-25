@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="18.664061mm"
+   height="18.664061mm"
+   viewBox="0 0 18.664061 18.664061"
+   version="1.1"
+   id="svg2154"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="right.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2156"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.914906"
+     inkscape:cx="39.894809"
+     inkscape:cy="96.731248"
+     inkscape:window-width="1716"
+     inkscape:window-height="1369"
+     inkscape:window-x="1720"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2151">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath494">
+      <path
+         d="M 0,0 H 1920 V 10500 H 0 Z"
+         id="path492" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-46.481988,-123.11785)">
+    <g
+       id="g488"
+       transform="matrix(0.35277777,0,0,-0.35277777,-585.5674,2085.4703)">
+      <g
+         id="g490"
+         clip-path="url(#clipPath494)">
+        <g
+           id="g496"
+           transform="translate(1818.0891,5510.668)">
+          <path
+             d="M 0,0 C 14.057,0 25.453,11.396 25.453,25.453 25.453,39.51 14.057,50.906 0,50.906 -14.057,50.906 -25.453,39.51 -25.453,25.453 -25.453,11.396 -14.057,0 0,0 Z"
+             style="fill:none;stroke:#f5f5f5;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="path498" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g500"
+       transform="matrix(0.35277777,0,0,-0.35277777,51.615363,132.63001)">
+      <path
+         d="M 0,0 H 22.638"
+         style="fill:none;stroke:#f5f5f5;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path502" />
+    </g>
+    <g
+       id="g504"
+       transform="matrix(0.35277777,0,0,-0.35277777,56.418221,135.91649)">
+      <path
+         d="M 0,0 10.015,9.316 0,18.632"
+         style="fill:none;stroke:#f5f5f5;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path506" />
+    </g>
+  </g>
+</svg>

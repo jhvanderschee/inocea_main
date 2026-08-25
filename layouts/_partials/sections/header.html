@@ -1,0 +1,50 @@
+{{- $image := "" -}}
+{{- with (resources.GetMatch page.Params.header_image ) -}}
+    {{ $image = (.Resize "2100x webp q50").RelPermalink | safeURL -}}
+{{- end -}}
+<section class="header">
+    <div class="container">
+        <div class="header-video">
+            <video autoplay muted loop playsinline poster="{{ $image }}">
+                <source data-src="{{ page.Params.header_video }}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <script>
+        (function () {
+            // Skip the autoplaying background video for users who asked for
+            // reduced motion or opted into data saving; the poster stays.
+            var conn = navigator.connection;
+            if (conn && conn.saveData) return;
+            if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+            var video = document.querySelector(".header video");
+            if (!video) return;
+            var source = video.querySelector("source");
+            if (source.src && source.src.includes(source.getAttribute("data-src"))) return;
+
+            // Defer the video fetch until after the page has fully loaded so it
+            // doesn't compete for bandwidth with critical resources (CSS, fonts,
+            // poster image). The poster stays visible until the video is ready.
+            function startVideo() {
+                source.src = source.getAttribute("data-src");
+                video.addEventListener("canplay", function () { video.play(); }, { once: true });
+                video.load();
+            }
+
+            function defer() {
+                if (window.requestIdleCallback) {
+                    requestIdleCallback(startVideo, { timeout: 2000 });
+                } else {
+                    setTimeout(startVideo, 200);
+                }
+            }
+
+            if (document.readyState === "complete") {
+                defer();
+            } else {
+                window.addEventListener("load", defer, { once: true });
+            }
+        })();
+    </script>
+</section>

@@ -1,0 +1,11 @@
+<ul class="leadership">
+{{- range hugo.Data.leadership -}}
+    <li>
+        <img src="{{ .image }}" alt="{{ .title }}">
+        <h3>{{ .title }}</h3>
+        <p>{{ .job }}<br>
+        <a href="mailto:{{ .email }}">{{ .email }}</a><br>
+        {{ .phone }}</p>
+    </li>
+{{- end -}}
+</ul>

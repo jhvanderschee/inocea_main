@@ -1,0 +1,39 @@
+title: SATA Shipbuilding
+baseURL: https://www.satashipbuilding.com
+assetDir: static
+
+params:
+  rules: 
+    # Format is CSS, first match wins
+    - title: video-header
+      has: video
+      is: :first-child
+    - title: image-header
+      has: img
+      is: :first-child
+    - title: intro
+      has: h1
+      is: :not(:first-child)
+    - title: video
+      has: video
+      is: 
+    - title: fullwidth-image
+      has: img
+      is: :not(:first-child)
+
+disableKinds:
+  - taxonomy
+  - term
+
+outputs:
+  home:
+    - html
+    - rss
+    - json
+
+markup:
+  goldmark:
+    parser:
+      wrapStandAloneImageWithinParagraph: false
+    renderer:
+      unsafe: true

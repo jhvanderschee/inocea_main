@@ -1,0 +1,25 @@
+{{ $facilities := where site.RegularPages "Section" "facility" }}
+{{ $image := ((resources.GetMatch "/img/facility.png").Resize "1400x") }}
+<div class="facility">
+    <figure>
+        <img src="{{ $image.RelPermalink }}" alt="SATA Shipbuilding facility">
+        <ul class="dots">
+            {{ range $i, $j :=  $facilities }}
+            <li style='--left: {{ .Params.x_number }}%; --top: {{ .Params.y_number }}%'><button data-for='{{ $i }}' {{ if eq $i 0 }} class='active' {{ end }}
+                    data-for='{{ .Title | anchorize }}'></button></li>
+            {{ end }}
+        </ul>
+        <div class="buttons mobile">
+            <button class='btn' data-dir='-1' aria-label='View next feature of the facility'><img src="/img/arrow-left.svg" alt="Arrow Left"></button>
+            <button class='btn' data-dir='1' aria-label='View next feature of the facility'><img src="/img/arrow-right.svg" alt="Arrow Right"></button>
+        </div>
+    </figure>
+    <ul class="captions">
+        {{ range $i, $j :=  $facilities }}
+        <li data-for='{{ $i }}' class='cut-corner {{ if eq $i 0 }} active {{ end }}'>
+            <h2>{{ .Title }}</h2>
+            {{ .Content }}
+        </li>
+        {{ end }}
+    </ul>
+</div>

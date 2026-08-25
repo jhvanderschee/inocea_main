@@ -1,0 +1,15 @@
+{{ $inner := .Inner }}
+{{ $tabs := split $inner "\n### " }}
+<div class="tabs">
+  <ul class="tabs-nav">
+    {{ range $i, $tab := $tabs }}{{ if gt (len (strings.TrimSpace $tab)) 0 }}{{ $lines := split $tab "\n" }}{{ $title := index $lines 0 }}
+    <li{{ if eq $i 1 }} class="active"{{ end }}><a href="javascript:void(0)" data-tab="tab-{{ anchorize $title }}">{{ $title }}</a></li>
+    {{ end }}{{ end }}
+  </ul>
+  {{ range $i, $tab := $tabs }}{{ if gt (len (strings.TrimSpace $tab)) 0 }}{{ $lines := split $tab "\n" }}{{ $title := index $lines 0 }}{{ $body := strings.TrimSpace (strings.TrimPrefix $title $tab) }}
+  <div class="tab-content{{ if eq $i 1 }} active{{ end }}" id="tab-{{ anchorize $title }}">
+    <h3>{{ $title }}</h3>
+    {{ $body | markdownify }}
+  </div>
+  {{ end }}{{ end }}
+</div>

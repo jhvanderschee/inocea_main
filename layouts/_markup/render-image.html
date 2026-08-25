@@ -1,0 +1,24 @@
+{{- /* Alt die met :woord begint: dat woord wordt de class, de rest is de alt-tekst. */ -}}
+{{- $class := "" -}}
+{{- range first 1 (findRE `^:[a-zA-Z0-9_-]+` .Text) -}}
+  {{- $class = strings.TrimPrefix ":" . -}}
+{{- end -}}
+{{- $imgAlt := trim (replaceRE `^:[a-zA-Z0-9_-]+` "" .Text) " " -}}
+
+{{- $isParallax := strings.Contains .Text ":parallax" -}}
+{{- $alt := replaceRE `:parallax.*` "" .Text -}}
+{{- $extraStyle := "" -}}
+{{- if strings.Contains .Text ":parallax;" -}}
+  {{- $extraStyle = replaceRE `.*:parallax;` "" .Text -}}
+{{- end -}}
+{{- with (resources.GetMatch .Destination) -}}
+  {{- $src := .RelPermalink | safeURL -}}
+  {{- if ne .MediaType.SubType "svg" -}}
+    {{- $src = (.Resize "2100x webp q50").RelPermalink | safeURL -}}
+  {{- end }}
+  {{- if $isParallax -}}
+    </div><div class="parallax" style="background-image: url({{ $src }});{{ with $extraStyle }} {{ . }}{{ end }}"><img src="{{ $src }}" alt="{{ $alt }}" /></div><div class="container">
+  {{- else -}}
+    <img{{ with $class }} class="{{ . }}"{{ end }} src="{{ $src }}" alt="{{ $imgAlt }}" />
+  {{- end -}}
+{{- end -}}

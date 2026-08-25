@@ -1,0 +1,25 @@
+companies:
+- name: Inocea
+  url: https://www.inocea.com
+- name: Davie Shipbuilding
+  url: https://www.davie.ca
+- name: Helsinki Shipyard
+  url: https://www.helsinkishipyard.fi
+- name: Federal Fleet
+  url: https://www.federalfleet.ca
+- name: Gulf Copper
+  url: https://www.gulfcopper.com
+address: |
+  <strong>SATA Shipbuilding</strong><br>
+  <em>(formerly Mäntyluoto Shipyard)</em><br>
+  Reposaaren maantie 170<br>
+  28880 Pori, FINLAND<br>
+  <br>
+  X 390000 m, Y 6775000 m<br>
+  61.4833 N, 21.7833 E
+careers:
+  name: Open positions
+  url: https://www.worker.fi/avoimet-tyopaikat/sata-shipbuilding-oy/
+contact:
+  name: Contact us
+  url: mailto:info@satashipbuilding.fi

@@ -1,0 +1,59 @@
+{{- $imgRE := `!\[[^\]]*\]\(([^)]+)\)` -}}
+{{- $slides := slice -}}
+{{- range split .Inner "###" -}}
+    {{- $section := strings.TrimSpace . -}}
+    {{- if $section -}}
+        {{- $lines := split $section "\n" -}}
+        {{- $title := strings.TrimSpace (index $lines 0) -}}
+        {{- $body := strings.TrimSpace (delimit (after 1 $lines) "\n") -}}
+        {{- $imageSource := "" -}}
+        {{- with index (findRESubmatch $imgRE $body 1) 0 -}}
+            {{- $imageSource = index . 1 -}}
+        {{- end -}}
+        {{- $image := "" -}}
+        {{- with $imageSource -}}{{- with resources.GetMatch . -}}{{- $image = ((.).Fill "1900x950").RelPermalink -}}{{- end -}}{{- end -}}
+        
+        {{- $markdown := strings.TrimSpace (replaceRE $imgRE "" $body) -}}
+        {{- if $image -}}{{- $slides = $slides | append (dict "title" $title "markdown" $markdown "image" $image) -}}{{ end }}
+    {{- end -}}
+{{- end -}}
+
+{{/*  
+    Output: 
+
+    (dict 
+        "title" "Lorem Ipsum"
+        "image" "/uploads/image.jpg"
+        "markdown" "Lorem Ipsum markdown"
+    )
+*/}}
+
+<figure class="curtain-carousel">
+    <div class="slider">
+        <ul>
+            {{ range $slides }}
+                <li><img draggable='false' src="{{ .image }}" alt="{{ .title }}"></li>
+            {{ end }}
+        </ul>
+        <div class="indicators">
+            {{ range $i, $slide := $slides }}
+                <button data-active='{{ eq $i 0 }}' aria-label='Show image {{ $i }}' data-for='{{ $i }}'></button>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="bottom">
+        <ul class="texts">
+            {{ range $i, $j := $slides }}      
+                <li {{ if eq $i 0 }} class='active' {{ end }}>
+                    <h3>{{ .title }}</h3>
+                    {{ .markdown | page.RenderString (dict "display" "block")  }}
+                </li>
+            {{ end }}
+        </ul>
+        <div class="buttons mobile">
+            <button class='btn' data-dir='-1' aria-label='View previous image'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
+            <button class='btn' data-dir='1' aria-label='View next image'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
+        </div>
+    </div>
+</div>
