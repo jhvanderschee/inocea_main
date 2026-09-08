@@ -1,0 +1,11 @@
+{{- $src := "" -}}
+{{- with resources.GetMatch . -}}
+    {{- if ne .MediaType.SubType "svg" -}}
+        {{- $img := . -}}
+        {{- if gt .Width 1920 -}}{{- $img = .Resize "1920x webp q50" -}}{{- else -}}{{- $img = .Process "webp q50" -}}{{- end -}}
+        {{- $src = $img.RelPermalink -}}
+    {{- else -}}
+        {{- $src = $ -}}
+    {{- end -}}
+{{- end -}}
+{{- return $src -}}

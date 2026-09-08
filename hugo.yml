@@ -3,7 +3,7 @@ baseURL: https://www.satashipbuilding.com
 assetDir: static
 
 params:
-  rules: 
+  sections: 
     # Format is CSS, first match wins
     - title: video-header
       has: video
@@ -11,6 +11,18 @@ params:
     - title: image-header
       has: img
       is: :first-child
+    - title: has-blocks
+      has: ul.blocks
+      is: 
+    - title: has-facility
+      has: .facility
+      is: 
+    - title: has-carousel
+      has: .curtain-carousel
+      is: 
+    - title: leadership
+      has: .leadership
+      is: 
     - title: intro
       has: h1
       is: :not(:first-child)
@@ -24,6 +36,10 @@ params:
 disableKinds:
   - taxonomy
   - term
+
+permalinks:
+  page:
+    legal: /:contentbasename
 
 outputs:
   home:

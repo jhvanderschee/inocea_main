@@ -54,49 +54,31 @@
         {{- block "content" . -}}{{- end -}}
     </main>
     <footer id="footer">
-        <div>
-            <div class="container">
-                <div class="left">
-                    
-                    <a href="/#top" class="logo">{{ partial "logo.html" . }}</a>
-                    
-                    <div class="verticalsplit">
-                        <div>
-                            <div>
-                            {{ hugo.Data.footer.address | safeHTML }}
-                            </div>
-                        </div>
-                        <div class="companies">
-                            <div>
-                            <ul>
-                                {{ range hugo.Data.footer.companies }}
-                                    <li><a href="{{ .url }}">{{ .name }}</a></li>
-                                {{ end }}
-                            </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right" id="contact">
-                    <div class="horizontalsplit">
-                        <div>
-                            <a href="{{ hugo.Data.footer.careers.url }}" target="_blank">{{ replace hugo.Data.footer.careers.name " " "<br>" | safeHTML }}</a>
-                        </div>
-                        <div>
-                            <a href="{{ hugo.Data.footer.contact.url }}" target="_blank">{{ replace hugo.Data.footer.contact.name " " " " | safeHTML }}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="container">
-                <span>&copy; {{ now.Year }} {{ .Site.Title }}</span>
+        <div class="container">
+            <div class="left">
+                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ partial "logo.html" . }}</a>
+                <address>
+                    {{ hugo.Data.footer.address | safeHTML }}
+                </address>
                 <ul>
-                    
-                    <li><a href="/privacy/">Privacy Policy</a></li>
-                    <!--<li><a href="/legal/">Legal Notice</a></li>-->
-                    
+                    {{ range hugo.Data.footer.companies }}
+                        <li><a href="{{ .url }}">{{ .name }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ with hugo.Data.footer }}
+                {{ range slice .careers .contact }}
+                    <a class='large' href="{{ .url }}" target="_blank">{{ .name }}</a>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div class="postfooter">
+            <div class="container">
+                <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+                <ul>
+                    {{ range where site.RegularPages "Section" "legal" }}
+                        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{ end }}
                 </ul>
             </div>
         </div>

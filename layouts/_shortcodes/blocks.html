@@ -1,18 +1,12 @@
-{{ $html := .Inner | markdownify }}
-{{ $items := split $html "<h3" }}
-<div class="blocks">
-  {{ range $i, $item := $items }}
-    {{ if gt (len (strings.TrimSpace $item)) 0 }}
-      {{ $parts := split $item "</h3>" }}
-      {{ $title := index $parts 0 }}
-      {{ $body := index $parts 1 }}
-      {{ $parallax := index (findRE `(?s)<div class="parallax[^"]*"[^>]*>.*?</div>` $body) 0 }}
-      {{ $bodyClean := replaceRE `(?s)<div class="parallax[^"]*"[^>]*>.*?</div>` "" $body }}
-      <div class="block">
-        <h3>{{ replaceRE "^[^>]*>" "" $title | safeHTML }}</h3>
-        {{ with $parallax }}{{ . | safeHTML }}{{ end }}
-        <div class="block-content">{{ $bodyClean | safeHTML }}</div>
-      </div>
-    {{ end }}
-  {{ end }}
-</div>
+{{ with  hugo.Data.blocks }}
+    <ul class="blocks">
+      {{ range $i, $block := . }}
+        <li class="block {{ if eq $i 1 }} active {{ end }}" style='background: url({{ partial "image" .image }}) center center / cover '>
+            <h3>{{ .title }}</h3>
+            <div>
+              {{ partial "md" .markdown }}
+            </div>
+        </li>
+      {{ end }}
+      </ul>
+{{ end }}

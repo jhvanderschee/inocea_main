@@ -1,5 +1,5 @@
 ---
-title: Privacy
+title: Privacy policy
 ---
 Sata Shipbuilding takes personal privacy and the handling of confidential and/or proprietary information very seriously.
 

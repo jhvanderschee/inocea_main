@@ -78,17 +78,6 @@
     transform: scaleX(-1);
 }
 
-<<<<<<< HEAD
-@media (max-width: 1000px) {
-    .carousel .prev, .carousel .next {
-        top: 0!important;
-        margin-top: -4rem;
-    }
-    .carousel + div h4 {
-        padding-right: 0;
-        padding-block: 1.5rem;
-    }
-=======
 .team > .carousel {
     background: none;
     width: 100%;
@@ -117,5 +106,4 @@
 .team > .carousel .prev {
     transform: rotate(90deg);
     margin-right: 2.5rem;
->>>>>>> a793af51dbe7589502d62af4bf62e562b0b7d089
 }

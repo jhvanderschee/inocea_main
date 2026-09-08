@@ -1,0 +1,11 @@
+{{- /*
+  Brick: intro
+
+  @context {dict} . Content, Name, Index, Page
+*/ -}}
+{{- $label := partial "section_label.html" .Content -}}
+<section class="intro"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
+    <div class="container">
+        {{ .Content }}
+    </div>
+</section>

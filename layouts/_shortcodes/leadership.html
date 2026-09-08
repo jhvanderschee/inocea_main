@@ -3,9 +3,13 @@
     <li>
         <img src="{{ .image }}" alt="{{ .title }}">
         <h3>{{ .title }}</h3>
-        <p>{{ .job }}<br>
-        <a href="mailto:{{ .email }}">{{ .email }}</a><br>
-        {{ .phone }}</p>
+        <p>
+            
+            {{ .job }}<br>
+            <a href="mailto:{{ .email }}">{{ .email }}</a><br>
+            <a href="tel:"></a>
+            {{ .phone }}
+        </p>
     </li>
 {{- end -}}
 </ul>

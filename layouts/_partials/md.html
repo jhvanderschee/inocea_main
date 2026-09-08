@@ -1,0 +1,6 @@
+{{- $markdown := . | markdownify -}}
+{{- if and (not (strings.Contains $markdown "<p>")) (not (strings.Contains $markdown "<ul>")) (not (strings.Contains $markdown "<h2>")) (not (strings.Contains $markdown "<h3>")) (not (strings.Contains $markdown "<h4>")) -}}
+    <p>{{- $markdown -}}</p>
+{{- else -}}
+    {{- $markdown -}}
+{{- end -}}
