@@ -2,85 +2,68 @@
 {{- /*
     Secties komen uit de lopende content: elke `---` op een eigen regel is een grens.
     Elke section krijgt:
-      1. één class uit site.Params.rules — de eerste regel waarvan álle `has`
-         als directe child van .container aanwezig zijn én waarvan `is` klopt;
+
+      1. Eén class uit `site.Params.rules`. De regels worden van boven naar
+         beneden afgelopen en de eerste die volledig klopt wint. Een regel kan
+         `has`, `not_has`, `is` en `not_is` zetten; alles wat gezet is moet
+         gelden. Een regel zonder enige conditie zou elke sectie claimen en
+         wordt met een waarschuwing overgeslagen.
+
+         `has` / `not_has` gaan door `section_has.html`: een komma-gescheiden
+         lijst van een tag, een `.class` of een `#id`, elk optioneel met
+         `:first-child`, `:last-child` of `:nth-child(n)`. Alles in de lijst
+         moet aanwezig zijn, dus `not_has` is de exacte ontkenning van `has`.
+
+         `is` / `not_is` gaan door `section_position.html`: de plek van de
+         sectie op de pagina — `:first-child`, `:last-child`, `:only-child`,
+         `:nth-child(n)`, eventueel in `:not(…)`.
+
       2. has-<naam> voor elke shortcode die in de markdown van die sectie staat.
 */ -}}
 
-{{- /* `has` noemt tagnamen zoals ze in de output staan.
-       Een `.klasse` in `has` matcht op de class van een directe child. */ -}}
-
-{{- /* Elementen die nooit sluiten; tellen niet mee voor de diepte. */ -}}
-{{- $void := slice "img" "br" "hr" "source" "input" "col" "embed" "track" "wbr" -}}
+{{- $rules := site.Params.rules | default slice -}}
 
 {{- $chunks := split (replaceRE `(?m)^-{3,}[ \t]*$` "<!--§-->" .RawContent) "<!--§-->" -}}
 {{- $sections := slice -}}
 {{- range $chunks -}}
     {{- with trim . " \n\t\r" -}}{{- $sections = $sections | append . -}}{{- end -}}
 {{- end -}}
-{{- $last := sub (len $sections) 1 -}}
+{{- $count := len $sections -}}
 
 {{- range $i, $md := $sections -}}
     {{- $html := partial "content" ($md | $.RenderString (dict "display" "block")) -}}
     {{- $s := printf "%s" $html -}}
     {{- $classes := slice -}}
 
-    {{- /* ---- directe children van .container, op diepte 0 ----
-           De parallax-hook sluit de container en opent 'm daarna weer;
-           die uitbraak eerst rechttrekken, anders loopt de diepte scheef. */ -}}
-    {{- $probe := replaceRE `</div>(<div class=["']parallax)` "$1" $s -}}
-    {{- $probe = replaceRE `(</div>)<div class=["']container["']>` "$1" $probe -}}
+    {{- range $rule := $rules -}}
+        {{- $match := true -}}
+        {{- $tested := false -}}
 
-    {{- $children := slice -}}
-    {{- $depth := 0 -}}
-    {{- range $t := findRE `</?[a-zA-Z][a-zA-Z0-9-]*[^>]*>` $probe -}}
-        {{- $name := lower (replaceRE `^</?([a-zA-Z][a-zA-Z0-9-]*).*$` "$1" $t) -}}
-        {{- if hasPrefix $t "</" -}}
-            {{- $depth = sub $depth 1 -}}
-        {{- else -}}
-            {{- if eq $depth 0 -}}
-                {{- $children = $children | append $name -}}
-                {{- range findRE `class=["'][^"']*["']` $t 1 -}}
-                    {{- range split (replaceRE `class=["']([^"']*)["']` "$1" .) " " -}}
-                        {{- with trim . " " -}}{{- $children = $children | append (printf ".%s" .) -}}{{- end -}}
-                    {{- end -}}
-                {{- end -}}
-            {{- end -}}
-            {{- if not (or (in $void $name) (hasSuffix $t "/>")) -}}
-                {{- $depth = add $depth 1 -}}
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
-
-    {{- /* ---- eerste passende regel wint ---- */ -}}
-    {{- range $rule := site.Params.rules -}}
-        {{- $ok := true -}}
-
-        {{- $need := slice -}}
         {{- with $rule.has -}}
-            {{- $need = cond (reflect.IsSlice .) . (slice .) -}}
+            {{- $tested = true -}}
+            {{- $match = and $match (partial "section_has.html" (dict "Html" $s "Selectors" .)) -}}
         {{- end -}}
-        {{- range $h := $need -}}
-            {{- if not (in $children $h) -}}{{- $ok = false -}}{{- end -}}
+        {{- with $rule.not_has -}}
+            {{- $tested = true -}}
+            {{- $match = and $match (not (partial "section_has.html" (dict "Html" $s "Selectors" .))) -}}
         {{- end -}}
-
         {{- with $rule.is -}}
-            {{- if eq . ":first-child" -}}          {{- $ok = and $ok (eq $i 0) -}}
-            {{- else if eq . ":last-child" -}}      {{- $ok = and $ok (eq $i $last) -}}
-            {{- else if eq . ":not(:first-child)" -}}{{- $ok = and $ok (ne $i 0) -}}
-            {{- else if eq . ":not(:last-child)" -}} {{- $ok = and $ok (ne $i $last) -}}
-            {{- else if eq . ":nth-child(odd)" -}}  {{- $ok = and $ok (eq (mod $i 2) 0) -}}
-            {{- else if eq . ":nth-child(even)" -}} {{- $ok = and $ok (eq (mod $i 2) 1) -}}
-            {{- else -}}
-                {{- warnf "rules: onbekende `is`-waarde %q bij regel %q" . $rule.title -}}
-                {{- $ok = false -}}
-            {{- end -}}
+            {{- $tested = true -}}
+            {{- $match = and $match (partial "section_position.html" (dict "Selector" . "Index" $i "Count" $count)) -}}
+        {{- end -}}
+        {{- with $rule.not_is -}}
+            {{- $tested = true -}}
+            {{- $match = and $match (not (partial "section_position.html" (dict "Selector" . "Index" $i "Count" $count))) -}}
         {{- end -}}
 
-        {{- if $ok -}}{{- $classes = $classes | append $rule.title -}}{{- break -}}{{- end -}}
+        {{- if not $tested -}}
+            {{- warnf "rules: regel %q stelt geen conditie en zou elke sectie claimen — overgeslagen" $rule.title -}}
+        {{- else if and $match $rule.title -}}
+            {{- $classes = $classes | append $rule.title -}}
+            {{- break -}}
+        {{- end -}}
     {{- end -}}
 
-    {{- /* ---- shortcodes uit de ruwe markdown ---- */ -}}
     {{- range findRE `\{\{[<%]-?\s*/?\s*[a-zA-Z0-9_-]+` $md -}}
         {{- $c := printf "has-%s" (replaceRE `^\{\{[<%]-?\s*/?\s*` "" .) -}}
         {{- if not (in $classes $c) -}}{{- $classes = $classes | append $c -}}{{- end -}}
