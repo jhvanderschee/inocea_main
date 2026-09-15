@@ -19,9 +19,21 @@ params:
       is: 
     - title: has-carousel
       has: .curtain-carousel
-      is: 
+      is:
+    - title: has-crafts
+      has: .crafts
+      is:
     - title: leadership
       has: .leadership
+      is: 
+    - title: publications
+      has: .publications
+      is: 
+    - title: has-outline
+      has: .ship-outline
+      is: 
+    - title: text-and-video
+      has: video, p
       is: 
     - title: intro
       has: h1

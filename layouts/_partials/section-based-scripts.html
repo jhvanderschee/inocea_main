@@ -1,0 +1,19 @@
+{{/* Script en de strings waarvan er één in de gerenderde content moet staan, zodat elke schrijfwijze van een shortcode telt. */}}
+{{ $scripts := dict
+    "scroll-reveal.js"    (slice ".bigtext" `class="facility"`)
+    "carousel.js"         (slice `class="carousel`)
+    "accordion.js"        (slice `class="accordion`)
+    "countup.js"          (slice `class="countup`)
+    "tabs.js"             (slice `class="tabs-nav"`)
+    "blocks.js"           (slice `class="blocks"`)
+    "switcher.js"         (slice `class="facility"` `class="crafts"`)
+    "curtain-carousel.js" (slice `class="curtain-carousel"`)
+    "lazy-video.js"       (slice "<video")
+}}
+
+{{ $html := .Content }}
+{{ range $src, $matches := $scripts }}
+    {{ $nodig := false }}
+    {{ range $matches }}{{ if in $html . }}{{ $nodig = true }}{{ end }}{{ end }}
+    {{ if $nodig }}<script defer src="/js/{{ $src }}"></script>{{ end }}
+{{ end }}

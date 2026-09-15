@@ -1,0 +1,19 @@
+{{- /*
+  Brick: wide
+
+  @context {dict} . Content, Name, Index, Page
+*/ -}}
+{{- $label := partial "section_label.html" .Content -}}
+<section class="text-and-video dark h2-normal" {{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
+    <div class="container">
+
+        {{ range split .Content "<video" }}{{ if . }}
+            <div class='split'>
+                {{ (print "<video" .) | replaceRE `</video>` `</video><div class="text">` | safeHTML }}</div>
+
+            </div>
+        {{ end }}{{ end }}
+
+        {{/*  {{ .Content }}  */}}
+    </div>
+</section>

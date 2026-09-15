@@ -23,7 +23,7 @@ address { font-style: normal;}
     --mono-font: 'Sometype Mono', ui-monospace, monospace;
 
     /* Font weights */
-    --font-regular: 300;
+    --font-regular: 400;
     --font-medium: 500;
     --font-bold: 600;
 
@@ -153,6 +153,10 @@ button,label { cursor: pointer;  user-select: none; }
 .buttons { display: flex; gap: 1rem;}
 .buttons button { width: 1.8rem; height: 1.8rem; padding: 0.4rem;  display: grid; place-items: center; cursor: pointer; }
 .buttons button:hover { background: var(--my-soft-black); }
+.buttons.outline button { width: 2rem; height: 2rem; background: transparent; border: 1px solid; }
+.buttons.outline button:hover { background: var(--my-soft-white); border: 1px solid var(--my-soft-white);}
+.buttons.outline button svg { width: 1rem; height: auto; }
+.buttons.outline button path { fill: currentColor;}
 
 /* --------------- SECTIONS --------------- */
 section { margin: 0 auto; position: relative; background: var(--background-color); padding-block: var(--margin-y); }
@@ -161,6 +165,9 @@ section .container { margin: 0 auto; }
 section.ultrawide { max-width: var(--max-width-ultra-wide); width: 100%; }
 section.narrow { max-width: var(--max-width-narrow); }
 section:nth-of-type(even) { background: var(--my-soft-white); }
+
+section.dark + section.dark { padding-top: 0; display: flex; flex-direction: column; }
+section.dark:has( + section.dark) { padding-bottom: 2rem;}
 
 /* --------------- DARK SECTIONS --------------- */
 section.dark { 
@@ -184,7 +191,8 @@ section.has-bigtext .container {
 }
 
 /* --------------- PARALLAX --------------- */
-img.parallax { --parallax-ratio: 2.5; width: 100%; aspect-ratio: var(--parallax-ratio); object-fit: cover; animation: parallax linear both; animation-timeline: view(); }
+p:has(img.parallax) { display: flex; }
+img.parallax { --parallax-ratio: 5; width: 100%; aspect-ratio: var(--parallax-ratio); object-fit: cover; animation: parallax linear both; animation-timeline: view(); }
 @keyframes parallax { from { object-position: center 0%; } to { object-position: center 100%; } }
 @media only screen and (max-width: 1000px) { img.parallax { --parallax-ratio: 1.9; } }
 @media only screen and (max-width: 600px)  { img.parallax { --parallax-ratio: 1; } }
@@ -230,13 +238,18 @@ footer .left > ul > li { margin-bottom: .33rem;}
 footer .left address strong { font-weight: var(--font-medium);}
 footer .left address em { opacity: .5;}
 
-footer a.large { display: grid; grid-template-columns: auto 1fr; grid-gap: 1rem; align-items: center;  font-size: var(--font-size-h1); line-height: var(--line-height-tiny); padding: 3rem 2rem;  position: relative; transition: opacity 250ms; font-weight: var(--font-medium); }
+footer .left:has(ul > li:nth-of-type(7)) { grid-template-columns: 1fr;}
+footer .left > ul:has(li:nth-of-type(7)) { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-column: -1/1;}
+footer .left > ul:has(li:nth-of-type(7)) > li:first-of-type { grid-column: 1; }
+footer .left > ul:has(li:nth-of-type(7)) > li:nth-of-type(2n+2) { grid-column: 2; }
+
+footer a.large { display: grid; grid-template-columns: auto 1fr; grid-gap: 1rem; align-items: center;  font-size: var(--font-size-h1); line-height: var(--line-height-tiny); padding: 3rem 2rem;  position: relative; transition: opacity 250ms; font-weight: var(--font-medium);   }
 footer a.large:hover { opacity: .5;}
 footer a.large:first-of-type::before { content: ""; position: absolute; bottom: 0; left: 0; width: 50vw; background: var(--my-white-40); height: 1px; }
 footer a.large::after { content: ''; width: 4rem; height: 3.5rem; background: url('/img/arrow-right-new.svg') center center / contain no-repeat; display: inline-block;  margin-left: auto; }
+footer a.large:only-of-type { grid-row: span 1;}
 
-
-footer .postfooter { background: var(--my-full-black); padding-block: 2rem;}
+footer .postfooter { background: var(--my-full-black); padding-block: 1.5rem;}
 footer .postfooter .container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
 footer .postfooter p { margin-bottom: 0;}
 footer .postfooter ul { display: flex; }
@@ -249,6 +262,16 @@ section.has-video:first-of-type {
 
     & + section { padding-top: 2rem;}
     & .container { display: flex; flex-direction: column; }
+}
+
+/* =========================================================== */
+/* ====================== VIDEO HEADER ======================= */
+/* =========================================================== */
+section.video-header h1 { max-width: 22em; margin-top: 2rem;}
+
+@media only screen and (min-width: 769px) {
+    section.video-header h2 ~ * { margin-left: var(--margin-left);}
+    
 }
 
 /* =========================================================== */
@@ -365,10 +388,6 @@ figure.curtain-carousel { display: flex; position: relative; flex-direction: col
     
     & .bottom { display: grid; grid-template-columns: 1fr auto; color: var(--my-soft-white); padding: 2rem var(--gutter-side) 2rem var(--gutter-side);  }
     & .bottom .buttons { margin-top: 2.5rem; gap: 1rem;  }
-    & .bottom .buttons button { width: 2.25rem; height: 2.25rem; background: transparent; border: 1px solid; }
-    & .bottom .buttons button:hover { background: var(--my-soft-white); border: 1px solid var(--my-soft-white);}
-    & .bottom .buttons button svg { width: 1.25rem; height: auto; }
-    & .bottom .buttons button path { fill: currentColor;}
     
     & .bottom h3 { position: relative; max-width: unset; }
     & .bottom > ul { position: relative; margin: 0; }
@@ -424,19 +443,73 @@ section.page .container { max-width: 45rem; padding-block: 3rem;}
 
 
 
+/* =========================================================== */
+/* ===================== HAS SHIP OUTLINE ==================== */
+/* =========================================================== */
+section.has-bigtext:has(+section.has-outline) { padding-bottom: 0; display: flex; flex-direction: column; background: var(--my-black);}
+section.has-outline .container { padding-bottom: 12rem;}
+section.has-outline .container h2 { margin-top: 0; }
+section.has-outline .container h2 ~ *:not(p:has(img.ship-outline)) { max-width: 30em;}
+section.has-outline img.ship-outline { position: absolute;  top: 4rem; bottom: 0; right: 0; width: calc(100% - 24em); opacity: .5; }
 
 
+/* =========================================================== */
+/* ===================== TEXT AND VIDEO ====================== */
+/* =========================================================== */
+section .split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; grid-gap: 2rem; margin-bottom: 4rem; }
 
 
+/* =========================================================== */
+/* ========================= CRAFTS ========================== */
+/* =========================================================== */
+section.has-crafts { --overlap: 10rem; background: linear-gradient(var(--my-black) calc(100% - var(--margin-y) - var(--overlap)), var(--my-soft-white) 0); }
+div.crafts {
+    & .top { display: flex; justify-content: space-between; gap: 2rem; margin-block: 3.5rem 2rem; }
+    & .tabs { display: flex; gap: 3rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+    & .tabs button {  font-size: var(--font-size-h5); font-weight: var(--font-medium); white-space: nowrap; background: none; color: var(--my-white-40); padding-bottom: .75rem; border-bottom: 2px solid transparent; transition:  250ms; transition-property: border-color,color; }
+    & .tabs button:hover { color: var(--my-soft-white); }
+    & .tabs button.active { color: var(--my-white); border-color: var(--my-white); }
+    & .buttons { flex-shrink: 0; }
+
+    & .images { display: grid; }
+    & .images > li { grid-area: 1 / 1; opacity: 0; transition: opacity 500ms 300ms; }
+    & .images > li.active { opacity: 1; transition-delay: 0s;  z-index: 2;}
+    & .images img { display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+
+    @media only screen and (max-width: 768px) {
+        & .top { gap: 1rem; margin-top: 2rem; }
+        & .tabs { gap: 1.5rem; }
+        & .tabs button { font-size: var(--font-size-body); }
+    }
+}
+@media only screen and (max-width: 768px) {
+    section.has-crafts { --overlap: 4rem; }
+}
+
+
+/* =========================================================== */
+/* ====================== PUBLICATIONS ======================= */
+/* =========================================================== */
+section.has-publications .publications { 
+     display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2rem;
+
+     & li { display: flex; flex-direction: column; padding: 1rem; background: var(--my-soft-white);  position: relative; }
+     & span { order: -1; display: block;  font-size: var(--font-size-h6);}
+     & h3 { margin-block: 2rem}
+     & a { display: inline-block; margin: auto 0 0 auto;  }
+     & a::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     & a::before { content: ''; display: block;  width: 2rem; height: 1.75rem; background: url('/img/arrow-right-black.svg') center center / contain no-repeat; }
+ }
 
 
 
 /* --------------- PROSE CONTENT --------------- */
 .prose > * + * { margin: 1.5em 0 0;}
 .prose img,  .prose iframe { width: 100%; } 
-.prose ul, .prose ul ul ul { list-style: disc;}
+.prose ul, .prose ul ul ul { list-style: none}
+.prose ul > li, .prose ul ul ul > li { margin-bottom: .5em;}
+.prose ul > li::before, .prose ul ul ul > li::before { content: ">"; display: inline-block; margin-right: .3em; }
 .prose ul ul,.prose ul ul ul ul { list-style: circle; }
-.prose :is(ol,ul)  { padding-left: 1em;}
 .prose :is(ol,ul) :is(ol,ul) { margin: .5em 0; }
 .prose blockquote { position: relative; font-style: italic; font-size: 1.5rem; padding-left: .8em; border-left: .25rem solid var(--main-color);}
 .prose > * strong { font-weight: var(--font-bold); }
@@ -444,7 +517,7 @@ section.page .container { max-width: 45rem; padding-block: 3rem;}
 .prose a:not(.btn) { text-decoration: underline; }
 .prose code { font-family: monospace; background: #ddd; padding: .2rem; }
 .prose :is(h1,h2,h3,h4) + :is(h1,h2,h3,h4) { margin-top: .2em;}
-.prose p + ul { margin-top: 0.5em;}
+.prose p + ul { margin-top: 1em;}
 
 
 

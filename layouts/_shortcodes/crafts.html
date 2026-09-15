@@ -1,0 +1,20 @@
+{{ with $crafts := hugo.Data.crafts }}
+<div class="crafts">
+    <div class="top">
+        <ul class="tabs">
+            {{ range $i, $craft := $crafts }}
+                <li><button {{ if eq $i 0 }}class='active' {{ end }}data-for='{{ $i }}'>{{ .title }}</button></li>
+            {{ end }}
+        </ul>
+        <div class="buttons outline">
+            <button class='btn' data-dir='-1' aria-label='View previous craft'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
+            <button class='btn' data-dir='1' aria-label='View next craft'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
+        </div>
+    </div>
+    <ul class="images">
+        {{ range $i, $craft := $crafts }}
+            <li {{ if eq $i 0 }}class='active' {{ end }}data-for='{{ $i }}'><img src="{{ .image }}" alt="{{ .title }}"></li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

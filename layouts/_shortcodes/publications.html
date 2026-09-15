@@ -1,0 +1,12 @@
+<ul class="publications">
+    {{ range hugo.Data.publications }}
+        <li>
+          <h3 class='h4'>{{ .title }}</h3>
+          {{ with .category }} <span>{{ . }}</span>{{ end }}
+          {{ with .date }}<span>{{ (time .).Format "2.1.2006" }}</span>{{ end }}
+          {{ if .url }}
+              <a target='_blank' href="{{ .url }}" aria-label='Go to {{ .category }} {{ . }}'></a>
+          {{ end }}
+        </li>
+    {{ end }}
+  </ul>

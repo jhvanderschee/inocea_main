@@ -25,15 +25,8 @@
 
 
     <script defer src="/js/lenis.min.js"></script>
-    <script defer src="/js/scroll-reveal.js"></script>
-    <script defer src="/js/carousel.js"></script>
     <script defer src="/js/hasscrolled.js"></script>
-    <script defer src="/js/accordion.js"></script>
-    <script defer src="/js/countup.js"></script>
-    <script defer src="/js/tabs.js"></script>
-    <script defer src="/js/blocks.js"></script>
-    {{ if in .RawContent "< facility >" }}<script defer src="/js/facility.js"></script>{{ end }}
-    {{ if in .RawContent "< carousel >" }}<script defer src="/js/curtain-carousel.js"></script>{{ end }}
+    {{ partial "section-based-scripts.html" . }}
   </head>
   <body id="top">
 
@@ -58,7 +51,7 @@
             <div class="left">
                 <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ partial "logo.html" . }}</a>
                 <address>
-                    {{ hugo.Data.footer.address | safeHTML }}
+                    {{ hugo.Data.footer.text | safeHTML }}
                 </address>
                 <ul>
                     {{ range hugo.Data.footer.companies }}
@@ -67,9 +60,9 @@
                 </ul>
             </div>
             {{ with hugo.Data.footer }}
-                {{ range slice .careers .contact }}
+                {{ range slice .large_link_top .large_link_bottom }}{{ if and .name .url }}
                     <a class='large' href="{{ .url }}" target="_blank">{{ .name }}</a>
-                {{ end }}
+                {{ end }}{{ end }}
             {{ end }}
         </div>
         <div class="postfooter">
