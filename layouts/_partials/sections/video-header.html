@@ -4,7 +4,7 @@
   @context {dict} . Content, Name, Index, Page
 */ -}}
 {{- $label := partial "section_label.html" .Content -}}
-<section class="video-header"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
+<section class="video-header header"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
     <div class="container">
         {{ .Content }}
     </div>

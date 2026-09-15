@@ -55,7 +55,7 @@
                 </address>
                 <ul>
                     {{ range hugo.Data.footer.companies }}
-                        <li><a href="{{ .url }}">{{ .name }}</a></li>
+                        <li><a href="{{ .url }}"><span>{{ .name }}</span></a></li>
                     {{ end }}
                 </ul>
             </div>
