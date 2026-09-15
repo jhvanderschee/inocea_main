@@ -1,6 +1,8 @@
 ---
 title: Privacy policy
 ---
+
+# Privacy Policy
 Sata Shipbuilding takes personal privacy and the handling of confidential and/or proprietary information very seriously.
 
 At Sata Shipbuilding, your privacy is important to us. This statement sets out our privacy practices with respect to the collection, use and disclosure of personal information on this site. Personal information is information that is personally identifiable to you. Personal information may include your name, e-mail address and mailing address, as the case may be. Visitors to this website are not requested to reveal any personal information. However, on a voluntary basis, you may provide and disclose personal information to us in using certain features of our site, such as the News section and the Open positions section of this site. 

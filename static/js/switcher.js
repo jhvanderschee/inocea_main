@@ -6,7 +6,7 @@ function setupSwitchers() {
             buttons = div.querySelectorAll("button[data-for]"),
             items = div.querySelectorAll("li[data-for]"),
             dirButtons = div.querySelectorAll("button[data-dir]"),
-            click = targetButton => { targetButton.closest("ul").scrollTo(targetButton.offsetLeft, 0); console.log(targetButton.offsetLeft); [items, buttons].forEach(array => array.forEach(el => el.classList.toggle("active", el.dataset.for == targetButton.dataset.for))) },
+            click = targetButton => { targetButton.closest("ul").scrollTo(targetButton.offsetLeft, 0); [items, buttons].forEach(array => array.forEach(el => el.classList.toggle("active", el.dataset.for == targetButton.dataset.for))) },
             cycle = dir => {
                 const activeButton = [...buttons].find(d => d.classList.contains("active"));
                 (dir > 0) ?

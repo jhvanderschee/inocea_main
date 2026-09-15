@@ -1,0 +1,31 @@
+{{- $icons := resources.Match "/img/icons/*.svg" -}}
+{{- $symbols := slice -}}
+
+{{- range $icons -}}
+  {{- $id := replace .Name "/img/icons/" "" | replaceRE "\\.svg$" "" -}}
+  {{- $svg := .Content -}}
+
+  {{/* Extract viewBox */}}
+  {{- $viewBox := $svg | replaceRE `(?s).*<svg[^>]*viewBox="([^"]+)"[^>]*>.*` "$1" -}}
+
+  {{/* Extract inner content of the <svg> */}}
+  {{- $content := $svg | replaceRE `(?s).*<svg[^>]*>(.*?)</svg>` "$1" -}}
+
+  {{/* TEMP: park fill="none" as an UNQUOTED placeholder. Met aanhalingstekens eromheen
+       matchte hij de regel hieronder alsnog, en werd fill="none" toch currentColor. */}}
+  {{- $content = $content | replaceRE `\sfill="none"` ` fill=__NONE__` -}}
+
+  {{/* Replace all other fill="..." values with currentColor */}}
+  {{- $content = $content | replaceRE `\sfill="[^"]+"` ` fill="currentColor"` -}}
+
+  {{/* Restore fill="none" */}}
+  {{- $content = $content | replaceRE `\sfill=__NONE__` ` fill="none"` -}}
+
+  {{/* Wrap in <symbol> */}}
+  {{- $symbol := printf `<symbol id="%s" viewBox="%s">%s</symbol>` $id $viewBox $content -}}
+  {{- $symbols = $symbols | append $symbol -}}
+{{- end -}}
+
+{{- $sprite := printf `<svg xmlns="http://www.w3.org/2000/svg" style="display:none">%s</svg>` (delimit $symbols "\n") -}}
+{{- $out := $sprite | resources.FromString "img/xref.svg" | resources.Minify -}}
+{{- $file := $out.RelPermalink -}}

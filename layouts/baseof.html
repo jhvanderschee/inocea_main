@@ -27,8 +27,9 @@
     <script defer src="/js/lenis.min.js"></script>
     <script defer src="/js/hasscrolled.js"></script>
     {{ partial "section-based-scripts.html" . }}
+    {{- partial "svg-sprite" . -}}
   </head>
-  <body id="top">
+  <body id="top" {{ with .Section }} class='{{ . }}' {{ end }}>
 
     <header>
         <div class="container">
@@ -60,9 +61,13 @@
                 </ul>
             </div>
             {{ with hugo.Data.footer }}
-                {{ range slice .large_link_top .large_link_bottom }}{{ if and .name .url }}
-                    <a class='large' href="{{ .url }}" target="_blank">{{ .name }}</a>
-                {{ end }}{{ end }}
+                {{ range slice .large_link_top .large_link_bottom }}
+                    {{ if and .name .url }}
+                        <a class='large' href="{{ .url }}" target="_blank">{{ .name }}</a>
+                    {{ else }}
+                        {{ partial "socials" . }}
+                    {{ end }}
+                {{ end }}
             {{ end }}
         </div>
         <div class="postfooter">

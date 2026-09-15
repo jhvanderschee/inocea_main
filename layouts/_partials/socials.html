@@ -1,0 +1,7 @@
+<ul class="socials large">
+   {{ range $key, $value := hugo.Data.social_media }}{{ if $value }}
+        <li>
+            <a target="_blank" href="{{ $value }}" aria-label="Go to {{ $key | humanize }}">{{ partial "svg" $key }}</a>
+        </li>
+   {{ end }}{{ end }}
+</ul>
