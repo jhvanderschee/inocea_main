@@ -6,9 +6,9 @@ description: Een nieuwe Hugo-site opzetten op het Inocea-theme, als kopie van ee
 ## Bepaal waar je bent
 
 Elke Inocea-repo is een gewone Hugo-site met het theme in `themes/inocea/`. De theme-repo
-zelf (`inocea_main`) is er ook één: die heeft daarnaast `bin/sync-theme.sh`, een site niet.
+zelf (`inocea_main`) is er ook één: die heeft `sync-theme.sh` in de root, een site niet.
 Andere sites staan ernaast, in dezelfde ouder-map. Sta je in een site, dan is de theme-repo
-`../inocea_main` — controleer met `ls ../inocea_main/bin/sync-theme.sh`; ontbreekt die,
+`../inocea_main` — controleer met `ls ../inocea_main/sync-theme.sh`; ontbreekt die,
 vraag Guus waar hij staat.
 
 Kopieer voor een nieuwe site altijd uit `inocea_main`, niet uit een klantsite.
@@ -24,7 +24,7 @@ Kopieer voor een nieuwe site altijd uit `inocea_main`, niet uit een klantsite.
 # 1. kopie zonder historie, mét themes/inocea/, zonder wat alleen de theme-repo aangaat
 rsync -a --exclude '.git' --exclude 'public' --exclude 'resources' \
       --exclude '.hugo_build.lock' --exclude '.DS_Store' \
-      --exclude 'bin' --exclude 'README.md' --exclude '.claude' \
+      --exclude 'sync-theme.sh' --exclude 'README.md' --exclude '.claude' \
       ../inocea_main/ ../<naam>/
 cd ../<naam> && git init -b main
 

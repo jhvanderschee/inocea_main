@@ -16,7 +16,7 @@ static/img/               logo, favicon en inhoudelijke afbeeldingen
 static/css/custom.css     site-overrides van de :root-tokens
 static/js/custom.js       site-eigen gedrag
 themes/inocea/            het theme
-bin/sync-theme.sh         theme naar en uit een site synchroniseren
+./sync-theme.sh           theme naar en uit een site synchroniseren
 ```
 
 In het theme:
@@ -54,7 +54,8 @@ wordt in het theme aangepast en met `down` uitgerold.
 bestaan alleen zodat de pagina geen 404 oplevert. Een site overschrijft ze door
 dezelfde paden in zijn eigen `static/` te zetten — ook deze repo doet dat. In
 `custom.css` horen alleen overrides van de `:root`-tokens uit `style.css` plus
-gescoopte extra's; geen kopie van het theme-stylesheet.
+gescoopte extra's; geen kopie van het theme-stylesheet. In `custom.js` horen ook
+tracking-tags zoals de LinkedIn Insight-tag: site-eigen, niet in het theme.
 
 ## Synchroniseren
 
@@ -62,9 +63,9 @@ Sites hebben het theme als gewone kopie in `themes/inocea/` — geen submodule,
 geen subtree, zodat het CMS er niets van merkt.
 
 ```bash
-bin/sync-theme.sh down <site-map> [--yes]   # theme -> site (dry run, dan bevestigen)
-bin/sync-theme.sh up   <site-map> <pad>...  # losse bestanden site -> theme
-bin/sync-theme.sh diff <site-map>           # verschillen in beide richtingen
+./sync-theme.sh down <site-map> [--yes]   # theme -> site (dry run, dan bevestigen)
+./sync-theme.sh up   <site-map> <pad>...  # losse bestanden site -> theme
+./sync-theme.sh diff <site-map>           # verschillen in beide richtingen
 ```
 
 Paden bij `up` zijn relatief aan het theme, dus `static/css/style.css`.
