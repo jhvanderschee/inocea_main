@@ -7,14 +7,14 @@ description: Werken in een Inocea-site zonder dat de kopie van het theme zijn ei
 
 Elke Inocea-repo is een gewone Hugo-site met het theme als kopie in `themes/inocea/`.
 
-- **Theme-repo** (`inocea_main`): heeft `bin/sync-theme.sh`. Hier woont het theme; hier
-  commit je theme-wijzigingen.
-- **Site**: geen `bin/sync-theme.sh`, wel `themes/inocea/VERSION`. De theme-repo staat dan
-  op `../inocea_main` — controleer met `ls ../inocea_main/bin/sync-theme.sh`; ontbreekt die,
+- **Theme-repo** (`inocea_main`): heeft `sync-theme.sh` in de root. Hier woont het theme;
+  hier commit je theme-wijzigingen.
+- **Site**: geen `sync-theme.sh`, wel `themes/inocea/VERSION`. De theme-repo staat dan
+  op `../inocea_main` — controleer met `ls ../inocea_main/sync-theme.sh`; ontbreekt die,
   vraag Guus waar hij staat.
 
 `sync-theme.sh` draai je altijd vanuit de theme-repo; `<site>` is het pad daarheen
-(`../<naam>`). Sta je in de site, dan: `../inocea_main/bin/sync-theme.sh … .`
+(`../<naam>`). Sta je in de site, dan: `../inocea_main/sync-theme.sh … .`
 
 ## a. Het zit in het theme (sectie, CSS, JS, layout)
 
@@ -25,7 +25,7 @@ Alles wat niet één site-eigen kleurtje is, hoort in het theme.
 hugo server                  # in de site
 
 # 2. haal de gewijzigde bestanden terug (vanuit de theme-repo)
-bin/sync-theme.sh up <site> static/css/style.css layouts/_partials/sections/nieuw.html
+./sync-theme.sh up <site> static/css/style.css layouts/_partials/sections/nieuw.html
 
 # 3. bekijken en testen in de theme-repo
 git diff && hugo server
@@ -34,7 +34,7 @@ git diff && hugo server
 git commit -am "…"
 
 # 5. terug naar de site (werkt VERSION bij)
-bin/sync-theme.sh down <site>
+./sync-theme.sh down <site>
 ```
 
 Nieuwe sectie? Dan hoort er ook een regel bij in `params.sections` van elke site die hem
@@ -57,8 +57,8 @@ route a.
 ## c. Theme bijwerken in deze site
 
 ```bash
-bin/sync-theme.sh diff <site>   # beide richtingen
-bin/sync-theme.sh down <site>
+./sync-theme.sh diff <site>   # beide richtingen
+./sync-theme.sh down <site>
 ```
 
 Staat er in de onderste helft van `diff` iets dat alleen in de site bestaat, dan is er
