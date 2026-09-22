@@ -63,3 +63,8 @@ schrijft na afloop `<site>/themes/inocea/VERSION` met de commit-hash en datum.
 
 **Theme-code pas je nooit in een site aan zonder hem daarna met `up` terug te
 halen.** Zonder die stap gooit de eerstvolgende `down` de wijziging weg.
+
+## Skills
+
+`.claude/skills/inocea-nieuwe-site` — een nieuwe site opzetten als kopie van deze repo.
+`.claude/skills/inocea-sync` — theme-wijziging, site-eigen CSS/JS of theme bijwerken.
