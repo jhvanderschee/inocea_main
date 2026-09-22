@@ -1,0 +1,15 @@
+# Eigen mounts, want static/ dient ook als assets/ (svg-sprite via resources.Match)
+module:
+  mounts:
+    - source: layouts
+      target: layouts
+    - source: static
+      target: static
+    - source: static
+      target: assets
+    - source: archetypes
+      target: archetypes
+    - source: i18n
+      target: i18n
+    - source: data
+      target: data
