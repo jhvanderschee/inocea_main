@@ -15,14 +15,20 @@
   `[![](/photo.jpg)](/photo.jpg)` — gets a resized webp rendition instead of
   the full-weight original, mirroring what the gallery shortcode links to.
 
+  A link that leaves the site opens in a new tab. "Leaves the site" is read
+  off the destination: an absolute `http(s)` url that does not start with our
+  own baseURL. Relative links, anchors, `mailto:` and `tel:` stay in place —
+  a new tab for those only ever leaves an empty one behind.
+
   @context {link} .
   @returns {string} one <a>
 */ -}}
 {{- $href := .Destination -}}
+{{- $external := and (hasPrefix (lower $href) "http") (not (hasPrefix $href site.BaseURL)) -}}
 {{- with resources.GetMatch $href -}}
     {{- if and (eq .ResourceType "image") (ne .MediaType.SubType "svg") -}}
         {{- $href = (.Fit "1600x1600 webp q50").RelPermalink -}}
     {{- end -}}
 {{- end -}}
-<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text }}</a>
+<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .Text }}</a>
 {{- /* no trailing newline: a render hook writes inline content */ -}}

@@ -149,7 +149,7 @@ ul.socials li svg { width: var(--icon-size); height: var(--icon-size); }
 .logo img, .logo svg {display: block; height: auto; width: var(--logo-width);}
 
 /* --------------- BUTTONS --------------- */
-button { touch-action: manipulation;  text-align: center; }
+button { touch-action: manipulation;  text-align: center; font-family: inherit; }
 button,label { cursor: pointer;  user-select: none; }
 .btn { background: var(--main-color); color: var(--background-color); padding: var(--btn-padding); border-radius: var(--btn-border-radius); text-align: center; transition: 250ms; transition-property: border,background,color, opacity; }
 .btn:hover, .btn.reversed:not(:hover) {background: transparent; color: var(--my-soft-black);}
@@ -197,9 +197,19 @@ section.has-bigtext .container {
 p:has(img.parallax) { display: flex; }
 img.parallax { --parallax-ratio: 5; width: 100%; aspect-ratio: var(--parallax-ratio); object-fit: cover; animation: parallax linear both; animation-timeline: view(); }
 @keyframes parallax { from { object-position: center 0%; } to { object-position: center 100%; } }
-@media only screen and (max-width: 1000px) { img.parallax { --parallax-ratio: 1.9; } }
-@media only screen and (max-width: 600px)  { img.parallax { --parallax-ratio: 1; } }
+@media only screen and (max-width: 1000px) { img.parallax { --parallax-ratio: 3; } }
+@media only screen and (max-width: 600px)  { img.parallax { --parallax-ratio: 2; } }
 @media (prefers-reduced-motion: reduce)    { img.parallax { animation: none; } }
+
+div.crafts .images img,
+section.fullwidth-image img:not(.parallax) {
+    animation: parallax linear both;
+    animation-timeline: view();
+}
+@media (prefers-reduced-motion: reduce) {
+    div.crafts .images img,
+    section.fullwidth-image img:not(.parallax) { animation: none; }
+}
 
 
 /* --------------- SECTIONS --------------- */
@@ -219,7 +229,7 @@ body.menuopen header button { background: url('/img/close.svg') center center / 
 
 @media (max-width: 1000px) {
     header button { display: block; }
-    header .container nav ul { position: absolute; bottom: 0; left: 0; width: 100%;  flex-direction: column; justify-content: center; text-align: center; gap: 0; margin: 0; padding-block: 0 1rem; background: var(--background-color); pointer-events: none; transition: transform 0.25s ease-in-out; transform: translateY(0%); z-index: -1; }
+    header .container nav ul { position: absolute; bottom: 0; left: calc(var(--gutter-side) * -1); width: calc(100% + var(--gutter-side) * 2);  flex-direction: column; justify-content: center; text-align: center; gap: 0; margin: 0; padding-block: 0 1rem; background: var(--background-color); pointer-events: none; transition: transform 0.25s ease-in-out; transform: translateY(0%); z-index: -1; }
     header .container nav ul li { opacity: 0; pointer-events: none; transition: none; }
     header .container nav ul li a { display: block; padding-block: 0.35rem; font-size: var(--font-size-h5); }
    
@@ -258,7 +268,7 @@ footer a.large:nth-child(2):last-child { grid-row: span 1;}
 footer .postfooter { background: var(--my-full-black); padding-block: 1.5rem;}
 footer .postfooter .container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
 footer .postfooter p { margin-bottom: 0;}
-footer .postfooter ul { display: flex;  gap: 1rem;}
+footer .postfooter ul { display: flex; gap: 1rem; }
 
 @media only screen and (min-width: 1025px) {
     footer .container { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;}
@@ -273,8 +283,11 @@ footer .postfooter ul { display: flex;  gap: 1rem;}
 
 @media only screen and (max-width: 768px) {
     footer .left { grid-template-columns: 1fr;}
-    footer .large { font-size: var(--font-size-huge); padding-inline: 0;}
-    footer .large::after { width: 3rem; height: 2rem;}
+    /* Two columns read in the wrong order on a phone: one plain left-aligned
+       list instead, with `Inocea` still heading it. */
+    footer .left > ul:has(li:nth-of-type(7)) { display: block; }
+    footer a.large { font-size: var(--font-size-huge); padding-inline: 0;}
+    footer a.large::after { width: 3rem; height: 2rem;}
     footer .postfooter .container { display: flex; flex-direction: column; align-items: center; }
     footer .postfooter ul { justify-content: center; flex-wrap: wrap; width: 100%;  order: -1; gap: .5rem 1.5rem; margin-bottom: 2rem;  }
     footer .socials { display: flex; justify-content: center; }
@@ -292,10 +305,30 @@ section.has-video:first-of-type {
 }
 
 /* =========================================================== */
-/* ====================== VIDEO HEADER ======================= */
+/* ========================= HEADER ========================== */
 /* =========================================================== */
 section.header h1 { max-width: 22em; margin-top: 2rem;}
 section.header h1:last-child { margin-bottom: 0;}
+
+section.header .container > svg { position: absolute; top: 2.5rem; right: 2.5rem; width: 2.5rem; height: auto;  z-index: 2; }
+section.header .media { overflow: clip; }
+section.header .media > :is(img, video) { display: block; }
+
+@keyframes slow-zoom { from { scale: 1; } to { scale: 1.15; } }
+
+@media (prefers-reduced-motion: no-preference) {
+    section.header .media > img {
+        transform-origin: 50% 50%;
+        animation: slow-zoom 20s forwards;
+    }
+    @media (max-width: 999px) {
+        section.header .container > :not(.media,svg) { animation: fade-in 1.25s var(--delay, .5s) backwards; }
+        section.header .container > :not(.media,svg):nth-child(3)   { --delay: .6s; }
+        section.header .container > :not(.media,svg):nth-child(4)   { --delay: .7s; }
+        section.header .container > :not(.media,svg):nth-child(n+5) { --delay: .8s; }
+        section.header .container > svg {top: .75rem; right: .75rem; width: 1.5rem; }
+    }
+}
 
 @media only screen and (min-width: 769px) {
     section.header h2 ~ * { margin-left: var(--margin-left);}    
@@ -509,7 +542,7 @@ section .split:not(:last-of-type) { margin-bottom: 6rem; }
 /* =========================================================== */
 /* ========================= CRAFTS ========================== */
 /* =========================================================== */
-section.has-crafts { --overlap: 10rem; background: linear-gradient(var(--my-black) calc(100% - var(--margin-y) - var(--overlap)), var(--my-soft-white) 0); }
+section.has-crafts { --overlap: 10rem; --arrows-below: 0rem; background: linear-gradient(var(--my-black) calc(100% - var(--margin-y) - var(--overlap)), var(--my-soft-white) 0); }
 div.crafts {
     position: relative; 
     & .top { display: flex; justify-content: space-between; gap: 2rem; margin-block: 3.5rem 2rem; }
@@ -519,20 +552,29 @@ div.crafts {
     & .tabs button.active { color: var(--my-white); border-color: var(--my-white); }
     & .buttons { flex-shrink: 0; }
 
-    & .images { display: grid; }
-    & .images > li { grid-area: 1 / 1; opacity: 0; transition: opacity 500ms 300ms; }
-    & .images > li.active { opacity: 1; transition-delay: 0s;  z-index: 2;}
     & .images img { display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+    
+    
+    @media (prefers-reduced-motion: no-preference) {
+        & .images > li.active img { transform-origin: 50% 50%; }
+        .reveal.visible & .images > li.active img {
+            animation: slow-zoom 20s calc(var(--delay, 0s) + .8s) forwards;
+        }
+    }
+    @media only screen and (min-width: 769px) {
+        .images h3 { display: none; }
+        & .images { display: grid; }
+        & .images > li { grid-area: 1 / 1; opacity: 0; transition: opacity 500ms 300ms; overflow: clip; }
+        & .images > li.active { opacity: 1; transition-delay: 0s;  z-index: 2;}
+    }
 
     @media only screen and (max-width: 768px) {
-        & .top { gap: 1rem; margin-top: 2rem; margin-left: calc(var(--gutter-side) * -1); width: calc(100% + var(--gutter-side) * 2);  }
-        & .tabs { gap: 1.5rem; padding-inline: var(--gutter-side); }
-        & .tabs button { font-size: var(--font-size-small); }
-        & .buttons { position: absolute; bottom: .5rem; left: 50%; transform: translateX(-50%); z-index: 3;  }
+        .top { display: none;}
+        .images > li:not(:last-of-type) { margin-bottom: 3rem;}
     }
 }
 @media only screen and (max-width: 768px) {
-    section.has-crafts { --overlap: 4rem; }
+    section.has-crafts {--overlap: 6rem; }
 }
 
 
@@ -545,10 +587,14 @@ section.has-publications .publications {
      display: grid; grid-template-columns: 1fr 1fr; grid-gap: 1rem 2rem;
      & li { display: flex; flex-direction: column; padding: 1rem; background: var(--my-soft-white);  position: relative; }
      & span { order: -1; display: block;  font-size: var(--font-size-h6);}
-     & h3 { margin-block: 2rem}
+     & h3 { margin-block: 2rem; transition: color 250ms; }
      & a { display: inline-block; margin: auto 0 0 auto;  }
      & a::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-     & a::before { content: ''; display: block;  width: 2rem; height: 1.75rem; background: url('/img/arrow-right-black.svg') center center / contain no-repeat; }
+     & a::before { content: ''; display: block;  width: 2.75rem; height: 2.75rem; background: url('/img/arrow-right-black.svg') 40% 50% / 60% 60% no-repeat; border-radius: 50%;  transition: background 250ms;}
+     
+     & a:hover { opacity: 1;}
+     & a:hover::before { background-color: var(--my-black); background-image: url('/img/arrow-right-new.svg'); background-position: 50% 50%; }
+
 
      @media only screen and (max-width: 768px) {
           grid-template-columns: 1fr;
@@ -613,6 +659,33 @@ body.legal footer { border-top: 1px solid var(--my-white-40);}
         --font-size-tiny:  .6rem;  
     }
 }
+
+/* --------------- REVEAL --------------- */
+.reveal .line-wrap { display: block; overflow: hidden; }
+.reveal .line-inner { display: block; white-space: nowrap; transform: translateY(110%); }
+.reveal.visible .line-inner {
+    transform: translateY(0);
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+}
+
+
+.reveal .fade-in { opacity: 0; }
+.reveal.visible .fade-in { opacity: 1; transition: opacity .8s ease var(--delay, 0s); }
+
+.reveal :is(h1, h2, h3) { border-color: transparent; }
+.reveal.visible :is(h1, h2, h3) { border-color: var(--my-black-40); transition: border-color 1.5s ease var(--delay, 0s); }
+.reveal.dark.visible :is(h1, h2, h3) { border-color: var(--my-white-40); }
+.reveal li::before { opacity: 0; }
+.reveal.visible li::before { opacity: 1; transition: opacity .6s ease var(--delay, 0s); }
+
+.reveal .prose ul > li:has(> .line-wrap)::before { content: none; }
+.reveal .prose ul > li > .line-wrap:first-child .line-inner::before { content: ">"; display: inline-block; margin-right: .3em; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal .line-inner { transform: none; }
+    .reveal :is(li::before, .fade-in) { opacity: 1; }
+}
+
 
 /* --------------- REDUCED MOTION --------------- */
 @media (prefers-reduced-motion) { }

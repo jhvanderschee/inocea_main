@@ -2,7 +2,7 @@
 {{ $image := ((resources.GetMatch "/img/facility.png").Resize "1400x") }}
 <div class="facility">
     <figure>
-        <img src="{{ $image.RelPermalink }}" alt="SATA Shipbuilding facility">
+        <img src="{{ $image.RelPermalink }}" alt="{{ site.Title }} facility">
         <ul class="dots">
             {{ range $i, $j :=  $facilities }}
             <li style='--left: {{ .Params.x_number }}%; --top: {{ .Params.y_number }}%'><button data-for='{{ $i }}' {{ if eq $i 0 }} class='active' {{ end }}

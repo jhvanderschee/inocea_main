@@ -1,4 +1,4 @@
-{{ with  hugo.Data.blocks }}
+{{ with  site.Data.blocks }}
     <ul class="blocks">
       {{ range $i, $block := . }}
         <li class="block {{ if eq $i 1 }} active {{ end }}" style='background: url({{ partial "image" .image }}) center center / cover '>
