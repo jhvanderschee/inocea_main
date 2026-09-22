@@ -51,6 +51,20 @@ resolve_site() {
 
 theme_target() { echo "$1/themes/$THEME_NAME"; }
 
+# Toont itemize-output van een rsync-dry-run, met regels die met '.' beginnen
+# (attribuut-only, zoals een kale tijdstempelverschil) weggefilterd — dat zijn
+# geen inhoudelijke wijzigingen. Blijft er niets over, dan "geen verschillen".
+show_itemized_diff() {
+  local output filtered
+  output="$(rsync "$@")"
+  filtered="$(printf '%s' "$output" | grep -v '^\.')" || true
+  if [ -z "$filtered" ]; then
+    echo "geen verschillen"
+  else
+    printf '%s\n' "$filtered"
+  fi
+}
+
 require_clean_theme() {
   if [ -n "$(git -C "$REPO_DIR" status --porcelain)" ]; then
     die "de theme-repo heeft ongecommitte wijzigingen; commit of stash ze eerst, anders is de VERSION in de site niet terug te vinden in de historie"
@@ -71,7 +85,7 @@ cmd_down() {
   echo "site  : $target"
   echo
   echo "--- dry run ---"
-  rsync -a --delete --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
+  show_itemized_diff -a --delete --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
   echo "--- einde dry run ---"
   echo
 
@@ -122,10 +136,10 @@ cmd_diff() {
   [ -d "$target" ] || die "geen theme gevonden in $target"
 
   echo "--- in het theme, anders of ontbrekend in de site ---"
-  rsync -a --delete --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
+  show_itemized_diff -a --delete --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
   echo
   echo "--- in de site, anders of ontbrekend in het theme ---"
-  rsync -a --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$target/" "$THEME_DIR/"
+  show_itemized_diff -a --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$target/" "$THEME_DIR/"
 }
 
 command -v rsync >/dev/null 2>&1 || die "rsync niet gevonden"
