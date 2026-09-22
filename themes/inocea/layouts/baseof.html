@@ -52,7 +52,7 @@
     <footer id="footer">
         <div class="container">
             <div class="left">
-                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ partial "logo.html" . }}</a>
+                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ with site.Data.footer.logo_image }} <img src="{{ .}}" alt="{{ site.Title }} logo">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
                 <address>
                     {{ site.Data.footer.text | safeHTML }}
                 </address>
@@ -78,6 +78,9 @@
                 <ul>
                     {{ range where site.RegularPages "Section" "legal" }}
                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{ end }}
+                    {{ range site.Data.footer.postfooter_urls }}
+                        <li><a href="{{ .url }}">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
             </div>
