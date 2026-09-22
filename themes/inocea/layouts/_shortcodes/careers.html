@@ -1,0 +1,14 @@
+{{ with index site.Data "careers" }}
+    <ul class="blocks careers">
+      {{ range $i, $block := . }}
+        <li class="block {{ if eq $i 1 }} active {{ end }}" style='background: url({{ partial "image" .image }}) center center / cover '>
+            {{ if .url }} <a class='h3' href="{{ .url }}">{{ .title }}</a>
+            {{ else }} <p class="h3">{{ .title }}</p>
+            {{ end }}
+            {{ if .markdown }}
+              <div class="md">{{ partial "md" .markdown }}</div>
+            {{ end }}
+        </li>
+      {{ end }}
+      </ul>
+{{ end }}
