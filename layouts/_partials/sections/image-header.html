@@ -1,20 +1,4 @@
-{{- /*
-  Brick: image-header
-
-  The opening image is wrapped in a `.media` box so it has something to be
-  clipped by: the header's slow zoom (see `HEADER` in style.css) scales the
-  image past its own edges, and without a wrapper that overflow would spill
-  over the heading underneath it. The wrap is done here rather than in the
-  render hook because it is the header that wants it, not every image on
-  the site.
-
-  Boven de homepage-header kan een merk-icoon staan. Welk icoon dat is, staat
-  in `params.header_icon` (de naam van een bestand in `static/img/icons/`);
-  zonder die param blijft de header leeg — het is een per-site keuze, geen
-  vaste laag van dit thema.
-
-  @context {dict} . Content, Name, Index, Page
-*/ -}}
+{{- /* .media wrapt de header-afbeelding zodat de slow zoom (HEADER in style.css) niets over de kop laat spillen; merk-icoon komt uit params.header_icon. */ -}}
 {{- $label := partial "section_label.html" .Content -}}
 {{- $content := replaceRE `(?s)^(?:<p>\s*)?(<img\b[^>]*>)(?:\s*</p>)?` `<div class="media">${1}</div>` (string .Content) 1 -}}
 <section class="image-header header"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>

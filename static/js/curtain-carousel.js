@@ -33,7 +33,7 @@
 		}
 
 
-		// This bit fixes horizontal scroll jittering on trackpads.
+		// Voorkomt horizontaal scroll-gejitter op trackpads.
 		if (window.lenis)
 			ul.addEventListener('wheel', (e) => {
 				if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {

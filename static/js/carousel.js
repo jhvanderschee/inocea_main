@@ -12,15 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
       let walk;
       let hasDragged = false;
 
-      //initialize the carousel
       ele.id = 'carousel'+index;
       carousel.setAttribute('duration', 17000);
-      //add 'bullets' after slides
       const ol = document.createElement('ol');
       carousel.appendChild(ol);
-      //add li to ol based on number of slides
       slides.forEach(function(slide, slideindex) {
-        //add id to slide
         slide.id = 'c'+index+'_slide'+(slideindex+1);
         var elements = slide.querySelectorAll('img, button, .button, a');
         elements.forEach(function(element) {
@@ -32,12 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
               e.stopPropagation();
             }
           }, true);
-        //create bullet
         const li = document.createElement('li');
         li.innerHTML = `<a href="#c${index}_slide${slideindex+1}"><span class="sr-only">Slide ${slideindex+1}</span></a>`;
         ol.appendChild(li);
       });
-      //add next and prev buttons
       const nextbutton = document.createElement('button');
       nextbutton.classList.add('next');
       nextbutton.setAttribute('aria-label','Next Slide');
@@ -53,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const nextarrow = carousel.querySelector('.next');
       const prevarrow = carousel.querySelector('.prev');
 
-      //set initial state
       ele.scrollLeft = 0;
       bullets[0].classList.add('selected');
       slides[0].classList.add('selected');
@@ -102,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ele.classList.add('interacted');
       }
           
-      // Attach the handlers
       ele.addEventListener("scroll", debounce(setSelected));
       ele.addEventListener("touchstart", setInteracted);
       ele.addEventListener('keydown', function (e){
@@ -122,12 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const stopDrag = function(e) {
           ele.classList.remove('grabbing');
 
-          //determine of nthchild was rounded up or down
+          /* bepaalt of er naar boven of beneden werd afgerond */
           const scrolllength = carousel.querySelector('ul li:nth-child(2)').offsetLeft - carousel.querySelector('ul li:nth-child(1)').offsetLeft;
           const round = ((ele.scrollLeft/scrolllength)+1)%1;
           let roundup = false;
           if(Math.abs(round)>=0.5) {
-              //rounded up
               roundup = true
           }
           if(isDown && walk<-10 && hasDragged) {
@@ -152,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if(!isDown) return;
           e.preventDefault();
           const x = e.pageX - ele.offsetLeft;
-          walk = (x - startX) * 1; //scroll-fast
+          walk = (x - startX) * 1;
           if(Math.abs(walk) > 5) {
               hasDragged = true;
           }
@@ -177,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
         bullet.addEventListener("touchstart", setInteracted);
       });
 
-      //setInterval for autoplay
       if(carousel.getAttribute('duration')) {
         setInterval(function(){ 
           if (ele.classList.contains('interacted')==false) {
@@ -187,29 +177,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     
     
-  }); //end foreach
+  });
 
-}); //end onload
+});
 
-
-/**
-* Debounce functions for better performance
-* (c) 2021 Chris Ferdinandi, MIT License, https://gomakethings.com
-* @param  {Function} fn The function to debounce
-*/
+// Debounce via requestAnimationFrame — (c) 2021 Chris Ferdinandi, MIT License, https://gomakethings.com
 function debounce (fn) {
-  // Setup a timer
   let timeout;
-  // Return a function to run debounced
   return function () {
-    // Setup the arguments
     let context = this;
     let args = arguments;
-    // If there's a timer, cancel it
     if (timeout) {
       window.cancelAnimationFrame(timeout);
     }
-    // Setup the new requestAnimationFrame()
     timeout = window.requestAnimationFrame(function () {
       fn.apply(context, args);
     });

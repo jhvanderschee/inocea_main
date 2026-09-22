@@ -1,8 +1,6 @@
-// Video's pas ophalen als ze in beeld komen, en niet voordat de pagina helemaal
-// geladen is, zodat ze niet om bandbreedte concurreren met CSS, fonts en posters.
-// De poster blijft zichtbaar tot de video kan spelen.
+// Video's pas ophalen als ze in beeld komen en de pagina klaar is, zodat ze niet om bandbreedte concurreren.
 function setupLazyVideo() {
-    // Wie om minder beweging of databesparing vraagt, krijgt alleen de poster.
+    // Bij data-besparing of minder-beweging-voorkeur blijft alleen de poster staan.
     if (navigator.connection?.saveData || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const

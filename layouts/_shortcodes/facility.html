@@ -18,9 +18,7 @@
         {{ range $i, $j :=  $facilities }}
         <li data-for='{{ $i }}' class='cut-corner {{ if eq $i 0 }} active {{ end }}'>
             <h2>{{ .Title }}</h2>
-            {{- /* Deze pagina's hebben zelf `---` in hun body. Die blijft een
-                   scheidingslijn in de caption, maar mag geen sectiegrens van de
-                   hoofdpagina worden: home.html splitst op een kale `<hr>`. */ -}}
+            {{- /* `---` in de caption blijft hier een scheidingslijn, geen sectiegrens (home.html splitst op kale <hr>). */ -}}
             {{ replaceRE `<hr\s*/?>` `<hr class="rule">` (string .Content) | safeHTML }}
         </li>
         {{ end }}

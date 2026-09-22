@@ -1,15 +1,4 @@
-{{- /*
-  Where does a section sit among the sections of its page?
-
-  Accepts `:first-child`, `:last-child`, `:only-child`, `:nth-child(n)`
-  (1-based) and any of those wrapped in `:not(…)`.
-
-  An unsupported selector warns and returns true, so one typo in hugo.yaml
-  loosens a rule rather than silently killing it.
-
-  @context {dict} . Selector (string), Index (int), Count (int)
-  @returns {bool}
-*/ -}}
+{{- /* Positie van een sectie op de pagina: :first/:last/:only-child, :nth-child(n), evt. in :not(…); onbekende selector geeft true (niet blokkeren op een typo). */ -}}
 {{- $selector := trim .Selector " " -}}
 {{- $i := .Index -}}
 {{- $n := .Count -}}
