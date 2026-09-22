@@ -22,8 +22,8 @@ bin/sync-theme.sh         theme naar en uit een site synchroniseren
 In het theme:
 
 ```
-theme.toml                theme-metadata
-hugo.toml                 mounts: static/ telt ook als assets/ (nodig voor de svg-sprite)
+theme.yml                 theme-metadata
+hugo.yml                  mounts: static/ telt ook als assets/ (nodig voor de svg-sprite)
 layouts/                  alle templates, partials, shortcodes
 static/css/               style.css, fonts.css, carousel.css, accordion.css, custom.css
 static/js/                gedragsscripts + custom.js
