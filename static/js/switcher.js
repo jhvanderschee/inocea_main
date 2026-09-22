@@ -1,5 +1,4 @@
-// Eén item tegelijk actief: knoppen met data-for kiezen een item, knoppen met
-// data-dir bladeren erdoorheen. Gedeeld door de facility-kaart en de crafts.
+// Eén item tegelijk actief: data-for kiest, data-dir bladert; gedeeld door facility-kaart en crafts.
 function setupSwitchers() {
     document.querySelectorAll("div.facility, div.crafts").forEach(div => {
         const

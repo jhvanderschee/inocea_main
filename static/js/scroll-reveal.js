@@ -36,43 +36,14 @@ function setupBigtext() {
     }
 }
 
-/*
-    Line reveal — the opener daviedefense.com uses, ported from that site.
-
-    Every line of copy is clipped by a box of its own and slides up from its
-    base, a beat after the line above it. A line is wrapped as
-
-        <span class="line-wrap"><span class="line-inner"> … </span></span>
-
-    where the wrap does the clipping and the inner starts a full line-height
-    low; `visible` on the section eases them all home on a stagger. See REVEAL
-    in style.css for the half that moves.
-
-    Lines are measured, not guessed: a Range walks the copy a character at a
-    time and opens a new line wherever the top edge jumps, which is the only
-    way to know where the browser actually broke it. That reads text nodes, so
-    it would drop any `<strong>` or `<a>` it walked past — copy carrying inline
-    markup is split on its `<br>`s instead, or left whole when it has none.
-
-    Once a section has landed its wrappers come out again and the original
-    html goes back verbatim, so what is left in the dom is the markup the page
-    was written with: selectable, searchable, free of spans nobody needs.
-
-    Sections land in document order, each waiting for the ones above it, so
-    reading down the page never overtakes the animation.
-
-    Below 1000px none of it runs. Measuring every character to animate it is
-    not work worth doing on a phone, and the page is served plain there.
-*/
+/* Regel-voor-regel reveal-animatie; meet regels via Range, want alleen zo weet je waar de browser echt afbreekt. Draait niet onder 1000px. */
 function setupLineReveal() {
     const
         minWidth = 1000,
         lead = .15,
         stagger = .05,
         selector = "h1, h2, h3, p, li",
-        /* Furniture that owns its own motion, or that would read badly sliced
-           into lines: the word-by-word bigtext above, the tab strips, and the
-           cards and carousels that move as a block. */
+        /* Elementen die zelf al bewegen of als blok horen te blijven, niet in regels knippen. */
         skip = ".accordion, .tabs, div.crafts, div.facility, .curtain-carousel, ul.publications, ul.leadership",
         original = new WeakMap(),
         sections = [...document.querySelectorAll("main section")];
@@ -81,9 +52,7 @@ function setupLineReveal() {
 
     document.fonts.ready.then(() => {
         sections.forEach(prepare);
-        /* One frame to lay the hidden state down, one to be sure it painted,
-           and only then start moving — otherwise the first section is already
-           home before the browser has drawn it anywhere else. */
+        /* Eerst laten tekenen, dan pas animeren, anders staat sectie 1 al goed voor je het ziet. */
         requestAnimationFrame(() => requestAnimationFrame(start));
     });
 
@@ -95,16 +64,11 @@ function setupLineReveal() {
         lines.forEach((line, i) => {
             const delay = `${(lead + i * stagger).toFixed(2)}s`;
             line.style.setProperty("--delay", delay);
-            /* A list marker is a pseudo-element on the `li`, outside the wrap
-               that clips the text, so it needs the delay of its own line. */
+            /* Lijst-marker zit buiten de clip-wrap en heeft dus zijn eigen delay nodig. */
             line.closest("li")?.style.setProperty("--delay", delay);
         });
 
-        /* Photographs fade rather than slide: shoving a picture up out of a clip
-           reads as a jolt at that size. Each lands a beat after the last line of
-           copy above it, so the section still arrives top to bottom. `/uploads`
-           is the content; `/img` is chrome — arrows, markers, diagrams — and it
-           stays where it is. */
+        /* Foto's faden i.p.v. schuiven; /uploads is content, /img (chrome) blijft met rust. */
         [...section.querySelectorAll('img[src^="/uploads/"]')].forEach(image => {
             const above = lines.filter(line => line.compareDocumentPosition(image) & Node.DOCUMENT_POSITION_FOLLOWING).length;
             image.classList.add("fade-in");
@@ -130,8 +94,7 @@ function setupLineReveal() {
         original.set(node, html);
 
         if (inline) {
-            /* Splitting by geometry would throw the markup away, so follow the
-               line breaks the copy wrote by hand, or keep it in one piece. */
+            /* Bij inline opmaak knippen op <br>, anders gaat de opmaak verloren bij regel-meting. */
             node.innerHTML = html.split(/<br\s*\/?>/i).map(wrap).join("");
             return;
         }
@@ -162,8 +125,7 @@ function setupLineReveal() {
 
         while (walker.nextNode()) {
             const current = walker.currentNode;
-            /* A `<br>` is a line boundary the browser will not report as a
-               jump in top edge, so force one and carry on. */
+            /* <br> geeft geen sprong in top-positie, dus forceer een nieuwe regel. */
             if (current.nodeType !== Node.TEXT_NODE) {
                 if (current.tagName === "BR") lastTop = null;
                 continue;
@@ -183,9 +145,7 @@ function setupLineReveal() {
     }
 
     function unwrap(section) {
-        /* A block contributes one `.line-wrap` per line, so the same node comes
-           back several times; restore each one once, or the second pass reads a
-           map entry the first already cleared. */
+        /* Eén node levert meerdere .line-wraps op; herstel 'm daarom maar één keer. */
         new Set([...section.querySelectorAll(".line-wrap")].map(line => line.closest(selector)))
             .forEach(node => {
                 if (!node || !original.has(node)) return;
@@ -213,8 +173,7 @@ function setupLineReveal() {
 
     function reveal(section, instant) {
         if (section.classList.contains("visible")) return;
-        /* Nothing overtakes the section above it; that one's hand-off will
-           come back for this. */
+        /* Wacht tot de sectie erboven klaar is en het stokje doorgeeft. */
         if (!instant && !settled(section)) return;
 
         section.classList.add("visible");

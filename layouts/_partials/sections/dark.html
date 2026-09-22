@@ -1,8 +1,3 @@
-{{- /*
-  Brick: wide
-
-  @context {dict} . Content, Name, Index, Page
-*/ -}}
 {{- $label := partial "section_label.html" .Content -}}
 <section class="wide dark" {{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
     <div class="container prose">

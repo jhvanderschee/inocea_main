@@ -212,7 +212,6 @@ section.fullwidth-image img:not(.parallax) {
 }
 
 
-/* --------------- SECTIONS --------------- */
 /* =========================================================== */
 /* ========================= HEADER ========================== */
 /* =========================================================== */
@@ -283,8 +282,7 @@ footer .postfooter ul { display: flex; gap: 1rem; }
 
 @media only screen and (max-width: 768px) {
     footer .left { grid-template-columns: 1fr;}
-    /* Two columns read in the wrong order on a phone: one plain left-aligned
-       list instead, with `Inocea` still heading it. */
+    /* Twee kolommen lezen verkeerd op een telefoon: dan gewoon één linkse lijst. */
     footer .left > ul:has(li:nth-of-type(7)) { display: block; }
     footer a.large { font-size: var(--font-size-huge); padding-inline: 0;}
     footer a.large::after { width: 3rem; height: 2rem;}
@@ -305,7 +303,7 @@ section.has-video:first-of-type {
 }
 
 /* =========================================================== */
-/* ========================= HEADER ========================== */
+/* ====================== HEADER-BRICK ======================== */
 /* =========================================================== */
 section.header h1 { max-width: 22em; margin-top: 2rem;}
 section.header h1:last-child { margin-bottom: 0;}

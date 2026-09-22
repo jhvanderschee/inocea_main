@@ -5,23 +5,14 @@
   {{- $id := replace .Name "/img/icons/" "" | replaceRE "\\.svg$" "" -}}
   {{- $svg := .Content -}}
 
-  {{/* Extract viewBox */}}
   {{- $viewBox := $svg | replaceRE `(?s).*<svg[^>]*viewBox="([^"]+)"[^>]*>.*` "$1" -}}
-
-  {{/* Extract inner content of the <svg> */}}
   {{- $content := $svg | replaceRE `(?s).*<svg[^>]*>(.*?)</svg>` "$1" -}}
 
-  {{/* TEMP: park fill="none" as an UNQUOTED placeholder. Met aanhalingstekens eromheen
-       matchte hij de regel hieronder alsnog, en werd fill="none" toch currentColor. */}}
+  {{/* fill="none" eerst als ongequote placeholder parkeren, anders matcht de regel hieronder 'm ook. */}}
   {{- $content = $content | replaceRE `\sfill="none"` ` fill=__NONE__` -}}
-
-  {{/* Replace all other fill="..." values with currentColor */}}
   {{- $content = $content | replaceRE `\sfill="[^"]+"` ` fill="currentColor"` -}}
-
-  {{/* Restore fill="none" */}}
   {{- $content = $content | replaceRE `\sfill=__NONE__` ` fill="none"` -}}
 
-  {{/* Wrap in <symbol> */}}
   {{- $symbol := printf `<symbol id="%s" viewBox="%s">%s</symbol>` $id $viewBox $content -}}
   {{- $symbols = $symbols | append $symbol -}}
 {{- end -}}

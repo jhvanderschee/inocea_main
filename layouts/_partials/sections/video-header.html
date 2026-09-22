@@ -1,18 +1,4 @@
-{{- /*
-  Brick: video-header
-
-  The opening video is wrapped in a `.media` box to mark it as the header's
-  media slot. The slow zoom (see `HEADER` in style.css) is for stills only --
-  footage already moves -- so the box is not clipping anything here; what it
-  does is hold the video out of the fade the copy below it runs on, and keep
-  this brick the same shape as `image-header`, where the box does both.
-
-  Het merk-icoon uit `params.header_icon` staat hier om dezelfde reden: welk
-  van de twee headers een site op de homepage zet, is een contentkeuze, en de
-  CSS (`section.header .container > svg`) is voor beide dezelfde.
-
-  @context {dict} . Content, Name, Index, Page
-*/ -}}
+{{- /* .media wrapt de video zoals bij image-header, hier alleen om 'm buiten de fade van de copy te houden (geen zoom nodig, beeld beweegt al). */ -}}
 {{- $label := partial "section_label.html" .Content -}}
 {{- $content := replaceRE `(?s)^(?:<p>\s*)?(<video\b.*?</video>)(?:\s*</p>)?` `<div class="media">${1}</div>` (string .Content) 1 -}}
 <section class="video-header header"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>

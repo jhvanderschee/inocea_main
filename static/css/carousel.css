@@ -24,7 +24,7 @@
     width: 100%;
 }
 .carousel ul.grabbing {cursor: grabbing; scroll-snap-type: none;}
-.carousel ul::-webkit-scrollbar {display: none; /* Hide scrollbar for Chrome, Safari and Opera */} 
+.carousel ul::-webkit-scrollbar {display: none;}
 .carousel ul li {
     position: relative; 
     min-width: 100%; 
