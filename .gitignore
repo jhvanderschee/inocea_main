@@ -1,5 +1,6 @@
 .hugo_build.lock
 public
 resources
-**/static/uploads
+static/uploads
 .DS_Store
+.claude/worktrees

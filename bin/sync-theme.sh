@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-THEME_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 THEME_NAME="inocea"
+THEME_DIR="$REPO_DIR/themes/$THEME_NAME"
 
 usage() {
   cat >&2 <<EOF
@@ -10,7 +11,7 @@ usage: sync-theme.sh down <site-map> [--yes]
        sync-theme.sh up   <site-map> <pad-binnen-theme>...
        sync-theme.sh diff <site-map>
 
-  down  kopieert het theme naar <site-map>/themes/$THEME_NAME/ (met --delete)
+  down  kopieert themes/$THEME_NAME/ naar <site-map>/themes/$THEME_NAME/ (met --delete)
   up    haalt losse bestanden terug uit <site-map>/themes/$THEME_NAME/
   diff  toont de verschillen in beide richtingen
 EOF
@@ -19,17 +20,8 @@ EOF
 
 die() { echo "sync-theme: $*" >&2; exit 1; }
 
-# Alles wat bij de theme-repo hoort maar niet bij het theme zelf.
-EXCLUDES=(
-  --exclude '.git' --exclude '.gitignore'
-  --exclude '.claude'
-  --exclude 'exampleSite'
-  --exclude 'bin'
-  --exclude 'public' --exclude 'resources' --exclude '.hugo_build.lock'
-  --exclude 'README.md'
-  --exclude '.DS_Store'
-  --exclude 'VERSION'
-)
+# VERSION is van de site zelf, .DS_Store van de Finder.
+EXCLUDES=(--exclude 'VERSION' --exclude '.DS_Store')
 
 resolve_site() {
   [ -n "${1:-}" ] || usage
@@ -40,7 +32,7 @@ resolve_site() {
 theme_target() { echo "$1/themes/$THEME_NAME"; }
 
 require_clean_theme() {
-  if [ -n "$(git -C "$THEME_DIR" status --porcelain)" ]; then
+  if [ -n "$(git -C "$REPO_DIR" status --porcelain)" ]; then
     die "de theme-repo heeft ongecommitte wijzigingen; commit of stash ze eerst, anders is de VERSION in de site niet terug te vinden in de historie"
   fi
 }
@@ -71,7 +63,7 @@ cmd_down() {
   rsync -a --delete "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
 
   local hash date
-  hash="$(git -C "$THEME_DIR" rev-parse HEAD)"
+  hash="$(git -C "$REPO_DIR" rev-parse HEAD)"
   date="$(date '+%Y-%m-%d %H:%M:%S %z')"
   printf '%s\n%s\n' "$hash" "$date" > "$target/VERSION"
 
@@ -88,19 +80,19 @@ cmd_up() {
   local path
   for path in "$@"; do
     path="${path#/}"
-    [ -f "$target/$path" ] || die "$target/$path bestaat niet"
     case "$path" in
-      exampleSite/*|bin/*|README.md|VERSION|.git/*) die "$path hoort niet bij het theme" ;;
+      VERSION|.DS_Store|*/.DS_Store) die "$path hoort niet bij het theme" ;;
     esac
+    [ -f "$target/$path" ] || die "$target/$path bestaat niet"
     mkdir -p "$THEME_DIR/$(dirname "$path")"
     cp "$target/$path" "$THEME_DIR/$path"
     echo "opgehaald: $path"
   done
 
   echo
-  git -C "$THEME_DIR" status --short
+  git -C "$REPO_DIR" status --short
   echo
-  git -C "$THEME_DIR" diff --stat
+  git -C "$REPO_DIR" diff --stat
 }
 
 cmd_diff() {
