@@ -12,7 +12,9 @@
 #
 # Voorbeelden, uitgevoerd vanuit een site:
 #   ../inocea_main/sync-theme.sh down .
-#   ../inocea_main/sync-theme.sh up . themes/inocea/static/css/style.css
+#   ../inocea_main/sync-theme.sh up . static/css/style.css
+#
+# up accepteert paden zowel met als zonder het voorvoegsel themes/inocea/.
 #
 # down weigert bij ongecommitte wijzigingen in deze repo en schrijft daarna
 # VERSION (commit-hash + datum) in de site.
@@ -49,6 +51,20 @@ resolve_site() {
 
 theme_target() { echo "$1/themes/$THEME_NAME"; }
 
+# Toont itemize-output van een rsync-dry-run, met regels die met '.' beginnen
+# (attribuut-only, zoals een kale tijdstempelverschil) weggefilterd — dat zijn
+# geen inhoudelijke wijzigingen. Blijft er niets over, dan "geen verschillen".
+show_itemized_diff() {
+  local output filtered
+  output="$(rsync "$@")"
+  filtered="$(printf '%s' "$output" | grep -v '^\.')" || true
+  if [ -z "$filtered" ]; then
+    echo "geen verschillen"
+  else
+    printf '%s\n' "$filtered"
+  fi
+}
+
 require_clean_theme() {
   if [ -n "$(git -C "$REPO_DIR" status --porcelain)" ]; then
     die "de theme-repo heeft ongecommitte wijzigingen; commit of stash ze eerst, anders is de VERSION in de site niet terug te vinden in de historie"
@@ -69,7 +85,7 @@ cmd_down() {
   echo "site  : $target"
   echo
   echo "--- dry run ---"
-  rsync -a --delete --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
+  show_itemized_diff -a --delete --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
   echo "--- einde dry run ---"
   echo
 
@@ -78,7 +94,7 @@ cmd_down() {
     case "$answer" in y|Y|yes|YES) ;; *) echo "afgebroken"; exit 1 ;; esac
   fi
 
-  rsync -a --delete "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
+  rsync -a --delete --checksum "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
 
   local hash date
   hash="$(git -C "$REPO_DIR" rev-parse HEAD)"
@@ -98,6 +114,7 @@ cmd_up() {
   local path
   for path in "$@"; do
     path="${path#/}"
+    path="${path#themes/$THEME_NAME/}"
     case "$path" in
       VERSION|.DS_Store|*/.DS_Store) die "$path hoort niet bij het theme" ;;
     esac
@@ -119,10 +136,10 @@ cmd_diff() {
   [ -d "$target" ] || die "geen theme gevonden in $target"
 
   echo "--- in het theme, anders of ontbrekend in de site ---"
-  rsync -a --delete --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
+  show_itemized_diff -a --delete --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$THEME_DIR/" "$target/"
   echo
   echo "--- in de site, anders of ontbrekend in het theme ---"
-  rsync -a --itemize-changes --dry-run "${EXCLUDES[@]}" "$target/" "$THEME_DIR/"
+  show_itemized_diff -a --checksum --itemize-changes --dry-run "${EXCLUDES[@]}" "$target/" "$THEME_DIR/"
 }
 
 command -v rsync >/dev/null 2>&1 || die "rsync niet gevonden"
