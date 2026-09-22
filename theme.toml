@@ -1,0 +1,8 @@
+name = "Inocea"
+license = "Proprietary"
+description = "Hugo-theme voor de Inocea-sites: secties op basis van CSS-achtige matching, SVG-sprite en carousels."
+min_version = "0.150.0"
+
+[author]
+  name = "Usecue"
+  homepage = "https://usecue.com"
