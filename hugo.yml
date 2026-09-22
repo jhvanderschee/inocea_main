@@ -3,7 +3,10 @@ baseURL: https://www.satashipbuilding.com
 assetDir: static
 
 params:
-  sections: 
+  # Merk-icoon boven de header op de homepage: de bestandsnaam (zonder .svg)
+  # van een icoon in static/img/icons/. Weglaten = geen icoon.
+  # header_icon: maple-leaf
+  sections:
     # Format is CSS, first match wins
     - title: video-header
       has: video

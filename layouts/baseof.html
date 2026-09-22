@@ -26,6 +26,7 @@
 
     <script defer src="/js/lenis.min.js"></script>
     <script defer src="/js/hasscrolled.js"></script>
+    <script defer src="/js/scroll-reveal.js"></script>
     {{ partial "section-based-scripts.html" . }}
     {{- partial "svg-sprite" . -}}
   </head>
@@ -36,8 +37,8 @@
             <nav>
                 <a href="/#top" class="logo">{{ partial "logo.html" . }}</a>
                 <ul>
-                    {{ range hugo.Data.navigation }}
-                    <li><a href="{{ .url }}" onclick="document.body.classList.remove('menuopen')">{{ .title }}</a></li>
+                    {{ range site.Data.navigation }}
+                    <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }} onclick="document.body.classList.remove('menuopen')">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
                 <button onclick="document.body.classList.toggle('menuopen')">Menu</button>
@@ -52,18 +53,18 @@
             <div class="left">
                 <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ partial "logo.html" . }}</a>
                 <address>
-                    {{ hugo.Data.footer.text | safeHTML }}
+                    {{ site.Data.footer.text | safeHTML }}
                 </address>
                 <ul>
-                    {{ range hugo.Data.footer.companies }}
-                        <li><a href="{{ .url }}"><span>{{ .name }}</span></a></li>
+                    {{ range site.Data.footer.companies }}
+                        <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}><span>{{ .name }}</span></a></li>
                     {{ end }}
                 </ul>
             </div>
-            {{ with hugo.Data.footer }}
+            {{ with site.Data.footer }}
                 {{ range slice .large_link_top .large_link_bottom }}
                     {{ if and .name .url }}
-                        <a class='large' href="{{ .url }}" target="_blank">{{ .name }}</a>
+                        <a class='large' href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
                     {{ else }}
                         {{ partial "socials" . }}
                     {{ end }}
