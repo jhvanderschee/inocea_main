@@ -7,9 +7,9 @@ description: Werken in een Inocea-site zonder dat de kopie van het theme zijn ei
 
 Elke Inocea-repo is een gewone Hugo-site met het theme als kopie in `themes/inocea/`.
 
-- **Theme-repo** (`inocea_main`): `themes/inocea/theme.toml` bestaat *en* er is een `bin/`
-  met `sync-theme.sh`. Hier woont het theme; hier commit je theme-wijzigingen.
-- **Site**: wel `themes/inocea/VERSION`, geen `bin/sync-theme.sh`. De theme-repo staat dan
+- **Theme-repo** (`inocea_main`): heeft `bin/sync-theme.sh`. Hier woont het theme; hier
+  commit je theme-wijzigingen.
+- **Site**: geen `bin/sync-theme.sh`, wel `themes/inocea/VERSION`. De theme-repo staat dan
   op `../inocea_main` — controleer met `ls ../inocea_main/bin/sync-theme.sh`; ontbreekt die,
   vraag Guus waar hij staat.
 

@@ -2,8 +2,7 @@ title: SATA Shipbuilding
 baseURL: https://www.satashipbuilding.com
 assetDir: static
 
-theme: inocea_main
-themesDir: ../..
+theme: inocea
 
 params:
   # Merk-icoon boven de header op de homepage: de bestandsnaam (zonder .svg)
