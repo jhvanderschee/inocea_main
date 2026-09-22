@@ -1,4 +1,22 @@
 #!/usr/bin/env bash
+#
+# Kopieert het theme themes/inocea/ (uit deze repo, inocea_main) naar losse
+# sites en haalt daar losse bestanden weer uit terug. Sites hebben het theme
+# als gewone kopie in themes/inocea/, geen submodule of package.
+#
+# Draai dit script altijd vanuit inocea_main; het staat niet in de sites.
+#
+#   down <site-map> [--yes]        theme naar de site kopiëren (met --delete)
+#   up   <site-map> <pad-in-theme>...  losse bestanden uit de site terughalen
+#   diff <site-map>                verschillen in beide richtingen tonen
+#
+# Voorbeelden, uitgevoerd vanuit een site:
+#   ../inocea_main/sync-theme.sh down .
+#   ../inocea_main/sync-theme.sh up . themes/inocea/static/css/style.css
+#
+# down weigert bij ongecommitte wijzigingen in deze repo en schrijft daarna
+# VERSION (commit-hash + datum) in de site.
+#
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
