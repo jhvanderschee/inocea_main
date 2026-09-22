@@ -9,6 +9,9 @@ params:
   # Merk-icoon boven de header op de homepage: de bestandsnaam (zonder .svg)
   # van een icoon in static/img/icons/. Weglaten = geen icoon.
   # header_icon: maple-leaf
+
+  # LinkedIn Insight-tag. Weglaten = geen tag en geen pixel.
+  linkedin_partner_id: "9574716"
   sections:
     # Format is CSS, first match wins
     - title: video-header
