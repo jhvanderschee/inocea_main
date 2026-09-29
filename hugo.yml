@@ -34,7 +34,10 @@ params:
       is: 
     - title: publications
       has: .publications
-      is: 
+      is:
+    - title: title-list-split
+      has: h3:first-child, ul:nth-child(2), ul:last-child
+      is:
     - title: has-outline
       has: .ship-outline
       is: 
