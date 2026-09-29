@@ -8,7 +8,7 @@ de content is filler om het theme te kunnen draaien en bekijken.
 ## Structuur
 
 ```
-hugo.yml                  site-config: theme: inocea, params.sections
+hugo.yml                  site-config: theme: inocea, site-params
 content/                  fillercontent
 data/                     fillerdata
 layouts/_partials/logo.html   de enige layout-override die een site mag hebben
@@ -23,9 +23,9 @@ In het theme:
 
 ```
 theme.yml                 theme-metadata
-hugo.yml                  mounts: static/ telt ook als assets/ (nodig voor de svg-sprite)
+hugo.yml                  mounts (static/ telt ook als assets/) en params.sections voor alle sites
 layouts/                  alle templates, partials, shortcodes
-static/css/               style.css, fonts.css, carousel.css, accordion.css, custom.css
+static/css/               style.css, fonts.css, carousel.css, custom.css
 static/js/                gedragsscripts + custom.js
 static/fonts/             Poppins en Sometype Mono
 static/img/               chrome: pijlen, menu, close, plus, markers

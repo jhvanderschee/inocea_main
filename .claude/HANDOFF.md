@@ -17,7 +17,8 @@ het CMS van Joost merkt er niets van. Sites nu op het theme: `davie_autonomous`,
 ## Wat waar hoort
 
 Theme (`themes/inocea/`): layouts, CSS, JS, fonts, iconen, chrome-afbeeldingen
-(pijlen, menu), `hugo.yml` (mounts, nodig voor de svg-sprite), `theme.yml`.
+(pijlen, menu), `hugo.yml` (mounts voor de svg-sprite, en `params.sections`: de
+sectie-regels voor alle sites), `theme.yml`.
 
 Site: `hugo.yml`, `content/`, `data/`, `static/uploads/`, `static/img/logo.svg`
 en favicon, `static/css/custom.css`, `static/js/custom.js`, en als enige
@@ -31,7 +32,8 @@ Regels:
   uit `style.css` kopiëren.
 - Tracking-tags (LinkedIn e.d.) staan in `custom.js` van de site, niet in het theme.
 - Site-verschillen die het theme moet kennen lopen via `params` in `hugo.yml`:
-  `header_icon` (merk-icoon boven de homepage-header) is het voorbeeld.
+  `header_icon` (merk-icoon boven de homepage-header) is het voorbeeld. Een site zet
+  nooit zelf `params.sections`; zonder andere params staat er `params: {}`.
 - Data-bestanden hebben in elke site dezelfde keys als in `inocea_main/data/`.
 
 ## Synchroniseren
