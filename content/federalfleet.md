@@ -36,68 +36,9 @@ Federal Fleet provides deployable combat support capability under long-term serv
 
 ---.wide
 
-<!-- ONTBREEKT: tabs zonder styling in het theme; in het origineel toont alleen het actieve tabblad. De dot-shortcode (label met stip boven de scheepsbeschrijving) bestaat niet, het label staat hier als gewone alinea. -->
-
 ## Our fleet
 
-{{< tabs >}}
-
-### Resolve class
-
-![](/uploads/asterix.png)
-
-Multi-role combat support ship Asterix
-
-Asterix, delivered in 2018, is a NATO-compliant, multi-role combat support ship. Designed with high redundancy, it supports allied naval forces across multiple theaters - either with a fleet or independently. The vessel carries embarked personnel, integrates into allied command structures, and provides replenishment to a wide range of surface combatants.
-
-#### Capabilities
-
-- Replenishment at Sea (marine fuel, aviation fuel, ammunition, dry cargo)
-- Concurrent multi-station, multi-liquid UNREP operations
-- Task group aviation operations, maintenance and vertical replenishment
-- Task group (NATO Role 2E) medical facilities
-- Integrated command and control (C2) spaces
-- Long-endurance blue-water deployment capability
-- Force protection with enhanced multidomain surveillance and C-UAS systems
-
-#### Operational Record
-
-- 300,000+ nautical miles sailed
-- 536+ replenishment and support evolutions
-- 21 allied navies supported
-- 11 named military operations
-- 15 multinational exercises
-- Zero days of unplanned downtime
-
-### Wave class
-
-![](/uploads/wave.png)
-
-Wave Ruler & Wave Knight
-
-Wave Ruler and Wave Knight are sister combat support ships designed and built for sustained naval task group support. These vessels have extensive operational histories supporting front-line fleet operations.
-
-#### Capabilities
-
-- Marine fuel transfer
-- Aviation fuel replenishment
-- Ammunition transfer
-- Dry cargo and stores transfer
-- Multi-point Replenishment at Sea capability
-- Helicopter flight deck operations (VERTREP, Repair & rearm)
-- Task group medical facilities
-
-#### Operational Experience
-
-- Carrier strike groups
-- Amphibious task groups
-- Multinational naval deployments
-- Maritime security operations
-- Sanctions enforcement missions
-- Atlantic Patrol Ship – North, operating under the U.S. Coast Guard 
-- Sustained blue-water patrol operations
-
-{{< /tabs >}}
+{{< crafts "federalfleet-fleet" >}}
 
 ---.bigtext
 
@@ -280,9 +221,8 @@ Federal Fleet operates a modern auxiliary fleet structured for sustained deploym
 - Environmental performance benchmarks
 
 <!-- Bouwlijst
-- Tabs: CSS voor div.tabs, .tabs-nav en .tab-content (actief tabblad tonen, rest verbergen); tabs.js is er al, de styling niet.
 - Card: CSS voor .card, met video naast de tekst zoals in Operational Record.
-- Dot: label met stip boven een scheepsbeschrijving (shortcode dot).
+- Dot: het label met stip boven een scheepsbeschrijving bestaat niet; in Our fleet is het gewone tekst in de markdown van data/federalfleet-fleet.yml.
 - Numbers: brick met tellende cijfers (countup) en parallax-foto per cijfer, uit data; countup.js is er al, shortcode en CSS niet. Nu blocks als stand-in.
 - Header met kale introzin: video-header kent alleen een kop als copy; het origineel heeft een alinea, hier een h1 gemaakt.
 - Bigtext binnen een sectie: bigtext-shortcode heeft geen eigen CSS, alleen de bigtext-brick als losse zwarte sectie; daardoor is elke originele sectie met bigtext in stukken gesplitst.
