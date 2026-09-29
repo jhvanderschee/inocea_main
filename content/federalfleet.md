@@ -2,7 +2,7 @@
 title: Federal Fleet
 ---
 
-{{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-poster.jpg >}}
+{{< video src=/uploads/federal-home-page-movie-lr3-h264.mp4 image=/uploads/federal-home-test.png >}}
 
 # Enabling defense, government and humanitarian operations through the construction, operation and ownership of advanced mission critical ships.
 
@@ -22,7 +22,7 @@ Federal Fleet provides deployable combat support capability under long-term serv
 
 ---
 
-![](/uploads/g8-offshore.jpg){:.parallax}
+![](/uploads/8530408.jpg){:.parallax}
 
 ---
 
@@ -44,7 +44,7 @@ Federal Fleet provides deployable combat support capability under long-term serv
 
 ### Resolve class
 
-![](/uploads/enigma-38-custom-super-rib.jpg)
+![](/uploads/asterix.png)
 
 Multi-role combat support ship Asterix
 
@@ -71,7 +71,7 @@ Asterix, delivered in 2018, is a NATO-compliant, multi-role combat support ship.
 
 ### Wave class
 
-![](/uploads/enigma-47-custom-super-rib.jpg)
+![](/uploads/wave.png)
 
 Wave Ruler & Wave Knight
 
@@ -123,7 +123,7 @@ Since 2018, Federal Fleet has maintained continuous operational deployment of co
 
 #### Operational Activity
 
-{{< video src=/uploads/sata-home-video-20260521.mp4 image=/uploads/sata-home-video-still.png >}}
+{{< video src=/uploads/asterix-short-01.mp4 >}}
 
 - Participation in multinational exercises including RIMPAC
 - Support to counter-terrorism and maritime security operations
@@ -137,7 +137,7 @@ Since 2018, Federal Fleet has maintained continuous operational deployment of co
 
 #### Recognition
 
-{{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-poster.jpg >}}
+{{< video src=/uploads/asterix-short-02.mp4 >}}
 
 Several medals awarded to Federal Fleet personnel:
 
@@ -152,7 +152,7 @@ Several medals awarded to Federal Fleet personnel:
 
 #### Operational Integration
 
-{{< video src=/uploads/sata-home-video-20260521.mp4 image=/uploads/sata-home-video-still.png >}}
+{{< video src=/uploads/asterix-short-03.mp4 >}}
 
 Operating alongside naval clients:
 
@@ -244,7 +244,7 @@ Federal Fleet provides complete operational management of all vessels, including
 
 ## Personnel
 
-![](/uploads/production.jpg){:.parallax}
+![](/uploads/display.png){:.parallax}
 
 ### Join Federal Fleet
 
@@ -268,7 +268,7 @@ Federal Fleet operates a modern auxiliary fleet structured for sustained deploym
 
 ---
 
-![](/uploads/spar-hull-lucius.jpg){:.parallax}
+![](/uploads/52857216340-b446303365-o.jpg){:.parallax}
 
 ---
 
