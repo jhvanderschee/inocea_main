@@ -7,3 +7,7 @@ div.crafts  {
 }
 section.has-bigtext { background: var(--my-black);}
 footer { border-top: 1px solid var(--my-white-40);}
+
+@media only screen and (max-width: 768px) {
+    div.crafts h3.h6 { font-size: var(--font-size-h1); }
+}
