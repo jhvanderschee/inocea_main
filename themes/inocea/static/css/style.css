@@ -603,7 +603,6 @@ section.has-publications .publications {
      & a::before { content: ''; display: block;  width: 2.75rem; height: 2.75rem; background: url('/img/arrow-right-black.svg') 40% 50% / 60% 60% no-repeat; border-radius: 50%;  transition: background 250ms;}
      
      & a:hover { opacity: 1;}
-     & a:hover::before { background-color: var(--my-black); background-image: url('/img/arrow-right-new.svg'); background-position: 50% 50%; }
 
 
      @media only screen and (max-width: 768px) {
