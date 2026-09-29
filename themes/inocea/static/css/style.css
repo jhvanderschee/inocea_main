@@ -45,6 +45,7 @@ address { font-style: normal;}
     
     --my-black: #1c1c1c;
     --my-black-40: rgba(0, 0, 0, 0.4);
+    --my-black-10: rgba(0, 0, 0, 0.1);
     --my-full-black: #000;
     --my-white: #fff;
     --my-white-40: rgba(255,255,255,0.4);
@@ -595,7 +596,8 @@ section.image-header + section.has-publications { padding-top: 0;}
 section.has-publications { background: var(--my-white);}
 section.has-publications .publications { 
      display: grid; grid-template-columns: 1fr 1fr; grid-gap: 1rem 2rem;
-     & li { display: flex; flex-direction: column; padding: 1rem; background: var(--my-soft-white);  position: relative; }
+     & li { display: flex; flex-direction: column; padding: 1rem; background: var(--my-soft-white);  position: relative;  transition: background 333ms var(--my-ease);}
+     & li:hover { background: var(--my-black-10);}
      & span { order: -1; display: block;  font-size: var(--font-size-h6);}
      & h3 { margin-block: 2rem; transition: color 250ms; }
      & a { display: inline-block; margin: auto 0 0 auto;  }
