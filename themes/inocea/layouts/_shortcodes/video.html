@@ -1,3 +1,4 @@
-<video autoplay muted loop playsinline poster='{{ .Get "image" }}'>
+{{ $image := partial "image" (.Get "image") }}
+<video autoplay muted loop playsinline {{ with $image }} poster='{{ . }}' {{ end }}>
     <source data-src='{{ .Get "src" }}' type="video/mp4">
 </video>
