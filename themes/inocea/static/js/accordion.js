@@ -7,7 +7,7 @@ function prepAccordions() {
 
     function restructure(item,accordionNumber, itemNumber) {
         const id = "accordion-" + accordionNumber + "-" + itemNumber;
-        item.node.innerHTML = `<${item.tag}><button aria-expanded='false' aria-controls='${id}'>${item.title}</button></${item.tag}><div aria-hidden='true' id='${id}'><div>${item.content}</div></div>`
+        item.node.innerHTML = `<${item.tag}><button aria-expanded='false' aria-controls='${id}'>${item.title}</button></${item.tag}><div aria-hidden='true' id='${id}'><div class='prose'>${item.content}</div></div>`
     }
 
     function nodeListToString(list) {

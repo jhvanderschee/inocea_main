@@ -1,1 +1,9 @@
 /* Site-overrides van de :root-tokens uit style.css. Per site te overschrijven. */
+section.has-crafts { --overlap: 0px; background: var(--my-black) url('/img/map.svg') 50% calc(100% - 2rem) / 70rem auto no-repeat;}
+div.crafts  {
+    .reveal.visible & .images > li.active img {
+        animation: none;
+    }
+}
+section.has-bigtext { background: var(--my-black);}
+footer { border-top: 1px solid var(--my-white-40);}

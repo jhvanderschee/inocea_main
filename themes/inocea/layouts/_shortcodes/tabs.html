@@ -1,15 +1,40 @@
-{{ $inner := .Inner }}
-{{ $tabs := split $inner "\n### " }}
-<div class="tabs">
-  <ul class="tabs-nav">
-    {{ range $i, $tab := $tabs }}{{ if gt (len (strings.TrimSpace $tab)) 0 }}{{ $lines := split $tab "\n" }}{{ $title := index $lines 0 }}
-    <li{{ if eq $i 1 }} class="active"{{ end }}><a href="javascript:void(0)" data-tab="tab-{{ anchorize $title }}">{{ $title }}</a></li>
-    {{ end }}{{ end }}
-  </ul>
-  {{ range $i, $tab := $tabs }}{{ if gt (len (strings.TrimSpace $tab)) 0 }}{{ $lines := split $tab "\n" }}{{ $title := index $lines 0 }}{{ $body := strings.TrimSpace (strings.TrimPrefix $title $tab) }}
-  <div class="tab-content{{ if eq $i 1 }} active{{ end }}" id="tab-{{ anchorize $title }}">
-    <h3>{{ $title }}</h3>
-    {{ $body | markdownify }}
-  </div>
-  {{ end }}{{ end }}
+{{- /* Optionele parameter kiest het databestand: {{< tabs >}} leest data/tabs.yml, {{< tabs "federalfleet-tabs" >}} leest data/federalfleet-tabs.yml. */ -}}
+{{ with $tabs := index site.Data (.Get 0 | default "tabs") }}
+<div class="tabbable tabs">
+    <div class="top">
+        <ul class="tabs-nav tabbable-nav">
+            {{ range $i, $tab := $tabs }}
+                <li><button {{ if eq $i 0 }}class='active' {{ end }}data-for='{{ $i }}'>{{ .title }}</button></li>
+            {{ end }}
+        </ul>
+        <div class="buttons outline">
+            <button class='btn' data-dir='-1' aria-label='View previous tab'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
+            <button class='btn' data-dir='1' aria-label='View next tab'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
+        </div>
+    </div>
+    <ul class="tabs-items tabbable-items">
+        {{ range $i, $tab := $tabs }}
+            <li {{ if eq $i 0 }} class='active' {{ end }} data-for='{{ $i }}'>
+                {{ $image := partial "image" .image }}
+                {{- if .video }}
+                    <video autoplay muted loop playsinline {{ with $image }} poster='{{ . }}' {{ end }}>
+                        <source data-src='{{ .video }}' type="video/mp4">
+                    </video>
+                {{- else if .image }}
+                    <picture>
+                        <source media="(min-width:769px)" srcset="{{ .image }}">
+                        <source media="(max-width:768px)" srcset="{{ $image }}">
+                        <img alt="{{ .title }}" src="{{ .image }}">
+                    </picture>
+                {{- end }}
+                {{- with .markdown }}
+                    <div class="prose md">
+                        <h3>{{ $tab.title }}</h3>
+                        {{ partial "md" . }}
+                    </div>
+                {{- end }}
+            </li>
+        {{ end }}
+    </ul>
 </div>
+{{ end }}

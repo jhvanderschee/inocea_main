@@ -20,6 +20,9 @@ params:
     - title: has-blocks
       has: ul.blocks
       is: 
+    - title: has-counters
+      has: ul.counters
+      is: 
     - title: has-facility
       has: .facility
       is: 
@@ -28,6 +31,12 @@ params:
       is:
     - title: has-crafts
       has: .crafts
+      is:
+    - title: has-tabs
+      has: div.tabs
+      is:
+    - title: has-accordion
+      has: ul.accordion
       is:
     - title: leadership
       has: .leadership

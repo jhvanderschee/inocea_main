@@ -1,6 +1,6 @@
 function setupBigtext() {
     const
-        nodes = [...document.querySelectorAll("section.has-bigtext .container > p")],
+        nodes = [...document.querySelectorAll("section.has-bigtext .container > p, div.bigtext > p")],
         bigtexts = nodes.map(node => ({ node, words: wrapWords(node) })).filter(bigtext => bigtext.words.length),
         from = .6,
         to = .2;
@@ -44,7 +44,7 @@ function setupLineReveal() {
         stagger = .05,
         selector = "h1, h2, h3, p, li",
         /* Elementen die zelf al bewegen of als blok horen te blijven, niet in regels knippen. */
-        skip = ".accordion, .tabs, div.crafts, div.facility, .curtain-carousel, ul.publications, ul.leadership, .blocks",
+        skip = ".accordion, .tabs, .has-crafts, div.facility, .curtain-carousel, ul.publications, ul.leadership, .blocks",
         original = new WeakMap(),
         sections = [...document.querySelectorAll("main section")];
 

@@ -23,7 +23,7 @@ address { font-style: normal;}
     --mono-font: 'Sometype Mono', ui-monospace, monospace;
 
     /* Font weights */
-    --font-regular: 400;
+    --font-regular: 300;
     --font-medium: 500;
     --font-bold: 600;
 
@@ -53,6 +53,8 @@ address { font-style: normal;}
     --my-soft-black: #494949;
     --my-red: #cb4520;
 
+    --faded-color: var(--my-black-40);
+
     /* Line heights */
     --line-height-tiny: 1;
     --line-height-small: 1.2;
@@ -67,6 +69,7 @@ address { font-style: normal;}
     --max-width-ultra-wide: 150rem;
     --max-width-narrow: 35rem;
     --margin-left: 0%;
+    --margin-left-large: 0%;
     --width: calc(100% - calc(var(--gutter-side) * 2));
     --gap: 4rem; 
 
@@ -175,6 +178,8 @@ section.dark + section.dark { padding-top: 0; display: flex; flex-direction: col
 
 /* --------------- DARK SECTIONS --------------- */
 section.dark { 
+    --faded-color: var(--my-white-40);
+
     background: var(--my-black); color: var(--my-soft-white);
     a {color: var(--my-white);}
     &:not(.h2-normal) h2  { border-color: var(--my-white-40); }
@@ -187,20 +192,23 @@ section.black { background: var(--my-full-black); }
 
 
 /* --------------- BIGTEXT --------------- */
-section.has-bigtext .container {
+:is(section.has-bigtext .container, .bigtext) {
     & > h2:first-child { margin-top: 0; margin-bottom: 7rem; }
     & > p { padding-block: 1rem;  font-weight: var(--font-medium); font-size: var(--font-size-h1);  line-height: var(--line-height-medium); max-width: 25em; margin-bottom: 2rem; }
     & > p .word { color: var(--my-soft-black); transition: color 1s;  }
     & > p .word[data-lit=true] { color: var(--my-soft-white);}
 }
 
+
+
 /* --------------- PARALLAX --------------- */
 p:has(img.parallax) { display: flex; }
-img.parallax { --parallax-ratio: 5; width: 100%; aspect-ratio: var(--parallax-ratio); object-fit: cover; animation: parallax linear both; animation-timeline: view(); }
-@keyframes parallax { from { object-position: center 0%; } to { object-position: center 100%; } }
+img.parallax { --parallax-ratio: calc(var(--original-aspect) + 1.2); width: 100%; aspect-ratio: var(--parallax-ratio); object-fit: cover; animation: parallax linear both; animation-timeline: view();  }
+@keyframes parallax { from { object-position: center 100%; } to { object-position: center 0%; } }
 @media only screen and (max-width: 1000px) { img.parallax { --parallax-ratio: 3; } }
 @media only screen and (max-width: 600px)  { img.parallax { --parallax-ratio: 2; } }
 @media (prefers-reduced-motion: reduce)    { img.parallax { animation: none; } }
+
 
 div.crafts .images img,
 section.fullwidth-image img:not(.parallax) {
@@ -337,8 +345,9 @@ section.header .media > :is(img, video) { display: block; }
 
 /* =========================================================== */
 /* ========================= BLOCKS ========================== */
-/* =========================================================== */
 /* ========================= CAREERS ========================= */
+/* ======================== COUNTERS ========================= */
+/* =========================================================== */
 /* =========================================================== */
 section.has-blocks { 
     & h1 { font-size: var(--font-size-h2); max-width: 28em;}
@@ -373,6 +382,8 @@ section.has-blocks {
     & ul.careers > li:nth-of-type(4n+3) { grid-row: span 2; aspect-ratio: unset;  }
     & ul.careers > li:nth-of-type(4n+4) { grid-column: span 2; aspect-ratio: unset;  }
 
+    & ul.counters > li > div { grid-template-rows: 1fr;}
+
     @media screen and (max-width: 1450px) {
         & ul.blocks {grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));}
     }
@@ -391,8 +402,8 @@ section.has-blocks {
 /* =========================================================== */
 section.large-list .container {
     & > ul { margin-top: 2.75rem; margin-left: var(--margin-left); }
-    & > ul > li { border-bottom: 1px solid var(--my-black-40); padding: 1.25rem 0; }
-    & > ul > li:first-child { border-top: 1px solid var(--my-black-40); }
+    & > ul > li { border-bottom: 1px solid var(--faded-color); padding: 1.25rem 0; }
+    & > ul > li:first-child { border-top: 1px solid var(--faded-color); }
     & > ul > li strong:first-child { font-weight: var(--font-medium); font-size: var(--font-size-h5); display: block; }
     & > ul > li > p:first-child:not(:last-child) { margin-bottom: .8em; }
     & > ul > li ul { padding-left: .8rem;}
@@ -507,9 +518,7 @@ section.fullwidth-image .container { width: 100%; max-width: var(--max-width-ult
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 3rem 1rem;
 
-    li {padding: 0!important;}
-    li::before {content: none!important;}
-    li h3 {position: relative; font-size: 1.3rem; max-width: 100%; font-weight: 600;}
+    li h3{position: relative; font-size: 1.3rem; max-width: 100%; font-weight: 600;}
     li img {width: 100%; height: auto; margin-bottom: 0.81rem;}
 }
 
@@ -551,21 +560,47 @@ section .split:not(:last-of-type) { margin-bottom: 6rem; }
 
 
 /* =========================================================== */
+/* ======================== TABBABLE ========================= */
+/* =========================================================== */
+.tabbable {
+    & .top { display: flex; justify-content: space-between; gap: 2rem; margin-block: 3.5rem 2rem; }
+    & .tabbable-nav { display: flex; gap: 3rem; min-width: 0; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; }
+    & .tabbable-nav button { font-size: var(--font-size-h5); font-weight: var(--font-medium); white-space: nowrap; background: none; color: var(--faded-color); padding-bottom: .75rem; border-bottom: 2px solid transparent; transition: 250ms; transition-property: border-color, color; }
+    & .tabbable-nav button:hover { color: var(--my-black); }
+    & .tabbable-nav button.active { color: var(--my-black); border-color: var(--my-black); }
+    .dark & .tabbable-nav button { color: var(--my-white-40); }
+    .dark & .tabbable-nav button:hover { color: var(--my-soft-white); }
+    .dark & .tabbable-nav button.active { color: var(--my-white); border-color: var(--my-white); }
+    & .buttons { flex-shrink: 0; }
+
+    & .tabbable-items { display: grid; }
+    & .tabbable-items > li { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity 500ms 300ms, visibility 0s 800ms; }
+    & .tabbable-items > li.active { opacity: 1; visibility: visible; transition-delay: 0s; z-index: 2; }
+
+    @media only screen and (max-width: 768px) {
+        & .top { gap: 1rem; }
+        & .buttons { display: none; }
+    }
+}
+
+
+/* =========================================================== */
 /* ========================= CRAFTS ========================== */
 /* =========================================================== */
 section.has-crafts { --overlap: 10rem; --arrows-below: 0rem; background: linear-gradient(var(--my-black) calc(100% - var(--margin-y) - var(--overlap)), var(--my-soft-white) 0); }
 div.crafts {
     position: relative; 
-    & .top { display: flex; justify-content: space-between; gap: 2rem; margin-block: 3.5rem 2rem; }
-    & .tabs { display: flex; gap: 3rem; min-width: 0; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; }
-    & .tabs button {  font-size: var(--font-size-h5); font-weight: var(--font-medium); white-space: nowrap; background: none; color: var(--my-white-40); padding-bottom: .75rem; border-bottom: 2px solid transparent; transition:  250ms; transition-property: border-color,color; }
-    & .tabs button:hover { color: var(--my-soft-white); }
-    & .tabs button.active { color: var(--my-white); border-color: var(--my-white); }
-    & .buttons { flex-shrink: 0; }
-
+    & .images > li { overflow: clip; }
+    & .images picture { overflow: clip;}
     & .images img { display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+
+    & .md { max-width: 50rem;}
+    & .prose > h3:first-child { position: relative; margin-block: 2rem 1rem; font-size: var(--font-size-h6); font-family: var(--mono-font);  text-transform: uppercase;  display: flex; gap: .8rem; align-items: flex-start;   grid-column: -1/1;}
+    & .prose > h3:first-child::before { content: ""; width: 1.1em; height: 1.1em; border-radius: 100vmin; background: var(--my-red); outline: 2px solid var(--my-red); outline-offset: .2em; margin-inline: calc(.2em + 2px); transform: translateY(.0em); }
     
-    
+    & .split { display: grid; grid-template-columns: 1fr 1fr; align-items: flex-start; padding-block: 1.5rem 1rem; margin-block: 3rem;  border-top: 1px solid var(--my-white-40);}
+    & .split > * { margin-top: 0;}
+
     @media (prefers-reduced-motion: no-preference) {
         & .images > li.active img { transform-origin: 50% 50%; }
         .reveal.visible & .images > li.active img {
@@ -573,19 +608,62 @@ div.crafts {
         }
     }
     @media only screen and (min-width: 769px) {
-        .images h3 { display: none; }
-        & .images { display: grid; }
-        & .images > li { grid-area: 1 / 1; opacity: 0; transition: opacity 500ms 300ms; overflow: clip; }
-        & .images > li.active { opacity: 1; transition-delay: 0s;  z-index: 2;}
+        .images h3.h6 { display: none; }
     }
 
+    /* Op mobiel geen tabs: alle crafts onder elkaar, met hun eigen kop. */
     @media only screen and (max-width: 768px) {
         .top { display: none;}
+        & .images { display: block; }
+        & .images > li { opacity: 1; visibility: visible; }
         .images > li:not(:last-of-type) { margin-bottom: 3rem;}
     }
 }
 @media only screen and (max-width: 768px) {
     section.has-crafts {--overlap: 6rem; }
+}
+
+
+/* =========================================================== */
+/* ========================== TABS =========================== */
+/* =========================================================== */
+section.has-tabs { padding-top: 0px; display: flex; flex-direction: column;  --overlap: 6rem; background: linear-gradient(var(--my-soft-white) calc(100% - var(--margin-y) - var(--overlap)), var(--my-black) 0);  }
+div.tabs {
+    & .tabs-items > li { display: grid; gap: 2rem 0rem; align-items: start; background: var(--my-white); }
+    & .tabs-items :is(video, img) { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+    & .md { max-width: 40rem; padding: 2rem;  margin-top: auto; }
+
+    @media only screen and (min-width: 1025px) {
+        & .tabs-items > li:has(> :is(video, picture)) { grid-template-columns: 1fr 1fr; }
+    }
+}
+
+
+/* =========================================================== */
+/* ======================== ACCORDION ======================== */
+/* =========================================================== */
+section.has-accordion .container > h2:first-child ~ * { margin-left: var(--margin-left);}
+ul.accordion {
+    margin-top: 2.75rem; 
+    & > li { border-bottom: 1px solid var(--faded-color); }
+    & > li:first-child { border-top: 1px solid var(--faded-color); }
+    & > li > :first-child { position: relative; max-width: 100%; margin: 0; font-size: var(--font-size-h4); }
+    & > li > :first-child > button { position: relative; display: flex; align-items: center; width: 100%; padding-block: 2rem; padding-right: 2.5rem; font: inherit; font-weight: var(--font-medium); color: inherit; background: none; border: none; text-align: left; }
+    & > li > :first-child > button::after { content: ""; position: absolute; right: .2rem; width: 1.7rem; height: 1.7rem; background: url(/img/plus-white.svg) center / contain no-repeat; filter: invert(1); transition: transform .1s; }
+    & > li > :first-child > button[aria-expanded=true]::after { transform: rotate(-45deg); }
+
+    & > li > div { display: flex; flex-direction: column; width: 100%; overflow: hidden; transition: padding .25s, max-height .25s; }
+    & > li > div[aria-hidden=true] { max-height: 0; }
+    & > li > div[aria-hidden=false] { max-height: var(--height, unset); }
+    & > li > div > :first-child { padding-bottom: 2rem; }
+    & > li > div > :last-child { margin-bottom: 0; }
+
+    /* Variant: alles open, zonder knop. */
+    &.expanded > li > :first-child > button { padding-bottom: .5rem; cursor: text; pointer-events: none; }
+    &.expanded > li > :first-child > button::after { content: none; }
+    &.expanded > li > div { max-height: var(--height, unset); }
+    &.expanded.tight > li > :first-child > button { padding-top: 1.25rem; }
+    &.expanded.tight > li > div > :first-child { padding-bottom: 1.25rem; }
 }
 
 
@@ -610,7 +688,35 @@ section.has-publications .publications {
      @media only screen and (max-width: 768px) {
           grid-template-columns: 1fr;
      }
- }
+}
+
+
+
+/* =========================================================== */
+/* ==================== TITLE LIST SPLIT ===================== */
+/* =========================================================== */
+section.title-list-split .container { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2rem;}
+section.title-list-split ul { margin-top: 0.5em;}
+
+
+/* =========================================================== */
+/* ======================= WIDE SPLIT ======================== */
+/* =========================================================== */
+section.wide.split h3 ~ *:not(h3) { margin-left: var(--margin-left-large); }
+section.wide.split h3 { max-width: 50%;}
+
+@media only screen and (min-width: 769px) {
+    section.wide.split h3 + * { margin-top: calc(var(--line-height-small) * var(--font-size-h3) * -1);  }   
+}
+
+
+
+
+
+
+
+
+
 
 
 /* --------------- LEGAL --------------- */
@@ -645,6 +751,7 @@ body.legal footer { border-top: 1px solid var(--my-white-40);}
 @media only screen and (min-width: 769px) {
     :root { 
         --margin-left: 30%; 
+        --margin-left-large: 50%;
     }
 }
 @media only screen and (max-width: 768px) {

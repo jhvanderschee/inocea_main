@@ -1,6 +1,6 @@
 {{- $label := partial "section_label.html" .Content -}}
-<section class="title-list-split" {{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
-    <div class="container">
+<section class="title-list-split dark" {{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
+    <div class="container prose">
         {{ .Content }}
     </div>
 </section>

@@ -34,15 +34,13 @@ Federal Fleet provides deployable combat support capability under long-term serv
 - Operate under NATO procedures and standards
 - Deliver predictable availability under operational tempo
 
----.wide
+---
 
 ## Our fleet
 
-{{< crafts "federalfleet-fleet" >}}
+{{< crafts >}}
 
----.bigtext
-
-Theaters of operation have included Red Sea, Indo-Pacific, Arabian Gulf, East Africa, Korean Peninsula and the Arctic.
+{{< bigtext "Theaters of operation have included Red Sea, Indo-Pacific, Arabian Gulf, East Africa, Korean Peninsula and the Arctic."  >}}
 
 ---
 
@@ -50,60 +48,11 @@ Theaters of operation have included Red Sea, Indo-Pacific, Arabian Gulf, East Af
 
 Since 2018, Federal Fleet has maintained continuous operational deployment of combat support capability.
 
-{{< blocks "federalfleet-numbers" >}}
+{{< counters  >}}
 
----.wide
-
-<!-- ONTBREEKT: tabs met cards zonder styling in het theme; in het origineel toont alleen het actieve tabblad, met per card een video naast de tekst. -->
+---
 
 {{< tabs >}}
-
-### Operational Activity
-
-{{< card >}}
-
-#### Operational Activity
-
-{{< video src=/uploads/asterix-short-01.mp4 >}}
-
-- Participation in multinational exercises including RIMPAC
-- Support to counter-terrorism and maritime security operations
-- Support to sanctions enforcement and contested-water patrols
-
-{{< /card >}}
-
-### Recognition
-
-{{< card >}}
-
-#### Recognition
-
-{{< video src=/uploads/asterix-short-02.mp4 >}}
-
-Several medals awarded to Federal Fleet personnel:
-
-- Special Service Medal – EXPEDITION for Operation Projection
-- Special Service Medal – EXPEDITION for Operation SAVANNE
-
-{{< /card >}}
-
-### Operational Integration
-
-{{< card >}}
-
-#### Operational Integration
-
-{{< video src=/uploads/asterix-short-03.mp4 >}}
-
-Operating alongside naval clients:
-
-- Embarked naval detachments onboard 
-- Direct support to allied vessels (fuel, ammunition, stores) 
-- Coordination with multinational task groups
-
-{{< /card >}}
-
-{{< /tabs >}}
 
 ---
 
@@ -113,75 +62,7 @@ All vessels are classed by Lloyd’s Register (LR). Management systems are certi
 
 {{< accordion >}}
 
-### Replenishment at Sea (RAS)
-
-All vessels are equipped for complex underway replenishment in open-ocean conditions. All replenishment systems meet ATP 16 / NATO interoperability standards.
-
-- Marine fuel transfer
-- Aviation fuel transfer
-- Lube oil and freshwater transfer (Commodity replenishment)
-- Ammunition replenishment
-- Dry cargo and stores transfer
-- Multi-station concurrent RAS operations, abeam and astern methods
-
-### Aviation Operations
-
-Aviation capability extends logistics range and operational flexibility. Each vessel supports rotary-wing operations including:
-
-- Helicopter launch and recovery
-- Vertical replenishment
-- Aviation fuel handling and storage
-- Integrated deck operations within naval task groups
-- Task group aviation maintenance
-
-### Medical Support
-
-Medical capability enables the vessels to support both combat operations and multinational humanitarian missions. Capabilities include:
-
-- Primary surgical and emergency response facilities
-- Stabilization and treatment capability
-- Support for sustained deployments
-- Humanitarian and disaster relief medical response
-- Task group medical and dental services
-
-Each vessel possesses task group medical facilities capable of functioning as the primary medical support platform within a deployed task group.
-
-### Command & Coordination
-
-All vessels include integrated command and coordination spaces capable of hosting:
-
-- Task group staff
-- Operational planning elements
-- Coalition liaison personnel
-- Communications integration
-
-These spaces support coordination of replenishment, aviation, and maritime security operations.
-
-### Humanitarian Assistance & Disaster Relief (HADR)
-
-The fleet is configured to support:
-
--  Emergency logistics delivery
--  Medical response operations
--  Evacuation assistance
--  Offshore coordination during natural disasters
-
-Large cargo capacity, aviation integration and endurance allow sustained support in affected regions.
-
-### Full Vessel Operations
-
-Federal Fleet provides complete operational management of all vessels, including:
-
-- Ownership and lifecycle asset management
-- Technical management and engineering oversight
-- Preventive maintenance programs
-- Crewing and workforce training
-- Marine assurance
-- Regulatory and classification compliance
-
-{{< /accordion >}}
-
----.wide
+---.wide-split
 
 ## Personnel
 
@@ -221,7 +102,6 @@ Federal Fleet operates a modern auxiliary fleet structured for sustained deploym
 - Environmental performance benchmarks
 
 <!-- Bouwlijst
-- Card: CSS voor .card, met video naast de tekst zoals in Operational Record.
 - Dot: het label met stip boven een scheepsbeschrijving bestaat niet; in Our fleet is het gewone tekst in de markdown van data/federalfleet-fleet.yml.
 - Numbers: brick met tellende cijfers (countup) en parallax-foto per cijfer, uit data; countup.js is er al, shortcode en CSS niet. Nu blocks als stand-in.
 - Header met kale introzin: video-header kent alleen een kop als copy; het origineel heeft een alinea, hier een h1 gemaakt.
