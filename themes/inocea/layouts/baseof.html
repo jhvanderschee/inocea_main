@@ -40,7 +40,7 @@
             <nav>
                 <a href="/#top" class="logo">{{ partial "logo.html" . }}</a>
                 <ul>
-                    {{ range site.Data.navigation }}
+                    {{ range hugo.Data.navigation }}
                     <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }} onclick="document.body.classList.remove('menuopen')">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
@@ -54,17 +54,17 @@
     <footer id="footer">
         <div class="container">
             <div class="left">
-                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ with site.Data.footer.logo_image }} <img src="{{ .}}" alt="{{ site.Title }} logo">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
+                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ with hugo.Data.footer.logo_image }} <img src="{{ .}}" alt="{{ site.Title }} logo">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
                 <address>
-                    {{ site.Data.footer.text | safeHTML }}
+                    {{ hugo.Data.footer.text | safeHTML }}
                 </address>
                 <ul>
-                    {{ range site.Data.footer.companies }}
+                    {{ range hugo.Data.footer.companies }}
                         <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}><span>{{ .name }}</span></a></li>
                     {{ end }}
                 </ul>
             </div>
-            {{ with site.Data.footer }}
+            {{ with hugo.Data.footer }}
                 {{ range slice .large_link_top .large_link_bottom }}
                     {{ if and .name .url }}
                         <a class='large' href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
@@ -81,7 +81,7 @@
                     {{ range where site.RegularPages "Section" "legal" }}
                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                     {{ end }}
-                    {{ range site.Data.footer.postfooter_urls }}
+                    {{ range hugo.Data.footer.postfooter_urls }}
                         <li><a href="{{ .url }}">{{ .title }}</a></li>
                     {{ end }}
                 </ul>

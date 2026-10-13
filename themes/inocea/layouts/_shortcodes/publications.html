@@ -1,5 +1,5 @@
 <ul class="publications">
-    {{ range site.Data.publications }}
+    {{ range hugo.Data.publications }}
         <li>
           <h3 class='h4'>{{ .title }}</h3>
           {{ with .category }} <span>{{ . }}</span>{{ end }}

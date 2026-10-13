@@ -1,5 +1,5 @@
 loadJsonForCMSLookup({{- $pages := slice -}}
-{{- range .Site.AllPages -}}
+{{- range .Site.Pages -}}
   {{- $path := `` -}}
   {{- with .File -}}{{ $path = .Filename }}{{ end -}}
   {{- $path = replace $path hugo.WorkingDir `` -}}

@@ -1,5 +1,5 @@
 {{- /* Optionele parameter kiest het databestand: {{< tabs >}} leest data/tabs.yml, {{< tabs "federalfleet-tabs" >}} leest data/federalfleet-tabs.yml. */ -}}
-{{ with $tabs := index site.Data (.Get 0 | default "tabs") }}
+{{ with $tabs := index hugo.Data (.Get 0 | default "tabs") }}
 <div class="tabbable tabs">
     <div class="top">
         <ul class="tabs-nav tabbable-nav">
