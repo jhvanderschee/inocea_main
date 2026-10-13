@@ -1,0 +1,5 @@
+/* Site-eigen CSS van Davie Defense. */
+:root { --logo-width: 6.25rem; }
+section.has-bigtext { background: var(--my-black); }
+section.has-bigtext .container { isolation: isolate; }
+section.has-bigtext img.ship-outline { opacity: 1; z-index: -1; }

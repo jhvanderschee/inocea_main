@@ -2,9 +2,7 @@
 title: Home
 ---
 
-{{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-poster.jpg >}}
-
----
+{{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-vid-asc-poster.png >}}
 
 # Building mission-critical vessels for America's defense, security and maritime future through U.S. shipbuilding capacity and proven Arctic expertise.
 
@@ -26,7 +24,7 @@ unshakable belief in building big things and backing those willing to try.
 
  – James Davies,&#10;Co-Founder, Inocea Group
 
----.wide
+---.has-outline
 
 ## Milestones
 ### A New Era for American Shipbuilding
@@ -41,13 +39,11 @@ For more than 75 years, Gulf Copper has been a leader in ship repair, fabricatio
 
 The Arctic Security Cutter is the U.S. Coast Guard's next generation heavy icebreaker, designed to operate in the world's most challenging maritime environments. The program will provide the U.S. Coast Guard with a modern icebreaker fleet to strengthen national security, enhance maritime safety, and ensure year-round access to the Arctic.
 
-![Ship outline](/uploads/ship.png)
+![Ship outline](/uploads/ship.png){:.ship-outline}
 
----.wide
+---.dark
 
-<!-- ONTBREEKT: vimeo-embed als eigen brick -->
-
-<div style="padding:56.25% 0 0 0;position:relative;"> <iframe src="https://player.vimeo.com/video/1210168148?h=ef7773e0e1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="A New Era for American Shipbuilding | Davie Defense &amp; Gulf Copper Groundbreaking Ceremony"> </iframe> </div>
+{{< vimeo id=1210168148 h=ef7773e0e1 title="A New Era for American Shipbuilding | Davie Defense & Gulf Copper Groundbreaking Ceremony" >}}
 
 ---.bigtext
 
@@ -58,28 +54,22 @@ right capability quickly and cost-effectively.
 
 – Alex Vicefield, Co-Founder, Inocea Group
 
----
-
-![](/uploads/texas.svg)
+![](/uploads/texas.svg){:.ship-outline}
 
 ---
 
 ## News
 
-<!-- ONTBREEKT: laatste posts (news) -->
+{{< news >}}
 
----.wide
+---.large-list
 
 ## Media
 
 Download press materials and media assets, or contact [media@daviedefense.com](mailto:media@daviedefense.com) for additional information.
 
-* [Press Release – June 1, 2026: Davie Defense Breaks Ground on $1BN Modernization of Gulf Copper Shipyards](https://www.prnewswire.com/news-releases/davie-defense-breaks-ground-on-1bn-modernization-of-gulf-copper-shipyards-in-texas-to-build-coast-guard-icebreakers-302787390.html)    
-
-* [Press Release – May 13, 2026: Davie Defense Finalizes Contract for U.S. Coast Guard Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-finalizes-contract-for-us-coast-guard-arctic-security-cutters-302771436.html)  
-
-* [Press Release – February 11, 2026: Davie Defense Awarded U.S. Coast Guard Contract to Build Five Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-awarded-us-coast-guard-contract-to-build-five-arctic-security-cutters-302685191.html)  
-
-* [Press Release – December 3, 2025: Davie Defense Closes Gulf Copper Acquisition, Confirming U.S. Shipbuilding Expansion](https://www.prnewswire.com/news-releases/davie-defense-closes-gulf-copper-acquisition-confirming-us-shipbuilding-expansion-302631944.html)  
-
-* [Media Kit](/uploads/davie-defense-media-kit.zip)  
+- **[Press Release – June 1, 2026: Davie Defense Breaks Ground on $1BN Modernization of Gulf Copper Shipyards](https://www.prnewswire.com/news-releases/davie-defense-breaks-ground-on-1bn-modernization-of-gulf-copper-shipyards-in-texas-to-build-coast-guard-icebreakers-302787390.html)**
+- **[Press Release – May 13, 2026: Davie Defense Finalizes Contract for U.S. Coast Guard Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-finalizes-contract-for-us-coast-guard-arctic-security-cutters-302771436.html)**
+- **[Press Release – February 11, 2026: Davie Defense Awarded U.S. Coast Guard Contract to Build Five Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-awarded-us-coast-guard-contract-to-build-five-arctic-security-cutters-302685191.html)**
+- **[Press Release – December 3, 2025: Davie Defense Closes Gulf Copper Acquisition, Confirming U.S. Shipbuilding Expansion](https://www.prnewswire.com/news-releases/davie-defense-closes-gulf-copper-acquisition-confirming-us-shipbuilding-expansion-302631944.html)**
+- **[Media Kit](/uploads/davie-defense-media-kit.zip)**

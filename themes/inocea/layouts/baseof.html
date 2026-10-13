@@ -21,6 +21,7 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <link rel="canonical" href="{{ .Permalink }}" />
+    {{- with .Params.redirect_url }}<meta http-equiv="refresh" content="0; url={{ . }}">{{ end }}
     <link rel="stylesheet" href="/css/fonts.css?version={{ now }}">
     <link rel="stylesheet" href="/css/style.css?version={{ now }}">
     <link rel="stylesheet" href="/css/carousel.css?version={{ now }}">

@@ -1,0 +1,13 @@
+{{- /* Laatste posts in de markup van publications.html; optionele parameter is het aantal: {{< news >}} toont alles, {{< news 3 >}} de nieuwste drie. */ -}}
+{{ $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{ with .Get 0 }}{{ $posts = first (int .) $posts }}{{ end }}
+<ul class="publications">
+    {{ range $posts }}
+        <li>
+          <h3 class='h4'>{{ .Title }}</h3>
+          {{ with .Params.post_type }} <span>{{ . }}</span>{{ end }}
+          {{ if not .Date.IsZero }}<span>{{ .Date.Format "2.1.2006" }}</span>{{ end }}
+          <a href="{{ .RelPermalink }}" aria-label='Go to {{ with .Params.post_type }}{{ . }} {{ end }}{{ .Title }}'></a>
+        </li>
+    {{ end }}
+  </ul>
