@@ -44,7 +44,7 @@ function setupLineReveal() {
         stagger = .05,
         selector = "h1, h2, h3, p, li",
         /* Elementen die zelf al bewegen of als blok horen te blijven, niet in regels knippen. */
-        skip = ".accordion, .tabs, .has-crafts, div.facility, .curtain-carousel, ul.publications, ul.news, ul.leadership, .blocks, .large-list",
+        skip = ".accordion, .tabs, .has-crafts, div.facility, .curtain-carousel, ul.publications, ul.news, ul.leadership, .blocks, ul.numbers, .large-list",
         original = new WeakMap(),
         sections = [...document.querySelectorAll("main section")],
         observer = new IntersectionObserver(onIntersect, { threshold: .15 });

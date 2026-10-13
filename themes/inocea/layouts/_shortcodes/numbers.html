@@ -1,0 +1,12 @@
+{{- /* Getallen met de foto heel eronder; {{< numbers >}} leest data/numbers.yml, {{< numbers "naam" >}} leest data/naam.yml. */ -}}
+{{ with index hugo.Data (.Get 0 | default "numbers") }}
+<ul class="numbers">
+    {{ range . }}
+        <li>
+            <h3 class="countup">{{ .title }}</h3>
+            <p>{{ .description }}</p>
+            {{ with .image }}<img src="{{ partial "image" . }}" alt="">{{ end }}
+        </li>
+    {{ end }}
+</ul>
+{{ end }}

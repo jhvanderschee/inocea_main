@@ -30,6 +30,9 @@ params:
     - title: has-counters
       has: ul.counters
       is: 
+    - title: has-numbers
+      has: ul.numbers
+      is: 
     - title: has-facility
       has: .facility
       is: 

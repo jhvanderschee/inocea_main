@@ -699,6 +699,23 @@ ul.news {
 
 
 /* =========================================================== */
+/* ========================= NUMBERS ========================= */
+/* =========================================================== */
+section.has-numbers { background: var(--my-white); }
+ul.numbers {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .8rem; margin-top: 2.5rem;
+    & > li { display: flex; flex-direction: column; padding: 1.33rem; background: var(--my-black); color: var(--my-white); }
+    & h3 { font-size: var(--font-size-h1); font-weight: 500; margin: 0 0 1rem; }
+    & p { margin: 0 0 1.5rem; }
+    & img { width: 100%; aspect-ratio: 800/425; object-fit: cover; margin-top: auto; }
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        & > li { padding: 2rem 1rem; }
+    }
+}
+
+
+/* =========================================================== */
 /* ====================== PUBLICATIONS ======================= */
 /* =========================================================== */
 section.image-header + section.has-publications { padding-top: 0;}
