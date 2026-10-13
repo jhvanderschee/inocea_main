@@ -11,13 +11,16 @@ companies:
   url: https://helsinkishipyard.fi/
 - name: Sata Shipbuilding
   url: https://www.satashipbuilding.fi
-contact:
-  name: Davie Defense HQ
-  address:
-  - 2920 Todd Road
-  - Galveston, TX 77554
-  - United States
-  phone: ""
-  email: ""
-contact_title: Contact
-contact_text: Send us an email at info@daviedefense.com
+text: |
+  <strong>Davie Defense HQ</strong><br>
+  2920 Todd Road<br>
+  Galveston, TX 77554<br>
+  United States<br>
+  <br>
+  Send us an email at <a href="mailto:info@daviedefense.com">info@daviedefense.com</a>
+large_link_top:
+  name: Contact
+  url: mailto:info@daviedefense.com
+large_link_bottom:
+  name:
+  url:

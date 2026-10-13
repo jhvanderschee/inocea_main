@@ -1,2 +1,10 @@
 contentDir: content-davie
 dataDir: data-davie
+title: Davie Defense
+baseURL: https://www.daviedefense.com
+permalinks:
+  section:
+    posts: /news/
+  page:
+    legal: /:contentbasename
+    posts: /news/:contentbasename/

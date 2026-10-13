@@ -1,9 +1,12 @@
 ---
 title: Home
-header_image: /uploads/header-poster.jpg
-header_video: /uploads/hero-vid-asc.mp4
 ---
-Building mission-critical vessels for America's defense, security and maritime future through U.S. shipbuilding capacity and proven Arctic expertise.
+
+{{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-poster.jpg >}}
+
+---
+
+# Building mission-critical vessels for America's defense, security and maritime future through U.S. shipbuilding capacity and proven Arctic expertise.
 
 ## About
 
@@ -11,12 +14,11 @@ Davie Defense is a U.S. shipbuilder focused on strengthening America’s maritim
 
 Through its modernization of Gulf Copper Shipyards in Texas, Davie Defense is expanding domestic shipbuilding capability, creating skilled manufacturing jobs, and strengthening the industrial base that supports U.S. maritime security.
 
+---
 
-{{< numbers >}}
+{{< counters >}}
 
----.dark
-
-{{< bigtext >}}
+---.bigtext
 
 There’s no better place to invest in the future
 of American industry than Texas, a state with an
@@ -24,10 +26,7 @@ unshakable belief in building big things and backing those willing to try.
 
  – James Davies,&#10;Co-Founder, Inocea Group
 
-
-{{< /bigtext >}}
-
----.dark.milestone
+---.wide
 
 ## Milestones
 ### A New Era for American Shipbuilding
@@ -42,17 +41,15 @@ For more than 75 years, Gulf Copper has been a leader in ship repair, fabricatio
 
 The Arctic Security Cutter is the U.S. Coast Guard's next generation heavy icebreaker, designed to operate in the world's most challenging maritime environments. The program will provide the U.S. Coast Guard with a modern icebreaker fleet to strengthen national security, enhance maritime safety, and ensure year-round access to the Arctic.
 
-![Ship outline](/img/ship.png)
+![Ship outline](/uploads/ship.png)
 
----.dark
+---.wide
+
+<!-- ONTBREEKT: vimeo-embed als eigen brick -->
 
 <div style="padding:56.25% 0 0 0;position:relative;"> <iframe src="https://player.vimeo.com/video/1210168148?h=ef7773e0e1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="A New Era for American Shipbuilding | Davie Defense &amp; Gulf Copper Groundbreaking Ceremony"> </iframe> </div>
 
-
----.dark.has-texas
-
-
-{{< bigtext >}}
+---.bigtext
 
 The importance of ships and domestic, strategic
 shipbuilding capabilities has never been clearer.
@@ -61,8 +58,7 @@ right capability quickly and cost-effectively.
 
 – Alex Vicefield, Co-Founder, Inocea Group
 
-
-{{</ bigtext >}}
+---
 
 ![](/uploads/texas.svg)
 
@@ -70,9 +66,9 @@ right capability quickly and cost-effectively.
 
 ## News
 
-{{< news >}}
+<!-- ONTBREEKT: laatste posts (news) -->
 
----.downloads
+---.wide
 
 ## Media
 
@@ -87,6 +83,3 @@ Download press materials and media assets, or contact [media@daviedefense.com](m
 * [Press Release – December 3, 2025: Davie Defense Closes Gulf Copper Acquisition, Confirming U.S. Shipbuilding Expansion](https://www.prnewswire.com/news-releases/davie-defense-closes-gulf-copper-acquisition-confirming-us-shipbuilding-expansion-302631944.html)  
 
 * [Media Kit](/uploads/davie-defense-media-kit.zip)  
-
-
----
