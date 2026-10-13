@@ -18,9 +18,7 @@
                 <h3 class='h6'>{{ .title }}</h3>
                 {{ $image := partial "image" .image }}
                 <picture>
-                    <source media="(min-width:769px)" srcset="{{ .image }}">
-                    <source media="(max-width:768px)" srcset="{{ $image }}">
-                    <img alt="{{ .title }}" src="{{ .image }}">
+                    <img alt="{{ .title }}" src="{{ $image }}">
                 </picture>
                 {{- with .markdown }}
                     <div class="prose md">
