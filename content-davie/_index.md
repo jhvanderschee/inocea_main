@@ -4,8 +4,6 @@ title: Home
 
 {{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-vid-asc-poster.png >}}
 
----
-
 # Building mission-critical vessels for America's defense, security and maritime future through U.S. shipbuilding capacity and proven Arctic expertise.
 
 ## About
