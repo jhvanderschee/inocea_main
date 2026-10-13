@@ -46,9 +46,11 @@ function setupLineReveal() {
         /* Elementen die zelf al bewegen of als blok horen te blijven, niet in regels knippen. */
         skip = ".accordion, .tabs, .has-crafts, div.facility, .curtain-carousel, ul.publications, ul.leadership, .blocks",
         original = new WeakMap(),
-        sections = [...document.querySelectorAll("main section")];
+        sections = [...document.querySelectorAll("main section")],
+        observer = new IntersectionObserver(onIntersect, { threshold: .15 });
 
-    if (window.innerWidth < minWidth || !sections.length) return;
+    // Geen line-reveal op legal-pagina's.
+    if (window.innerWidth < minWidth || !sections.length || document.body.classList.contains("legal")) return;
 
     document.fonts.ready.then(() => {
         sections.forEach(prepare);
@@ -155,20 +157,16 @@ function setupLineReveal() {
     }
 
     function start() {
-        const observer = new IntersectionObserver(onIntersect, { threshold: .15 });
-
         sections.forEach(section => {
             if (above(section)) reveal(section, true);
             else if (onScreen(section)) reveal(section);
             else observer.observe(section);
         });
+    }
 
-        function onIntersect(entries) {
-            entries.filter(entry => entry.isIntersecting).forEach(entry => {
-                reveal(entry.target);
-                observer.unobserve(entry.target);
-            });
-        }
+    /* Pas unobserven als de sectie echt zichtbaar is; een sectie die te vroeg in beeld kwam moet later opnieuw kunnen triggeren. */
+    function onIntersect(entries) {
+        entries.filter(entry => entry.isIntersecting).forEach(entry => reveal(entry.target));
     }
 
     function reveal(section, instant) {
@@ -177,15 +175,27 @@ function setupLineReveal() {
         if (!instant && !settled(section)) return;
 
         section.classList.add("visible");
+        observer.unobserve(section);
 
         const last = [...section.querySelectorAll(".line-inner")].pop();
-        if (instant || !last) return unwrap(section);
-
-        last.addEventListener("transitionend", () => {
+        if (instant) return unwrap(section);
+        if (!last) {
             unwrap(section);
-            const next = sections.find(other => !other.classList.contains("visible") && onScreen(other));
-            if (next) reveal(next);
-        }, { once: true });
+            return handOff();
+        }
+
+        /* Timer i.p.v. transitionend: die vuurt niet bij reduced motion of een verborgen laatste regel, en dan stokt de hele keten. */
+        setTimeout(() => {
+            unwrap(section);
+            handOff();
+        }, (parseFloat(last.style.getPropertyValue("--delay")) + 1) * 1000);
+    }
+
+    /* Wat intussen voorbij gescrold is direct tonen, dan de eerstvolgende sectie in beeld laten animeren. */
+    function handOff() {
+        sections.filter(other => !other.classList.contains("visible") && above(other)).forEach(other => reveal(other, true));
+        const next = sections.find(other => !other.classList.contains("visible") && onScreen(other));
+        if (next) reveal(next);
     }
 
     function settled(section) {
