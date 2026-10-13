@@ -728,7 +728,7 @@ section.wide.split h3 { max-width: 50%;}
 
 
 /* --------------- LEGAL --------------- */
-body.legal { --background-color: var(--my-black); --main-color: var(--my-soft-white); }
+body.legal { --background-color: var(--my-black); --main-color: var(--my-soft-white); --faded-color: var(--my-white-40); }
 body.legal :is(.logo, header button) { filter: brightness(0) invert(1)}
 body.legal section.wide .container { max-width: 40rem; padding-top: 2rem; }
 body.legal footer { border-top: 1px solid var(--my-white-40);}
