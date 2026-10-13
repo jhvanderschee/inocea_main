@@ -26,7 +26,7 @@ unshakable belief in building big things and backing those willing to try.
 
  – James Davies,&#10;Co-Founder, Inocea Group
 
----.wide
+---.has-outline
 
 ## Milestones
 ### A New Era for American Shipbuilding
@@ -41,7 +41,7 @@ For more than 75 years, Gulf Copper has been a leader in ship repair, fabricatio
 
 The Arctic Security Cutter is the U.S. Coast Guard's next generation heavy icebreaker, designed to operate in the world's most challenging maritime environments. The program will provide the U.S. Coast Guard with a modern icebreaker fleet to strengthen national security, enhance maritime safety, and ensure year-round access to the Arctic.
 
-![Ship outline](/uploads/ship.png)
+![Ship outline](/uploads/ship.png){:.ship-outline}
 
 ---.wide
 
