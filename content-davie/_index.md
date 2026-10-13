@@ -62,18 +62,14 @@ right capability quickly and cost-effectively.
 
 {{< news >}}
 
----.wide
+---.large-list
 
 ## Media
 
 Download press materials and media assets, or contact [media@daviedefense.com](mailto:media@daviedefense.com) for additional information.
 
-* [Press Release – June 1, 2026: Davie Defense Breaks Ground on $1BN Modernization of Gulf Copper Shipyards](https://www.prnewswire.com/news-releases/davie-defense-breaks-ground-on-1bn-modernization-of-gulf-copper-shipyards-in-texas-to-build-coast-guard-icebreakers-302787390.html)    
-
-* [Press Release – May 13, 2026: Davie Defense Finalizes Contract for U.S. Coast Guard Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-finalizes-contract-for-us-coast-guard-arctic-security-cutters-302771436.html)  
-
-* [Press Release – February 11, 2026: Davie Defense Awarded U.S. Coast Guard Contract to Build Five Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-awarded-us-coast-guard-contract-to-build-five-arctic-security-cutters-302685191.html)  
-
-* [Press Release – December 3, 2025: Davie Defense Closes Gulf Copper Acquisition, Confirming U.S. Shipbuilding Expansion](https://www.prnewswire.com/news-releases/davie-defense-closes-gulf-copper-acquisition-confirming-us-shipbuilding-expansion-302631944.html)  
-
-* [Media Kit](/uploads/davie-defense-media-kit.zip)  
+- **[Press Release – June 1, 2026: Davie Defense Breaks Ground on $1BN Modernization of Gulf Copper Shipyards](https://www.prnewswire.com/news-releases/davie-defense-breaks-ground-on-1bn-modernization-of-gulf-copper-shipyards-in-texas-to-build-coast-guard-icebreakers-302787390.html)**
+- **[Press Release – May 13, 2026: Davie Defense Finalizes Contract for U.S. Coast Guard Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-finalizes-contract-for-us-coast-guard-arctic-security-cutters-302771436.html)**
+- **[Press Release – February 11, 2026: Davie Defense Awarded U.S. Coast Guard Contract to Build Five Arctic Security Cutters](https://www.prnewswire.com/news-releases/davie-defense-awarded-us-coast-guard-contract-to-build-five-arctic-security-cutters-302685191.html)**
+- **[Press Release – December 3, 2025: Davie Defense Closes Gulf Copper Acquisition, Confirming U.S. Shipbuilding Expansion](https://www.prnewswire.com/news-releases/davie-defense-closes-gulf-copper-acquisition-confirming-us-shipbuilding-expansion-302631944.html)**
+- **[Media Kit](/uploads/davie-defense-media-kit.zip)**

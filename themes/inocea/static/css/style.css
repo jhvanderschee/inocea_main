@@ -406,6 +406,7 @@ section.large-list .container {
     & > ul > li { border-bottom: 1px solid var(--faded-color); padding: 1.25rem 0; }
     & > ul > li:first-child { border-top: 1px solid var(--faded-color); }
     & > ul > li strong:first-child { font-weight: var(--font-medium); font-size: var(--font-size-h5); display: block; }
+    & > ul > li a { text-decoration: none; }
     & > ul > li > p:first-child:not(:last-child) { margin-bottom: .8em; }
     & > ul > li ul { padding-left: .8rem;}
     & > ul > li ul li { margin-bottom: .25em;}
