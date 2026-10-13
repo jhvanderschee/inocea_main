@@ -310,6 +310,7 @@ section.has-video:first-of-type {
     & + section { padding-top: 2rem;}
     & .container { display: flex; flex-direction: column; }
 }
+iframe.vimeo { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; }
 
 /* =========================================================== */
 /* ====================== HEADER-BRICK ======================== */
@@ -733,6 +734,12 @@ body.legal { --background-color: var(--my-black); --main-color: var(--my-soft-wh
 body.legal :is(.logo, header button) { filter: brightness(0) invert(1)}
 body.legal section.wide .container { max-width: 40rem; padding-top: 2rem; }
 body.legal footer { border-top: 1px solid var(--my-white-40);}
+
+/* --------------- POSTS --------------- */
+body.posts main section { background: var(--background-color); }
+body.posts main section .container { max-width: 58rem; }
+body.posts section.intro { padding-bottom: 0; }
+body.posts section.intro time { font-family: var(--mono-font); color: var(--faded-color); }
 
 /* --------------- PROSE CONTENT --------------- */
 .prose > * + * { margin: 1.5em 0 0;}

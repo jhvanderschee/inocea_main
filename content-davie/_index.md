@@ -2,7 +2,7 @@
 title: Home
 ---
 
-{{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-poster.jpg >}}
+{{< video src=/uploads/hero-vid-asc.mp4 image=/uploads/header-vid-asc-poster.png >}}
 
 ---
 
@@ -45,9 +45,7 @@ The Arctic Security Cutter is the U.S. Coast Guard's next generation heavy icebr
 
 ---.wide
 
-<!-- ONTBREEKT: vimeo-embed als eigen brick -->
-
-<div style="padding:56.25% 0 0 0;position:relative;"> <iframe src="https://player.vimeo.com/video/1210168148?h=ef7773e0e1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="A New Era for American Shipbuilding | Davie Defense &amp; Gulf Copper Groundbreaking Ceremony"> </iframe> </div>
+{{< vimeo id=1210168148 h=ef7773e0e1 title="A New Era for American Shipbuilding | Davie Defense & Gulf Copper Groundbreaking Ceremony" >}}
 
 ---.bigtext
 
@@ -66,7 +64,7 @@ right capability quickly and cost-effectively.
 
 ## News
 
-<!-- ONTBREEKT: laatste posts (news) -->
+{{< news >}}
 
 ---.wide
 

@@ -1,5 +1,13 @@
 contentDir: content-davie
 dataDir: data-davie
+# Eigen static (custom.css/js, logo, favicon) over static/ heen, laatste wint
+staticDir:
+  - static
+  - static-davie
+# Eigen layouts-map, zodat de SATA-logo-partial uit layouts/ niet meekomt
+layoutDir: layouts-davie
+params:
+  description: Davie Defense builds and delivers complex vessels for defence and expedition markets, from newbuilding to sea trials and delivery.
 title: Davie Defense
 baseURL: https://www.daviedefense.com
 permalinks:
