@@ -1,0 +1,23 @@
+companies:
+- name: Inocea
+  url: https://www.inocea.com
+- name: Gulf Copper
+  url: https://www.gulfcopper.com
+- name: Davie Shipbuilding
+  url: https://www.davie.ca
+- name: Federal Fleet
+  url: https://www.federalfleet.ca
+- name: Helsinki Shipyard
+  url: https://helsinkishipyard.fi/
+- name: Sata Shipbuilding
+  url: https://www.satashipbuilding.fi
+contact:
+  name: Davie Defense HQ
+  address:
+  - 2920 Todd Road
+  - Galveston, TX 77554
+  - United States
+  phone: ""
+  email: ""
+contact_title: Contact
+contact_text: Send us an email at info@daviedefense.com
