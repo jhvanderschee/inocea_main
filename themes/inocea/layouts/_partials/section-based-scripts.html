@@ -13,5 +13,5 @@
 {{ range $src, $matches := $scripts }}
     {{ $nodig := false }}
     {{ range $matches }}{{ if in $html . }}{{ $nodig = true }}{{ end }}{{ end }}
-    {{ if $nodig }}<script defer src="/js/{{ $src }}"></script>{{ end }}
+    {{ if $nodig }}<script defer src="/js/{{ $src }}?version={{ now }}"></script>{{ end }}
 {{ end }}
