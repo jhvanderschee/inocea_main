@@ -7,6 +7,9 @@ staticDir:
 # Eigen layouts-map, zodat de SATA-logo-partial uit layouts/ niet meekomt
 layoutDir: layouts-davie
 params:
+  news:
+    author: Davie Defense
+    avatar: /img/linkedin-profile-picture.jpg
   description: Davie Defense builds and delivers complex vessels for defence and expedition markets, from newbuilding to sea trials and delivery.
 title: Davie Defense
 baseURL: https://www.daviedefense.com

@@ -51,6 +51,9 @@ params:
     - title: publications
       has: .publications
       is:
+    - title: has-news
+      has: ul.news
+      is:
     - title: title-list-split
       has: h3:first-child, ul:nth-child(2), ul:last-child
       is:

@@ -268,6 +268,7 @@ footer .left > ul:has(li:nth-of-type(7)) > li:not(:first-of-type) a:hover { opac
 footer .left > ul:has(li:nth-of-type(7)) > li:nth-of-type(2n+2) { grid-column: 2; }
 
 footer .large { display: grid; grid-template-columns: auto 1fr; grid-gap: 1rem; align-items: center;  font-size: var(--font-size-h1); line-height: var(--line-height-tiny); padding: 3rem 2rem;  position: relative; transition: color 250ms; font-weight: var(--font-medium);   }
+footer ul.large {display: flex; }
 footer a.large:hover { color: var(--my-white-40);}
 footer a.large:hover::after { opacity: .4;}
 footer a.large::after { content: ''; width: 4rem; height: 3.5rem; background: url('/img/arrow-right-new.svg') center center / contain no-repeat; display: inline-block;  margin-left: auto;  transition: opacity 250ms;}
@@ -547,6 +548,7 @@ section:is(.has-outline, .has-bigtext) img.ship-outline { opacity: .5; margin-to
 @media only screen and (min-width: 769px) {
     section.has-outline .container { padding-bottom: 12rem;}
     section:is(.has-outline, .has-bigtext) img.ship-outline { position: absolute;  top: 4rem; bottom: 0; right: 0; width: calc(100% - 10em); margin-top: 0; max-width: 50rem; }
+    section:is(.has-outline, .has-bigtext) img.ship-outline.fade-in { opacity: .5; }
 }
 
 
@@ -673,6 +675,25 @@ ul.accordion {
     &.expanded > li > div { max-height: var(--height, unset); }
     &.expanded.tight > li > :first-child > button { padding-top: 1.25rem; }
     &.expanded.tight > li > div > :first-child { padding-bottom: 1.25rem; }
+}
+
+
+/* =========================================================== */
+/* ========================== NEWS =========================== */
+/* =========================================================== */
+section.has-news { background: var(--my-white); }
+ul.news {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1rem; margin-top: 2.5rem;
+    & > li { position: relative; display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: auto 1fr; gap: 1rem .5rem; align-items: start; padding: 1.75rem; background: var(--my-soft-white); color: var(--my-soft-black); }
+    & > li > img { width: 3rem; height: auto; border-radius: 50%; }
+    & .md img { display: block; width: 100%; height: auto; margin-top: 1rem; }
+    & .meta { display: flex; flex-direction: column; align-self: center; font-size: var(--font-size-small); line-height: 1.3; }
+    & .author { font-weight: var(--font-bold); }
+    & time { opacity: .5; }
+    & .linkedin { display: block; width: 1.75rem; height: 1.75rem; padding: .25rem; border-radius: .1em; color: var(--my-white); background: #0072b1; }
+    & .linkedin svg { display: block; width: 100%; height: auto; fill: currentColor; }
+    & a::after { content: ""; position: absolute; inset: 0; }
+    & .md { grid-column: 1 / -1; }
 }
 
 
