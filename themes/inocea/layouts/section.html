@@ -1,6 +1,4 @@
 {{ define "content" }}
-<section>
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-</section>
+    {{- partial "sections/intro.html" (dict "Content" (printf "<h1>%s</h1>" (.Title | htmlEscape) | safeHTML)) -}}
+    {{- partial "sections_logic" . -}}
 {{ end }}

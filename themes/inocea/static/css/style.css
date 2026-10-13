@@ -161,14 +161,15 @@ button,label { cursor: pointer;  user-select: none; }
 .buttons { display: flex; gap: 1rem;}
 .buttons button { width: 1.8rem; height: 1.8rem; padding: 0.4rem;  display: grid; place-items: center; cursor: pointer; }
 .buttons button:hover { background: var(--my-soft-black); }
-.buttons.outline button { width: 2rem; height: 2rem; background: transparent; border: 1px solid; }
-.buttons.outline button:hover { background: var(--my-soft-white); border: 1px solid var(--my-soft-white);}
+.buttons.outline button { width: 2rem; height: 2rem; color: inherit; background: transparent; border: 1px solid; }
+.buttons.outline button:hover { color: var(--my-soft-black); background: var(--my-soft-white); border: 1px solid var(--my-soft-white);}
 .buttons.outline button svg { width: 1rem; height: auto; }
 .buttons.outline button path { fill: currentColor;}
 
 /* --------------- SECTIONS --------------- */
 section { margin: 0 auto; position: relative; background: var(--background-color); padding-block: var(--margin-y); }
 section:first-of-type { padding-top: 0;}
+section.intro:first-of-type { padding-top: var(--margin-y); }
 section .container { margin: 0 auto; }
 section.ultrawide { max-width: var(--max-width-ultra-wide); width: 100%; }
 section.narrow { max-width: var(--max-width-narrow); }
