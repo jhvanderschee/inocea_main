@@ -41,7 +41,7 @@ The Arctic Security Cutter is the U.S. Coast Guard's next generation heavy icebr
 
 ![Ship outline](/uploads/ship.png){:.ship-outline}
 
----.wide
+---.dark
 
 {{< vimeo id=1210168148 h=ef7773e0e1 title="A New Era for American Shipbuilding | Davie Defense & Gulf Copper Groundbreaking Ceremony" >}}
 
@@ -54,9 +54,7 @@ right capability quickly and cost-effectively.
 
 – Alex Vicefield, Co-Founder, Inocea Group
 
----
-
-![](/uploads/texas.svg)
+![](/uploads/texas.svg){:.ship-outline}
 
 ---
 

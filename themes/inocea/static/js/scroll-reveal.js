@@ -1,6 +1,6 @@
 function setupBigtext() {
     const
-        nodes = [...document.querySelectorAll("section.has-bigtext .container > p, div.bigtext > p")],
+        nodes = [...document.querySelectorAll("section.has-bigtext .container > p:not(:has(img)), div.bigtext > p:not(:has(img))")],
         bigtexts = nodes.map(node => ({ node, words: wrapWords(node) })).filter(bigtext => bigtext.words.length),
         from = .6,
         to = .2;
