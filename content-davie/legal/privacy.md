@@ -1,6 +1,9 @@
 ---
 title: Privacy Policy
 ---
+
+# Privacy Policy
+
 Last updated: August 13, 2026<br>
 
 Davie Defense Inc., a Delaware corporation ("Davie Defense", "we", "us" or "our") is committed to protecting your privacy.<br>

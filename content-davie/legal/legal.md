@@ -1,6 +1,9 @@
 ---
 title: Terms of Use
 ---
+
+# Terms of Use
+
 Last Modified: July 21, 2026 
 
 These terms of use are entered into by and between you and each of Davie Defense Inc., a Delaware corporation, and Gulf Copper LLC, a Texas limited liability company. The following terms and conditions, together with any documents they expressly incorporate by reference (collectively, the “Agreement”), govern your access to and use of www.daviedefense.com, including any content, functionality, and services offered on or through www.daviedefense.com (the “Website”).
