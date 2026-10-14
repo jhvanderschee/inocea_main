@@ -1,0 +1,2 @@
+{{- /* Vervangt Hugo's ingebouwde vimeo, die geen hash kent: {{< vimeo id=123 h=abc title="..." >}}; h is nodig voor een niet-openbare video. */ -}}
+<iframe class="vimeo" src="https://player.vimeo.com/video/{{ .Get "id" }}{{ with .Get "h" }}?h={{ . }}{{ end }}" title="{{ .Get "title" }}" allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>

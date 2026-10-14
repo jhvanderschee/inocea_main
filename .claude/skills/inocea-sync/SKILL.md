@@ -37,9 +37,10 @@ git commit -am "…"
 ./sync-theme.sh down <site>
 ```
 
-Nieuwe sectie? Dan hoort er ook een regel bij in `params.sections` van elke site die hem
-gebruikt — die regel staat in de `hugo.yml` van de site, niet in het theme. Eerste match
-wint, dus let op de volgorde. Rol daarna de andere sites bij met dezelfde `down`.
+Nieuwe sectie? Dan hoort er ook een regel bij in `params.sections`. Die staat in het
+theme (`themes/inocea/hugo.yml`), dus hij gaat met `down` mee naar alle sites. Eerste
+match wint, dus let op de volgorde, en vergelijk bij elke site de `<section class>`-reeks
+voor en na. Een site zet zelf nooit `params.sections`, anders negeert Hugo die van het theme.
 
 ## b. Het geldt alleen voor deze site
 

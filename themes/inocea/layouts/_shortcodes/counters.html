@@ -1,0 +1,13 @@
+{{- /* {{< counters >}} leest data/counters.yml, {{< counters "naam" >}} leest data/naam.yml. */ -}}
+{{ with index hugo.Data (.Get 0 | default "counters") }}
+    <ul class="blocks counters">
+      {{ range $i, $block := . }}
+        <li class="block {{ if eq $i 1 }} active {{ end }}" style='background: url({{ partial "image" .image }}) center center / cover '>
+            <h3 class="countup">{{ .title }}</h3>
+            <div>
+              {{ .description }}
+            </div>
+        </li>
+      {{ end }}
+      </ul>
+{{ end }}

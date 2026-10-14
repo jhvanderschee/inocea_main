@@ -1,0 +1,17 @@
+{{- /* Laatste posts als kaarten; {{< news 3 >}} toont er drie. Auteur en avatar uit params.news van de site. */ -}}
+{{ $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{ with .Get 0 }}{{ $posts = first (int .) $posts }}{{ end }}
+<ul class="news">
+    {{ range $posts }}
+        {{ $url := .Params.redirect_url | default .RelPermalink }}
+        <li>
+            {{ with site.Params.news.avatar }}<img src="{{ . }}" alt="">{{ end }}
+            <div class="meta">
+                <span class="author">{{ site.Params.news.author | default site.Title }}</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+            </div>
+            <a class="{{ if in $url "linkedin.com" }}linkedin{{ else }}more{{ end }}" href="{{ $url }}" aria-label="{{ .Title }}">{{ if in $url "linkedin.com" }}{{ partial "svg" "linkedin" }}{{ end }}</a>
+            <div class="md">{{ .Summary }}</div>
+        </li>
+    {{ end }}
+</ul>

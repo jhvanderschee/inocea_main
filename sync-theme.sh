@@ -6,7 +6,7 @@
 #
 # Draai dit script altijd vanuit inocea_main; het staat niet in de sites.
 #
-#   down <site-map> [--yes]        theme naar de site kopiëren (met --delete)
+#   down <site-map> [--yes] [--force]        theme naar de site kopiëren (met --delete)
 #   up   <site-map> <pad-in-theme>...  losse bestanden uit de site terughalen
 #   diff <site-map>                verschillen in beide richtingen tonen
 #
@@ -27,7 +27,7 @@ THEME_DIR="$REPO_DIR/themes/$THEME_NAME"
 
 usage() {
   cat >&2 <<EOF
-usage: sync-theme.sh down <site-map> [--yes]
+usage: sync-theme.sh down <site-map> [--yes] [--force]
        sync-theme.sh up   <site-map> <pad-binnen-theme>...
        sync-theme.sh diff <site-map>
 
@@ -71,14 +71,31 @@ require_clean_theme() {
   fi
 }
 
+# Weigert als iemand in de site aan het theme heeft gewerkt sinds de VERSION daar.
+require_untouched_site_theme() {
+  local target="$1" ver tmp changed
+  [ -f "$target/VERSION" ] || return 0
+  ver="$(head -1 "$target/VERSION")"
+  git -C "$REPO_DIR" cat-file -e "$ver^{commit}" 2>/dev/null || die "VERSION $ver van de site bestaat niet in deze repo"
+  tmp="$(mktemp -d)"
+  git -C "$REPO_DIR" archive "$ver" themes/inocea | tar -x -C "$tmp"
+  changed="$(diff -rq -x VERSION -x .DS_Store "$tmp/themes/inocea" "$target" 2>&1 || true)"
+  rm -rf "$tmp"
+  [ -z "$changed" ] || die "het theme in de site is aangepast sinds ${ver:0:7}; haal dat eerst op met up (of gebruik --force):
+$changed"
+}
+
 cmd_down() {
-  local site yes=0
+  local site yes=0 force=0
   site="$(resolve_site "${1:-}")"; shift || true
-  [ "${1:-}" = "--yes" ] && yes=1
+  for arg in "$@"; do
+    case "$arg" in --yes) yes=1 ;; --force) force=1 ;; *) usage ;; esac
+  done
 
   require_clean_theme
 
   local target; target="$(theme_target "$site")"
+  [ "$force" -eq 1 ] || require_untouched_site_theme "$target"
   mkdir -p "$target"
 
   echo "theme : $THEME_DIR"

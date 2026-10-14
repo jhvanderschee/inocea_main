@@ -36,8 +36,9 @@ rm -rf content/* && mkdir -p static/uploads && touch static/uploads/.gitkeep
    inhoud en horen ze in de repo.
 
 3. **hugo.yml**: `title` en `baseURL` invullen, `linkedin_partner_id` weghalen,
-   `header_icon` uitgecommentarieerd laten. `params.sections` blijft zoals het is —
-   dat is de sectie-matching, geen merkinstelling.
+   `header_icon` uitgecommentarieerd laten. Geen `params.sections`: die staan in het
+   theme (`themes/inocea/hugo.yml`). Zonder andere params: `params: {}`, anders weigert
+   Hugo de config.
 
 4. **Leegmaken tot placeholders**: elk `data/*.yml` houdt zijn keys maar krijgt één
    placeholder-item (`social_media.yml` mag helemaal leeg blijven); `static/img/logo.svg`

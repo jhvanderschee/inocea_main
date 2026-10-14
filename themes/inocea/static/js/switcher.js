@@ -1,6 +1,6 @@
-// Eén item tegelijk actief: data-for kiest, data-dir bladert; gedeeld door facility-kaart en crafts.
+// Eén item tegelijk actief: data-for kiest, data-dir bladert; gedeeld door facility-kaart en alles met .tabbable.
 function setupSwitchers() {
-    document.querySelectorAll("div.facility, div.crafts").forEach(div => {
+    document.querySelectorAll("div.facility, .tabbable").forEach(div => {
         const
             buttons = div.querySelectorAll("button[data-for]"),
             items = div.querySelectorAll("li[data-for]"),

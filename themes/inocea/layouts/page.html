@@ -1,3 +1,6 @@
 {{ define "content" }}
+    {{- if eq .RelPermalink "/404.html" -}}
+        {{- partial "sections/intro.html" (dict "Content" (printf "<h1>%s</h1>" (.Title | htmlEscape) | safeHTML)) -}}
+    {{- end -}}
     {{- partial "sections_logic" . -}}
 {{ end }}

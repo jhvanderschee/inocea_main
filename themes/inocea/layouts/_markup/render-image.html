@@ -6,7 +6,8 @@
         {{- $img := . -}}
         {{- if gt .Width 1920 -}}{{- $img = .Resize "1920x webp q50" -}}{{- else -}}{{- $img = .Process "webp q50" -}}{{- end -}}
         {{- $src = $img.RelPermalink -}}
-        {{- $dims = printf ` width="%d" height="%d"` $img.Width $img.Height -}}
+        {{- $aspect := div (mul $img.Width 1.0)  (mul $img.Height 1.0) -}}
+        {{- $dims = printf ` width="%d" height="%d" style="--original-aspect:%.2f"` $img.Width $img.Height $aspect -}}
     {{- end -}}
 {{- end -}}
 <img src="{{ $src | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ $dims | safeHTMLAttr }}>

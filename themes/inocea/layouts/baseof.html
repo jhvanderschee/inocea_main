@@ -8,7 +8,10 @@
 
     <title>{{ (replace .Title "<br>" "") | safeHTML }} | {{ .Site.Title | safeHTML }}</title>
     {{ if .IsHome }}
-      <meta name="description" content="{{ plainify .Summary }}">
+      {{/* Description uit frontmatter, anders de Summary zonder sectiescheidingen */}}
+      {{ $desc := .Description }}
+      {{ if not $desc }}{{ $desc = .Summary | plainify | htmlUnescape | replaceRE `(?:—|&mdash;|---)[.#][\w-]+` " " | replaceRE `(?m)^\s*(?:—|&mdash;|---)\s*$` " " | replaceRE `\s+` " " | strings.TrimSpace }}{{ end }}
+      <meta name="description" content="{{ $desc }}">
     {{ else }}
       <meta name="description" content="{{ $.Site.Params.description }}">
     {{ end }}
@@ -18,16 +21,16 @@
     <link rel="apple-touch-icon" href="/img/favicon.png">
 
     <link rel="canonical" href="{{ .Permalink }}" />
+    {{- with .Params.redirect_url }}<meta http-equiv="refresh" content="0; url={{ . }}">{{ end }}
     <link rel="stylesheet" href="/css/fonts.css?version={{ now }}">
     <link rel="stylesheet" href="/css/style.css?version={{ now }}">
     <link rel="stylesheet" href="/css/carousel.css?version={{ now }}">
-    <link rel="stylesheet" href="/css/accordion.css" />
     <link rel="stylesheet" href="/css/custom.css?version={{ now }}">
 
 
-    <script defer src="/js/lenis.min.js"></script>
-    <script defer src="/js/hasscrolled.js"></script>
-    <script defer src="/js/scroll-reveal.js"></script>
+    <script defer src="/js/lenis.min.js?version={{ now }}"></script>
+    <script defer src="/js/hasscrolled.js?version={{ now }}"></script>
+    <script defer src="/js/scroll-reveal.js?version={{ now }}"></script>
     {{ partial "section-based-scripts.html" . }}
     {{- partial "svg-sprite" . -}}
   </head>

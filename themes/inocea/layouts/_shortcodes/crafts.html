@@ -1,7 +1,8 @@
-{{ with $crafts := hugo.Data.crafts }}
-<div class="crafts">
+{{- /* Optionele parameter kiest het databestand: {{< crafts >}} leest data/crafts.yml, {{< crafts "federalfleet-fleet" >}} leest data/federalfleet-fleet.yml. */ -}}
+{{ with $crafts := index hugo.Data (.Get 0 | default "crafts") }}
+<div class="tabbable crafts">
     <div class="top">
-        <ul class="tabs">
+        <ul class="tabs tabbable-nav">
             {{ range $i, $craft := $crafts }}
                 <li><button {{ if eq $i 0 }}class='active' {{ end }}data-for='{{ $i }}'>{{ .title }}</button></li>
             {{ end }}
@@ -11,16 +12,29 @@
             <button class='btn' data-dir='1' aria-label='View next craft'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
         </div>
     </div>
-    <ul class="images">
+    <ul class="images tabbable-items">
         {{ range $i, $craft := $crafts }}
-            <li {{ if eq $i 0 }}class='active' {{ end }}data-for='{{ $i }}'>
+            <li {{ if eq $i 0 }} class='active' {{ end }} data-for='{{ $i }}'>
                 <h3 class='h6'>{{ .title }}</h3>
                 {{ $image := partial "image" .image }}
                 <picture>
-                    <source media="(min-width:769px)" srcset="{{ .image }}">
-                    <source media="(max-width:768px)" srcset="{{ $image }}">
-                    <img alt="{{ .title }}" src="{{ .image }}">
+                    <img alt="{{ .title }}" src="{{ $image }}">
                 </picture>
+                {{- with .markdown }}
+                    <div class="prose md">
+                        {{ partial "md" . }}
+                    </div>
+                {{- end }}
+                {{ range .lists }}
+                    <div class="split prose">
+                        <h4>{{ .title }}</h4>
+                        <ul>
+                            {{ range .list }}
+                                <li>{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                {{ end }}
             </li>
         {{ end }}
     </ul>
