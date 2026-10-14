@@ -176,6 +176,8 @@ section.narrow { max-width: var(--max-width-narrow); }
 section:nth-of-type(even) { background: var(--my-soft-white); }
 
 section.dark + section.dark { padding-top: 0; display: flex; flex-direction: column; }
+/* Andere achtergrond (donker → zwart): dan wel ruimte erboven. */
+section.dark:not(.black) + section.dark.black { padding-top: var(--margin-y); }
 
 /* --------------- DARK SECTIONS --------------- */
 section.dark { 
