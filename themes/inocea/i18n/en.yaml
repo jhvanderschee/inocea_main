@@ -27,3 +27,9 @@ deliveries_filter_label: Filter deliveries by category
 deliveries_all: All
 deliveries_showing: "Showing {{ .Shown }} of {{ .Total }}"
 deliveries_load_more: Load more
+optional: optional
+first_name: First name
+last_name: Last name
+address: Address
+city: City
+postal_code: Postal code

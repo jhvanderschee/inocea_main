@@ -998,6 +998,49 @@ table.deliveries { width: 100%; text-align: left; border-collapse: separate; bor
 
 
 /* =========================================================== */
+/* ========================== FORMS ========================== */
+/* =========================================================== */
+form { display: flex; flex-wrap: wrap; gap: 2rem; color-scheme: dark;
+    & > div { display: flex; flex-direction: column; justify-content: flex-start; gap: .5rem; width: 100%; }
+    & > div.half { width: calc(50% - 1rem); }
+    & > div label { display: block; }
+    & label a { text-decoration: underline; }
+    & > div:not(.half) > h2:first-child { margin-top: 5rem; }
+    & > div :is(textarea, select, input:not(.btn)) { padding: .5rem .75rem; border: 0; border-bottom: 1px solid transparent; border-radius: 0; background-color: rgba(255, 255, 255, .07); color: var(--my-white); font-family: 'Questrial', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.4; transition: .1s all ease-in-out; }
+    & > div :is(input:placeholder-shown, select:invalid, select:has(option[value=""]:checked), textarea:placeholder-shown) { border-color: var(--my-white-40); background-color: transparent; }
+    & > div:is(.checkbox, .radio, .multiselect) input { margin-right: .35rem; }
+    & > div.checkbox + div.checkbox, & > div.radio + div.radio { margin-top: -1.45rem; }
+    & > div:is(.checkbox, .radio):not(:has(+ div:is(.checkbox, .radio))) > label:first-child, & > div:is(.checkbox + .checkbox, .radio + .radio) > label:first-child { display: none; }
+    & > div textarea { min-height: calc(3.7rem + 1px); overflow-y: hidden; resize: none; }
+    & > div select { padding-right: 2rem; background: url('/img/dropdown-arrow-white.svg') right .75rem center / .5rem .5rem no-repeat; appearance: none; }
+    & > div select option { color: var(--my-black); }
+    & > div input::-webkit-outer-spin-button, & > div input::-webkit-inner-spin-button { margin: 0; -webkit-appearance: none; }
+    & > div input[type=number] { -moz-appearance: textfield; }
+    & > div.multiselect > label { display: flex; justify-content: space-between; align-items: center; }
+    & > div.multiselect fieldset { display: block; padding: .5rem .75rem; border: 1px solid var(--my-white-40); }
+    & > div.multiselect fieldset label { display: block; padding: .15rem 0; cursor: pointer; }
+    & .multiselect-toggle { display: inline-block; width: 1.3em; aspect-ratio: 1; padding: 0; border: none; background: none; color: inherit; font-family: monospace; font-size: 1.2rem; line-height: 1; cursor: pointer; }
+    & label .info { display: inline-flex; justify-content: center; align-items: center; width: 1.15em; aspect-ratio: 1; margin-left: .4em; padding: 0; border: 1px solid currentColor; border-radius: 50%; background: none; color: inherit; opacity: .6; font-family: inherit; font-size: .75em; font-style: italic; line-height: 1; vertical-align: middle; cursor: pointer; }
+    & label .info:is(:hover, :focus-visible) { opacity: 1; }
+    & .btn { min-width: 10rem; margin-top: 2rem; }
+    & .btn.reversed, & .btn.reversed:not(:hover) { padding: .75em 3rem .75em 1.5rem; border-radius: .3rem; background: var(--my-white); color: var(--my-black); }
+    & button.btn.reversed::after { right: 1.25rem; background-image: url('/img/arrow-right-black.svg'); }
+    &.submitted > div:has(:invalid) :is(input, select, textarea) { border-color: #e05555 !important; }
+    &.submitted > div:has(:invalid), &.submitted > div:has(:invalid) a { color: #e05555; text-decoration-color: #e0555577; }
+
+    @media (hover: hover) {
+        & .btn.reversed:hover { background: var(--my-soft-white); }
+    }
+    @media only screen and (max-width: 600px) {
+        & > div :is(textarea, select, input:not(.btn)) { border-color: transparent !important; background-color: rgba(255, 255, 255, .07) !important; }
+        & > div.half { width: 100%; }
+    }
+}
+section.dark .frc-i-widget { filter: invert(1) hue-rotate(180deg) brightness(1.1); }
+.frc-banner a { text-decoration: none !important; }
+
+
+/* =========================================================== */
 /* ========================== STEPS ========================== */
 /* =========================================================== */
 section.steps { background: var(--my-white); }

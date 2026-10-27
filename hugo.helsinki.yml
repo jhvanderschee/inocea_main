@@ -16,6 +16,8 @@ cascade:
       path: '{/authors/**}'
 
 params:
+  sharepoint_forms:
+    - become-a-partner
   theme_style: light
   nav_active: true
   post_types:

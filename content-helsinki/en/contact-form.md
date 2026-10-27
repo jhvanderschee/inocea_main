@@ -34,4 +34,4 @@ form:
 
 Fill out the form below.
 
-[blok volgt: form]
+{{< form >}}

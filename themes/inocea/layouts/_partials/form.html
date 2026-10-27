@@ -1,0 +1,99 @@
+{{- /* Formulier uit de lijst velden in page.Params.form; dezelfde sleutel in elke taal kiest het endpoint (en server-side de kolommen). */ -}}
+{{ $formid := page.Params.translationKey | default page.File.ContentBaseName }}
+{{ $endpoint := cond (in (site.Params.sharepoint_forms | default slice) $formid) "/sharepoint.php" "/form.php" }}
+<img src="{{ $endpoint }}" style="width: 1px; height: 1px; position: absolute; pointer-events: none; opacity: 0;" />
+<form action="{{ $endpoint }}" method="post">
+<input type="hidden" name="_form" value="{{ $formid }}">
+{{ range . }}
+
+    {{ if eq .input_type "title" }}
+        <div>{{ if .label }}<h2>{{ .label }}</h2>{{ end }}</div>
+    {{ else if eq .input_type "textarea" }}
+        <div>
+            <label for="{{ .name }}">{{ .label }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}{{ partial "form-info.html" .description }}</label>
+            <textarea name="{{ .name }}" id="{{ .name }}" placeholder="" {{ if .required }}required{{ end }} oninput="this.style.height='auto';this.style.height=(this.scrollHeight+1)+'px'"></textarea>
+        </div>
+    {{ else if eq .input_type "radio" }}
+        <div class="radio">
+            <label>{{ .label | default (humanize .name) }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}{{ partial "form-info.html" .description }}</label>
+            <label><input type="radio" name="{{ .name }}" value="{{ .label }}" {{ if .required }}required{{ end }}>{{ .label }}</label>
+        </div>
+    {{ else if eq .input_type "checkbox" }}
+        <div class="checkbox">
+            <label>{{ humanize .name }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}{{ partial "form-info.html" .description }}</label>
+            <label><input type="checkbox" name="{{ .name }}" value="{{ .label }}" {{ if .required }}required{{ end }}>{{ markdownify .label }}</label>
+        </div>
+    {{ else if eq .input_type "select" }}
+        {{ $options := .options | default (split .label ",") }}
+        <div class="select">
+            <label for="{{ .name }}">{{ .label | default (humanize .name) }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}{{ partial "form-info.html" .description }}</label>
+            <select name="{{ .name }}" id="{{ .name }}" {{ if .required }}required{{ end }}>
+                <option></option>
+            {{ range $options }}
+                <option value="{{ . }}">{{ . }}</option>
+            {{ end }}
+            </select>
+        </div>
+    {{ else if eq .input_type "multiselect" }}
+        {{ $options := .options | default (split .label ",") }}
+        <div class="multiselect">
+            {{- /* De +/- komt als laatste in deze flex-rij; kop en (i) blijven daarom samen in één span. */}}
+            <label for="{{ .name }}"><span>{{ .label | default (humanize .name) }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}{{ partial "form-info.html" .description }}</span></label>
+            <select name="{{ .name }}[]" id="{{ .name }}" multiple {{ if .required }}required{{ end }}>
+            {{ range $options }}
+                <option value="{{ . }}">{{ . }}</option>
+            {{ end }}
+            </select>
+        </div>
+    {{ else if eq .input_type "friendlycaptcha" }}
+        {{ $frc := partial "data" "friendlycaptcha" | default dict }}
+        {{ with $frc.sitekey }}
+        {{ $sdk := $frc.sdk_version | default "1.0.3" }}
+        <div class="captcha">
+            <div class="frc-captcha" data-sitekey="{{ . }}"
+                {{- with $frc.endpoint }} data-api-endpoint="{{ . }}"{{ end }}
+                {{- with $frc.start }} data-start="{{ . }}"{{ end }}></div>
+        </div>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@friendlycaptcha/sdk@{{ $sdk }}/site.min.js" async defer></script>
+        <script nomodule src="https://cdn.jsdelivr.net/npm/@friendlycaptcha/sdk@{{ $sdk }}/site.compat.min.js" async defer></script>
+        {{ end }}
+    {{ else if eq .input_type "submit" }}
+        <div>
+            <div>
+                <button type="submit" class="btn reversed" onclick="this.closest('form').classList.add('submitted');">{{ .label }}</button>
+            </div>
+        </div>
+    {{ else }}
+        {{ if eq .name "name" }}
+            <div class="half">
+                <label for="firstname">{{ i18n "first_name" }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}</label>
+                <input type="text" name="firstname" id="firstname" placeholder="" {{ if .required }}required{{ end }}>
+            </div>
+            <div class="half">
+                <label for="lastname">{{ i18n "last_name" }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}</label>
+                <input type="text" name="lastname" id="lastname" placeholder="" {{ if .required }}required{{ end }}>
+            </div>
+        {{ else if eq .name "address" }}
+            <div>
+                <label for="address">{{ i18n "address" }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}</label>
+                <input type="text" name="address" id="address" placeholder="" {{ if .required }}required{{ end }}>
+            </div>
+            <div class="half">
+                <label for="city">{{ i18n "city" }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}</label>
+                <input type="text" name="city" id="city" placeholder="" {{ if .required }}required{{ end }}>
+            </div>
+            <div class="half">
+                <label for="postalcode">{{ i18n "postal_code" }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}</label>
+                <input type="text" name="postalcode" id="postalcode" placeholder="" {{ if .required }}required{{ end }}>
+            </div>
+        {{ else }}
+            <div>
+                <label for="{{ .name }}">{{ .label }}{{ if not .required }} ({{ i18n "optional" }}){{ end }}{{ partial "form-info.html" .description }}</label>
+                <input type="{{ .input_type }}" name="{{ .name }}" id="{{ .name }}" placeholder="" {{ if .required }}required{{ end }}>
+            </div>
+        {{ end }}
+    {{ end }}
+
+{{ end }}
+
+</form>

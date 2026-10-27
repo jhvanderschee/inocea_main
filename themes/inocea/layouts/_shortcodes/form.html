@@ -1,0 +1,2 @@
+{{- /* Het formulier van deze pagina, uit form: in de frontmatter; {{< form >}}. */ -}}
+{{ with page.Params.form }}{{ partial "form.html" . }}{{ end }}

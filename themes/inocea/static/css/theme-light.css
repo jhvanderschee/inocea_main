@@ -60,9 +60,9 @@ main ul:not([class], nav ul) > li::before { content: '>'; display: block; positi
 .logo :is(img, svg) { margin-block: .2rem; }
 
 /* --------------- BUTTONS --------------- */
-:is(a, .news-more button).btn { display: inline-flex; align-items: center; padding: .5em 1.5em .5em 0; border-radius: 0; text-decoration: none; position: relative; font-size: 1rem; font-weight: 400; text-align: left; isolation: isolate; }
-:is(a, .news-more button).btn, :is(a, .news-more button).btn:hover, :is(a, .news-more button).btn.reversed:not(:hover) { background: transparent; color: inherit; }
-:is(a, .news-more button).btn::after { content: ""; position: absolute; right: 0; display: inline-flex; width: 1rem; height: 1rem; background: url('/img/arrow-right-small-black.svg') 51% 50% / .9rem auto no-repeat; }
+:is(a, .news-more button, form button).btn { display: inline-flex; align-items: center; padding: .5em 1.5em .5em 0; border-radius: 0; text-decoration: none; position: relative; font-size: 1rem; font-weight: 400; text-align: left; isolation: isolate; }
+:is(a, .news-more button, form button).btn, :is(a, .news-more button, form button).btn:hover, :is(a, .news-more button, form button).btn.reversed:not(:hover) { background: transparent; color: inherit; }
+:is(a, .news-more button, form button).btn::after { content: ""; position: absolute; right: 0; display: inline-flex; width: 1rem; height: 1rem; background: url('/img/arrow-right-small-black.svg') 51% 50% / .9rem auto no-repeat; }
 :is(section.overlay, section.dark) a.btn::after { background-image: url('/img/arrow-right-small-white.svg'); }
 
 /* --------------- SECTIONS --------------- */

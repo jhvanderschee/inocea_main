@@ -218,4 +218,4 @@ form:
 
 ## Täytä alla oleva lomake hakeaksesi kumppaniksi
 
-[blok volgt: form]
+{{< form >}}

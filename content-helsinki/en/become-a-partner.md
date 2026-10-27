@@ -218,4 +218,4 @@ form:
 
 ## Fill out the form below to apply as a partner
 
-[blok volgt: form]
+{{< form >}}

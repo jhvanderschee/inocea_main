@@ -34,4 +34,4 @@ form:
 
 Täytä alla oleva lomake.
 
-[blok volgt: form]
+{{< form >}}
