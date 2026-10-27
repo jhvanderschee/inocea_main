@@ -9,11 +9,7 @@
     --font-size-lead:  2.5rem;
     --line-height-h1:  1;
 
-    /* Colors */
-    --my-gray: #b4b8bd;
-
     /* Labels (h2 in een sectie) */
-    --label-font-size: 1.2rem;
     --label-font-weight: 400;
     --label-line-height: var(--line-height-regular);
     --label-padding-bottom: .4rem;
@@ -42,19 +38,16 @@
 /* ========================= GENERAL ========================= */
 /* =========================================================== */
 :is(ul,ol,p) a { text-decoration-color: var(--my-black-20); }
-a[href^="tel:"] { text-decoration: none; }
 img { max-width: 100%; display: block; }
-hr { border-top: 1px solid var(--my-black); margin-block: 3.5rem 3.75rem; }
 
 h1 { margin-bottom: 2rem; }
 h3 { margin-block: 4rem 1.5rem; }
-main ul + h2 { margin-top: 6rem; }
 .reveal.visible h2 { border-color: var(--my-black-20); }
 
 /* Bullets '>' op alle lijsten uit de content. */
 main ul:not([class], nav ul) { position: relative; margin-bottom: 1.6em; }
 main ul:not([class], nav ul) > li { padding-block: .25rem; padding-left: 1.1rem; }
-main ul:not([class], nav ul) > li::before { content: '>'; display: block; position: absolute; margin-left: -1.1rem; }
+main ul:not([class], nav ul) > li::before { content: '>'; position: absolute; margin-left: -1.1rem; }
 
 /* --------------- LOGO --------------- */
 .logo :is(img, svg) { margin-block: .2rem; }
@@ -70,7 +63,6 @@ main ul:not([class], nav ul) > li::before { content: '>'; display: block; positi
 section { overflow: clip; }
 section:first-of-type { padding-top: var(--section-padding-top); }
 section.white { background: var(--my-white); }
-section.white + section.white { padding-top: 0; }
 
 /* Lead: de eerste alinea van een sectie. */
 section .container > p:first-child:not(:has(img)) { max-width: 20em; margin-bottom: 1.75em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
@@ -109,12 +101,10 @@ section.dark a:not(.btn) { color: var(--my-soft-white); text-decoration-color: v
 /* =========================================================== */
 header { font-size: .85rem; }
 
-body.menuopen header { transform: none; }
-
 @media (max-width: 1000px) {
-    header .container nav ul { top: 3.1rem; bottom: auto; height: 0; padding-block: 0 1rem; opacity: 0; transform: none; z-index: auto; transition: height .15s ease-in-out; }
+    header .container nav ul { top: 3.1rem; bottom: auto; height: 0; opacity: 0; transform: none; z-index: auto; transition: height .15s ease-in-out; }
     header .container nav ul li a { font-size: 1.25rem; }
-    body.menuopen header .container nav ul { height: 21rem; opacity: 1; transform: none; }
+    body.menuopen header .container nav ul { height: 21rem; transform: none; }
     body.menuopen header .container nav ul li { transition: opacity .3s ease-in-out .15s; }
 
     body::after { content: ""; position: fixed; inset: 0; z-index: 5; background: rgba(0, 0, 0, 0.5); opacity: 0; pointer-events: none; }
@@ -134,18 +124,17 @@ footer .left > ul { padding-right: 6rem; }
 footer .left > ul > li { margin-bottom: 0; }
 footer .left > ul > li:first-of-type { font-size: 110%; }
 
-footer a.large { display: block; padding: 3rem 8.5rem 3rem 3rem; font-size: 3rem; font-weight: 400; line-height: 1; }
-footer a.large::after { position: absolute; top: 3rem; right: 3.25rem; width: 4rem; height: 3.5rem; margin: 0; }
+footer a.large { display: block; padding: 3rem 8.5rem 3rem 3rem; font-weight: 400; }
+footer a.large::after { position: absolute; top: 3rem; right: 3.25rem; width: 4rem; height: 3.5rem; }
 
 footer .postfooter { padding-block: 2rem; font-size: .8rem; }
 footer .postfooter ul { gap: 1rem 2rem; }
 
 @media only screen and (min-width: 1001px) {
     footer .container { grid-template-columns: calc((100% + 3rem + 1px + var(--gutter-side)) / 2) 1fr; grid-template-rows: auto 1fr; }
-    footer .left { border-right: 1px solid var(--my-white-40); }
     footer .large { margin-right: calc(var(--gutter-side) * -1); }
     footer .large:nth-child(2) { border-bottom: 1px solid var(--my-white-40); }
-    footer .large:nth-child(2)::before { content: ""; position: absolute; top: auto; bottom: -1px; left: 100%; width: max(0px, calc(50vw - 50rem)); height: 1px; border: 0; background: var(--my-white-40); }
+    footer .large:nth-child(2)::before { bottom: -1px; left: 100%; width: max(0px, calc(50vw - 50rem)); }
 }
 @media only screen and (max-width: 1100px) {
     footer a.large { font-size: 2.25rem; }
@@ -208,11 +197,10 @@ section.featured-image {
     & .container:last-child > div:last-child { overflow: hidden; }
     & .container:last-child > div:last-child > p:first-child { max-width: 33.5em; margin-bottom: 1.2em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
     & img.parallax { aspect-ratio: auto; }
-    &:last-child { padding-bottom: 10rem; }
 
     @media (max-width: 1200px) {
         & .container:last-child { flex-direction: column-reverse; }
-        & .container:last-child > div:first-child { width: 100%; min-width: 0; padding: 4rem 0 0; }
+        & .container:last-child > div:first-child { padding: 4rem 0 0; }
     }
     @media (max-width: 1000px) {
         & h1 { margin-bottom: var(--label-margin-bottom); }
@@ -228,14 +216,14 @@ section.page h1 { margin-block: 3rem 4rem; }
 section.page h1 + p { font-size: 1.5rem; font-weight: var(--font-medium); line-height: 1.4; }
 main section.page h2 { margin-block: 5rem 1.5rem; padding-bottom: 0; border: 0; font-family: var(--header-font); font-size: 1.7rem; font-weight: var(--font-medium); line-height: var(--line-height-small); text-transform: none; }
 main section.page h1 + h2 { margin-top: 0; }
-section.page h3 { position: relative; max-width: 100%; margin-block: 3rem .5rem; padding: 0; font-size: 1.15rem; }
+section.page h3 { position: relative; max-width: 100%; margin-block: 3rem .5rem; font-size: 1.15rem; }
 
 /* 404: het theme zet de titel in een eigen intro-sectie boven de pagina. */
-main > section.intro:has(+ section.page) { padding-block: var(--section-padding-top) 4rem; background: var(--my-black); color: var(--my-soft-white);
+main > section.intro:has(+ section.page) { padding-block: var(--section-padding-top) 4rem; background: var(--my-black);
     & .container { max-width: calc(52rem - var(--gutter-side) * 2); }
     & h1 { margin-block: 3rem 0; }
     & + section.page { padding-top: 0; }
-    & + section.page .container > p:first-child { max-width: none; margin-bottom: 1.6em; font-size: 1.5rem; font-weight: var(--font-medium); line-height: 1.4; }
+    & + section.page .container > p:first-child { max-width: none; margin-bottom: 1.6em; font-size: 1.5rem; line-height: 1.4; }
 }
 
 @media (max-width: 600px) {
@@ -304,16 +292,15 @@ section.has-contact-accordions .container { max-width: var(--max-width-medium); 
 /* --------------- NEWS --------------- */
 ul.news {
     grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr)); margin-top: 0;
-    & > li { display: flex; flex-direction: column; gap: 0; padding: 1.75rem; color: var(--my-black); transition: all .25s ease-in-out; }
+    & > li { display: flex; flex-direction: column; gap: 0; color: var(--my-black); transition: all .25s ease-in-out; }
     & > li:hover { background: rgba(0, 0, 0, .1); }
-    & > li > img, & .author, & .md { display: none; }
+    & .author, & .md { display: none; }
     & .meta { align-self: flex-start; line-height: inherit; }
     & .more { height: 0; }
     & :is(.type, time) { font-size: .85rem; font-weight: 400; letter-spacing: .025em; }
     & .type { display: block; text-transform: capitalize; }
-    & time { opacity: .5; }
     & .more::before { content: ""; position: absolute; right: 1.75rem; bottom: 1.75rem; width: 2.5rem; height: 2.5rem; border-radius: 100%; background: var(--my-white) url(/img/news-arrow-right.svg) 53% center / .9rem auto no-repeat; }
-    & .title { display: -webkit-box; margin: 0 0 3rem; padding-top: 1.4rem; font-size: 1.75rem; font-weight: 500; line-height: 1.2; overflow: hidden; overflow-wrap: break-word; hyphens: auto; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; }
+    & .title { display: -webkit-box; margin: 0 0 3rem; padding-top: 1.4rem; font-size: 1.75rem; overflow: hidden; overflow-wrap: break-word; hyphens: auto; -webkit-box-orient: vertical; -webkit-line-clamp: 5; }
 }
 
 /* --------------- NEWS LIST --------------- */
@@ -370,9 +357,6 @@ body.posts main strong { font-weight: 400; }
     nav.pages h3 { font-size: 1rem; }
     section:has(h3):not(.steps, :has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3, nav.pages) { padding-left: 0; }
     section > .container:has(> h3:first-child ~ p > img.parallax) > :is(h3:first-child, p:has(> img.parallax)) { float: none; width: auto; }
-    img.parallax { --parallax-ratio: 1.9; }
-}
-@media only screen and (max-width: 600px) {
     img.parallax { --parallax-ratio: 1.9; }
 }
 @media only screen and (max-width: 450px) {
