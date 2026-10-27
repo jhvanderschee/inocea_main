@@ -133,7 +133,9 @@ body.menuopen header { transform: none; }
 /* =========================================================== */
 /* ========================= FOOTER ========================== */
 /* =========================================================== */
-footer { color: var(--my-soft-white); border-top: 1px solid var(--my-white-40); font-size: .85rem; }
+footer { color: var(--my-soft-white); background: var(--my-full-black); border-top: 1px solid var(--my-white-40); font-size: .85rem; }
+/* Rand op zwart, het bovenste deel over de hele breedte #1c1c1c. */
+footer > .container { background: var(--my-black); box-shadow: 0 0 0 100vmax var(--my-black); clip-path: inset(0 -100vmax); }
 footer .left { padding: 3rem 3rem 4rem 0; justify-content: space-between; line-height: 2; max-width: unset; }
 footer .left .logo { filter: invert(1) brightness(1.1); }
 footer .left address { padding-top: .25rem; line-height: 1.6; }
