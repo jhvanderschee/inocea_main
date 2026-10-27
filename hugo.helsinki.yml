@@ -1,0 +1,79 @@
+# Tijdelijke Helsinki Shipyard-opzet om na te bouwen: hugo --config hugo.yml,hugo.helsinki.yml
+title: Helsinki Shipyard
+baseURL: https://www.helsinkishipyard.preview.usecue.com
+defaultContentLanguage: en
+
+cascade:
+  - build:
+      render: never
+      list: always
+    target:
+      path: '{/projects/**}'
+  - build:
+      render: never
+      list: never
+    target:
+      path: '{/authors/**}'
+
+params:
+  theme_style: light
+  nav_active: true
+  post_types:
+    - news
+    - press release
+    - blog
+    - reference
+
+languages:
+  en:
+    label: English
+    title: Helsinki Shipyard
+    params:
+      description: Helsinki Shipyard official website
+    contentDir: content-helsinki/en
+    weight: 1
+    permalinks:
+      section:
+        posts: /news/
+        authors: /authors/
+        projects: /projects/
+        solutions: /solutions/
+      page:
+        posts: /:contentbasename/
+        authors: /authors/:contentbasename/
+        projects: /projects/:contentbasename/
+        solutions: /solutions/:contentbasename/
+  fi:
+    label: Suomi
+    title: Helsinki Shipyard
+    params:
+      description: Helsinki Shipyardin virallinen verkkosivusto
+    contentDir: content-helsinki/fi
+    weight: 2
+    permalinks:
+      section:
+        posts: /uutiset/
+        authors: /tekijat/
+        projects: /projektit/
+        solutions: /ratkaisut/
+        careers: /urat/
+      page:
+        posts: /:contentbasename/
+        authors: /tekijat/:contentbasename/
+        projects: /projektit/:contentbasename/
+        solutions: /ratkaisut/:contentbasename/
+        careers: /urat/:contentbasename/
+
+# Eigen mounts, want static/ dient ook als assets/ (svg-sprite via resources.Match)
+module:
+  mounts:
+    - source: layouts-helsinki
+      target: layouts
+    - source: static-helsinki
+      target: static
+    - source: static-helsinki
+      target: assets
+    - source: i18n-helsinki
+      target: i18n
+    - source: data-helsinki
+      target: data

@@ -1,0 +1,92 @@
+locations:
+  title: Locations
+  items:
+  - title: Helsinki office and shipyard
+    address_markdown: "Laivakatu 1  \n00150 Helsinki  \nFinland\n"
+    button_text: Show on map
+    button_url: https://maps.app.goo.gl/wvuM6VbuqobE2bA98
+    image: /uploads/helsinki-shipyard-and-office.jpg
+  - title: Turku office
+    address_markdown: "Aurakatu 18  \n20100 Turku  \nFinland\n"
+    button_text: Show on map
+    button_url: https://maps.app.goo.gl/baGvEGFFFcydUuuv9
+    image: /uploads/turku-office.jpg
+contacts:
+  title: Contact
+  items:
+  - title: Sales
+    contacts:
+    - name: Jussi Lehtinen
+      function: Vice President, Sales & Marketing
+      tel: +358 44 769 7934
+    - name: Antti Lipsanen
+      function: Expedition Cruisers and Superyachts
+      tel: +358 50 479 7329
+    - name: Jukka Salminen
+      function: Icebreakers
+      tel: +358 40 514 1666
+    - name: Turkka Jäppinen
+      function: Naval vessels
+      tel: +358 50 325 2292, +1 581 989 4483
+    - name: Ilari Valtonen
+      function: Lifecycle Services
+      tel: +358 50 563 5673
+  - title: Public Affairs and Communications
+    contacts:
+    - name: Antti Leino
+      function: Vice President, Public Affairs
+      tel: +358 40 705 8769
+    - name: Heli Poikonen
+      function: Communications Manager
+      tel: +358 50 379 4119
+  - title: Leadership
+    contacts:
+    - name: Riikka Raemäki
+      function: Executive Assistant
+      tel: +358 10 622 2204
+suppliers:
+  title: Suppliers
+  inner_title: Become a partner
+  markdown: "Helsinki Shipyard operates with a strong focus on long-term, responsible
+    partnerships.\r\n\r\n[Become a partner](/become-a-partner)  \r\n[Subcontractor
+    policy](/subcontractor-info)  \r\n[Code of conduct](/code-of-conduct)  \r\n"
+visitors:
+  title: Visitors
+  inner_title: Planning a visit
+  markdown: "Welcome to Helsinki Shipyard. Planning a visit? Please comply with the
+    following safety instructions and register in advance. \n\n-\tAll visitors are
+    required to complete safety training before arrival\n-\tRegister at the main gate
+    (Laivakatu 1) and collect your visitor card and parking permit. \n-\tSecurity
+    will notify your host of your arrival. Stay with your host throughout the visit.\n-\tUse
+    marked routes only. Stay alert and keep clear of machinery. \n-\tUse the provided
+    safety gear. Skirts, shorts, and high heels are not permitted in production areas.\n-\tPhotography
+    is not allowed without permission.\n\nFor any questions, please contact your host.\nMain
+    gate: [+358 10 622 2303](tel:+358106222303)  \nOperator: [+358 10 622 20](tel:+3581062220)
+    \ \nEmergency: [+358 10 622 2222](tel:+358106222222)\n"
+  cards:
+  - title: Office visitors
+    textarea: 'Required for visits to office spaces only. Valid for three months.
+      Code: Meeting'
+    button_text: Start training
+    button_url: https://helsinkishipyard.flowlms.com/formalms/index.php?r=adm/homepage/register
+  - title: Production visitors
+    textarea: 'Required for visits to production areas. Valid for three months. Code:
+      VISITOR'
+    button_text: Start training
+    button_url: https://helsinkishipyard.flowlms.com/formalms/index.php?r=adm/homepage/register
+invoicing:
+  title: Invoicing
+  inner_title: Invoicing instructions
+  markdown: "Invoices to DNY Finland Oy should primarily be sent as an e-invoice with
+    the information below.   \r\nElectronic invoicing address: 003733574684  \r\nOperator
+    code: 003708599126  \r\nOperator: Open Text Oy  \r\n\r\nIf you cannot send e-invoices,
+    you can send invoices by post or email.\r\n\r\nDNY Finland Oy  \r\nCode 16813115
+    \ \r\nP.O. Box 940, 00019 SSC\r\n\r\nor by email scanning.europe@liaison.com"
+media:
+  title: Media
+  inner_title: Media
+  cards:
+  - title: Media kit
+    textarea: Download logos, images and other media materials.
+    button_text: Download
+    button_url: /uploads/mediakit.zip

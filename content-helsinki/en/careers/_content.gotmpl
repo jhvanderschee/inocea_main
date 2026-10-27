@@ -1,0 +1,30 @@
+{{ $.EnableAllLanguages }}
+{{ $data := dict }}
+{{ $url := "https://ats.talentadore.com/positions/Q27tqSp/rss?v=4&language=&tags=&notTags=&businessUnits=&notBusinessUnits=&display_description=job_title&categories=tags_and_extras" }}
+{{ $opts := dict "timeout" "10s" }}
+{{ with try (resources.GetRemote $url $opts) }}
+    {{ with .Err }}
+        {{ warnf "Failed to fetch feed: %s" . }}
+    {{ else with .Value }}
+        {{ $data = . | transform.Unmarshal }}
+    {{ end }}
+{{ end }}
+
+{{ range $data.channel.item }}
+    {{ $content := dict 
+        "mediaType" "text/markdown" 
+        "value" .description
+    }}
+
+    {{ $page := dict 
+        "kind" "page"
+        "content" $content
+        "translationKey" (.title | urlize)
+        "params" .
+        "path" (.title | urlize)
+        "title" .title
+        "dates" (dict "date" (time .startdate))
+    }}
+
+    {{ $.AddPage $page }}
+{{ end }}

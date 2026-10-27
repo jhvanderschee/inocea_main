@@ -1,0 +1,34 @@
+menu: Valikko
+open_positions: Avoimet<br>työpaikat
+contact_us: Yhteystiedot
+news: Uutinen
+all_news: Kaikki uutiset
+show_all_news: Näytä kaikki uutiset
+press_release: Tiedote
+blog: Blogi
+reference: Referenssi
+first_name: Etunimi
+last_name: Sukunimi
+address: Osoite
+city: Kaupunki
+postal_code: Postinumero
+optional: valinnainen
+deliveries_filter_label: Suodata aluksia luokan mukaan
+deliveries_all: Kaikki
+deliveries_showing: Näytetään {{ .Shown }} / {{ .Total }}
+deliveries_load_more: Näytä lisää
+deliveries_col_year: Vuosi
+deliveries_col_no: Nro
+deliveries_col_name: Nimi
+deliveries_col_type: Tyyppi
+deliveries_col_owner: Omistaja
+deliveries_cat_icebreaker: Jäänmurtajat
+deliveries_cat_passenger-vessel: Matkustaja-alukset
+deliveries_cat_cargo-vessel: Rahtialukset
+deliveries_cat_naval-vessel: Sotilasalukset
+deliveries_cat_special-vessel: Erikoisalukset
+deliveries_cat_air-cushion-vessel: Ilmatyynyalukset
+deliveries_cat_other: Muut
+additional_information: Lisätietoja
+read_more: Lue lisää
+our_facility: Telakkamme

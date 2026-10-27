@@ -1,0 +1,36 @@
+companies:
+- name: Inocea
+  url: https://www.inocea.com
+- name: Davie Shipbuilding
+  url: https://www.davie.ca
+- name: Sata Shipbuilding
+  url: https://www.satashipbuilding.fi
+- name: Federal Fleet
+  url: https://www.federalfleet.ca
+- name: Gulf Copper
+  url: https://www.gulfcopper.com
+text: |
+  <strong>Helsinki Shipyard</strong><br>
+  Laivakatu 1<br>00150 Helsinki<br>Suomi<br><br>
+  +358 10 622 20<br>
+  <a href="mailto:info@helsinkishipyard.fi">info@helsinkishipyard.fi</a>
+large_link_top:
+  name: Avoimet<br>työpaikat
+  url: /fi/urat/
+large_link_bottom:
+  name: Yhteystiedot
+  url: /fi/ota-yhteytta/
+copyright: DNY Finland Oy
+postfooter_urls:
+- title: Kumppanit
+  url: /fi/ota-yhteytta/#suppliers
+- title: Vierailijat
+  url: /fi/ota-yhteytta/#visitors
+- title: Uutiset
+  url: /fi/uutiset/
+- title: Käyttöehdot
+  url: /fi/kayttoehdot/
+- title: Whistleblowing
+  url: https://www.firstwhistle.fi/helsinkishipyard
+- title: Tietosuojaseloste
+  url: /fi/tietosuojaseloste/

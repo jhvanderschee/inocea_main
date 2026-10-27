@@ -1,0 +1,34 @@
+menu: Menu
+open_positions: Open<br>positions
+contact_us: Contact us
+news: News
+all_news: All news
+show_all_news: Show all news
+press_release: Press release
+blog: Blog
+reference: Reference
+first_name: First name
+last_name: Last name
+address: Address
+city: City
+postal_code: Postal code
+optional: optional
+deliveries_filter_label: Filter deliveries by category
+deliveries_all: All
+deliveries_showing: Showing {{ .Shown }} of {{ .Total }}
+deliveries_load_more: Load more
+deliveries_col_year: Year
+deliveries_col_no: No.
+deliveries_col_name: Name
+deliveries_col_type: Type
+deliveries_col_owner: Owner
+deliveries_cat_icebreaker: Icebreakers
+deliveries_cat_passenger-vessel: Passenger vessels
+deliveries_cat_cargo-vessel: Cargo vessels
+deliveries_cat_naval-vessel: Naval vessels
+deliveries_cat_special-vessel: Special vessels
+deliveries_cat_air-cushion-vessel: Air cushion vessels
+deliveries_cat_other: Other
+additional_information: Additional information
+read_more: Read more
+our_facility: Our facility

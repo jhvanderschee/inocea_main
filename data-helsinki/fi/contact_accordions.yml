@@ -1,0 +1,93 @@
+locations:
+  title: Sijainnit
+  items:
+  - title: Helsingin toimisto ja telakka
+    address_markdown: "Laivakatu 1  \r\n00150 Helsinki  \r\nFinland\r\n"
+    button_text: Näytä kartalla
+    button_url: https://maps.app.goo.gl/wvuM6VbuqobE2bA98
+    image: /uploads/helsinki-shipyard-and-office.jpg
+  - title: Turun toimisto
+    address_markdown: "Aurakatu 18  \r\n20100 Turku  \r\nFinland\r\n"
+    button_text: Näytä kartalla
+    button_url: https://maps.app.goo.gl/baGvEGFFFcydUuuv9
+    image: /uploads/turku-office.jpg
+contacts:
+  title: Yhteyshenkilöt
+  items:
+  - title: Myynti
+    contacts:
+    - name: Jussi Lehtinen
+      function: VP, Myynti ja markkinointi
+      tel: +358 44 769 7934
+    - name: Antti Lipsanen
+      function: Tutkimusristeilijät ja superjahdit
+      tel: +358 50 479 7329
+    - name: Jukka Salminen
+      function: Jäänmurtajat
+      tel: +358 40 514 1666
+    - name: Turkka Jäppinen
+      function: Viranomaisalukset
+      tel: +358 50 325 2292, +1 581 989 4483
+    - name: Ilari Valtonen
+      function: Elinkaaripalvelut
+      tel: +358 50 563 5673
+  - title: Yhteiskuntasuhteet ja viestintä
+    contacts:
+    - name: Antti Leino
+      function: VP, Yhteiskuntasuhteet
+      tel: +358 40 705 8769
+    - name: Heli Poikonen
+      function: 'Viestintäpäällikkö '
+      tel: +358 50 379 4119
+  - title: Johto
+    contacts:
+    - name: Riikka Raemäki
+      function: Johdon assistentti
+      tel: +358 10 622 2204
+suppliers:
+  title: Kumppanit
+  inner_title: Alihankkijaksi
+  markdown: "Helsinki Shipyard haluaa edistää avointa ja vastuullista kumppanuutta.\r\n\r\n[Alihankkijaksi](/become-a-partner)
+    \ \r\n[Alihankintaperiaatteet](/subcontractor-info)  \r\n[Toimintaohjeet](/code-of-conduct)
+    \ \r\n"
+visitors:
+  title: Vierailijat
+  inner_title: Tervetuloa Helsingin telakalle
+  markdown: "Turvallisuuden varmistamiseksi edellytämme noudattamaan seuraavia ohjeita:\r\n\r\n-\tSuorita
+    turvallisuusperehdytys etukäteen. \r\n-\tIlmoittaudu pääportilla (Laivakatu 1)
+    ja nouda vierailijakorttisi ja pysäköintilupasi.\r\n-\tVartiointi ilmoittaa yhteyshenkilöllesi
+    saapumisestasi. Pysy yhteyshenkilösi kanssa koko vierailun ajan.\r\n-\tKäytä vain
+    merkittyjä jalankulkureittejä. Ole valppaana liikkuessasi alueella. \r\n-\tKäytä
+    annettuja suojavarusteita. Hameet, shortsit ja korkokengät eivät ole sallittuja
+    tuotantoalueilla.\r\n-\tValokuvaaminen on kielletty ilman lupaa.\r\n\r\nKysy tarvittaessa
+    lisätietoja yhteyshenkilöltäsi.\r\n\r\nPääportti: [+358 10 622 2303](tel:+358106222303)
+    \ \r\nVaihde: [+358 10 622 20](tel:+3581062220)  \r\nHätänumero: [+358 10 622
+    2222](tel:+3580106222222)\r\n"
+  cards:
+  - title: Toimistossa vieraileville
+    textarea: 'Turvallisuuskoulutus ainoastaan toimistossa vieraileville. Voimassa
+      3 kuukautta. Koodi: Tapaaminen'
+    button_text: 'Turvallisuuskoulutus '
+    button_url: https://helsinkishipyard.flowlms.com/formalms/index.php?r=adm/homepage/register
+  - title: Tuotannossa vieraileville
+    textarea: 'Turvallisuuskoulutus tuotannossa vieraileville. Voimassa 3 kuukautta.
+      Koodi: VIERAILIJA'
+    button_text: 'Turvallisuuskoulutus '
+    button_url: https://helsinkishipyard.flowlms.com/formalms/index.php?r=adm/homepage/register
+invoicing:
+  title: Laskutusohjeet
+  inner_title: Laskutusohjeet
+  markdown: "DNY Finland Oy:lle osoitetut laskut tulee ensisijaisesti lähettää verkkolaskuina
+    alla olevilla tiedoilla.\r\n\r\nVerkkolaskuosoite: 003733574684  \r\nVälittäjätunnus:
+    003708599126  \r\nVälittäjä: Open Text Oy  \r\n\r\nJos et voi lähettää laskua
+    verkkolaskuna, voit lähettää sen joko postitse alla olevaan laskutusosoitteeseen:\r\n\r\nDNY
+    Finland Oy,  \r\nTunnus 16813115,  \r\nPL 940 00019 SSC\r\n\r\ntai sähköpostitse
+    osoitteeseen scanning.europe@liaison.com"
+media:
+  title: Media
+  inner_title: Media
+  cards:
+  - title: Mediapaketti
+    textarea: 'Lataa logoja, kuvia ja muita materiaaleja. '
+    button_text: Lataa
+    button_url: /uploads/mediakit.zip

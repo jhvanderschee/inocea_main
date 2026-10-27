@@ -1,0 +1,78 @@
+leadership:
+  title: Johto
+  inner_title: Suomessa
+  description: Helsingin telakkaa ja Sata Shipbuildingia johtaa yhteinen johtoryhmä.
+    Tiimillä on vahva kokemus vaativista teollisista ohjelmista, arktisesta laivanrakennuksesta
+    ja kansainvälisestä liiketoiminnasta, ja sen tehtävänä on toimeenpanna Inocea
+    Groupin pitkän aikavälin strategia kurinalaisesti Suomessa.
+  contacts:
+  - name: Mika Heiskanen
+    function: Toimitusjohtaja, Suomen yhtiöt
+    tel: ""
+  - name: Ville Korpela
+    function: Operatiivinen johtaja
+    tel: ""
+  - name: Kim Salmi
+    function: Toimitusjohtaja, Helsingin telakka
+    tel: ""
+  - name: Niko Suomela
+    function: 'Toimitusjohtaja, Sata Shipbuilding '
+    tel: ""
+  - name: Atte Leskinen
+    function: Strategiset toiminnot
+    tel: ""
+  - name: Anne Avento-Krapf
+    function: HR-johtaja
+    tel: ""
+  - name: Petri Nousiainen
+    function: Strateginen suunnittelu
+    tel: ""
+  - name: Antti Leino
+    function: Yhteiskuntasuhdejohtaja
+    tel: ""
+  - name: Maija Heikkilä
+    function: Talousjohtaja
+    tel: ""
+  - name: Christel Nokkala
+    function: Lakiasianjohtaja
+    tel: ""
+  - name: Jussi Lehtinen
+    function: Myyntijohtaja
+    tel: ""
+contacts:
+  title: Keskeiset yhteyshenkilöt
+  inner_title: Helsingin telakka
+  description: Helsingin telakkaa johtaa kokenut johtoryhmä, joka varmistaa kurinalaisen
+    toteutuksen ja vaativien alusten luotettavan toimituksen korkeimpien turvallisuus-,
+    laatu-, kustannus- ja aikatauluvaatimusten mukaisesti.
+  contacts:
+  - name: Kim Salmi
+    function: Toimitusjohtaja, Helsingin telakka
+    tel: ""
+  - name: 'Jussi Lehtinen '
+    function: Myyntijohtaja
+    tel: ""
+  - name: Janne Järvinen
+    function: Hankinta ja logistiikka
+    tel: ""
+  - name: Antero Apajalahti
+    function: Tuotantojohtaja
+    tel: ""
+  - name: 'Arttu Stenberg '
+    function: Suunnittelu
+    tel: ""
+  - name: 'Pauli Ranta '
+    function: Toiminnanohjaus
+    tel: ""
+  - name: Anne Avento-Krapf
+    function: HR-johtaja
+    tel: ""
+  - name: 'Christel Nokkala '
+    function: Lakiasianjohtaja
+    tel: ""
+  - name: Antti Leino
+    function: Yhteiskuntasuhdejohtaja
+    tel: ""
+  - name: Maija Heikkilä
+    function: Talousjohtaja
+    tel: ""
