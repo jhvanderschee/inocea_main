@@ -11,7 +11,7 @@ Erikoistehtäviin suunniteltuja aluksia
 
 Tuemme merivoimia ja muita viranomaisia aluksilla, jotka on suunniteltu turvallisuus-, partiointi-, valvonta- ja tutkimustehtäviin. Osaamisemme jäissä kulkevissa aluksissa ja vaativassa laivanrakennuksessa varmistaa korkean suorituskyvyn vaativimmissakin olosuhteissa.
 
----
+---.wide
 
 ### Testatusti monikäyttöinen MPPS-100 aluskonsepti
 

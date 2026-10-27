@@ -25,7 +25,7 @@ Rakennamme parhaillaan Kanadan rannikkovartiostolle raskasta Polar Max -jäänmu
 
 Liity laivanrakentajiemme joukkoon – maailmanluokan osaamista Helsingin sydämessä jo vuodesta 1865.
 
----
+---.wide
 
 ![Ilmakuva telakalta](/uploads/careers-drone-shot.jpg){:.parallax}
 

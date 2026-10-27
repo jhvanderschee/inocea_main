@@ -25,7 +25,7 @@ We are currently building a heavy Polar Max icebreaker for the Canadian Coast Gu
 
 Join our community of shipbuilders – world-class expertise in the heart of Helsinki since 1865. 
 
----
+---.wide
 
 ![Shipyard drone shot](/uploads/careers-drone-shot.jpg){:.parallax}
 
