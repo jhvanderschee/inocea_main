@@ -44,8 +44,6 @@ The result is a yacht that combines elegance, durability, and technical excellen
 
 ## What we offer
 
-[blok volgt: whatweoffer]
-
 - **Premium and expedition cruise ships** with exceptional comfort, safety, and environmental performance
 - **Cruise ferries and RoPax vessels** designed for high passenger volumes, smooth operations, and a premium onboard experience
 - **Arctic-proven engineering**, enabling safe and efficient operations in ice-covered waters

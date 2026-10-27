@@ -22,8 +22,6 @@ Turvallisuus, luotettavuus ja tehokkuus ovat mukana jokaisessa projektissamme ko
 
 ## Tarjoamme
 
-[blok volgt: whatweoffer]
-
 - **Toimitusvarmuutta** testatuilla projektikäytännöillä ja tehokkailla tuotantomenetelmillä
 - **Innovatiivisia jäänmurtoratkaisuja** ja optimoituja aluskonsepteja vuosikymmenten kokemuksella
 - **Käyttövoimavaihtoehdoiltaan joustavia ja energiatehokkaita**, tulevaisuuden tarpeisiin suunniteltuja aluksia

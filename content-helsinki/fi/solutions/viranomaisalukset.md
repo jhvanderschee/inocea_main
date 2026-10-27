@@ -41,8 +41,6 @@ Konsepti soveltuu muun muassa seuraaviin tehtäviin:
 
 ## Tarjoamme
 
-[blok volgt: whatweoffer]
-
 - **Viranomaisaluksia**, jotka on suunniteltu turvalliseen, pitkäkestoiseen ja tehokkaaseen toimintaan arktisissa ja muissa vaativissa olosuhteissa
 - **Turvallisen projektitoteutuksen** sääntelyvaatimusten mukaisesti
 - **Todistetusti toimivan aluskonseptin**, jolla on vahva näyttö vaativasta operatiivisesta käytöstä 

@@ -24,8 +24,6 @@ Safety, reliability, and lifecycle efficiency are integrated into every project,
 
 ## What we offer
 
-[blok volgt: whatweoffer]
-
 - **Reliable delivery** through proven project execution and efficient production methods
 - **Innovative icebreaking solutions** and optimized vessel concepts developed by one of the world's leading icebreaker specialists.
 - **Energy-efficient and future-ready** vessels with low energy consumption and flexible propulsion options.

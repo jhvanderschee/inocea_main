@@ -43,8 +43,6 @@ Designed for missions including:
 
 ## What we offer
 
-[blok volgt: whatweoffer]
-
 - **Reliable naval vessels** designed for safety, endurance, and operational effectiveness in polar environments
 - **Secure project execution** with strict confidentiality and regulatory compliance
 - **Proven vessel concept** with a strong operational track record

@@ -44,8 +44,6 @@ Lopputuloksena on alus, jossa yhdistyvät eleganssi, kestävyys ja tekninen huip
 
 ## Tarjoamme
 
-[blok volgt: whatweoffer]
-
 - **Laadukkaita risteily- ja tutkimusaluksia**, joissa yhdistyvät erinomainen matkustusmukavuus, turvallisuus ja ympäristötehokkuus
 - **Risteilylauttoja ja RoPax-aluksia**, jotka on suunniteltu suurille matkustajamäärille, tehokkaaseen operointiin ja korkeatasoiseen matkustuskokemukseen
 - **Arktisissa olosuhteissa** testattua suunnitteluosaamista turvalliseen ja tehokkaaseen toimintaan jääpeitteisillä vesialueilla

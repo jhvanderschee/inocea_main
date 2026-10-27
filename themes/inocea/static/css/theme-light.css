@@ -10,7 +10,6 @@
     --line-height-h1:  1;
 
     /* Colors */
-    --my-dark-gray: #63686f;
     --my-body: #808080;
     --my-gray: #b4b8bd;
     --my-black-20: rgba(0, 0, 0, 0.2);
@@ -242,8 +241,8 @@ main > section.intro:has(+ section.page) { padding-block: var(--section-padding-
 section.has-numbers:nth-of-type(even) { background: var(--my-soft-white); }
 section.has-numbers:last-child .container { max-width: var(--max-width-medium); }
 ul.numbers {
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); margin: 0 1px 0 0;
-    & > li { container-type: inline-size; padding: 2rem; background: var(--my-soft-white); color: inherit; }
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); margin: 0 1px 0 0; 
+    & > li { container-type: inline-size; padding: 2rem; background: var(--my-white-40); color: inherit; }
     & h3 { margin: 0; font-size: min(3.5rem, 30cqi); line-height: 1.1; }
     & p { max-width: 11em; margin: 0; color: var(--my-dark-gray); }
 
@@ -260,14 +259,17 @@ ul.numbers {
     }
 }
 
+
+/* --------------- FACILITY --------------- */
+section.has-facility { background: var(--my-full-black);}
+section.has-facility > .container { max-width: var(--max-width-medium);  padding: 3rem 0 0 0;}
+section.has-facility > .container > h2:first-child { margin-bottom: 3rem;}
+
 /* --------------- OVERLAY --------------- */
 section.overlay > img {
     @media only screen and (max-width: 1000px) { --parallax-ratio: 1.9; }
     @media only screen and (max-width: 600px) { --parallax-ratio: 1; }
 }
-
-/* --------------- FACILITY --------------- */
-section.has-facility .container > h2:first-child { margin-bottom: var(--label-margin-bottom); }
 
 /* --------------- TIMELINE --------------- */
 @media only screen and (max-width: 1000px) {
