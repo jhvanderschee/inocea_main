@@ -42,7 +42,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="/#top" class="logo">{{ partial "logo.html" . }}</a>
+                <a href="{{ site.Home.RelPermalink }}#top" class="logo">{{ partial "logo.html" . }}</a>
                 {{- if hugo.IsMultilingual }}
                 <div class='lang'>
                     <div>
@@ -73,7 +73,7 @@
     <footer id="footer">
         <div class="container">
             <div class="left">
-                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ i18n "logo" (dict "Title" site.Title) }}' class="logo">{{ with (partial "data" "footer").logo_image }} <img src="{{ .}}" alt="{{ i18n "logo" (dict "Title" site.Title) }}">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
+                <a href="{{ site.Home.RelPermalink }}{{ if .IsHome }}#top{{ end }}" aria-label='{{ i18n "logo" (dict "Title" site.Title) }}' class="logo">{{ with (partial "data" "footer").logo_image }} <img src="{{ .}}" alt="{{ i18n "logo" (dict "Title" site.Title) }}">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
                 <address>
                     {{ (partial "data" "footer").text | safeHTML }}
                 </address>
@@ -85,9 +85,9 @@
             </div>
             {{ with partial "data" "footer" }}
                 {{ range slice .large_link_top .large_link_bottom }}
-                    {{ if and .name .url }}
-                        <a class='large' href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
-                    {{ else }}
+                    {{ if and . .name .url }}
+                        <a class='large' href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name | safeHTML }}</a>
+                    {{ else if . }}
                         {{ partial "socials" . }}
                     {{ end }}
                 {{ end }}
@@ -95,7 +95,7 @@
         </div>
         <div class="postfooter">
             <div class="container">
-                <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+                <p>&copy; {{ now.Year }} {{ (partial "data" "footer").copyright | default .Site.Title }}</p>
                 <ul>
                     {{ range where site.RegularPages "Section" "legal" }}
                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
