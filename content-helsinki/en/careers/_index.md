@@ -29,7 +29,7 @@ Join our community of shipbuilders – world-class expertise in the heart of Hel
 
 ![Shipyard drone shot](/uploads/careers-drone-shot.jpg){:.parallax}
 
----.wide.steps.white
+---
 
 ## Why work with us?
 

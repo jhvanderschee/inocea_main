@@ -29,7 +29,7 @@ Liity laivanrakentajiemme joukkoon – maailmanluokan osaamista Helsingin sydäm
 
 ![Ilmakuva telakalta](/uploads/careers-drone-shot.jpg){:.parallax}
 
----.wide.steps.white
+---
 
 ## Miksi meille?
 

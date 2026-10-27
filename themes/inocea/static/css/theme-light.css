@@ -283,6 +283,12 @@ section.overlay > img {
     .timeline h3 { font-size: 1.5rem; }
 }
 
+/* --------------- STEPS --------------- */
+section.steps { padding-top: 0; }
+@media only screen and (max-width: 1000px) {
+    section.steps .container ol h3 { font-size: 1.5rem; }
+}
+
 /* --------------- ACCORDION --------------- */
 ul.accordion > li > div > :first-child { padding-bottom: .75rem; }
 ul.team > li > div > div { color: var(--my-body); }
@@ -357,7 +363,7 @@ body.posts main strong { font-weight: 400; }
     section:not(.steps) h3:first-child:not(.h1, li > h3) { position: relative; max-width: 100%; margin-bottom: .3em; }
     section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 0; }
     nav.pages h3 { font-size: 1rem; }
-    section:has(h3):not(:has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3, nav.pages) { padding-left: 0; }
+    section:has(h3):not(.steps, :has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3, nav.pages) { padding-left: 0; }
     section > .container:has(> h3:first-child ~ p > img.parallax) > :is(h3:first-child, p:has(> img.parallax)) { float: none; width: auto; }
     img.parallax { --parallax-ratio: 1.9; }
 }

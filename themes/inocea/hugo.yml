@@ -72,6 +72,9 @@ params:
     - title: wide
       has: nav.pages
       is:
+    - title: steps
+      has: h2:first-child, ol:nth-child(2), ol:last-child
+      is:
     - title: tiles
       has: h2:first-child, ul:nth-child(2), ul:last-child
       is:
