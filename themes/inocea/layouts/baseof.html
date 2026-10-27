@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="/css/fonts.css?version={{ now }}">
     <link rel="stylesheet" href="/css/style.css?version={{ now }}">
     <link rel="stylesheet" href="/css/carousel.css?version={{ now }}">
+    {{- with site.Params.theme_style }}
+    <link rel="stylesheet" href="/css/theme-{{ . }}.css?version={{ now }}">
+    {{- end }}
     <link rel="stylesheet" href="/css/custom.css?version={{ now }}">
 
 
