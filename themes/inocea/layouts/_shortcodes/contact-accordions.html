@@ -1,0 +1,61 @@
+{{- /* Contactpagina als accordion: locaties en contactpersonen staan open, daarna leveranciers, bezoekers, facturatie en media; {{< contact-accordions >}} leest data/contact_accordions.yml. */ -}}
+{{ with $data := partial "data" (.Get 0 | default "contact_accordions") }}
+<ul class="accordion contact-accordion multiple">
+    {{ with .locations }}
+        <li id="locations" data-open>
+            <h3>{{ .title }}</h3>
+            <div class="locations inner">
+                {{ range .items }}
+                    <div>
+                        <address>
+                            <h4>{{ .title }}</h4>
+                            {{ .address_markdown | markdownify }}
+                            {{ if and .button_text .button_url }}<a href="{{ .button_url }}">{{ .button_text }}</a>{{ end }}
+                        </address>
+                        {{ with .image }}<img src="{{ partial "image" . }}" alt="">{{ end }}
+                    </div>
+                {{ end }}
+            </div>
+        </li>
+    {{ end }}
+    {{ with .contacts }}
+        <li id="contacts" data-open>
+            <h3>{{ .title }}</h3>
+            {{ range .items }}
+                <div class="contacts inner">
+                    <h4 class="h1">{{ .title }}</h4>
+                    <ul>
+                        {{ range .contacts }}
+                            <li>
+                                <strong>{{ .name }}</strong>
+                                <p>{{ .function }}</p>
+                                {{ range split .tel "," }}<a href="tel:{{ trim . " " }}">{{ trim . " " }}</a>{{ end }}
+                            </li>
+                        {{ end }}
+                        {{- /* Lege cellen houden de laatste rij links uitgelijnd in het auto-fit-raster. */ -}}
+                        <li class="empty"></li><li class="empty"></li><li class="empty"></li><li class="empty"></li>
+                    </ul>
+                </div>
+            {{ end }}
+        </li>
+    {{ end }}
+    {{ range $key := slice "suppliers" "visitors" "invoicing" "media" }}
+        {{ with index $data $key }}
+            <li id="{{ $key }}">
+                <h3>{{ .title }}</h3>
+                <div class="text inner">
+                    <h4 class="h1">{{ .inner_title }}</h4>
+                    {{ with .markdown }}<div>{{ . | markdownify }}</div>{{ end }}
+                    {{ range .cards }}
+                        <article>
+                            <h4>{{ .title }}</h4>
+                            <p>{{ .textarea }}</p>
+                            {{ if and .button_text .button_url }}<a class="btn reversed" href="{{ .button_url }}">{{ .button_text }}</a>{{ end }}
+                        </article>
+                    {{ end }}
+                </div>
+            </li>
+        {{ end }}
+    {{ end }}
+</ul>
+{{ end }}

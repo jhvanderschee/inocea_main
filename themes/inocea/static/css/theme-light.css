@@ -10,7 +10,6 @@
     --line-height-h1:  1;
 
     /* Colors */
-    --my-body: #808080;
     --my-gray: #b4b8bd;
 
     /* Labels (h2 in een sectie) */
@@ -278,6 +277,12 @@ section.overlay > img {
 /* --------------- ACCORDION --------------- */
 ul.accordion > li > div > :first-child { padding-bottom: .75rem; }
 ul.team > li > div > div { color: var(--my-body); }
+
+/* --------------- CONTACT ACCORDIONS --------------- */
+section.has-contact-accordions .container { max-width: var(--max-width-medium); }
+@media only screen and (max-width: 1000px) {
+    ul.accordion.contact-accordion .h1 { font-size: 1.5rem; }
+}
 
 /* --------------- NEWS --------------- */
 ul.news {

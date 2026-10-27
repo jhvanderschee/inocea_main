@@ -51,6 +51,9 @@ params:
     - title: has-timeline
       has: div.timeline
       is:
+    - title: has-contact-accordions
+      has: ul.contact-accordion
+      is:
     - title: has-team
       has: ul.team
       is:

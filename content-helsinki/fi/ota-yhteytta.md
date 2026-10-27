@@ -10,4 +10,4 @@ Ota yhteyttä tiimiimme, vieraile telakalla tai löydä tarpeisiisi sopiva yhtey
 
 ---
 
-[blok volgt: contact_accordions]
+{{< contact-accordions >}}

@@ -50,6 +50,7 @@ address { font-style: normal;}
     --my-black-10: rgba(0, 0, 0, 0.1);
     --my-full-black: #000;
     --my-dark-gray: #63686f;
+    --my-body: #808080;
     --my-white: #fff;
     --my-white-20: rgba(255,255,255,0.2);
     --my-white-40: rgba(255,255,255,0.4);
@@ -747,6 +748,54 @@ ul.accordion.team {
     & > li > :first-child button div span { font-weight: var(--font-regular); }
     & > li > div > div { max-width: 50rem; padding-left: 7rem; }
     & > li > div > div p:last-of-type { margin-bottom: 0; }
+}
+
+
+/* --------------- CONTACT ACCORDIONS --------------- */
+section.has-contact-accordions { padding-top: 2rem; background: var(--my-white); }
+ul.accordion.contact-accordion {
+    margin: 0;
+    & > li { border-bottom: none; }
+    & > li:first-child { border-top: none; }
+    & > li > :first-child > button { margin-top: 1.5rem; padding-block: .4rem; border-bottom: 1px solid var(--my-black-40); font-family: var(--mono-font); font-size: 1.2rem; font-weight: 400; text-transform: uppercase; }
+    & > li > :first-child > button::after { top: 0; filter: none; }
+    & .inner { margin: 0; padding-top: 2rem; }
+    & .inner:last-child { padding-bottom: 5rem; }
+    & h4 { margin: 0; padding-bottom: .25rem; font-size: 1.5rem; font-weight: var(--font-medium); line-height: 1.2; }
+    & .h1 { margin-bottom: .5em; font-size: 2.5rem; line-height: 1.2; }
+
+    & .locations { display: grid; gap: 2rem; }
+    & .locations > div { display: grid; grid-template-columns: 1fr 1fr; align-items: flex-start; }
+    & .locations > div + div { padding-top: 2rem; border-top: 1px solid var(--my-black-20); }
+    & address { padding-right: 1rem; }
+    & address a { display: block; max-width: max-content; }
+
+    & .contacts ul { display: grid; margin: 0; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); gap: 1rem; }
+    & .contacts li { min-height: 7.2rem; margin: 0; padding: 1rem; background: var(--my-white); border: 1px solid var(--my-black-20); color: var(--my-body); font-size: .85rem; font-weight: 400; }
+    & .contacts li::before { content: none; }
+    & .contacts li.empty { min-height: 0; padding: 0; border: 0; }
+    & .contacts li strong { font-weight: 400; color: var(--my-black); }
+    & .contacts li p { margin: 0; }
+    & .contacts li a { display: block; margin-top: 0; color: inherit; text-decoration: none; }
+
+    & .text { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    & .text li { margin: 0; }
+    & .text ul + p { margin-top: 1.4rem; }
+    & .text div a { color: inherit; }
+    & .text div :is(h4, strong) { color: var(--my-black); }
+    & .text div h4 { margin-bottom: .5em; }
+    & article { padding: 1.5rem; background: var(--my-soft-white); }
+    & article p { max-width: 20em; }
+    & article .btn { display: flex; max-width: max-content; margin: 1.5rem 0 0 auto; }
+
+    @media only screen and (max-width: 768px) {
+        & .text { grid-template-columns: 1fr; gap: 2rem; }
+        & .text .h1 { margin-bottom: calc(.5em - 2rem); }
+        & .locations > div { grid-template-columns: 1fr; gap: 1rem; }
+    }
+    @media only screen and (max-width: 600px) {
+        & .contacts li.empty { position: absolute; pointer-events: none; }
+    }
 }
 
 

@@ -10,4 +10,4 @@ Get in touch with our team, visit the shipyard or find the right contact for you
 
 --- 
 
-[blok volgt: contact_accordions]
+{{< contact-accordions >}}
