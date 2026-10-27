@@ -8,6 +8,6 @@ Helsinki Shipyard offers a comprehensive range of vessel and design solutions th
 
 ## Our solutions 
 
-[blok volgt: solutions]
+{{< pages "solutions" >}}
 
 ---

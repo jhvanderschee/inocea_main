@@ -62,9 +62,9 @@ main ul + h2 { margin-top: 6rem; }
 .reveal.visible h2 { border-color: var(--my-black-20); }
 
 /* Bullets '>' op alle lijsten uit de content. */
-main ul:not([class]) { position: relative; margin-bottom: 1.6em; }
-main ul:not([class]) > li { padding-block: .25rem; padding-left: 1.1rem; }
-main ul:not([class]) > li::before { content: '>'; display: block; position: absolute; margin-left: -1.1rem; }
+main ul:not([class], nav ul) { position: relative; margin-bottom: 1.6em; }
+main ul:not([class], nav ul) > li { padding-block: .25rem; padding-left: 1.1rem; }
+main ul:not([class], nav ul) > li::before { content: '>'; display: block; position: absolute; margin-left: -1.1rem; }
 
 /* --------------- LOGO --------------- */
 .logo :is(img, svg) { margin-block: .2rem; }
@@ -84,7 +84,7 @@ section.white + section.white { padding-top: 0; }
 /* Lead: de eerste alinea van een sectie. */
 section .container > p:first-child { max-width: 20em; margin-bottom: 1.75em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
 section .container > p:only-child { margin-bottom: 0; }
-section:not(.has-solutions) > .container:has(> p:first-child) h2 ~ p { margin-left: 50%; }
+section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 50%; }
 
 /* Kop links, tekst rechts: een sectie die met een h3 begint. */
 section:not(.steps) h3:first-child:not(.h1) { position: absolute; max-width: calc(50% - 6.5rem); margin: 0; }
@@ -241,8 +241,9 @@ main > section.intro:has(+ section.page) { padding-block: var(--section-padding-
     h3 { margin-bottom: 2rem; }
     :is(section:has(> .container > h2:first-child + h3), section.page) h3 { font-size: var(--font-size-h3); }
     section:not(.steps) h3:first-child:not(.h1) { position: relative; max-width: 100%; margin-bottom: .3em; }
-    section:not(.has-solutions) > .container:has(> p:first-child) h2 ~ p { margin-left: 0; }
-    section:has(h3):not(:has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3) { padding-left: 0; }
+    section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 0; }
+    nav.pages h3 { font-size: 1rem; }
+    section:has(h3):not(:has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3, nav.pages) { padding-left: 0; }
     section > .container:has(> h3:first-child ~ p > img.parallax) > :is(h3:first-child, p:has(> img.parallax)) { float: none; width: auto; }
     img.parallax { --parallax-ratio: 1.9; }
 }

@@ -1,0 +1,13 @@
+{{- /* Pagina's van een sectie als fototegels; {{< pages "solutions" >}}. De foto komt uit image in de frontmatter. */ -}}
+<nav class="pages">
+    <ul>
+        {{ range where site.RegularPages "Section" (.Get 0) }}
+            <li>
+                <a href="{{ .RelPermalink }}">
+                    <img src="{{ partial "image" .Params.image }}" alt="{{ .Title | plainify }}">
+                    <h3>{{ .Title | safeHTML }}</h3>
+                </a>
+            </li>
+        {{ end }}
+    </ul>
+</nav>

@@ -8,6 +8,6 @@ Helsingin telakka tarjoaa monipuolisen valikoiman alus- ja suunnitteluratkaisuja
 
 ## Ratkaisut
 
-[blok volgt: solutions]
+{{< pages "solutions" >}}
 
 ---

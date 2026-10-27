@@ -12,7 +12,7 @@ Rakennamme ainutlaatuisia aluksia maailman vaativimpiin tehtäviin.
 
 ## Ratkaisut
 
-[blok volgt: solutions]
+{{< pages "solutions" >}}
 
 Arktisista jäänmurtajista vaativiin viranomais- ja risteilyaluksiin. Toteutamme räätälöityjä ratkaisuja vaativiin merellisiin toimintaympäristöihin.
 

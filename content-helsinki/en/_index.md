@@ -12,7 +12,7 @@ We build extraordinary ships for the world's most demanding missions.
 
 ## Our solutions
 
-[blok volgt: solutions]
+{{< pages "solutions" >}}
 
 From Arctic icebreakers to complex governmental vessels and cruise ships, discover how we deliver tailored solutions for demanding maritime environments.
 

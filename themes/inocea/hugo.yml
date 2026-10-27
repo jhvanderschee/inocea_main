@@ -57,6 +57,9 @@ params:
     - title: has-news
       has: ul.news
       is:
+    - title: wide
+      has: nav.pages
+      is:
     - title: title-list-split
       has: h3:first-child, ul:nth-child(2), ul:last-child
       is:
