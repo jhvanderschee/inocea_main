@@ -6,6 +6,7 @@ weight: 3
 aliases:
 - /fi/ratkaisut/risteilyalukset/
 ---
+
 [blok volgt: featured-image]
 
 Edistyksellisiä matkustaja-aluksia risteilylautoista superjahteihin

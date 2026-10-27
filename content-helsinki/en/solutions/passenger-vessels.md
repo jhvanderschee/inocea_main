@@ -6,6 +6,7 @@ weight: 3
 aliases:
 - /solutions/cruise-ships/
 ---
+
 [blok volgt: featured-image]
 
 Advanced passenger vessels from cruise ferries to superyachts

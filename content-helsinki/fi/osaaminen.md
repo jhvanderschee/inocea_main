@@ -5,6 +5,7 @@ image: /uploads/401_WHT76_428 1.jpg
 aliases:
 - /fi/kyvyt/
 ---
+
 [blok volgt: featured-image]
 
 Konseptisuunnittelusta aluksen käyttöönottoon

@@ -4,6 +4,7 @@ translationKey: naval-vessels
 image: /uploads/naval-vessels-web.jpg
 weight: 2
 ---
+
 [blok volgt: featured-image]
 
 Vessels designed for specialized operations

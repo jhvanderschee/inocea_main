@@ -3,6 +3,7 @@ title: Capabilities
 translationKey: capabilities
 image: /uploads/401_WHT76_428 1.jpg
 ---
+
 [blok volgt: featured-image]
 
 From concept design to commissioning

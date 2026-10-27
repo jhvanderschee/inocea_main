@@ -4,6 +4,7 @@ translationKey: naval-vessels
 image: /uploads/navy-and-governmental-landscape.jpg
 weight: 2
 ---
+
 [blok volgt: featured-image]
 
 Erikoistehtäviin suunniteltuja aluksia

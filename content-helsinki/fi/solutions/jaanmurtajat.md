@@ -4,6 +4,7 @@ translationKey: icebreakers
 image: /uploads/polaris-1200x676.jpg
 weight: 1
 ---
+
 [blok volgt: featured-image]
 
 Helsingin telakka tunnetaan maailmanlaajuisesti jäänmurtoteknologian edelläkävijänä 
