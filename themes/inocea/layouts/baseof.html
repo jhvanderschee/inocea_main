@@ -10,7 +10,7 @@
     {{ if .IsHome }}
       {{/* Description uit frontmatter, anders de Summary zonder sectiescheidingen */}}
       {{ $desc := .Description }}
-      {{ if not $desc }}{{ $desc = .Summary | plainify | htmlUnescape | replaceRE `(?:—|&mdash;|---)[.#][\w-]+` " " | replaceRE `(?m)^\s*(?:—|&mdash;|---)\s*$` " " | replaceRE `\s+` " " | strings.TrimSpace }}{{ end }}
+      {{ if not $desc }}{{ $desc = .Summary | plainify | htmlUnescape | replaceRE `(?:—|&mdash;|---)[.#][\w-]+(?:\.[\w-]+)*` " " | replaceRE `(?m)^\s*(?:—|&mdash;|---)\s*$` " " | replaceRE `\s+` " " | strings.TrimSpace }}{{ end }}
       <meta name="description" content="{{ $desc }}">
     {{ else }}
       <meta name="description" content="{{ $.Site.Params.description }}">
