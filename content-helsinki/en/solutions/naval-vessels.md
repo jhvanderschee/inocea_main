@@ -5,7 +5,10 @@ image: /uploads/naval-vessels-web.jpg
 weight: 2
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Naval vessels
+
+![Naval vessels](/uploads/naval-vessels-web.jpg){:.parallax}
 
 Vessels designed for specialized operations
 

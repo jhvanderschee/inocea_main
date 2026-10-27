@@ -5,7 +5,10 @@ image: /uploads/polaris-1200x676.jpg
 weight: 1
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Jäänmurtajat
+
+![Jäänmurtajat](/uploads/polaris-1200x676.jpg){:.parallax}
 
 Helsingin telakka tunnetaan maailmanlaajuisesti jäänmurtoteknologian edelläkävijänä 
 

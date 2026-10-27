@@ -1,12 +1,14 @@
 ---
 title: Osaaminen
 translationKey: capabilities
-image: /uploads/401_WHT76_428 1.jpg
 aliases:
 - /fi/kyvyt/
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Osaaminen
+
+![Osaaminen](</uploads/401_WHT76_428 1.jpg>){:.parallax}
 
 Konseptisuunnittelusta aluksen käyttöönottoon
 

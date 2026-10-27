@@ -7,7 +7,10 @@ aliases:
 - /fi/ratkaisut/risteilyalukset/
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Matkustaja-alukset
+
+![Matkustaja-alukset](/uploads/cruise-vessels-landscape.jpg){:.parallax}
 
 Edistyksellisiä matkustaja-aluksia risteilylautoista superjahteihin
 

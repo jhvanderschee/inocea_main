@@ -1,10 +1,12 @@
 ---
 title: Capabilities
 translationKey: capabilities
-image: /uploads/401_WHT76_428 1.jpg
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Capabilities
+
+![Capabilities](</uploads/401_WHT76_428 1.jpg>){:.parallax}
 
 From concept design to commissioning
 

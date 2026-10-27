@@ -1,10 +1,12 @@
 ---
 title: About us
 translationKey: about
-image: /uploads/about.jpg
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# About us
+
+![About us](/uploads/about.jpg){:.parallax}
 
 Global leader in icebreakers and specialized vessels
 

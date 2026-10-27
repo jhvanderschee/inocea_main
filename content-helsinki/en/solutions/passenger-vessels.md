@@ -7,7 +7,10 @@ aliases:
 - /solutions/cruise-ships/
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Passenger vessels
+
+![Passenger vessels](/uploads/cruise-vessels-landscape.jpg){:.parallax}
 
 Advanced passenger vessels from cruise ferries to superyachts
 

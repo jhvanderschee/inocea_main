@@ -5,7 +5,10 @@ image: /uploads/polaris-1200x676.jpg
 weight: 1
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Icebreakers
+
+![Icebreakers](/uploads/polaris-1200x676.jpg){:.parallax}
 
 Helsinki Shipyard is globally recognized as a leader in icebreaking technology
 

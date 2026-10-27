@@ -125,7 +125,7 @@ h6, .h6 {font-size: var(--font-size-h6); }
 h1:has(strong) { font-weight: var(--font-regular); }
 h1 strong {  font-weight: var(--font-bold); }
 
-main section:not(.h2-normal) h2 { font-size: var(--label-font-size); font-family: var(--mono-font); text-transform: uppercase; border-bottom: 1px solid var(--faded-color); font-weight: var(--label-font-weight); line-height: var(--label-line-height); margin-block: 3rem var(--label-margin-bottom); padding-bottom: var(--label-padding-bottom); letter-spacing: 0.025em; }
+main section:not(.h2-normal) h2, section.featured-image h1 { font-size: var(--label-font-size); font-family: var(--mono-font); text-transform: uppercase; border-bottom: 1px solid var(--faded-color); font-weight: var(--label-font-weight); line-height: var(--label-line-height); margin-block: 3rem var(--label-margin-bottom); padding-bottom: var(--label-padding-bottom); letter-spacing: 0.025em; }
 main section:not(.h2-normal) h2:first-child { margin-top: 0; }
 main section.h2-normal h2 { font-size: var(--font-size-h3); max-width: 28em; }
 
@@ -543,6 +543,20 @@ figure.curtain-carousel { display: flex; position: relative; flex-direction: col
 /* =========================================================== */
 section.fullwidth-image { padding: 0; }
 section.fullwidth-image .container { width: 100%; max-width: var(--max-width-ultra-wide);}
+
+/* =========================================================== */
+/* ====================== FEATURED IMAGE ===================== */
+/* =========================================================== */
+section.featured-image {
+    & .container:last-child { display: flex; }
+    & .container:last-child > div:first-child { width: 50%; min-width: 50%; padding-right: var(--gap); }
+    & .container:last-child > div:last-child { min-width: 0; }
+
+    @media (max-width: 1000px) {
+        & .container:last-child { flex-direction: column; }
+        & .container:last-child > div:first-child { width: 100%; min-width: 0; padding: 0 0 var(--gap); }
+    }
+}
 
 /* =========================================================== */
 /* ======================= LEADERSHIP ======================== */

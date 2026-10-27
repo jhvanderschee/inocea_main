@@ -1,0 +1,22 @@
+{{- /* De h1 wordt een label in een eigen container, de eerste foto gaat links, de rest van de content rechts. */ -}}
+{{- $label := partial "section_label.html" .Content -}}
+{{- $content := string .Content -}}
+{{- $title := "" -}}
+{{- with findRE `(?s)<h1\b.*?</h1>` $content 1 -}}{{- $title = index . 0 -}}{{- end -}}
+{{- $image := "" -}}
+{{- with findRE `<img\b[^>]*>` $content 1 -}}{{- $image = index . 0 -}}{{- end -}}
+{{- $content = replaceRE `(?s)<h1\b.*?</h1>\s*` "" $content 1 -}}
+{{- $content = replaceRE `(?s)(?:<p>\s*)?<img\b[^>]*>(?:\s*</p>)?\s*` "" $content 1 -}}
+<section class="featured-image"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
+    <div class="container">
+        {{ $title | safeHTML }}
+    </div>
+    <div class="container">
+        <div>
+            {{ $image | safeHTML }}
+        </div>
+        <div>
+            {{ $content | safeHTML }}
+        </div>
+    </div>
+</section>

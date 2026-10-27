@@ -1,10 +1,12 @@
 ---
 title: Meistä
 translationKey: about
-image: /uploads/about.jpg
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Meistä
+
+![Meistä](/uploads/about.jpg){:.parallax}
 
 Maailman johtava jäänmurtajien ja erikoisalusten toimittaja
 

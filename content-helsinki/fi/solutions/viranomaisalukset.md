@@ -5,7 +5,10 @@ image: /uploads/navy-and-governmental-landscape.jpg
 weight: 2
 ---
 
-[blok volgt: featured-image]
+---.featured-image
+# Viranomais&shy;alukset
+
+![Viranomais&shy;alukset](/uploads/navy-and-governmental-landscape.jpg){:.parallax}
 
 Erikoistehtäviin suunniteltuja aluksia
 

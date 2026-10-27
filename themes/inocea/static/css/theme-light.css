@@ -199,6 +199,26 @@ section.video-header { padding-block: 0; background: var(--my-white);
 @keyframes header-parallax { from { object-position: center bottom; } to { object-position: center top; } }
 
 /* =========================================================== */
+/* ====================== FEATURED IMAGE ===================== */
+/* =========================================================== */
+section.featured-image {
+    & h1 { margin-block: 1rem 4rem; line-height: var(--line-height-h1); }
+    & .container:last-child > div:first-child { padding-right: 6.5rem; }
+    & .container:last-child > div:last-child { overflow: hidden; }
+    & .container:last-child > div:last-child > p:first-child { max-width: 33.5em; margin-bottom: 1.2em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
+    & img.parallax { aspect-ratio: auto; }
+    &:last-child { padding-bottom: 10rem; }
+
+    @media (max-width: 1200px) {
+        & .container:last-child { flex-direction: column-reverse; }
+        & .container:last-child > div:first-child { width: 100%; min-width: 0; padding: 4rem 0 0; }
+    }
+    @media (max-width: 1000px) {
+        & h1 { margin-bottom: var(--label-margin-bottom); }
+    }
+}
+
+/* =========================================================== */
 /* ========================== PAGE =========================== */
 /* =========================================================== */
 body:has(section.page) :is(header .logo svg, header button) { filter: invert(1) brightness(1.08); }
