@@ -926,10 +926,11 @@ div.projects {
     & > ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(30rem, 100%), 1fr)); gap: 4rem 2.25rem; }
     & > ul > li { margin: 0; padding: 0; background: var(--my-white); }
     & > ul > li::before { content: none; }
-    & img.parallax { --parallax-ratio: 1.8; margin-bottom: 3rem; }
+    & img.parallax { --parallax-ratio: 1.8; margin-bottom: 4rem; }
     & .text { padding: 0 2.25rem 4rem; }
     & h3 { position: relative; max-width: 100%; margin: 0 0 1rem; }
-    & h4 { margin: 4rem 0 1.5rem; padding-bottom: .4rem; border-bottom: 1px solid var(--my-black-40); font-family: var(--mono-font); font-size: 1.2rem; font-weight: 400; letter-spacing: .025em; text-transform: uppercase; }
+    & h4 { margin: 4rem 0 1.5rem; padding-bottom: .4rem; line-height: var(--line-height-regular); border-bottom: 1px solid var(--my-black-40); font-family: var(--mono-font); font-size: 1.2rem; font-weight: 400; letter-spacing: .025em; text-transform: uppercase; }
+    & .text > :last-child { margin-bottom: 0; }
     & .readmore input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
     & .readmore-content { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; }
     & .readmore input:checked ~ .readmore-content { display: block; -webkit-line-clamp: unset; line-clamp: unset; }
