@@ -8,8 +8,8 @@
             {{ end }}
         </ul>
         <div class="buttons outline">
-            <button class='btn' data-dir='-1' aria-label='View previous craft'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
-            <button class='btn' data-dir='1' aria-label='View next craft'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
+            <button class='btn' data-dir='-1' aria-label='{{ i18n "view_previous_craft" }}'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
+            <button class='btn' data-dir='1' aria-label='{{ i18n "view_next_craft" }}'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
         </div>
     </div>
     <ul class="images tabbable-items">

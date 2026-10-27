@@ -45,7 +45,7 @@
                     <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }} onclick="document.body.classList.remove('menuopen')">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
-                <button onclick="document.body.classList.toggle('menuopen')">Menu</button>
+                <button onclick="document.body.classList.toggle('menuopen')">{{ i18n "menu" }}</button>
             </nav>
         </div>
     </header>
@@ -55,7 +55,7 @@
     <footer id="footer">
         <div class="container">
             <div class="left">
-                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ with (partial "data" "footer").logo_image }} <img src="{{ .}}" alt="{{ site.Title }} logo">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
+                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ i18n "logo" (dict "Title" site.Title) }}' class="logo">{{ with (partial "data" "footer").logo_image }} <img src="{{ .}}" alt="{{ i18n "logo" (dict "Title" site.Title) }}">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
                 <address>
                     {{ (partial "data" "footer").text | safeHTML }}
                 </address>

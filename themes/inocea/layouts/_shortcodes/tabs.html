@@ -8,8 +8,8 @@
             {{ end }}
         </ul>
         <div class="buttons outline">
-            <button class='btn' data-dir='-1' aria-label='View previous tab'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
-            <button class='btn' data-dir='1' aria-label='View next tab'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
+            <button class='btn' data-dir='-1' aria-label='{{ i18n "view_previous_tab" }}'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
+            <button class='btn' data-dir='1' aria-label='{{ i18n "view_next_tab" }}'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
         </div>
     </div>
     <ul class="tabs-items tabbable-items">
