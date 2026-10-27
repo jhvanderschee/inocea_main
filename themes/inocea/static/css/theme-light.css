@@ -209,9 +209,19 @@ main section.page h2 { margin-block: 5rem 1.5rem; padding-bottom: 0; border: 0; 
 main section.page h1 + h2 { margin-top: 0; }
 section.page h3 { position: relative; max-width: 100%; margin-block: 3rem .5rem; padding: 0; font-size: 1.15rem; }
 
+/* 404: het theme zet de titel in een eigen intro-sectie boven de pagina. */
+main > section.intro:has(+ section.page) { padding-block: var(--section-padding-top) 4rem; background: var(--my-black); color: var(--my-soft-white);
+    & .container { max-width: calc(52rem - var(--gutter-side) * 2); }
+    & h1 { margin-block: 3rem 0; }
+    & + section.page { padding-top: 0; }
+    & + section.page .container > p:first-child { max-width: none; margin-bottom: 1.6em; font-size: 1.5rem; font-weight: var(--font-medium); line-height: 1.4; }
+}
+
 @media (max-width: 600px) {
     section.page { padding-top: 2.5rem; }
     section.page h1 { margin-block: .5rem 2.5rem; }
+    main > section.intro:has(+ section.page) { padding-block: 2.5rem; }
+    main > section.intro:has(+ section.page) h1 { margin-top: .5rem; }
 }
 
 /* --------------- MEDIA QUERIES --------------- */
