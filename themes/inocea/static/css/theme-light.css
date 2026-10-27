@@ -267,6 +267,12 @@ ul.numbers {
     }
 }
 
+/* --------------- OVERLAY --------------- */
+section.overlay > img {
+    @media only screen and (max-width: 1000px) { --parallax-ratio: 1.9; }
+    @media only screen and (max-width: 600px) { --parallax-ratio: 1; }
+}
+
 /* --------------- ACCORDION --------------- */
 ul.accordion > li > div > :first-child { padding-bottom: .75rem; }
 ul.team > li > div > div { color: var(--my-body); }

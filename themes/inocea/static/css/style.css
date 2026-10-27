@@ -735,6 +735,7 @@ ul.accordion.team {
     margin-top: 0;
     & > li:first-child { border-top: none; }
     & > li > :first-child { font-size: inherit; }
+    & > li > :first-child > button::after { filter: none; }
     & strong { font-weight: 700; }
     & > li > :first-child > button { gap: 2rem; padding-block: 1rem; }
     & > li > :first-child img { width: 5rem; aspect-ratio: 1; object-fit: cover; border-radius: .2em; }
