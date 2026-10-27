@@ -817,6 +817,8 @@ ul.news {
     & .md { grid-column: 1 / -1; }
     & .type, & .title { display: none; }
 }
+ul.news > li[hidden] { display: none; }
+.news-more { margin-top: 2rem; text-align: center; }
 section.has-news h2 + p:has(.btn) { position: absolute; top: 0; right: 0; margin: -.2rem 0 0; }
 
 

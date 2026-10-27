@@ -1,8 +1,9 @@
-{{- /* Laatste posts als kaarten; {{< news 3 >}} toont er drie. */ -}}
+{{- /* Laatste posts als kaarten; {{< news 3 >}} toont er drie, {{< news show=9 >}} toont ze allemaal met na negen een knop voor de rest. */ -}}
 {{ $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse }}
-{{ with .Get 0 }}{{ $posts = first (int .) $posts }}{{ end }}
-<ul class="news">
+{{ with cond .IsNamedParams (.Get "count") (.Get 0) }}{{ $posts = first (int .) $posts }}{{ end }}
+<ul class="news"{{ with .Get "show" }} data-show="{{ . }}"{{ end }}>
     {{ range $posts }}
         {{ partial "news-item" . }}
     {{ end }}
 </ul>
+{{ with .Get "show" }}<div class="news-more"><button class="btn reversed">{{ i18n "show_all_news" }}</button></div>{{ end }}

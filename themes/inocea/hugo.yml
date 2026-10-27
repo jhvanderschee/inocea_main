@@ -21,6 +21,9 @@ params:
     - title: video-header
       has: video
       is: :first-child
+    - title: has-news
+      has: ul.news
+      is:
     - title: image-header
       has: img
       is: :first-child
@@ -65,9 +68,6 @@ params:
       is: 
     - title: publications
       has: .publications
-      is:
-    - title: has-news
-      has: ul.news
       is:
     - title: wide
       has: nav.pages

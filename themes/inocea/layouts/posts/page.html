@@ -1,8 +1,26 @@
 {{ define "content" }}
     {{- $intro := printf "<h1>%s</h1>" (.Title | htmlEscape) -}}
     {{- if not .Date.IsZero -}}
-        {{- $intro = printf `<p><time datetime="%s">%s</time></p>%s` (.Date.Format "2006-01-02") (.Date.Format (i18n "date_numeric")) $intro -}}
+        {{- $type := "" -}}
+        {{- with .Params.post_type }}{{ $type = printf `<span class="type">%s</span>` (i18n (replace . " " "_") | default .) }}{{ end -}}
+        {{- $intro = printf `<p>%s<time datetime="%s">%s</time></p>%s` $type (.Date.Format "2006-01-02") (.Date.Format (i18n "date_numeric")) $intro -}}
     {{- end -}}
+    {{- with .Params.image }}{{ $intro = printf `%s<p><img src="%s" alt=""></p>` $intro (partial "image" .) }}{{ end -}}
     {{- partial "sections/intro.html" (dict "Content" ($intro | safeHTML)) -}}
     {{- partial "sections_logic" . -}}
+    {{- /* Auteur uit content/<lang>/authors, alleen als die pagina bestaat. */ -}}
+    {{- with .Params.author }}{{ with site.GetPage (printf "/authors/%s" .) }}
+    <section class="post-author">
+        <div class="container">
+            {{ with .Params.image }}<img src="{{ partial "image" . }}" alt="">{{ end }}
+            {{ i18n "additional_information" }}:
+            <div class="author-info">
+                {{ .Title }}
+                {{ with .Params.role }}<br>{{ . }}{{ end }}
+                {{ with .Params.phone }}<br><a href="tel:{{ . }}">{{ . }}</a>{{ end }}
+                {{ with .Params.email }}<br><a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+            </div>
+        </div>
+    </section>
+    {{- end }}{{ end -}}
 {{ end }}
