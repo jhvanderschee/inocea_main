@@ -855,7 +855,8 @@ nav.pages {
     & ~ p { max-width: 35em; margin-top: 2rem; }
 
     @media only screen and (max-width: 1250px) {
-        margin-inline: calc(-1 * var(--gutter-side)); padding-inline: var(--gutter-side); overflow: auto; scroll-snap-type: x mandatory;
+        margin-inline: calc(-1 * var(--gutter-side)); padding-inline: var(--gutter-side); overflow: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
         & li { min-width: 17.5rem; scroll-snap-align: start; scroll-margin-left: var(--gutter-side); }
         & ul::after { content: ""; width: calc(var(--gutter-side) - 1rem); }
     }
@@ -892,6 +893,7 @@ section.has-timeline .top h2 { border-color: var(--my-white-20); }
     & .slider li p strong { color: var(--my-white); font-weight: var(--font-medium); }
 
     @media only screen and (max-width: 500px) {
+        & .top h2 { padding-bottom: 1rem; margin-bottom: 2rem; }
         & .slider li { scroll-snap-align: start; }
     }
 }
