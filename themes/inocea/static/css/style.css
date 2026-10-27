@@ -565,6 +565,7 @@ body:has(section.page) header,
 section.page { background: var(--my-black); color: var(--my-soft-white);}
 section.page .container { max-width: 45rem; padding-block: 3rem;}
 body:has(section.page) header::before,
+body:has(section.page) header .container nav ul,
 body:has(section.page) header nav .lang span { background: var(--my-black); }
 body:has(section.page) header nav .lang span svg path { fill: currentColor; }
 body:has(section.page) header nav .lang div:hover span { color: rgba(255, 255, 255, 0.5); }
