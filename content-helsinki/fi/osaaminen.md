@@ -22,9 +22,9 @@ Rungon kokoonpano toteutetaan katetussa allashallissamme Helsingissä, mikä mah
 
 Helsinki Shipyardilla on ISO 9001 (Quality), ISO 14001 (Environmental), ISO 45001 (Occupational health and safety management systems), ja ISO 3834-2 (Quality requirements for fusion welding of metallic materials) sertifioinnit. 
 
----.wide.gray
+---
 
-[blok volgt: timeline]
+{{< timeline >}}
 
 ---
 

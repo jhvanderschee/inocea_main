@@ -1,0 +1,25 @@
+{{- /* Tijdlijn die horizontaal scrollt, nieuwste jaar eerst; {{< timeline >}} leest data/timeline.yml (title, big_title, items met year en description). */ -}}
+{{ with partial "data" (.Get 0 | default "timeline") }}
+<div class="timeline">
+    <div class="top inner-container">
+        <h2>{{ .title }}</h2>
+        <div class="buttons">
+            <button type="button" class="arrow prev" data-dir="-1" aria-label="{{ i18n "timeline_left" }}"></button>
+            <button type="button" class="arrow next" data-dir="1" aria-label="{{ i18n "timeline_right" }}"></button>
+        </div>
+    </div>
+    <div class="inner-container">
+        {{ with .big_title }}<h3 class="h1">{{ . }}</h3>{{ end }}
+    </div>
+    <div class="slider">
+        <ul class='time'>
+            {{ range sort .items "year" "desc" }}
+                <li>
+                    <strong>{{ .year }}</strong>
+                    <p>{{ .description | markdownify }}</p>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+{{ end }}

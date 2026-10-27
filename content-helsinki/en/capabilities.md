@@ -20,9 +20,9 @@ Hull assembly is carried out in our covered dry dock in Helsinki, enabling high 
 
 Helsinki Shipyard is certified to the ISO management system standards ISO 9001 (Quality), ISO 14001 (Environmental) and ISO 45001 (Occupational health and safety), as well as ISO 3834-2 (Quality requirements for fusion welding of metallic materials).
 
----.wide.gray
+---
 
-[blok volgt: timeline]
+{{< timeline >}}
 
 ---
 

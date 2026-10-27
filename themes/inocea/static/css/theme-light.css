@@ -17,8 +17,6 @@
     --my-body: #808080;
     --my-gray: #b4b8bd;
     --my-black-20: rgba(0, 0, 0, 0.2);
-    --my-white-20: rgba(255, 255, 255, 0.2);
-    --my-white-50: rgba(255, 255, 255, 0.5);
 
     /* Labels (h2 in een sectie) */
     --label-font-size: 1.2rem;
@@ -271,6 +269,11 @@ ul.numbers {
 section.overlay > img {
     @media only screen and (max-width: 1000px) { --parallax-ratio: 1.9; }
     @media only screen and (max-width: 600px) { --parallax-ratio: 1; }
+}
+
+/* --------------- TIMELINE --------------- */
+@media only screen and (max-width: 1000px) {
+    .timeline h3 { font-size: 1.5rem; }
 }
 
 /* --------------- ACCORDION --------------- */

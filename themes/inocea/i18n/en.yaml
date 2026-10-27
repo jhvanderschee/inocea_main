@@ -18,3 +18,5 @@ arrow_right: Arrow Right
 facility_image: "{{ .Title }} facility"
 date_news: Jan 2006
 date_numeric: "2.1.2006"
+timeline_left: Scroll timeline to the left
+timeline_right: Scroll timeline to the right
