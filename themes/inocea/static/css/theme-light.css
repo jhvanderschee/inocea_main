@@ -94,7 +94,7 @@ section > .container > h3:first-child ~ * { padding-left: 50%; }
 section:has(> .container > h2:first-child + h3) {
     & .container { max-width: var(--max-width-medium); }
     & h3 { position: relative; font-size: 2.5rem; margin-bottom: 1rem; }
-    & h3 ~ * { max-width: 40rem; color: var(--my-body); }
+    & h3 ~ :not(ul.team) { max-width: 40rem; color: var(--my-body); }
 }
 
 /* Foto in de tekst: vaste verhouding, of onder de kop links als de sectie met een h3 begint. */
@@ -266,6 +266,10 @@ ul.numbers {
         & h3 { font-size: min(2.5rem, 30cqi); }
     }
 }
+
+/* --------------- ACCORDION --------------- */
+ul.accordion > li > div > :first-child { padding-bottom: .75rem; }
+ul.team > li > div > div { color: var(--my-body); }
 
 /* --------------- NEWS --------------- */
 ul.news {

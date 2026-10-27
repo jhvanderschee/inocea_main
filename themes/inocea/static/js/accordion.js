@@ -1,7 +1,7 @@
 function prepAccordions() {
     const accordions = document.querySelectorAll("ul.accordion");
     accordions.forEach((accordion, accordionNumber) => {
-        const items = [...accordion.querySelectorAll(":scope > li")].map(d => { return { node: d, title: d.firstElementChild.textContent, tag: d.firstElementChild.tagName, content: nodeListToString(d.querySelectorAll(":scope > *:first-child ~ *")) } });
+        const items = [...accordion.querySelectorAll(":scope > li")].map(d => { return { node: d, title: d.firstElementChild.innerHTML, tag: d.firstElementChild.tagName, content: nodeListToString(d.querySelectorAll(":scope > *:first-child ~ *")) } });
         items.forEach((item, itemNumber) => restructure(item, accordionNumber, itemNumber));
     });
 

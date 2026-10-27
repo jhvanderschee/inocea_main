@@ -45,6 +45,9 @@ params:
     - title: has-tabs
       has: div.tabs
       is:
+    - title: has-team
+      has: ul.team
+      is:
     - title: has-accordion
       has: ul.accordion
       is:

@@ -1,0 +1,6 @@
+{{- $label := partial "section_label.html" .Content -}}
+<section class="has-team" {{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
+    <div class="container">
+        {{ .Content }}
+    </div>
+</section>

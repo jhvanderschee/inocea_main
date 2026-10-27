@@ -729,6 +729,22 @@ ul.accordion {
 }
 
 
+/* --------------- TEAM --------------- */
+section.has-team { background: var(--my-white); }
+ul.accordion.team {
+    margin-top: 0;
+    & > li:first-child { border-top: none; }
+    & > li > :first-child { font-size: inherit; }
+    & strong { font-weight: 700; }
+    & > li > :first-child > button { gap: 2rem; padding-block: 1rem; }
+    & > li > :first-child img { width: 5rem; aspect-ratio: 1; object-fit: cover; border-radius: .2em; }
+    & > li > :first-child button div { display: flex; flex-direction: column; font-size: 1.1rem; font-weight: var(--font-medium); }
+    & > li > :first-child button div span { font-weight: var(--font-regular); }
+    & > li > div > div { max-width: 50rem; padding-left: 7rem; }
+    & > li > div > div p:last-of-type { margin-bottom: 0; }
+}
+
+
 /* =========================================================== */
 /* ========================== NEWS =========================== */
 /* =========================================================== */

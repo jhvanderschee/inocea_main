@@ -30,4 +30,4 @@ In Finland, Inocea’s operations cover Helsinki Shipyard in Helsinki and Sata S
 ### Team
 Helsinki Shipyard and Sata Shipbuilding are managed by a joint leadership team. With deep experience in complex industrial programs, Arctic shipbuilding, and international operations, the team is responsible for translating Inocea’s long-term strategy into disciplined execution across Finland.
 
-[blok volgt: team]
+{{< team >}}

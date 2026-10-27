@@ -32,4 +32,4 @@ Suomessa Inocean Helsinki Shipyard ja Sata Shipbuilding muodostavat yhdessä lai
 ### Johtoryhmä
 Helsinki Shipyardia ja Sata Shipbuildingia johtaa yhteinen johtoryhmä. Johtoryhmällä on vahva kokemus vaativista teollisista projekteista, arktisesta laivanrakennuksesta sekä kansainvälisestä liiketoiminnasta. Johtoryhmä vastaa Inocean pitkän aikavälin strategian toteuttamisesta Suomessa.
 
-[blok volgt: team]
+{{< team >}}

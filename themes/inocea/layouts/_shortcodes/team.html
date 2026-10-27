@@ -1,0 +1,20 @@
+{{- /* Teamleden als accordion: foto, naam en functie in de kop, tekst en telefoon klappen uit; {{< team >}} leest data/team.yml. */ -}}
+{{ with partial "data" (.Get 0 | default "team") }}
+<ul class="accordion team">
+    {{ range . }}
+        <li>
+            <div>
+                {{ with .image }}<img src="{{ partial "image" . }}" alt="">{{ end }}
+                <div>
+                    <strong>{{ .name }}</strong>
+                    <span>{{ .function }}</span>
+                </div>
+            </div>
+            <p>{{ .textarea }}</p>
+            {{ range split .tel "," }}
+                <a href="tel:{{ . }}">{{ . }}</a>
+            {{ end }}
+        </li>
+    {{ end }}
+</ul>
+{{ end }}
