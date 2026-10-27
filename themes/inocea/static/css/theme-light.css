@@ -87,7 +87,7 @@ section .container > p:only-child { margin-bottom: 0; }
 section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 50%; }
 
 /* Kop links, tekst rechts: een sectie die met een h3 begint. */
-section:not(.steps) h3:first-child:not(.h1) { position: absolute; max-width: calc(50% - 6.5rem); margin: 0; }
+section:not(.steps) h3:first-child:not(.h1, li > h3) { position: absolute; max-width: calc(50% - 6.5rem); margin: 0; }
 section > .container > h3:first-child ~ * { padding-left: 50%; }
 
 /* Label met een grote kop eronder. */
@@ -224,6 +224,29 @@ main > section.intro:has(+ section.page) { padding-block: var(--section-padding-
     main > section.intro:has(+ section.page) h1 { margin-top: .5rem; }
 }
 
+/* --------------- NUMBERS --------------- */
+/* Getallen doen mee met de grijs/wit-afwisseling. */
+section.has-numbers:nth-of-type(even) { background: var(--my-soft-white); }
+section.has-numbers:last-child .container { max-width: var(--max-width-medium); }
+ul.numbers {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); margin: 0 1px 0 0;
+    & > li { container-type: inline-size; padding: 2rem; background: var(--my-soft-white); color: inherit; }
+    & h3 { margin: 0; font-size: min(3.5rem, 30cqi); line-height: 1.1; }
+    & p { max-width: 11em; margin: 0; color: var(--my-dark-gray); }
+
+    @media only screen and (max-width: 1100px) {
+        & > li { padding: 1.5rem; }
+        & h3 { font-size: min(2.75rem, 30cqi); }
+    }
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        & > li { padding: 2rem 1rem; }
+        & > li:last-of-type:nth-of-type(odd) { grid-column: -1 / 1; }
+        & > li:last-of-type:nth-of-type(odd) p { max-width: 12em; }
+        & h3 { font-size: min(2.5rem, 30cqi); }
+    }
+}
+
 /* --------------- MEDIA QUERIES --------------- */
 /* MAX */
 @media only screen and (max-width: 1000px) {
@@ -240,7 +263,7 @@ main > section.intro:has(+ section.page) { padding-block: var(--section-padding-
 
     h3 { margin-bottom: 2rem; }
     :is(section:has(> .container > h2:first-child + h3), section.page) h3 { font-size: var(--font-size-h3); }
-    section:not(.steps) h3:first-child:not(.h1) { position: relative; max-width: 100%; margin-bottom: .3em; }
+    section:not(.steps) h3:first-child:not(.h1, li > h3) { position: relative; max-width: 100%; margin-bottom: .3em; }
     section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 0; }
     nav.pages h3 { font-size: 1rem; }
     section:has(h3):not(:has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3, nav.pages) { padding-left: 0; }

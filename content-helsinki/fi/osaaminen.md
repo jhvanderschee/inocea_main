@@ -32,4 +32,4 @@ Helsinki Shipyardilla on ISO 9001 (Quality), ISO 14001 (Environmental), ISO 4500
 
 ## Helsingin telakka lukuina
 
-[blok volgt: numbers]
+{{< numbers >}}

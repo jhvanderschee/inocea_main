@@ -20,7 +20,7 @@ From Arctic icebreakers to complex governmental vessels and cruise ships, discov
 
 ## Helsinki Shipyard in numbers
 
-[blok volgt: numbers]
+{{< numbers >}}
 
 ---.wide
 

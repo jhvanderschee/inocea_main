@@ -20,7 +20,7 @@ Arktisista jäänmurtajista vaativiin viranomais- ja risteilyaluksiin. Toteutamm
 
 ## Helsingin telakka lukuina 
 
-[blok volgt: numbers]
+{{< numbers >}}
 
 ---.wide
 
