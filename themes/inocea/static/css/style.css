@@ -28,7 +28,7 @@ address { font-style: normal;}
     --font-bold: 600;
 
     /* Font sizes */
-    --root-font-size:  clamp(16px, 1.39vw, 24px);
+    --root-font-size:  clamp(16px, 1.39vw, 21px);
     --font-size-huge:  4rem;             
     --font-size-h1:    2.5rem;           
     --font-size-h2:    2rem;             

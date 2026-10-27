@@ -2,9 +2,6 @@
 /* ======================= THEME LIGHT ======================= */
 /* =========================================================== */
 :root {
-    /* Fonts */
-    --root-font-size: 18px;
-
     /* Font sizes */
     --font-size-h1:    3rem;
     --font-size-h3:    2rem;
@@ -268,6 +265,9 @@ section.overlay > img {
     @media only screen and (max-width: 1000px) { --parallax-ratio: 1.9; }
     @media only screen and (max-width: 600px) { --parallax-ratio: 1; }
 }
+
+/* --------------- FACILITY --------------- */
+section.has-facility .container > h2:first-child { margin-bottom: var(--label-margin-bottom); }
 
 /* --------------- TIMELINE --------------- */
 @media only screen and (max-width: 1000px) {
