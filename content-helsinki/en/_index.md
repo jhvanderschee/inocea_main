@@ -22,9 +22,7 @@ From Arctic icebreakers to complex governmental vessels and cruise ships, discov
 
 {{< numbers >}}
 
----.wide
-
-[blok volgt: overlay]
+---.overlay
 
 ![](/uploads/careers.jpg){:.parallax}
 

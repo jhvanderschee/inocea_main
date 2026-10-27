@@ -1,0 +1,11 @@
+{{- /* Foto over de volle breedte met de tekst eronder op donker; de eerste afbeelding komt buiten de container. */ -}}
+{{- $label := partial "section_label.html" .Content -}}
+{{- $content := replaceRE `(?s)(?:<p>\s*)?<img\b[^>]*>(?:\s*</p>)?` "" (string .Content) 1 -}}
+<section class="overlay h2-normal"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
+    {{ with findRE `<img\b[^>]*>` .Content 1 }}{{ index . 0 | safeHTML }}{{ end }}
+    <div class="container">
+        <div>
+            {{ $content | safeHTML }}
+        </div>
+    </div>
+</section>

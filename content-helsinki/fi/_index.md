@@ -22,9 +22,7 @@ Arktisista jäänmurtajista vaativiin viranomais- ja risteilyaluksiin. Toteutamm
 
 {{< numbers >}}
 
----.wide
-
-[blok volgt: overlay]
+---.overlay
 
 ![](/uploads/careers.jpg){:.parallax}
 

@@ -777,6 +777,24 @@ nav.pages {
 
 
 /* =========================================================== */
+/* ========================= OVERLAY ========================= */
+/* =========================================================== */
+section.overlay { padding: 0; background: var(--my-black); color: var(--my-soft-white);
+    & > img { display: block; --parallax-ratio: 3; }
+    & .container > div { padding-block: 2rem; }
+    & p { margin-bottom: 0; }
+    & .container h2 { max-width: none; margin: .5rem 0 1rem; padding-bottom: var(--label-padding-bottom); font-size: 1.5rem; letter-spacing: -.02em; }
+
+    @media only screen and (max-width: 768px) {
+        & .container > div { padding-bottom: 2.5rem; }
+    }
+    @media only screen and (max-width: 600px) {
+        & > img { --parallax-ratio: 1; }
+    }
+}
+
+
+/* =========================================================== */
 /* ====================== PUBLICATIONS ======================= */
 /* =========================================================== */
 section.image-header + section.has-publications { padding-top: 0;}
