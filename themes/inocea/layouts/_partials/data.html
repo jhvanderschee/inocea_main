@@ -1,0 +1,7 @@
+{{- /* Datafile per taal: data/<lang>/<key> als die bestaat, anders data/<key>; {{ partial "data" "navigation" }}. */ -}}
+{{- $key := . -}}
+{{- $data := index hugo.Data $key -}}
+{{- with index hugo.Data site.Language.Lang -}}
+  {{- with index . $key -}}{{- $data = . -}}{{- end -}}
+{{- end -}}
+{{- return $data -}}

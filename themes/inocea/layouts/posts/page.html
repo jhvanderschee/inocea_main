@@ -1,7 +1,7 @@
 {{ define "content" }}
     {{- $intro := printf "<h1>%s</h1>" (.Title | htmlEscape) -}}
     {{- if not .Date.IsZero -}}
-        {{- $intro = printf `<p><time datetime="%s">%s</time></p>%s` (.Date.Format "2006-01-02") (.Date.Format "2.1.2006") $intro -}}
+        {{- $intro = printf `<p><time datetime="%s">%s</time></p>%s` (.Date.Format "2006-01-02") (.Date.Format (i18n "date_numeric")) $intro -}}
     {{- end -}}
     {{- partial "sections/intro.html" (dict "Content" ($intro | safeHTML)) -}}
     {{- partial "sections_logic" . -}}

@@ -1,6 +1,6 @@
 * {padding: 0; margin: 0;  border: 0; box-sizing: border-box; }
 *::before, *::after { box-sizing: border-box; }
-html { font-size: clamp(16px, 1.39vw, 24px); scroll-behavior: smooth; overscroll-behavior: none;   scroll-padding-top: 3rem;}
+html { font-size: var(--root-font-size); scroll-behavior: smooth; overscroll-behavior: none;   scroll-padding-top: 3rem;}
 body {font-size: var(--font-size-body); color: var(--main-color); font-family: var(--primary-font); font-weight: var(--font-regular); background: var(--background-color); line-height: var(--line-height-regular);  -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased }
 a {text-decoration: none; color: inherit; }
 :is(ul,ol,p) a {  text-underline-offset: 0.15rem; transition: 0.2s opacity ease-in-out; text-decoration: underline; }
@@ -28,6 +28,7 @@ address { font-style: normal;}
     --font-bold: 600;
 
     /* Font sizes */
+    --root-font-size:  clamp(16px, 1.39vw, 24px);
     --font-size-huge:  4rem;             
     --font-size-h1:    2.5rem;           
     --font-size-h2:    2rem;             

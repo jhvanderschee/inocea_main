@@ -1,0 +1,20 @@
+menu: Menu
+language: Language
+logo: "{{ .Title }} logo"
+go_to: "Go to {{ .Name }}"
+go_to_publication: "Go to {{ .Category }} {{ .Title }}"
+view_previous_tab: View previous tab
+view_next_tab: View next tab
+view_previous_craft: View previous craft
+view_next_craft: View next craft
+show_image: "Show image {{ .Number }}"
+view_previous_image: View previous image
+view_next_image: View next image
+# Letterlijk zoals de vorige-knop het nu zegt; "previous" zou de HTML van de sites veranderen.
+view_previous_feature: View next feature of the facility
+view_next_feature: View next feature of the facility
+arrow_left: Arrow Left
+arrow_right: Arrow Right
+facility_image: "{{ .Title }} facility"
+date_month_year: Jan 2006
+date_numeric: "2.1.2006"

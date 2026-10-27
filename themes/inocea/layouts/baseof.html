@@ -10,7 +10,7 @@
     {{ if .IsHome }}
       {{/* Description uit frontmatter, anders de Summary zonder sectiescheidingen */}}
       {{ $desc := .Description }}
-      {{ if not $desc }}{{ $desc = .Summary | plainify | htmlUnescape | replaceRE `(?:—|&mdash;|---)[.#][\w-]+` " " | replaceRE `(?m)^\s*(?:—|&mdash;|---)\s*$` " " | replaceRE `\s+` " " | strings.TrimSpace }}{{ end }}
+      {{ if not $desc }}{{ $desc = .Summary | plainify | htmlUnescape | replaceRE `(?:—|&mdash;|---)[.#][\w-]+(?:\.[\w-]+)*` " " | replaceRE `(?m)^\s*(?:—|&mdash;|---)\s*$` " " | replaceRE `\s+` " " | strings.TrimSpace }}{{ end }}
       <meta name="description" content="{{ $desc }}">
     {{ else }}
       <meta name="description" content="{{ $.Site.Params.description }}">
@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="/css/fonts.css?version={{ now }}">
     <link rel="stylesheet" href="/css/style.css?version={{ now }}">
     <link rel="stylesheet" href="/css/carousel.css?version={{ now }}">
+    {{- with site.Params.theme_style }}
+    <link rel="stylesheet" href="/css/theme-{{ . }}.css?version={{ now }}">
+    {{- end }}
     <link rel="stylesheet" href="/css/custom.css?version={{ now }}">
 
 
@@ -40,12 +43,27 @@
         <div class="container">
             <nav>
                 <a href="/#top" class="logo">{{ partial "logo.html" . }}</a>
+                {{- if hugo.IsMultilingual }}
+                <div class='lang'>
+                    <div>
+                        <span aria-hidden='true'>{{ site.Language.Lang | upper }} {{ partial "render-svg" "/img/chevron.svg" }}</span>
+                        <select onchange="location.href=this.value" aria-label="{{ i18n "language" }}">
+                            {{- /* Vertaalde pagina als die er is, anders de home van die taal. */ -}}
+                            {{ $translations := dict }}
+                            {{ range .AllTranslations }}{{ $translations = merge $translations (dict .Language.Lang .RelPermalink) }}{{ end }}
+                            {{ range hugo.Sites }}
+                                <option {{ if eq .Language.Lang site.Language.Lang }} selected {{ end }} value="{{ index $translations .Language.Lang | default .Home.RelPermalink }}">{{ upper .Language.Lang }}</option>
+                            {{ end }}
+                        </select>
+                    </div>
+                </div>
+                {{- end }}
                 <ul>
-                    {{ range hugo.Data.navigation }}
+                    {{ range partial "data" "navigation" }}
                     <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }} onclick="document.body.classList.remove('menuopen')">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
-                <button onclick="document.body.classList.toggle('menuopen')">Menu</button>
+                <button onclick="document.body.classList.toggle('menuopen')">{{ i18n "menu" }}</button>
             </nav>
         </div>
     </header>
@@ -55,17 +73,17 @@
     <footer id="footer">
         <div class="container">
             <div class="left">
-                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ with hugo.Data.footer.logo_image }} <img src="{{ .}}" alt="{{ site.Title }} logo">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
+                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ i18n "logo" (dict "Title" site.Title) }}' class="logo">{{ with (partial "data" "footer").logo_image }} <img src="{{ .}}" alt="{{ i18n "logo" (dict "Title" site.Title) }}">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
                 <address>
-                    {{ hugo.Data.footer.text | safeHTML }}
+                    {{ (partial "data" "footer").text | safeHTML }}
                 </address>
                 <ul>
-                    {{ range hugo.Data.footer.companies }}
+                    {{ range (partial "data" "footer").companies }}
                         <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}><span>{{ .name }}</span></a></li>
                     {{ end }}
                 </ul>
             </div>
-            {{ with hugo.Data.footer }}
+            {{ with partial "data" "footer" }}
                 {{ range slice .large_link_top .large_link_bottom }}
                     {{ if and .name .url }}
                         <a class='large' href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
@@ -82,7 +100,7 @@
                     {{ range where site.RegularPages "Section" "legal" }}
                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                     {{ end }}
-                    {{ range hugo.Data.footer.postfooter_urls }}
+                    {{ range (partial "data" "footer").postfooter_urls }}
                         <li><a href="{{ .url }}">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
