@@ -62,6 +62,14 @@ address { font-style: normal;}
     --line-height-medium: 1.35;
     --line-height-regular: 1.5;
     --line-height-large: 1.6; 
+    --line-height-h1: var(--line-height-small);
+
+    /* Labels (h2 in een sectie) */
+    --label-font-size: var(--font-size-h5);
+    --label-font-weight: var(--font-regular);
+    --label-line-height: var(--line-height-small);
+    --label-padding-bottom: .3rem;
+    --label-margin-bottom: 2rem;
 
     /* Widths */
     --gutter-side: 2rem;
@@ -73,11 +81,16 @@ address { font-style: normal;}
     --margin-left-large: 0%;
     --width: calc(100% - calc(var(--gutter-side) * 2));
     --gap: 4rem; 
+    --header-gutter-side: var(--gutter-side);
+    --header-max-width: var(--max-width);
 
     /* Margins */
     --margin: var(--margin-y) auto;
     --margin-y: 5rem; 
     --padding-top: 4rem;
+    --section-padding-top: var(--margin-y);
+    --header-padding-block: 1rem 0.675rem;
+    --nav-gap: 1.8rem;
     --btn-padding: 0 1.35rem;
 
     /* Transitions */
@@ -95,13 +108,14 @@ address { font-style: normal;}
 
     /* Logos */
     --logo-width: 5rem; 
+    --footer-logo-width: 7.55rem;
 }
 
 /* =========================================================== */
 /* ======================== HEADINGS ========================= */
 /* =========================================================== */
 h1,.h1 ,h2,.h2 ,h3,.h3, h4,.h4, h5, .h5, h6, .h6  {font-weight: var(--font-medium); font-family: var(--header-font);  line-height: var(--line-height-small); margin-bottom: 0.5em; }
-h1, .h1 {font-size: var(--font-size-h1); line-height: var(--line-height-small);} 
+h1, .h1 {font-size: var(--font-size-h1); line-height: var(--line-height-h1);} 
 h2, .h2 {font-size: var(--font-size-h2); }
 h3, .h3 {font-size: var(--font-size-h3); }
 h4, .h4 {font-size: var(--font-size-h4); } 
@@ -111,7 +125,7 @@ h6, .h6 {font-size: var(--font-size-h6); }
 h1:has(strong) { font-weight: var(--font-regular); }
 h1 strong {  font-weight: var(--font-bold); }
 
-main section:not(.h2-normal) h2 { font-size: var(--font-size-h5); font-family: var(--mono-font); text-transform: uppercase; border-bottom: 1px solid var(--faded-color); font-weight: var(--font-regular); margin-block: 3rem 2rem; padding-bottom: .3rem; letter-spacing: 0.025em; }
+main section:not(.h2-normal) h2 { font-size: var(--label-font-size); font-family: var(--mono-font); text-transform: uppercase; border-bottom: 1px solid var(--faded-color); font-weight: var(--label-font-weight); line-height: var(--label-line-height); margin-block: 3rem var(--label-margin-bottom); padding-bottom: var(--label-padding-bottom); letter-spacing: 0.025em; }
 main section:not(.h2-normal) h2:first-child { margin-top: 0; }
 main section.h2-normal h2 { font-size: var(--font-size-h3); max-width: 28em; }
 
@@ -168,7 +182,7 @@ button,label { cursor: pointer;  user-select: none; }
 .buttons.outline button path { fill: currentColor;}
 
 /* --------------- SECTIONS --------------- */
-section { margin: 0 auto; position: relative; background: var(--background-color); padding-block: var(--margin-y); }
+section { margin: 0 auto; position: relative; background: var(--background-color); padding-block: var(--section-padding-top) var(--margin-y); }
 section:first-of-type { padding-top: 0;}
 section.intro:first-of-type { padding-top: var(--margin-y); }
 section .container { margin: 0 auto; }
@@ -228,20 +242,32 @@ section.fullwidth-image img:not(.parallax) {
 /* =========================================================== */
 /* ========================= HEADER ========================== */
 /* =========================================================== */
-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; color: var(--main-color); padding-block: 1rem 0.675rem; user-select: none; transition: transform 0.3s ease; }
+header { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; color: var(--main-color); padding-block: var(--header-padding-block); user-select: none; transition: transform 0.3s ease; }
 header::before { content:""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--background-color);}
-header .container { margin-block: 0}
+header .container { margin-block: 0; width: calc(100% - var(--header-gutter-side) * 2); max-width: var(--header-max-width); }
 header .container nav { display: flex; justify-content: space-between; align-items: center; }
-header .container nav ul { display: flex; gap: 1.8rem; padding-top: 1.1rem; }
+header .container nav ul { display: flex; gap: var(--nav-gap); padding-top: 1.1rem; }
 header a { font-weight: var(--font-medium); user-select: none; text-decoration: none; }
 header button { display: none; width: 2.4rem; height: 2.4rem; background: url(/img/menu.svg) center center / contain no-repeat; color: transparent; overflow: hidden; cursor: pointer; position: relative; left: 0.4rem; }
+
+header .container nav ul li.active a { opacity: .5; }
 
 body.header-hidden header { transform: translateY(-100%); }
 body.menuopen header button { background: url('/img/close.svg') center center / contain no-repeat; }
 
+/* --------------- TAALWISSELAAR --------------- */
+header nav .lang { margin: 0 2rem 0 auto; padding-top: 1.1rem; }
+header nav .lang div { position: relative; }
+header nav .lang span { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; background: var(--background-color); font-weight: var(--font-medium); pointer-events: none; transition: color .2s ease-in-out; }
+header nav .lang span svg { display: inline-block; width: .35em; height: auto; margin-left: .4em; transform: rotate(90deg); transition: opacity .2s ease-in-out; }
+header nav .lang div:hover span { color: rgba(0, 0, 0, 0.5); }
+header nav .lang div:hover span svg { opacity: .5; }
+header nav .lang select { padding: 0 .65rem; border: none; border-radius: 0; appearance: none; -webkit-appearance: none; background: transparent url('/img/dropdown-arrow.svg') 100% 52% / .4rem .4rem no-repeat; font: inherit; font-weight: var(--font-regular); line-height: 1.15; text-transform: uppercase; text-align: center; cursor: pointer; }
+
 @media (max-width: 1000px) {
     header button { display: block; }
-    header .container nav ul { position: absolute; bottom: 0; left: calc(var(--gutter-side) * -1); width: calc(100% + var(--gutter-side) * 2);  flex-direction: column; justify-content: center; text-align: center; gap: 0; margin: 0; padding-block: 0 1rem; background: var(--background-color); pointer-events: none; transition: transform 0.25s ease-in-out; transform: translateY(0%); z-index: -1; }
+    header nav .lang { padding-top: 0; margin-right: 0; }
+    header .container nav ul { position: absolute; bottom: 0; left: calc(var(--header-gutter-side) * -1); width: calc(100% + var(--header-gutter-side) * 2);  flex-direction: column; justify-content: center; text-align: center; gap: 0; margin: 0; padding-block: 0 1rem; background: var(--background-color); pointer-events: none; transition: transform 0.25s ease-in-out; transform: translateY(0%); z-index: -1; }
     header .container nav ul li { opacity: 0; pointer-events: none; transition: none; }
     header .container nav ul li a { display: block; padding-block: 0.35rem; font-size: var(--font-size-h5); }
    
@@ -257,7 +283,7 @@ footer { color: var(--my-white); background: var(--my-black); overflow: clip;}
 footer a { text-decoration: none;}
 footer .container { display: grid; grid-template-columns: 1fr; margin: 0 auto; }
 footer .left { grid-row: span 2; padding-block: 3rem;  grid-template-columns: auto auto; display: grid;  grid-gap: 3rem; max-width: 35rem; }
-footer .left .logo { filter: brightness(0) invert(1); width: 7.55rem; position: relative; display: block; grid-column: -1/1; }
+footer .left .logo { filter: brightness(0) invert(1); width: var(--footer-logo-width); position: relative; display: block; grid-column: -1/1; }
 footer .left .logo :is(svg, img) { width: 100%; }
 footer .left > ul > li:first-of-type { font-weight: var(--font-medium); }
 footer .left > ul > li { margin-bottom: .33rem;}
@@ -538,6 +564,12 @@ body:has(section.page),
 body:has(section.page) header,
 section.page { background: var(--my-black); color: var(--my-soft-white);}
 section.page .container { max-width: 45rem; padding-block: 3rem;}
+body:has(section.page) header::before,
+body:has(section.page) header nav .lang span { background: var(--my-black); }
+body:has(section.page) header nav .lang span svg path { fill: currentColor; }
+body:has(section.page) header nav .lang div:hover span { color: rgba(255, 255, 255, 0.5); }
+body:has(section.page) header nav .lang select { color: var(--my-soft-white); background-image: url('/img/dropdown-arrow-white.svg'); }
+body:has(section.page) header nav .lang select option { color: var(--my-black); }
 
 
 
@@ -829,8 +861,8 @@ body.posts section.intro time { font-family: var(--mono-font); color: var(--fade
 }
 
 @media only screen and (max-width: 350px) {
-    html { font-size: 4.575vw;}
     :root { 
+        --root-font-size: 4.575vw;
         --font-size-body:  .8rem;  
         --font-size-small: .7rem;  
         --font-size-tiny:  .6rem;  
