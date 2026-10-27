@@ -45,6 +45,7 @@ address { font-style: normal;}
     --background-color: var(--my-white);
     
     --my-black: #1c1c1c;
+    --my-black-20: rgba(0, 0, 0, 0.2);
     --my-black-40: rgba(0, 0, 0, 0.4);
     --my-black-10: rgba(0, 0, 0, 0.1);
     --my-full-black: #000;
@@ -840,6 +841,28 @@ section.has-timeline .top h2 { border-color: var(--my-white-20); }
 
     @media only screen and (max-width: 500px) {
         & .slider li { scroll-snap-align: start; }
+    }
+}
+
+
+/* =========================================================== */
+/* ======================= GET IN TOUCH ====================== */
+/* =========================================================== */
+section.has-getintouch { padding-bottom: 6rem; background: var(--my-white);
+    & .container { padding-top: 1rem; }
+    & h1 ~ :not(div) { max-width: 30em; }
+    & .getintouch { float: right; max-width: 20rem; margin-left: 6.5rem; padding-left: 1.25rem; border-left: 1px solid var(--my-black-20); }
+    & .getintouch h2 { max-width: none; margin: 0 0 .15em; padding-bottom: 0; border-bottom: none; font-family: var(--header-font); font-size: 1.5rem; font-weight: var(--font-medium); text-transform: none; letter-spacing: 0; color: var(--my-black); }
+    & .getintouch a:not(.btn) { color: inherit; transition: color 250ms; }
+    & .getintouch a.btn { margin-top: 1rem; }
+
+    @media only screen and (max-width: 768px) {
+        & .container { display: grid; }
+        & .getintouch { order: 1; margin: 4rem 0 -3rem; padding-left: 0; border-left: 0; }
+    }
+    @media only screen and (max-width: 600px) {
+        & .container { padding-top: 0; }
+        & .getintouch a.btn { display: flex; width: max-content; margin-top: .75rem; }
     }
 }
 

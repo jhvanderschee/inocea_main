@@ -45,6 +45,9 @@ params:
     - title: has-tabs
       has: div.tabs
       is:
+    - title: has-getintouch
+      has: .getintouch
+      is:
     - title: has-timeline
       has: div.timeline
       is:

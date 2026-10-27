@@ -1,0 +1,8 @@
+{{- /* Kader met contactgegevens en een knop naast de inleiding; {{< getintouch >}} leest data/get_in_touch.yml (title, markdown, button_text, button_url). */ -}}
+{{ with partial "data" (.Get 0 | default "get_in_touch") }}
+<div class="getintouch">
+    <h2 class="h3">{{ .title }}</h2>
+    {{ .markdown | markdownify }}
+    {{ if and .button_text .button_url }}<a href="{{ .button_url }}" class="btn reversed">{{ .button_text }}</a>{{ end }}
+</div>
+{{ end }}
