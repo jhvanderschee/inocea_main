@@ -28,7 +28,9 @@ Helsinki Shipyardilla on ISO 9001 (Quality), ISO 14001 (Environmental), ISO 4500
 
 ---
 
-[blok volgt: facility]
+## Telakkamme
+
+{{< facility image="/uploads/facility.png" >}}
 
 ---
 

@@ -1,5 +1,5 @@
 {{ $facilities := where site.RegularPages "Section" "facility" }}
-{{ $image := ((resources.GetMatch "/img/facility.png").Resize "1400x") }}
+{{ $image := ((resources.GetMatch (.Get "image" | default "/img/facility.png")).Resize "1400x") }}
 <div class="facility">
     <figure>
         <img src="{{ $image.RelPermalink }}" alt="{{ i18n "facility_image" (dict "Title" site.Title) }}">

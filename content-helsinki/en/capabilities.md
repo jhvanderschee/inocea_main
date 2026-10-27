@@ -26,7 +26,9 @@ Helsinki Shipyard is certified to the ISO management system standards ISO 9001 (
 
 ---
 
-[blok volgt: facility]
+## Our facility
+
+{{< facility image="/uploads/facility.png" >}}
 
 ---
 

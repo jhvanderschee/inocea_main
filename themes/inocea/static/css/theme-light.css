@@ -36,10 +36,8 @@
     --section-padding-top: 4rem;
     --header-padding-block: 1.1rem .75rem;
     --nav-gap: 2rem;
-    --btn-padding: .5em 1.5em .5em 0;
 
     /* Borders */
-    --btn-border-radius: 0;
 
     /* Logos */
     --logo-width: calc(2rem * 178 / 60);
@@ -68,10 +66,10 @@ main ul:not([class], nav ul) > li::before { content: '>'; display: block; positi
 .logo :is(img, svg) { margin-block: .2rem; }
 
 /* --------------- BUTTONS --------------- */
-.btn { display: inline-flex; align-items: center; text-decoration: none; position: relative; font-size: 1rem; font-weight: 400; text-align: left; isolation: isolate; }
-.btn, .btn:hover, .btn.reversed:not(:hover) { background: transparent; color: inherit; }
-.btn::after { content: ""; position: absolute; right: 0; display: inline-flex; width: 1rem; height: 1rem; background: url('/img/arrow-right-small-black.svg') 51% 50% / .9rem auto no-repeat; }
-:is(section.overlay, section.dark) .btn::after { background-image: url('/img/arrow-right-small-white.svg'); }
+a.btn { display: inline-flex; align-items: center; padding: .5em 1.5em .5em 0; border-radius: 0; text-decoration: none; position: relative; font-size: 1rem; font-weight: 400; text-align: left; isolation: isolate; }
+a.btn, a.btn:hover, a.btn.reversed:not(:hover) { background: transparent; color: inherit; }
+a.btn::after { content: ""; position: absolute; right: 0; display: inline-flex; width: 1rem; height: 1rem; background: url('/img/arrow-right-small-black.svg') 51% 50% / .9rem auto no-repeat; }
+:is(section.overlay, section.dark) a.btn::after { background-image: url('/img/arrow-right-small-white.svg'); }
 
 /* --------------- SECTIONS --------------- */
 section { overflow: clip; }
