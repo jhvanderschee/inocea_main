@@ -5,14 +5,14 @@
         <li id="locations" data-open>
             <h3>{{ .title }}</h3>
             <div class="locations inner">
-                {{ range .items }}
+                {{ range $location := .items }}
                     <div>
                         <address>
                             <h4>{{ .title }}</h4>
                             {{ .address_markdown | markdownify }}
                             {{ if and .button_text .button_url }}<a href="{{ .button_url }}">{{ .button_text }}</a>{{ end }}
                         </address>
-                        {{ with .image }}<img src="{{ partial "image" . }}" alt="">{{ end }}
+                        {{ with .image }}<img src="{{ partial "image" . }}" alt="{{ $location.title }}">{{ end }}
                     </div>
                 {{ end }}
             </div>

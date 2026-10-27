@@ -752,7 +752,7 @@ ul.accordion.team {
 
 
 /* --------------- CONTACT ACCORDIONS --------------- */
-section.has-contact-accordions { padding-top: 2rem; background: var(--my-white); }
+section.has-contact-accordions { padding-block: 2rem 10rem; background: var(--my-white); }
 ul.accordion.contact-accordion {
     margin: 0;
     & > li { border-bottom: none; }

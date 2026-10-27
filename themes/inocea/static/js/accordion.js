@@ -53,9 +53,16 @@ function openAccordionFromHash(hash, immediate) {
     const
         button = target.querySelector("button[aria-expanded]"),
         offset = document.querySelector("header").offsetHeight + 14;
-    if (button.ariaExpanded == "false") button.click();
-    if (window.lenis) window.lenis.scrollTo(target, { offset: -offset, immediate });
-    else window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: immediate ? "auto" : "smooth" });
+    const scroll = () => {
+        if (!window.lenis) return window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: immediate ? "auto" : "smooth" });
+        window.lenis.resize();
+        window.lenis.scrollTo(target, { offset: -offset, immediate });
+    };
+    // Eerst openklappen, dan scrollen: anders kent de pagina zijn nieuwe hoogte nog niet en stopt de scroll te vroeg.
+    if (button.ariaExpanded == "false") {
+        target.querySelector("div[aria-hidden]").addEventListener("transitionend", scroll, { once: true });
+        button.click();
+    } else scroll();
     return true;
 }
 
