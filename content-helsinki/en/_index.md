@@ -35,4 +35,6 @@ Join our community of shipbuilders
 
 ## News
 
-[blok volgt: news]
+[All news](/news/){:.btn.reversed}
+
+{{< news 3 >}}

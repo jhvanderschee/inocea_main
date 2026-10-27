@@ -1,0 +1,13 @@
+{{- /* Eén post als kaart met alle velden; de stijl bepaalt welke zichtbaar zijn. Auteur en avatar uit params.news van de site. */ -}}
+{{ $url := .Params.redirect_url | default .RelPermalink }}
+<li>
+    {{ with site.Params.news.avatar }}<img src="{{ . }}" alt="">{{ end }}
+    <div class="meta">
+        <span class="author">{{ site.Params.news.author | default site.Title }}</span>
+        {{ with .Params.post_type }}<span class="type">{{ i18n (replace . " " "_") | default . }}</span>{{ end }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format (i18n "date_news") .Date }}</time>
+    </div>
+    <a class="{{ if in $url "linkedin.com" }}linkedin{{ else }}more{{ end }}" href="{{ $url }}" aria-label="{{ .Title }}">{{ if in $url "linkedin.com" }}{{ partial "svg" "linkedin" }}{{ end }}</a>
+    <h3 class="title">{{ .Title }}</h3>
+    <div class="md">{{ .Summary }}</div>
+</li>

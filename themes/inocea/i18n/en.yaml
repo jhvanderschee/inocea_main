@@ -16,5 +16,5 @@ view_next_feature: View next feature of the facility
 arrow_left: Arrow Left
 arrow_right: Arrow Right
 facility_image: "{{ .Title }} facility"
-date_month_year: Jan 2006
+date_news: Jan 2006
 date_numeric: "2.1.2006"

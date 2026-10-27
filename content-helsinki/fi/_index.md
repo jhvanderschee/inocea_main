@@ -35,4 +35,6 @@ Liity laivanrakentajiemme joukkoon
 
 ## Uutiset
 
-[blok volgt: news]
+[Kaikki uutiset](/fi/uutiset/){:.btn.reversed}
+
+{{< news 3 >}}

@@ -70,10 +70,10 @@ main ul:not([class], nav ul) > li::before { content: '>'; display: block; positi
 .logo :is(img, svg) { margin-block: .2rem; }
 
 /* --------------- BUTTONS --------------- */
-.btn { display: inline-flex; align-items: center; position: relative; font-size: 1rem; font-weight: 400; text-align: left; isolation: isolate; }
+.btn { display: inline-flex; align-items: center; text-decoration: none; position: relative; font-size: 1rem; font-weight: 400; text-align: left; isolation: isolate; }
 .btn, .btn:hover, .btn.reversed:not(:hover) { background: transparent; color: inherit; }
 .btn::after { content: ""; position: absolute; right: 0; display: inline-flex; width: 1rem; height: 1rem; background: url('/img/arrow-right-small-black.svg') 51% 50% / .9rem auto no-repeat; }
-.btn.reversed::after { background-image: url('/img/arrow-right-small-white.svg'); }
+:is(section.overlay, section.dark) .btn::after { background-image: url('/img/arrow-right-small-white.svg'); }
 
 /* --------------- SECTIONS --------------- */
 section { overflow: clip; }
@@ -245,6 +245,21 @@ ul.numbers {
         & > li:last-of-type:nth-of-type(odd) p { max-width: 12em; }
         & h3 { font-size: min(2.5rem, 30cqi); }
     }
+}
+
+/* --------------- NEWS --------------- */
+ul.news {
+    grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr)); margin-top: 0;
+    & > li { display: flex; flex-direction: column; gap: 0; padding: 1.75rem; color: var(--my-black); transition: all .25s ease-in-out; }
+    & > li:hover { background: rgba(0, 0, 0, .1); }
+    & > li > img, & .author, & .md { display: none; }
+    & .meta { align-self: flex-start; line-height: inherit; }
+    & .more { height: 0; }
+    & :is(.type, time) { font-size: .85rem; font-weight: 400; letter-spacing: .025em; }
+    & .type { display: block; text-transform: capitalize; }
+    & time { opacity: .5; }
+    & .more::before { content: ""; position: absolute; right: 1.75rem; bottom: 1.75rem; width: 2.5rem; height: 2.5rem; border-radius: 100%; background: var(--my-white) url(/img/news-arrow-right.svg) 53% center / .9rem auto no-repeat; }
+    & .title { display: -webkit-box; margin: 0 0 3rem; padding-top: 1.4rem; font-size: 1.75rem; font-weight: 500; line-height: 1.2; overflow: hidden; overflow-wrap: break-word; hyphens: auto; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; }
 }
 
 /* --------------- MEDIA QUERIES --------------- */
