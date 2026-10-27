@@ -48,4 +48,4 @@ Liity laivanrakentajiemme joukkoon – maailmanluokan osaamista Helsingin sydäm
 
 ## Avoimet työpaikat
 
-[blok volgt: careers]
+{{< news section="careers" >}}

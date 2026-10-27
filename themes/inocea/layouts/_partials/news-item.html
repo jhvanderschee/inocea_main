@@ -1,5 +1,5 @@
-{{- /* Eén post als kaart met alle velden; de stijl bepaalt welke zichtbaar zijn. Auteur en avatar uit params.news van de site. */ -}}
-{{ $url := .Params.redirect_url | default .RelPermalink }}
+{{- /* Eén post (of vacature) als kaart met alle velden; de stijl bepaalt welke zichtbaar zijn. Auteur en avatar uit params.news van de site. */ -}}
+{{ $url := .Params.link | default .Params.redirect_url | default .RelPermalink }}
 <li>
     {{ with site.Params.news.avatar }}<img src="{{ . }}" alt="">{{ end }}
     <div class="meta">
@@ -8,6 +8,6 @@
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format (i18n "date_news") .Date }}</time>
     </div>
     <a class="{{ if in $url "linkedin.com" }}linkedin{{ else }}more{{ end }}" href="{{ $url }}" aria-label="{{ .Title }}">{{ if in $url "linkedin.com" }}{{ partial "svg" "linkedin" }}{{ end }}</a>
-    <h3 class="title">{{ .Title }}</h3>
+    <h3 class="title">{{ .Title }}</h3>{{ with .Params.country }}<span class="location">{{ . }}{{ with $.Params.county }}, {{ . }}{{ end }}</span>{{ end }}
     <div class="md">{{ .Summary }}</div>
 </li>

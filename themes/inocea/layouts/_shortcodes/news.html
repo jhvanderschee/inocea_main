@@ -1,7 +1,7 @@
-{{- /* Laatste posts als kaarten; {{< news 3 >}} toont er drie, {{< news show=9 >}} toont ze allemaal met na negen een knop voor de rest. */ -}}
-{{ $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{- /* Laatste posts als kaarten; {{< news 3 >}} toont er drie, {{< news show=9 >}} toont ze allemaal met na negen een knop voor de rest; section="careers" toont een andere sectie. */ -}}
+{{ $posts := (where site.RegularPages "Section" (.Get "section" | default "posts")).ByDate.Reverse }}
 {{ with cond .IsNamedParams (.Get "count") (.Get 0) }}{{ $posts = first (int .) $posts }}{{ end }}
-<ul class="news"{{ with .Get "show" }} data-show="{{ . }}"{{ end }}>
+<ul class="news{{ with .Get "section" }} {{ . }}{{ end }}"{{ with .Get "show" }} data-show="{{ . }}"{{ end }}>
     {{ range $posts }}
         {{ partial "news-item" . }}
     {{ end }}

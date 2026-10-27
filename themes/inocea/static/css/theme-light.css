@@ -72,8 +72,8 @@ section.white { background: var(--my-white); }
 section.white + section.white { padding-top: 0; }
 
 /* Lead: de eerste alinea van een sectie. */
-section .container > p:first-child { max-width: 20em; margin-bottom: 1.75em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
-section .container > p:only-child { margin-bottom: 0; }
+section .container > p:first-child:not(:has(img)) { max-width: 20em; margin-bottom: 1.75em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
+section .container > p:only-child:not(:has(img)) { margin-bottom: 0; }
 section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 50%; }
 
 /* Kop links, tekst rechts: een sectie die met een h3 begint. */
@@ -173,18 +173,27 @@ footer .postfooter ul { gap: 1rem 2rem; }
 /* =========================================================== */
 /* ====================== HEADER-BRICK ======================== */
 /* =========================================================== */
-section.video-header { padding-block: 0; background: var(--my-white);
+section:is(.video-header, .image-header) { padding-block: 0; background: var(--my-white);
     & .container { width: calc(100% - var(--header-gutter-side) * 2); max-width: var(--header-max-width); }
     & .media { position: relative; margin-bottom: 2.5rem; }
-    & video { height: 100%; aspect-ratio: 1.85; object-fit: cover; animation: header-parallax linear; animation-timeline: view(); }
+    & :is(video, .media img) { height: 100%; aspect-ratio: 1.85; object-fit: cover; animation: header-parallax linear; animation-timeline: view(); }
 
     @media (max-width: 1000px) {
         & .media { margin-bottom: 1.65rem; }
-        & video { aspect-ratio: 1.9; }
+        & :is(video, .media img) { aspect-ratio: 1.9; }
     }
     @media (max-width: 600px) {
-        & video { aspect-ratio: .9; }
+        & :is(video, .media img) { aspect-ratio: .9; }
     }
+}
+/* Header met kop en tekst onder de foto; de sectie erna zet zijn inhoud rechts. */
+section.image-header { padding-bottom: 5rem;
+    & h1 { margin-block: 5rem 2rem; }
+    & .container > h1 ~ p { max-width: 30em; }
+}
+section.image-header + section .container > * { max-width: 40rem; margin-left: auto; }
+@media only screen and (max-width: 1000px) {
+    section.image-header + section .container > h2 + p { font-size: 1.5rem; line-height: var(--line-height-regular); }
 }
 @keyframes header-parallax { from { object-position: center bottom; } to { object-position: center top; } }
 
@@ -304,17 +313,27 @@ section.has-news:first-child .container { max-width: var(--max-width-medium); }
 section.has-news h1 + p { max-width: 48rem; margin-top: 1.25rem; font-size: 1.25rem; line-height: 1.5; opacity: .8; }
 section.has-news h1 ~ h2 { margin-top: 2.5rem; }
 ul.news[data-show] > li { aspect-ratio: 1; }
+ul.news.careers .title { font-size: 1.5rem; }
+ul.news .location { font-size: .85rem; font-weight: 400; letter-spacing: .025em; }
 
 /* --------------- POST --------------- */
 body.posts main section .container { max-width: calc(58rem - 2 * var(--gutter-side)); }
 body.posts section.intro { padding-top: var(--section-padding-top); }
-body.posts section.intro + section { padding-block: 3rem 0; }
+body.posts section.intro + section { padding-block: 0; }
+body.posts section.intro p:has(img) { margin-bottom: 3rem; }
 body.posts section.intro p:first-child { display: flex; flex-direction: column; max-width: none; margin-bottom: 4rem; padding-bottom: 1rem; border-bottom: 1px solid var(--my-black-40); font-size: .85rem; font-weight: 400; line-height: inherit; letter-spacing: .025em; }
 body.posts section.intro .type { text-transform: capitalize; }
 body.posts section.intro time { font-family: inherit; color: inherit; opacity: .5; }
 body.posts section.intro h1 { margin-bottom: 3rem; }
 body.posts section:not(.intro) .container > p:first-child { max-width: none; margin-bottom: 1.6em; font: inherit; }
-.post-author { margin-block: 4rem; padding-block: 0; font-size: .85rem; font-weight: 400; letter-spacing: .025em;
+body.posts section.intro + section:last-child { padding-bottom: 5rem; }
+body.posts main section:not(.h2-normal) :is(h2, h3) { position: relative; max-width: none; margin-block: 3rem .5rem; padding-bottom: 0; border: 0; font-family: var(--header-font); font-size: 1.15rem; font-weight: var(--font-medium); line-height: var(--line-height-small); letter-spacing: 0; text-transform: none; }
+body.posts main section:not(.h2-normal) h2 { margin-block: 4rem 1rem; font-size: 1.7rem; }
+body.posts main strong { font-weight: 400; }
+@media only screen and (max-width: 1000px) {
+    body.posts main section:not(.h2-normal) h3 { font-size: 1.5rem; }
+}
+.post-author { margin-block: 4rem 9rem; padding-block: 0; font-size: .85rem; font-weight: 400; letter-spacing: .025em;
     & img { display: block; width: 4.5rem; margin-bottom: 1rem; border-radius: 100%; }
     & .author-info { opacity: .5; }
 }

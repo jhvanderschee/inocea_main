@@ -1,6 +1,6 @@
 {{ define "content" }}
-    {{- /* Begint de content zelf met een h1, dan geen eigen intro met de titel. */ -}}
-    {{- if not (hasPrefix (trim (string .Content) " \n") "<h1") -}}
+    {{- /* Heeft de content zelf een h1, dan geen eigen intro met de titel. */ -}}
+    {{- if not (in (string .Content) "<h1") -}}
         {{- partial "sections/intro.html" (dict "Content" (printf "<h1>%s</h1>" (.Title | htmlEscape) | safeHTML)) -}}
     {{- end -}}
     {{- partial "sections_logic" . -}}

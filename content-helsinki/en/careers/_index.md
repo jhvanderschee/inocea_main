@@ -48,4 +48,4 @@ Join our community of shipbuilders – world-class expertise in the heart of Hel
 
 ## Open positions
 
-[blok volgt: careers]
+{{< news section="careers" >}}
