@@ -1,4 +1,7 @@
 {{ define "content" }}
-    {{- partial "sections/intro.html" (dict "Content" (printf "<h1>%s</h1>" (.Title | htmlEscape) | safeHTML)) -}}
+    {{- /* Begint de content zelf met een h1, dan geen eigen intro met de titel. */ -}}
+    {{- if not (hasPrefix (trim (string .Content) " \n") "<h1") -}}
+        {{- partial "sections/intro.html" (dict "Content" (printf "<h1>%s</h1>" (.Title | htmlEscape) | safeHTML)) -}}
+    {{- end -}}
     {{- partial "sections_logic" . -}}
 {{ end }}
