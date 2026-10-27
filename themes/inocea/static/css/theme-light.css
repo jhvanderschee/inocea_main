@@ -67,7 +67,6 @@ section.white { background: var(--my-white); }
 /* Lead: de eerste alinea van een sectie. */
 section .container > p:first-child:not(:has(img)) { max-width: 20em; margin-bottom: 1.75em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
 section .container > p:only-child:not(:has(img)) { margin-bottom: 0; }
-section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 50%; }
 
 /* Kop links, tekst rechts: een sectie die met een h3 begint. */
 section:not(.steps) h3:first-child:not(.h1, li > h3, .projects h3) { position: absolute; max-width: calc(50% - 6.5rem); margin: 0; }
@@ -353,7 +352,6 @@ body.posts main strong { font-weight: 400; }
     h3 { margin-bottom: 2rem; }
     :is(section:has(> .container > h2:first-child + h3), section.page) h3 { font-size: var(--font-size-h3); }
     section:not(.steps) h3:first-child:not(.h1, li > h3, .projects h3) { position: relative; max-width: 100%; margin-bottom: .3em; }
-    section:not(:has(nav.pages)) > .container:has(> p:first-child) h2 ~ p { margin-left: 0; }
     nav.pages h3 { font-size: 1rem; }
     section:has(h3):not(.steps, :has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3, nav.pages) { padding-left: 0; }
     section > .container:has(> h3:first-child ~ p > img.parallax) > :is(h3:first-child, p:has(> img.parallax)) { float: none; width: auto; }
