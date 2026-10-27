@@ -68,24 +68,39 @@ section.white { background: var(--my-white); }
 section .container > p:first-child:not(:has(img)) { max-width: 20em; margin-bottom: 1.75em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
 section .container > p:only-child:not(:has(img)) { margin-bottom: 0; }
 
-/* Kop links, tekst rechts: een sectie die met een h3 begint. */
-section:not(.steps) h3:first-child:not(.h1, li > h3, .projects h3) { position: absolute; max-width: calc(50% - 6.5rem); margin: 0; }
-section > .container > h3:first-child ~ * { padding-left: 50%; }
+/* Kop links, tekst rechts (brick side-heading). */
+section.side-heading .container {
+    & > h3:first-child { position: absolute; max-width: calc(50% - 6.5rem); margin: 0; }
+    & > h3:first-child ~ * { padding-left: 50%; }
 
-/* Label met een grote kop eronder. */
-section:has(> .container > h2:first-child + h3) {
+    @media only screen and (max-width: 1000px) {
+        & > h3:first-child { position: relative; max-width: 100%; margin-bottom: .3em; }
+        & > h3:first-child ~ * { padding-left: 0; }
+    }
+}
+
+/* Label met een grote kop eronder (bricks heading en has-team). */
+section:is(.heading, .has-team) {
     & .container { max-width: var(--max-width-medium); }
     & h3 { position: relative; font-size: 2.5rem; margin-bottom: 1rem; }
     & h3 ~ :not(ul.team) { max-width: 40rem; color: var(--my-body); }
+
+    @media only screen and (max-width: 1000px) {
+        & h3 { font-size: var(--font-size-h3); }
+    }
 }
 
 /* Foto in de tekst: vaste verhouding, of onder de kop links als de sectie met een h3 begint. */
 img.parallax { --parallax-ratio: 2.5; }
 p:has(> img.parallax) { margin-bottom: 3rem; }
-section > .container:has(> h3:first-child ~ p > img.parallax) { display: flow-root;
+section.with-image .container { display: flow-root;
     & > h3:first-child { position: relative; float: left; width: calc(50% - 6.5rem); }
     & > p:has(> img.parallax) { float: left; clear: left; width: calc(50% - 6.5rem); margin-top: 2rem; padding-left: 0; }
     & img.parallax { aspect-ratio: auto; }
+
+    @media only screen and (max-width: 1000px) {
+        & > :is(h3:first-child, p:has(> img.parallax)) { float: none; width: auto; }
+    }
 }
 
 :where(main > section:first-of-type:not(.page):has(h1)) .container { max-width: var(--max-width-medium); }
@@ -350,11 +365,8 @@ body.posts main strong { font-weight: 400; }
     }
 
     h3 { margin-bottom: 2rem; }
-    :is(section:has(> .container > h2:first-child + h3), section.page) h3 { font-size: var(--font-size-h3); }
-    section:not(.steps) h3:first-child:not(.h1, li > h3, .projects h3) { position: relative; max-width: 100%; margin-bottom: .3em; }
+    section.page h3 { font-size: var(--font-size-h3); }
     nav.pages h3 { font-size: 1rem; }
-    section:has(h3):not(.steps, :has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3, nav.pages) { padding-left: 0; }
-    section > .container:has(> h3:first-child ~ p > img.parallax) > :is(h3:first-child, p:has(> img.parallax)) { float: none; width: auto; }
     img.parallax { --parallax-ratio: 1.9; }
 }
 @media only screen and (max-width: 450px) {

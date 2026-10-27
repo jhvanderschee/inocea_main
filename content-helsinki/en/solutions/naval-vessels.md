@@ -15,7 +15,7 @@ Vessels designed for specialized operations
 We support navy and defense organizations with vessels designed for security, patrol, surveillance, and specialized operations. Our expertise in ice-capable vessels and complex shipbuilding ensures reliable performance in the world’s most demanding environments.
 
 
----.wide
+---
 
 ### Proven multi-mission capability – MPPS concept
 

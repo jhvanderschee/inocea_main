@@ -87,6 +87,15 @@ params:
     - title: title-list-split
       has: h3:first-child, ul:nth-child(2), ul:last-child
       is:
+    - title: side-heading-image
+      has: h3:first-child, img
+      is:
+    - title: side-heading
+      has: h3:first-child
+      is:
+    - title: heading
+      has: h2:first-child, h3
+      is:
     - title: has-outline
       has: .ship-outline
       is: 
