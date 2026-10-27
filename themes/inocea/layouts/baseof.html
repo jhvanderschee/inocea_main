@@ -40,6 +40,21 @@
         <div class="container">
             <nav>
                 <a href="/#top" class="logo">{{ partial "logo.html" . }}</a>
+                {{- if hugo.IsMultilingual }}
+                <div class='lang'>
+                    <div>
+                        <span aria-hidden='true'>{{ site.Language.Lang | upper }} {{ partial "render-svg" "/img/chevron.svg" }}</span>
+                        <select onchange="location.href=this.value" aria-label="{{ i18n "language" }}">
+                            {{- /* Vertaalde pagina als die er is, anders de home van die taal. */ -}}
+                            {{ $translations := dict }}
+                            {{ range .AllTranslations }}{{ $translations = merge $translations (dict .Language.Lang .RelPermalink) }}{{ end }}
+                            {{ range hugo.Sites }}
+                                <option {{ if eq .Language.Lang site.Language.Lang }} selected {{ end }} value="{{ index $translations .Language.Lang | default .Home.RelPermalink }}">{{ upper .Language.Lang }}</option>
+                            {{ end }}
+                        </select>
+                    </div>
+                </div>
+                {{- end }}
                 <ul>
                     {{ range partial "data" "navigation" }}
                     <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }} onclick="document.body.classList.remove('menuopen')">{{ .title }}</a></li>

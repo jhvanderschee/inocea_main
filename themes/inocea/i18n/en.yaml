@@ -1,4 +1,5 @@
 menu: Menu
+language: Language
 logo: "{{ .Title }} logo"
 go_to: "Go to {{ .Name }}"
 go_to_publication: "Go to {{ .Category }} {{ .Title }}"
