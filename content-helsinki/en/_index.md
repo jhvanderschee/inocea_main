@@ -8,7 +8,7 @@ header_video: /uploads/helsinki-shipyard-home-page.mp4
 
 ---
 
-We deliver advanced vessels for demanding operating environments. 
+We build extraordinary ships for the world's most demanding missions. 
 
 ## Our solutions
 

@@ -8,7 +8,7 @@ header_video: /uploads/helsinki-shipyard-home-page.mp4
 
 ---
 
-Toimitamme edistyksellisiä aluksia vaativiin toimintaympäristöihin.
+Rakennamme ainutlaatuisia aluksia maailman vaativimpiin tehtäviin.
 
 ## Ratkaisut
 
