@@ -57,6 +57,12 @@ params:
     - title: has-contact-accordions
       has: ul.contact-accordion
       is:
+    - title: has-projects
+      has: div.projects
+      is:
+    - title: has-deliveries
+      has: table.deliveries
+      is:
     - title: has-team
       has: ul.team
       is:

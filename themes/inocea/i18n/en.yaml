@@ -22,3 +22,8 @@ timeline_left: Scroll timeline to the left
 timeline_right: Scroll timeline to the right
 show_all_news: Show all news
 additional_information: Additional information
+read_more: Read more
+deliveries_filter_label: Filter deliveries by category
+deliveries_all: All
+deliveries_showing: "Showing {{ .Shown }} of {{ .Total }}"
+deliveries_load_more: Load more

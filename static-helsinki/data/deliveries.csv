@@ -1,0 +1,436 @@
+Year,No.,Name,Type,Owner,Category
+2023,518,SH Diana,Expedition Cruise Ship,Swan Hellenic,Passenger Vessel
+2022,517,SH Vega,Expedition Cruise Ship,Swan Hellenic,Passenger Vessel
+2021,516,SH Minerva,Expedition Cruise Ship,Swan Hellenic,Passenger Vessel
+2019,515,Yuriy Kuchiev,Gas condensate tanker,Dynacom,Cargo Vessel
+2018,514,Yevgeniy Primakov,Standby vessel,Sovcomflot Group,Icebreaker
+2017,513,Fedor Ushakov,Standby vessel,Sovcomflot Group,Icebreaker
+2017,512,Stepan Makarov,Standby vessel,Sovcomflot Group,Icebreaker
+2017,511,Gennadiy Nevelskoy,Platform supply vessel,Sovcomflot Group,Icebreaker
+2016,510,Polaris,"Icebreaker, LNG",Finnish Transport and Communications Agency,Icebreaker
+2015,509,Murmansk,Icebreaker,Ministry of Transportation of Russian Federation,Icebreaker
+2014,508,Baltika,Icebreaker,Ministry of Transportation of Russian Federation,Icebreaker
+2013,507,Aleksey Chirikov,Platform supply vessel,Sovcomflot Group,Icebreaker
+2012,506,Vitus Bering,Platform supply vessel,Sovcomflot Group,Icebreaker
+2009,1362,Armorique,ROPAX ferry,Brittany Ferries,Passenger Vessel
+2008,1361,Baltic Princess,Cruise ferry,Tallink,Passenger Vessel
+2008,1358,XPRS,Passenger ship,Viking Line,Passenger Vessel
+2007,1357,Cotentin,ROPAX,Brittany Ferries,Passenger Vessel
+2007,1356,Star,Passenger ship,Tallink,Passenger Vessel
+2006,505,Norilsk Nickel,Arctic cargo ship,MMC Norilsk Nickel,Cargo Vessel
+2005,504,Fesco Sakhalin,Platform supply vessel,Far-Eastern Shipping Company PLC,Icebreaker
+2003,503,Carnival Miracle,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+2003,502,Costa Mediterranea,Cruise ship,Costa Crociere SpA,Passenger Vessel
+2002,501,Carnival Legend,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+2001,500,Carnival Pride,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+2001,499,Carnival Spirit,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+2000,498,Costa Atlantica,Cruise ship,Costa Crociere SpA,Passenger Vessel
+1998,497,Antarcticaborg,Platform supply vessel,Wagenborg Kazakhstan B.V.,Icebreaker
+1998,496,Arcticaborg,Platform supply vessel,Wagenborg Kazakhstan B.V.,Icebreaker
+1999,495,Europa,Cruise ship,Hapag-Lloyd AG,Passenger Vessel
+1998,494,Paradise,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1997,493,Enchantment of the Seas,Cruise ship,Royal Caribbean Cruise Line,Passenger Vessel
+1996,492,Grandeur of the Seas,Cruise ship,Royal Caribbean Cruise Line,Passenger Vessel
+1998,491,Elation,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1995,490,Röthelstein,River icebreaker,Österreichische Donaukraftwerke A.G.,Icebreaker
+1996,489,Inspiration,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1995,488,Imagination,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1994,487,Fascination,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1992,485,Barfleur,ROPAX ferry,B.A.I. Brittany Ferries/Truckline Ferries,Passenger Vessel
+1993,484,Sensation,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1989,483,Arppe,Lake icebreaker,Mopro Oy,Icebreaker
+1990,482,Etisalat,Cable layer,The Emirates Telecommunications Corp. Ltd.,Special Vessel
+1989,481,Aranda,Reasearch vessel,Finnish Marine Research Institute,Icebreaker
+1991,480,Ecstasy,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1990,479,Fantasy,Cruise ship,"Carnival Cruise Lines, Inc.",Passenger Vessel
+1987,478,Kontio,Icebreaker,Finnish Maritime Administration,Icebreaker
+1986,477,Kemj,Cable layer,"Ministry of Communications, Vladivostok",Special Vessel
+1986,476,Biriusa,Cable layer,"Ministry of Communications, Vladivostok",Special Vessel
+1989,475,Vaygach,Nuclear-powered icebreaker,Murmansk Shipping Co.,Icebreaker
+1988,474,Taymyr,Nuclear-powered icebreaker,Murmansk Shipping Co.,Icebreaker
+1986,473,Kapitan Moshkin,River icebreaker,Ob-Irtysh Shipping Co.,Icebreaker
+1986,472,Otso,Icebreaker,Finnish Maritime Administration,Icebreaker
+1986,471,Wellamo,Cruise ferry,EFFOA Finland Steamship Co. Ltd.,Passenger Vessel
+1985,470,Svea,Cruise ferry,Johnson Line,Passenger Vessel
+1986,469,Kotka,Missile boat,Finland,Naval Vessel
+1985,468,Oulu,Missile boat,Finland,Naval Vessel
+1985,467,Sea Goddess II,Cruise ship,K/S A/S Norske Cruise,Passenger Vessel
+1984,466,Sea Goddess I,Cruise ship,K/S A/S Norske Cruise,Passenger Vessel
+1985,465,Turku,Missile boat,Finland,Naval Vessel
+1984,464,Royal Princess,Cruise ship,P & O Lines,Passenger Vessel
+1983,463,Aleksey Kortunov,Passenger ship,Soviet Union,Passenger Vessel
+1983,462,Sabit Orudzhev,Passenger ship,Soviet Union,Passenger Vessel
+1983,461,Deimos,Salvage tug,Soviet Union,Icebreaker
+1983,460,Fobos,Salvege tug,Soviet Union,Icebreaker
+1984,459,VP-14,Air cushion vessel,Soviet Union,Air cushion vessel
+1984,458,VP-13,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,457,VP-12,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,456,VP-11,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,455,VP-10,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,454,VP-9,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,453,VP-8,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,452,VP-7,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,451,VP-6,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,450,VP-5,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,449,VP-4,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,448,VP-3,Air cushion vessel,Soviet Union,Air cushion vessel
+1983,447,VP-2,Air cushion vessel,Soviet Union,Air cushion vessel
+1982,446,VP-1,Air cushion vessel,Soviet Union,Air cushion vessel
+1984,445,Kapitan Demidov,River icebreaker,Soviet Union,Icebreaker
+1984,444,Kapitan Mecaik,River icebreaker,Soviet Union,Icebreaker
+1984,443,Avraamiy Zavenyagin,River icebreaker,Soviet Union,Icebreaker
+1983,442,Kapitan Borodkin,River icebreaker,Soviet Union,Icebreaker
+1983,441,Kapitan Chudinov,River icebreaker,Soviet Union,Icebreaker
+1983,440,Kapitan Babichev,River icebreaker,Soviet Union,Icebreaker
+1983,439,Kapitan Evdokimov,River icebreaker,Soviet Union,Icebreaker
+1983,438,Dikson,Sea icebreaker,Soviet Union,Icebreaker
+1982,437,Magadan,Sea icebreaker,Soviet Union,Icebreaker
+1982,436,Mudyug,Sea icebreaker,Soviet Union,Icebreaker
+1981,435,Setun,Cable layer,Soviet Union,Special Vessel
+1981,434,Nepryadva,Cable layer,Soviet Union,Special Vessel
+1981,433,Larus,Air cushion vessel,Finnish Roads and Waterways Administration,Air cushion vessel
+1981,432,Travemunde,ROPAX ferry,Gedser-Travemunde Linie,Passenger Vessel
+1982,431,Song of America,Cruise ship,Royal Caribbean Cruise Line A/S,Passenger Vessel
+1981,430,Kapitan Khlebnikov,Icebreaker,Soviet Union,Icebreaker
+1980,429,Kapitan Dranitsyn,Icebreaker,Soviet Union,Icebreaker
+1981,428,Helsinki,Missile boat,Finland,Naval Vessel
+1980,427,Sibirskij,Salvage tug,Soviet Union,Icebreaker
+1980,426,Suvorovets,Salvage tug,Soviet Union,Icebreaker
+1980,425,Stakhanovets,Salvage tug,Soviet Union,Icebreaker
+1980,424,Spravedlivyj,Salvage tug,Soviet Union,Icebreaker
+1979,423,Stroptivyj,Salvage tug,Soviet Union,Icebreaker
+1980,422,Emba,Cable layer,Soviet Union,Special Vessel
+1980,393 C,Nordic Prince,Cruise ship extension,Royal Caribbean Cruise Line A/S,Passenger Vessel
+1979,421,Pohjanmaa,Mine layer,Finland,Naval Vessel
+1979,349K,Voima,Icebreaker,Finland,Icebreaker
+1978,420,Almirante Irizar,Icebreaker,Argentina,Icebreaker
+1978,419,Kapitan Zarubin,River icebreaker,Soviet Union,Icebreaker
+1978,418,Kapitan Bukaev,River icebreaker,Soviet Union,Icebreaker
+1978,417,Kapitan Krutov,River icebreaker,Soviet Union,Icebreaker
+1978,416,Kapitan Chadaev,River icebreaker,Soviet Union,Icebreaker
+1977,415,Kapitan Plahin,River icebreaker,Soviet Union,Icebreaker
+1977,414,Kapitan Chechkin,River icebreaker,Soviet Union,Icebreaker
+1977,413,Ymer,Icebreaker,Sweden,Icebreaker
+1978,412,Kapitan Nikolaev,Icebreaker,Soviet Union,Icebreaker
+1978,392 C,Song of Norway,Cruise ship extension,Royal Caribbean Cruise Line A/S,Passenger Vessel
+1977,411,Kapitan Sorokin,Icebreaker,Soviet Union,Icebreaker
+1976,410,Kapitan A Radzhabov,Icebreaker,Soviet Union,Icebreaker
+1976,409,Kapitan Kosolapov,Icebreaker,Soviet Union,Icebreaker
+1976,408,Kapitan M Izmaylov,Icebreaker,Soviet Union,Icebreaker
+1977,407,Finnjet,Cruise ferry,Enso-Gutzeit Oy,Passenger Vessel
+1975,405,Teuvo,Icebreaker,The City of Helsinki,Icebreaker
+1973,404,Ale,Icebreaker,Sweden,Icebreaker
+1976,403,Sisu,Icebreaker,Finland,Icebreaker
+1974,402,Atle,Icebreaker,Sweden,Icebreaker
+1975,401,Urho,Icebreaker,Finland,Icebreaker
+1976,400,Krasin,Icebreaker,Soviet Union,Icebreaker
+1975,399,Admiral Makarov,Icebreaker,Soviet Union,Icebreaker
+1974,398,Jermak,Icebreaker,Soviet Union,Icebreaker
+1973,397,Royal Viking Sea,Cruise ship,Klaveness & Co A/S,Passenger Vessel
+1973,396,Royal Viking Sky,Cruise ship,Det Nordenfjerdske Dampskibsseslkab,Passenger Vessel
+1972,395,Royal Viking Star,Cruise ship,Det Bergenske Dampskibsselskab,Passenger Vessel
+1972,394,Sun Viking,Cruise ship,Royal Caribbean Cruise Line A/S,Passenger Vessel
+1971,393,Nordic Prince,Cruise ship,Royal Caribbean Cruise Line A/S,Passenger Vessel
+1970,392,Song of Norway,Cruise ship,Royal Caribbean Cruise Line A/S,Passenger Vessel
+1970,391,Floria,ROPAX ferry,Silja-shipping company,Passenger Vessel
+1969,390,Finncarrier,Ro-ro ferry,Merivienti Oy,Passenger Vessel
+1969,389,Njord,Icebreaker,Sweden,Icebreaker
+1970,388,Apu,Icebreaker,Finland,Icebreaker
+1968,387,Varma,Icebreaker,Finland,Icebreaker
+1969,386,Vladivostok,Polar Icebreaker,Soviet Union,Icebreaker
+1968,385,Murmansk,Polar Icebreaker,Soviet Union,Icebreaker
+1967,384,Botnia,ROPAX ferry,Silja-shipping company,Passenger Vessel
+1967,383,Finlandia,ROPAX ferry,Suomen Hoyrylaiva Osakeyhtio,Passenger Vessel
+1968,382,Karjala,Gun boat,Finland,Naval Vessel
+1968,381,Turunmaa,Gun boat,Finland,Naval Vessel
+1966,380,Finnpartner,ROPAX ferry,Amer-Tupakka Oy,Passenger Vessel
+1966,379,Hanse,Icebreaker,Germany,Icebreaker
+1970,378,Jelppari,Tugboat,Wärtsila Helsingin telakka,Other
+1966,377,Finnhansa,Ro-ro ferry,Merivienti Oy,Passenger Vessel
+1965,376,Kiev,Polar Icebreaker,Soviet Union,Icebreaker
+1964,375,Ilmatar,Passenger ship,Suomen Hoyrylaiva Osakeyhtio,Passenger Vessel
+1964,374,Tor,Icebreaker,Sweden,Icebreaker
+1963,373,Tarmo,Icebreaker,Finland,Icebreaker
+1963,372,Jana,Cable layer,Soviet Union,Special Vessel
+1962,371,Ingul,Cable layer,Soviet Union,Special Vessel
+1962,370,Nordia,Ro-ro ferry,Silja-shipping company,Passenger Vessel
+1961,369,Skandia,Ro-ro ferry,Silja-shipping company,Passenger Vessel
+1961,368,Sampo,Icebreaker,Finland,Icebreaker
+1959,367,Murtaja,Icebreaker,Finland,Icebreaker
+1961,366,Leningrad,Polar Icebreaker,Soviet Union,Icebreaker
+1960,365,Moskva,Polar Icebreaker,Soviet Union,Icebreaker
+1958,364,Karhu,Icebreaker,Finland,Icebreaker
+1958,363,,Oil barge,Hietalahden telakka,Other
+1957,362,Oden,Icebreaker,Sweden,Icebreaker
+1955,361,Kichinev,Tugboat,Soviet Union,Other
+1955,360,Riga,Tugboat,Soviet Union,Other
+1954,359,BP-359,Tugboat,Soviet Union,Other
+1954,358,BP-358,Tugboat,Soviet Union,Other
+1953,357,Zorkij,Tugboat,Soviet Union,Other
+1953,356,Potiets,Tugboat,Soviet Union,Other
+1956,355,Kapitan Melehov,Icebreaker,Soviet Union,Icebreaker
+1955,354,Kapitan Voronin,Icebreaker,Soviet Union,Icebreaker
+1954,353,Kapitan Belousov,Icebreaker,Soviet Union,Icebreaker
+1954,349,Voima,Icebreaker,Finland,Icebreaker
+1950,345,Rigel,Cargo ship,Suomen Höyrylaiva Osakeyhtiö,Cargo Vessel
+1949,344,Turso,Harbor icebreaker,The City of Helsinki,Icebreaker
+,343,,Sea barge,Soviet Union,Other
+1952,342,,Sea barge,Soviet Union,Other
+1953,341,,Sea barge,Soviet Union,Other
+,340,,Sea barge,Soviet Union,Other
+,339,,Sea barge,Soviet Union,Other
+1950,338,Neva,Sea barge,Soviet Union,Other
+1951,337,,Sea barge,Soviet Union,Other
+1951,336,,Sea barge,Soviet Union,Other
+1951,335,,Sea barge,Soviet Union,Other
+1951,334,,Sea barge,Soviet Union,Other
+1951,333,,Sea barge,Soviet Union,Other
+1950,332,,Sea barge,Soviet Union,Other
+1950,331,,Sea barge,Soviet Union,Other
+1949,330,,Sea barge,Soviet Union,Other
+1949,329,,Sea barge,Soviet Union,Other
+1949,328,Tamanj,Sea barge,Soviet Union,Other
+1949,327,Lichter 8,Sea barge,Soviet Union,Other
+1949,326,Lichter 7,Sea barge,Soviet Union,Other
+1948,325,Lichter 6,Sea barge,Soviet Union,Other
+1948,324,Lichter 5,Sea barge,Soviet Union,Other
+1947,323,Lichter 4,Sea barge,Soviet Union,Other
+1947,322,Lichter 3,Sea barge,Soviet Union,Other
+1946,321,Gornjak,Sea barge,Soviet Union,Other
+1946,320,Sjachter,Sea barge,Soviet Union,Other
+1946,319,Metallurg,Sea barge,Soviet Union,Other
+1952,318,Vichrj,Tugboat,Soviet Union,Other
+1951,317,Vichrj,Tugboat,Soviet Union,Other
+1951,316,Buran,Tugboat,Soviet Union,Other
+1950,315,Mitjurinets,Tugboat,Soviet Union,Other
+1949,314,Azowets,Tugboat,Soviet Union,Other
+1949,313,Pereval,Tugboat,Soviet Union,Other
+1948,312,Tjakva,Tugboat,Soviet Union,Other
+1948,311,Krasnodavets,Tugboat,Soviet Union,Other
+1948,310,Eskimos,Tugboat,Soviet Union,Other
+1948,309,Nenets,Tugboat,Soviet Union,Other
+1948,308,Zyrjanin,Tugboat,Soviet Union,Other
+1947,307,Pomor,Tugboat,Soviet Union,Other
+1947,306,Bystryi,Tugboat,Soviet Union,Other
+1947,305,Pluton,Tugboat,Soviet Union,Other
+1947,304,BP-304,Tugboat,Soviet Union,Other
+1946,303,Boretz,Tugboat,Soviet Union,Other
+1946,302,Silatj,Tugboat,Soviet Union,Other
+1946,301,Mogutschij II,Tugboat,Soviet Union,Other
+1945,300,Nadeschnij,Tugboat,Soviet Union,Other
+1945,299,Mogutschij,Tugboat,Soviet Union,Other
+1944,298,S/S Turso,Harbor icebreaker,The City of Helsinki,Icebreaker
+1945,295,S/S Capella,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+1945,294,S/S Msta,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+1944,293,S/S Bjarmia,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+1944,292,S/S Fennia,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+1944,291,S/S Clio,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+1941,290,S/S Capella,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+,289,S/S Goldingen,Tugboat,Germany,Other
+,288,S/S Windau,Tugboat,Germany,Other
+,287,S/S Ostpreussen,Tugboat,Germany,Other
+,286,S/S Korsfjord,Tugboat,Germany,Other
+,285,S/S Pernau,Tugboat,Germany,Other
+,284,S/S Ortrud,Tugboat,Germany,Other
+,283,S/S Ostland,Tugboat,Germany,Other
+,282,S/S Reval,Tugboat,Germany,Other
+1939,279,Vesiproomu,Water barge,Germany,Other
+1939,278,Ruoppausproomu,Hopper barge,Germany,Other
+1938-39,277,S/S Olympia,Passenger ship,Joht. A. Oster,Passenger Vessel
+1938,276,HKR 26,Barge,The City of Helsinki,Other
+1938,275,HKR 25,Water barge,The City of Helsinki,Other
+1937-38,274,S/S Turku (Ukkopekka),Fairway vessel,Finland,Special Vessel
+1937-38,273,S/S Aldebaran,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+1937-39,272,M/A Sisu,Icebreaker,Finland,Icebreaker
+1935-36,271,S/S Otso,Harbor icebreaker,The City of Helsinki,Icebreaker
+,270,,Coal barge,,Other
+1936,269,,Cargo barge,,Other
+1934-35,268,S/S Orion,Cargo ship,Suomen Höyrylaiva Oy,Cargo Vessel
+1932-33,267,M/S Jaameri,Passenger ship,Finland,Passenger Vessel
+1932,266,Don,Motorboat,Soviet Union,Other
+1932,265,Neva,Motorboat,Soviet Union,Other
+1932,264,Dnjepr,Motorboat,Soviet Union,Other
+1932,263,Wolga,Motorboat,Soviet Union,Other
+1932,262,Dvina,Motorboat,Soviet Union,Other
+1932,261,Oka,Lifeboat,Soviet Union,Other
+1932,260,Kama,Lifeboat,Soviet Union,Other
+1932,259,Exportles No 31,Lifeboat,Soviet Union,Other
+1932,258,Exportles No 29,Lifeboat,Soviet Union,Other
+1932,257,Exportles No 30,Lifeboat,Soviet Union,Other
+1932,256,Exportles No 28,Lifeboat,Soviet Union,Other
+1932,255,Baikal,Motorboat,Soviet Union,Other
+1932,254,,Motorboat,Soviet Union,Other
+1932,253,,Motorboat,Soviet Union,Other
+1932,252,,Motorboat,Soviet Union,Other
+1932,251,,Motorboat,Soviet Union,Other
+1932,250,,Motorboat,Soviet Union,Other
+1932,249,,Motorboat,Soviet Union,Other
+1932,248,Lena,Motorboat,Soviet Union,Other
+1932,247,Jenissej,Motorboat,Soviet Union,Other
+1932,246,Irtysch,Motorboat,Soviet Union,Other
+1932,245,Vind,Motorboat,Soviet Union,Other
+1932,244,Nordvast,Motorboat,Soviet Union,Other
+1931,243,HKR-24-HSB,Hopper barge,The City of Helsinki,Other
+1930,242,HKR-23-HSB,Hopper barge,The City of Helsinki,Other
+1929-30,241,Saukko,Submarine,Finnish Navy,Naval Vessel
+1928,240,Turja,Patrol boat,Finland,Naval Vessel
+1924,239,Voima,Icebreaker,Finland,Icebreaker
+1922,238,Styrbjorn,Tugboat,Swedish client,Other
+1920,237,Keikari,Tugboat,Finnish client,Other
+1920,236,Kumpu,Tugboat,Finnish client,Other
+1918,235,Haapa,Barge,,Other
+1920,234,Apu,Tugboat,Finnish client,Other
+1920,233,Kymi,Tugboat,Finnish client,Other
+1922,232,Suomen Neito,Cargo ship,Kauppa Oy,Cargo Vessel
+1921,231,Suomen Poika,Cargo ship,Suomen Valtamerentakainen,Cargo Vessel
+1918,230,Rigel,Cargo ship,Suomen Höyrylaiva Osakeyhtiö,Cargo Vessel
+1918,228,,Barge,,Other
+1915,227,Dockan,Tugboat,Hietalahden Sulkutelakka,Other
+1916-18,226,(Tchibis) (Norge) Leucolon,Patrol boat,Chilean Navy,Naval Vessel
+1916-18,225,(Strizh) (Fritjof) Colo Colo,Patrol boat,Chilean Navy,Naval Vessel
+1914,224,,Heating barge,Russia,Other
+1914,223,,Heating barge,Russia,Other
+1914,222,,Heating barge,Russia,Other
+1914,221,,Heating barge,Russia,Other
+1914,220,,Heating barge,Russia,Other
+1914,219,,Heating barge,Russia,Other
+1914-16,218,Korchun,Minesweeper,Russian navy,Naval Vessel
+1914-16,217,Koptjik,Minesweeper,Russian navy,Naval Vessel
+1919,216,Niord/Sunkist,Cargo ship,Paraisten Kalkki Oy,Cargo Vessel
+1914-15,215,Alexander Newski,Passsenger ship,Russia,Passenger Vessel
+1914,214,Dobrinia,Tugboat,Russia,Other
+1913-14,213,Stretscha,Parkassi,Russian navy,Other
+1913-14,212,Perevojnja,Parkassi,Russian navy,Other
+1913-14,211,Termenik,Tender,Russian navy,Other
+1913-14,210,Artillerist,Tugboat,Sveaborg Artillery Staff,Other
+1913-14,209,Zarniza,Tugboat,Russian client,Other
+1913-14,208,Kaspij,Icebreaker,Russia,Icebreaker
+1914,207,Matros,Icebreaking Tugboat,Russian client,Icebreaker
+1914,206,Soldat,Icebreaking Tugboat,Russian client,Icebreaker
+1913,205,HKR-9-H.S.B.,Hopper barge,The City of Helsinki,Other
+1913,204,HKR-8-H.S.B.,Hopper barge,The City of Helsinki,Other
+1913,203,Sommaro II,Passenger shp,"Ab Sommaroarna, Helsinki",Passenger Vessel
+1913,202,Pernau,Tugboat,Estonia,Other
+1912,201,Kamenka,Tugboat,Russian client,Other
+1912,200,Suomenlinna (Sveaborg),Passenger ship,Finland,Passenger Vessel
+1912,199,Pionier,Cargo ship / tugboat,Finnish client,Cargo Vessel
+1912,198,Nikolaj,Cargo ship / tugboat,Russian client,Cargo Vessel
+1912,197,Helsingfors Skärgård (J.L. Runeberg),Passenger ship,F.O. Akerman & Kumpp.,Passenger Vessel
+1911-12,196,Juno,Tugboat,Hackman & Kumpp. Viipuri,Other
+1911,195,Machigir,Tugboat,Persian client,Other
+1911,194,Elisabet,Salvage vessel,Revelsche Bergungsverein,Special Vessel
+1911,192,Maimax,Tugboat,Russian client,Other
+1911,191,,Customs boat,Finnish Customs,Other
+1911,190,,Customs boat,Finnish Customs,Other
+1911,189,Sommaro,Passenger ship,"Ab Sommaroarna, Helsinki",Passenger Vessel
+1911,188,Aallotar,Steam customs boat,Finnish Customs,Other
+1911,187,Stella,Motorboat,,Other
+1911,186,Esbo,Passenger ship,"Ab Frisans, Helsinki",Passenger Vessel
+1911,185,,Pilot boat,Pilotage institution of Finland,Other
+1910-11,184,Sigrid,Tugboat,Russian client,Other
+1910,183,Dockan,Fishing boat,Hietalahti dock,Other
+1910,182,Mercator,Icebreaker,Hackman & Kumpp. Viipuri,Icebreaker
+1910,181,Sommaro I,Passenger ship,"Ab Sommaroarna, Helsinki",Passenger Vessel
+1909-10,180,,Dredging barge,,Other
+1908-09,179,Merkurius,Customs boat,Finnish Customs,Other
+1908-09,178,Felix,Tugboat,Russian client,Other
+1908,177,Tuna,Passengerboat,Finnish client,Other
+1908,176,Kathe,Tugboat,Finnish client,Other
+1907-08,175,Nystad,Customs boat,Finnish client,Other
+1907-08,174,Mariehamn,Customs boat,Finnish client,Other
+1907-08,173,Tornea,Customs boat,Finnish client,Other
+1907-08,172,Regina,Passenger ship,Finnish client,Other
+1907-08,171,Mary,Steamboat,Finnish client,Other
+1907-08,170,Framnas,Steamboat,Finnish client,Other
+1907-08,169,Ustvajago,Steamboat,Russian client,Other
+1907,168,Tornea,Customs boat,Finnish Customs,Other
+1906-07,167,Sunnan,Steamboat,Finnish client,Other
+1905-06,166,Haga,Steamboat,Paul Sinebrychoff,Other
+1905-06,165,Wodolej III,Water tanker,Russia,Cargo Vessel
+1905-06,164,Sibirski Strelock,Destroyer,Russia,Naval Vessel
+1905-06,163,General Kondratjenko,Destroyer,Russia,Naval Vessel
+1905-06,162,Strelka,Steamboat,,Other
+1906,161,Finn,Destroyer,Maritime Ministry of Russia,Naval Vessel
+1906,160,Emir Buharskij,Destroyer,Maritime Ministry of Russia,Naval Vessel
+,159,Libava,Tugboat,Russian client,Other
+1904,158,Bergo,Stone barge,,Other
+1904,157,,Garbage barge,,Other
+1903-04,156,Ostra Skargarden,Passenger ship,F.O. Akerman & Kumpp.,Passenger Vessel
+1903-04,155,Windavetz,Tugboat,Russia,Other
+1903,154,Georgipia,Tugboat,Russia,Other
+1903,153,,Water barge,,Other
+1902-03,152,Nautilus (Nikolai II),Fisheries patrol boat,Finland,Other
+1902-03,151,Wodolej  II,Water tanker,Maritime Ministry of Russia,Cargo Vessel
+1900-01,150,(Aland) Mareograf,Pilot boat,Pilotage institution,Other
+1900-01,149,Fiskars II,Tugboat,Fiskars bruk,Other
+1900-01,148,Tricken,Tugboat,Russian client,Other
+1900-01,147,Martha,Tugboat,Russian client,Other
+1900-01,146,Sandels,Passenger ship,F.O. Akerman & Kumpp.,Passenger Vessel
+1900-01,145,Ponga,Tugboat,Finnish client,Other
+1900-01,144,Vestra Skargarden,Passenger ship,F.O. Akerman & Kumpp.,Passenger Vessel
+1899-01,143,Julia,Steamboat,Finnish client,Other
+1899-01,142,Tyko,Tugboat,Finnish client,Other
+1899-01,141,Högholmen,Ferry,The City of Helsinki,Passenger Vessel
+1899-01,140,(Klippan)Protector,Salvage vessel,Finska Bargnings Ab Neptun,Special Vessel
+1899,139,Nylandska Skargarden,Passenger ship,F.O. Akerman & Kumpp.,Passenger Vessel
+1899,138,Vasama,Tugboat,Finnish client,Other
+1898,137,Franz Scholtz,Tugboat,Finnish client,Other
+1897,136,Vanaja,Tugboat,Finnish client,Other
+1897,135,Serjoscha,Tugboat,Russian client,Other
+1897,134,Rudnik/Valimaki,Tugboat,Russian client,Other
+1897,133,Olavi,Steamboat,Finnish client,Other
+1896,132,Taimi,Steamboat,Finnish client,Other
+1896,131,Pellinge,Steamboat,Finnish client,Other
+1894,130,Bomba,Passenger ship,Sveaborg Artillery Staff,Passenger Vessel
+1893,129,Kotlin,Tugboat,Russian client,Other
+1892,128,Sibbo,Passenger ship,Finnish client,Passenger Vessel
+1892,127,Fiskars I,Tugboat,Fiskars bruk,Other
+1892,126,Elsa,Steamboat,,Other
+1891,123,Karma,Motorboat,Finnish client,Other
+1891,122,Dockan,Steamboat,Helsingin sulkutelakka,Other
+1891,121,Balder,Steamboat,Finnish client,Other
+1891,120,Aili,Steamboat,Finnish client,Other
+1890,119,Väkevä,Steamboat,Finnish client,Other
+1890,118,Olga,Steamboat,Finnish client,Other
+1888-89,117,Soder,Steamboat,Finnish client,Other
+1889,116,Uranus,Steamboat,Finnish client,Other
+1889,115,Lainetar,Steamboat,Finnish client,Other
+1889,114,Ilmola,Steamboat,Finnish client,Other
+1889,113,Ilo,Steamboat,Finnish client,Other
+1889,112,Ikalinen,Steamboat,Finnish client,Other
+1888,111,Aallotar,Steamboat,Finnish client,Other
+1888,110,Onerva,Wooden barge,,Other
+1887-88,109,Stern,Steamboat,Finnish client,Other
+1888,108,Atomen,Steamboat,Finnish client,Other
+1888-89,107,Willinge (Mary-Anne Svea),Steamboat,Finnish client,Other
+,106,,Steamboat,Finnish client,Other
+,105,,Steamboat,Finnish client,Other
+,104,,Steamboat,Finnish client,Other
+1887-88,103,,Steamboat,Finnish client,Other
+,102,,Sounding boat,Pilotage institution,Other
+,101,,Sounding boat,Pilotage institution,Other
+,100,,Sounding boat,Pilotage institution,Other
+1887,99,,Sounding boat,Pilotage institution,Other
+1884,98,Delphine (Langviken),Steamboat,Finnish client,Other
+1884,97,Undine,Steamboat,Finnish client,Other
+1884,96,Wanda,Steamboat,Finnish client,Other
+1884,95,Madame Angot,Steamboat,Finnish client,Other
+1884,94,Herkules (Uno Tarnan),Finnish client,,Other
+1884,93,Odin,Steamboat,Finnish client,Other
+,92,Ingeborg (Helmi),Steamboat,Finnish client,Other
+1885,91,Kung Ring,Steamboat,Finnish client,Other
+1882,90,Walamo,Steamboat,Finnish client,Other
+1882,89,Bjorn,Steamboat,Finnish client,Other
+1881,88,Frithiof,Steamboat,Finnish client,Other
+1880,87,Lilla Bjorn,Steamboat,Finnish client,Other
+1878,83,,Steamboat,Maritime Ministry of Russia,Other
+1878,82,,Steamboat,Maritime Ministry of Russia,Other
+,75,Konsul Addens,Steamboat,,Other
+,74,Toivo,Steamboat,,Other
+,73,Nadeschda,Steamboat,,Other
+,72,Hoppet,Steamboat,,Other
+,71,Kolja (Tar),Steamboat,,Other
+1884,70,Helsingkallen,Lightship,Pilotage institution,Other
+1884,69,Relandersgrund,Lightship,Pilotage institution,Other
+1884,68,Mayly/Pleuna,Lightship,Pilotage institution,Other
+1884,67,Verkkomatala,Lightship,Pilotage institution,Other

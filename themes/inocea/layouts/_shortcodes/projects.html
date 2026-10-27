@@ -1,0 +1,30 @@
+{{- /* Projectpagina's als kaarten met foto en tekst; een lange inleiding klapt in achter "Read more". {{< projects ongoing=true >}} toont de lopende projecten, {{< projects >}} de rest. */ -}}
+{{ $ongoing := eq (printf "%v" (.Get "ongoing")) "true" }}
+<div class="projects">
+    <ul class="cards">
+        {{ range $project := where (where site.RegularPages "Section" (.Get "section" | default "projects")) "Params.ongoing" $ongoing }}
+            <li>
+                {{ with .Params.image }}<img class="parallax" src="{{ partial "image" . }}" alt="{{ $project.Title | plainify }}">{{ end }}
+                <div class="text">
+                    <h3>{{ .Title | safeHTML }}</h3>
+                    {{- /* De h2's in de projecttekst worden h4-labels; alles vóór de eerste is de inleiding. */ -}}
+                    {{ $content := .Content | replaceRE "<h2([^>]*)>" "<h4$1>" | replaceRE "</h2>" "</h4>" }}
+                    {{ $rest := "" }}
+                    {{ with findRE "(?s)<h4.*" $content 1 }}{{ $rest = index . 0 }}{{ end }}
+                    {{ $intro := strings.TrimSuffix $rest $content }}
+                    {{ if and $rest $intro }}
+                        {{ $id := printf "readmore-%s" .File.UniqueID }}
+                        <div class="readmore">
+                            <input type="checkbox" id="{{ $id }}">
+                            <div class="readmore-content">{{ $intro | safeHTML }}</div>
+                            <label for="{{ $id }}">{{ i18n "read_more" }}</label>
+                        </div>
+                        {{ $rest | safeHTML }}
+                    {{ else }}
+                        {{ $content | safeHTML }}
+                    {{ end }}
+                </div>
+            </li>
+        {{ end }}
+    </ul>
+</div>

@@ -1,0 +1,38 @@
+{{- /* Opleveringen uit de CSV static/data/deliveries.csv (laatste kolom = categorie; src= voor een ander bestand) als tabel met filterknoppen; order="A,B" zet de volgorde van de categorieën, anders op volgorde van voorkomen. */ -}}
+{{ with (resources.Get (.Get "src" | default "data/deliveries.csv")) | transform.Unmarshal }}
+    {{ $rows := after 1 . }}
+    {{ $head := index . 0 }}
+    {{ $cat := sub (len $head) 1 }}
+    {{ $order := slice }}
+    {{ with $.Get "order" }}{{ $order = split . "," }}{{ else }}{{ range $rows }}{{ $order = $order | append (index . $cat) }}{{ end }}{{ $order = uniq $order }}{{ end }}
+    <div class="deliveries-browser" data-deliveries>
+        <div class="deliveries-filters" role="group" aria-label="{{ i18n "deliveries_filter_label" }}">
+            <button type="button" data-filter="all" class="active" aria-pressed="true">{{ i18n "deliveries_all" }}</button>
+            {{ range $order }}
+                {{ $label := . }}
+                {{ $count := 0 }}{{ range $rows }}{{ if eq (index . $cat) $label }}{{ $count = add $count 1 }}{{ end }}{{ end }}
+                {{ with $count }}
+                    <button type="button" data-filter="{{ $label | urlize }}" aria-pressed="false">{{ i18n (printf "deliveries_cat_%s" ($label | lower | replaceRE "[^a-z0-9]+" "-" | replaceRE "^-+|-+$" "")) | default $label }} <span>({{ . }})</span></button>
+                {{ end }}
+            {{ end }}
+        </div>
+        <p class="deliveries-count">{{ i18n "deliveries_showing" (dict "Shown" (printf "<strong data-deliveries-shown>%d</strong>" (len $rows)) "Total" (len $rows)) | safeHTML }}</p>
+        <table class="deliveries" data-lenis-prevent>
+            <thead>
+                <tr>
+                    {{ range $i, $j := $head }}{{ if ne $i $cat }}<th>{{ i18n (printf "deliveries_col_%s" (. | lower | replaceRE "[^a-z0-9]+" "-" | replaceRE "^-+|-+$" "")) | default . }}</th>{{ end }}{{ end }}
+                </tr>
+            </thead>
+            <tbody>
+                {{ range $rows }}
+                    <tr data-category="{{ index . $cat | urlize }}">
+                        {{ range $i, $j := . }}{{ if ne $i $cat }}<td>{{ . | default "-" }}</td>{{ end }}{{ end }}
+                    </tr>
+                {{ end }}
+            </tbody>
+        </table>
+        <div class="deliveries-more" hidden>
+            <button type="button" class="btn plus" data-deliveries-more>{{ i18n "deliveries_load_more" }}</button>
+        </div>
+    </div>
+{{ end }}

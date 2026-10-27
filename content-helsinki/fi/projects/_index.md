@@ -2,23 +2,25 @@
 title: Projektit
 translationKey: projects
 ---
+# Projektit
+
 Helsinki Shipyardilla on yli 160 vuoden kokemus vaativien alusten rakentamisesta maailman haastavimpiin olosuhteisiin. Jäänmurtajista ja viranomaisaluksista tutkimusmatkaristeilyaluksiin sekä muihin erikoisaluksiin ulottuvat projektimme osoittavat telakan kyvyn yhdistää jäänmurtajaosaaminen, edistyksellinen suunnittelu ja tehokas projektinhallinta korkealaatuisiksi lopputuloksiksi.
 
----.wide.gray
+---
 
 ## Käynnissä olevat projektit
 
-[blok volgt: ongoing_projects]
+{{< projects ongoing=true >}}
 
----.wide.white
+---
 
 ## Keskeisiä projekteja
 
-[blok volgt: projects]
+{{< projects >}}
 
 ---
 
 ## Toimitetut alukset vuodesta 1865
 Kaikki Helsingin telakalla rakennetut alukset 1800-luvun höyrylaivoista nykypäivän tutkimusristeilyaluksiin ja jäänmurtajiin.
 
-[blok volgt: deliveries]
+{{< deliveries order="Icebreaker,Passenger Vessel,Cargo Vessel,Naval Vessel,Special Vessel,Air cushion vessel,Other" >}}
