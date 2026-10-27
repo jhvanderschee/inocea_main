@@ -1,3 +1,228 @@
 /* =========================================================== */
 /* ======================= THEME LIGHT ======================= */
 /* =========================================================== */
+:root {
+    /* Fonts */
+    --root-font-size: 18px;
+
+    /* Font sizes */
+    --font-size-h1:    3rem;
+    --font-size-h3:    2rem;
+    --font-size-body:  .95rem;
+    --font-size-lead:  2.5rem;
+    --line-height-h1:  1;
+
+    /* Colors */
+    --my-dark-gray: #63686f;
+    --my-body: #808080;
+    --my-gray: #b4b8bd;
+    --my-black-20: rgba(0, 0, 0, 0.2);
+    --my-white-20: rgba(255, 255, 255, 0.2);
+    --my-white-50: rgba(255, 255, 255, 0.5);
+
+    /* Labels (h2 in een sectie) */
+    --label-font-size: 1.2rem;
+    --label-font-weight: 400;
+    --label-line-height: var(--line-height-regular);
+    --label-padding-bottom: .4rem;
+    --label-margin-bottom: 3.5rem;
+
+    /* Widths */
+    --gutter-side: 3.25rem;
+    --max-width: 93.5rem;
+    --max-width-medium: 73.5rem;
+    --header-gutter-side: 2.25rem;
+    --header-max-width: 95.5rem;
+
+    /* Margins */
+    --section-padding-top: 4rem;
+    --header-padding-block: 1.1rem .75rem;
+    --nav-gap: 2rem;
+    --btn-padding: .5em 1.5em .5em 0;
+
+    /* Borders */
+    --btn-border-radius: 0;
+
+    /* Logos */
+    --logo-width: calc(2rem * 178 / 60);
+    --footer-logo-width: calc(3.75rem * 178 / 60);
+}
+
+/* =========================================================== */
+/* ========================= GENERAL ========================= */
+/* =========================================================== */
+:is(ul,ol,p) a { text-decoration-color: var(--my-black-20); }
+a[href^="tel:"] { text-decoration: none; }
+img { max-width: 100%; display: block; }
+hr { border-top: 1px solid var(--my-black); margin-block: 3.5rem 3.75rem; }
+
+h1 { margin-bottom: 2rem; }
+h3 { margin-block: 4rem 1.5rem; }
+main ul + h2 { margin-top: 6rem; }
+.reveal.visible h2 { border-color: var(--my-black-20); }
+
+/* Bullets '>' op alle lijsten uit de content. */
+main ul:not([class]) { position: relative; margin-bottom: 1.6em; }
+main ul:not([class]) > li { padding-block: .25rem; padding-left: 1.1rem; }
+main ul:not([class]) > li::before { content: '>'; display: block; position: absolute; margin-left: -1.1rem; }
+
+/* --------------- LOGO --------------- */
+.logo :is(img, svg) { margin-block: .2rem; }
+
+/* --------------- BUTTONS --------------- */
+.btn { display: inline-flex; align-items: center; position: relative; font-size: 1rem; font-weight: 400; text-align: left; isolation: isolate; }
+.btn, .btn:hover, .btn.reversed:not(:hover) { background: transparent; color: inherit; }
+.btn::after { content: ""; position: absolute; right: 0; display: inline-flex; width: 1rem; height: 1rem; background: url('/img/arrow-right-small-black.svg') 51% 50% / .9rem auto no-repeat; }
+.btn.reversed::after { background-image: url('/img/arrow-right-small-white.svg'); }
+
+/* --------------- SECTIONS --------------- */
+section { overflow: clip; }
+section:first-of-type { padding-top: var(--section-padding-top); }
+section.white { background: var(--my-white); }
+section.white + section.white { padding-top: 0; }
+
+/* Lead: de eerste alinea van een sectie. */
+section .container > p:first-child { max-width: 20em; margin-bottom: 1.75em; font-size: var(--font-size-lead); font-weight: var(--font-medium); line-height: var(--line-height-small); }
+section .container > p:only-child { margin-bottom: 0; }
+section:not(.has-solutions) > .container:has(> p:first-child) h2 ~ p { margin-left: 50%; }
+
+/* Kop links, tekst rechts: een sectie die met een h3 begint. */
+section:not(.steps) h3:first-child:not(.h1) { position: absolute; max-width: calc(50% - 6.5rem); margin: 0; }
+section > .container > h3:first-child ~ * { padding-left: 50%; }
+
+/* Label met een grote kop eronder. */
+section:has(> .container > h2:first-child + h3) {
+    & .container { max-width: var(--max-width-medium); }
+    & h3 { position: relative; font-size: 2.5rem; margin-bottom: 1rem; }
+    & h3 ~ * { max-width: 40rem; color: var(--my-body); }
+}
+
+main > section:first-of-type:not(.page):has(h1) .container { max-width: var(--max-width-medium); }
+section:not(.page) h1 + p:not(:has(img)) { max-width: 45.5rem; }
+h1 + p + h2 { padding-top: 1rem; }
+
+/* --------------- DARK SECTIONS --------------- */
+section.dark a:not(.btn) { color: var(--my-soft-white); text-decoration-color: var(--my-white-40); }
+
+/* =========================================================== */
+/* ========================= HEADER ========================== */
+/* =========================================================== */
+header { font-size: .85rem; }
+
+body.menuopen header { transform: none; }
+
+@media (max-width: 1000px) {
+    header .container nav ul { top: 3.1rem; bottom: auto; height: 0; padding-block: 0 1rem; opacity: 0; transform: none; z-index: auto; transition: height .15s ease-in-out; }
+    header .container nav ul li a { font-size: 1.25rem; }
+    body.menuopen header .container nav ul { height: 21rem; opacity: 1; transform: none; }
+    body.menuopen header .container nav ul li { transition: opacity .3s ease-in-out .15s; }
+
+    body::after { content: ""; position: fixed; inset: 0; z-index: 5; background: rgba(0, 0, 0, 0.5); opacity: 0; pointer-events: none; }
+    body.menuopen::after { opacity: 1; pointer-events: all; transition: opacity .25s ease-in-out; }
+}
+
+/* =========================================================== */
+/* ========================= FOOTER ========================== */
+/* =========================================================== */
+footer { color: var(--my-soft-white); border-top: 1px solid var(--my-white-40); font-size: .85rem; }
+footer .left { padding: 3rem 3rem 4rem 0; justify-content: space-between; line-height: 2; max-width: unset; }
+footer .left .logo { filter: invert(1) brightness(1.1); }
+footer .left address { padding-top: .25rem; line-height: 1.6; }
+footer .left > ul { padding-right: 6rem; }
+footer .left > ul > li { margin-bottom: 0; }
+footer .left > ul > li:first-of-type { font-size: 110%; }
+
+footer a.large { display: block; padding: 3rem 8.5rem 3rem 3rem; font-size: 3rem; font-weight: 400; line-height: 1; }
+footer a.large::after { position: absolute; top: 3rem; right: 3.25rem; width: 4rem; height: 3.5rem; margin: 0; }
+
+footer .postfooter { padding-block: 2rem; font-size: .8rem; }
+footer .postfooter ul { gap: 1rem 2rem; }
+
+@media only screen and (min-width: 1001px) {
+    footer .container { grid-template-columns: calc((100% + 3rem + 1px + var(--gutter-side)) / 2) 1fr; grid-template-rows: auto 1fr; }
+    footer .left { border-right: 1px solid var(--my-white-40); }
+    footer .large { margin-right: calc(var(--gutter-side) * -1); }
+    footer .large:nth-child(2) { border-bottom: 1px solid var(--my-white-40); }
+    footer .large:nth-child(2)::before { content: ""; position: absolute; top: auto; bottom: -1px; left: 100%; width: max(0px, calc(50vw - 50rem)); height: 1px; border: 0; background: var(--my-white-40); }
+}
+@media only screen and (max-width: 1100px) {
+    footer a.large { font-size: 2.25rem; }
+}
+@media only screen and (max-width: 1000px) {
+    footer .left { grid-template-columns: auto auto; }
+    footer .left .logo { margin-top: 2rem; }
+    footer .left > ul { padding-right: 0; }
+    footer a.large { margin-inline: calc(var(--gutter-side) * -1); padding: 3rem var(--gutter-side) 4rem; }
+    footer a.large:last-child { margin-bottom: 3rem; }
+    footer a.large:nth-child(2) { border-block: 1px solid var(--my-white-40); }
+    footer a.large:nth-child(2)::before { content: none; }
+    footer a.large::after { right: var(--gutter-side); }
+}
+@media only screen and (max-width: 900px) {
+    footer .postfooter .container { flex-direction: column-reverse; align-items: flex-start; gap: 1rem; }
+    footer .postfooter ul { order: 0; justify-content: flex-start; margin-bottom: 0; }
+}
+@media only screen and (max-width: 600px) {
+    footer .postfooter ul { gap: 1rem; }
+}
+@media only screen and (max-width: 500px) {
+    footer .left { padding-right: 0; }
+}
+
+/* =========================================================== */
+/* ====================== HEADER-BRICK ======================== */
+/* =========================================================== */
+section.video-header { padding-block: 0; background: var(--my-white);
+    & .container { width: calc(100% - var(--header-gutter-side) * 2); max-width: var(--header-max-width); }
+    & .media { position: relative; margin-bottom: 2.5rem; }
+    & video { height: 100%; aspect-ratio: 1.85; object-fit: cover; animation: header-parallax linear; animation-timeline: view(); }
+
+    @media (max-width: 1000px) {
+        & .media { margin-bottom: 1.65rem; }
+        & video { aspect-ratio: 1.9; }
+    }
+    @media (max-width: 600px) {
+        & video { aspect-ratio: .9; }
+    }
+}
+@keyframes header-parallax { from { object-position: center bottom; } to { object-position: center top; } }
+
+/* =========================================================== */
+/* ========================== PAGE =========================== */
+/* =========================================================== */
+body:has(section.page) :is(header .logo svg, header button) { filter: invert(1) brightness(1.08); }
+section.page .container { max-width: calc(52rem - var(--gutter-side) * 2); padding-block: 0 3rem; }
+section.page h1 { margin-block: 3rem 4rem; }
+section.page h1 + p { font-size: 1.5rem; font-weight: var(--font-medium); line-height: 1.4; }
+main section.page h2 { margin-block: 5rem 1.5rem; padding-bottom: 0; border: 0; font-family: var(--header-font); font-size: 1.7rem; font-weight: var(--font-medium); line-height: var(--line-height-small); letter-spacing: normal; text-transform: none; }
+main section.page h1 + h2 { margin-top: 0; }
+section.page h3 { position: relative; max-width: 100%; margin-block: 3rem .5rem; padding: 0; font-size: 1.15rem; }
+
+@media (max-width: 600px) {
+    section.page { padding-top: 2.5rem; }
+    section.page h1 { margin-block: .5rem 2.5rem; }
+}
+
+/* --------------- MEDIA QUERIES --------------- */
+/* MAX */
+@media only screen and (max-width: 1000px) {
+    :root {
+        --gutter-side: 1.25rem;
+        --header-gutter-side: 1.25rem;
+
+        --font-size-h1:    2.5rem;
+        --font-size-h3:    1.5rem;
+        --font-size-lead:  1.5rem;
+        --label-font-size: 1rem;
+        --label-margin-bottom: 2rem;
+    }
+
+    h3 { margin-bottom: 2rem; }
+    section:has(> .container > h2:first-child + h3) h3 { font-size: var(--font-size-h3); }
+    section:not(.steps) h3:first-child:not(.h1) { position: relative; max-width: 100%; margin-bottom: .3em; }
+    section > .container:has(> p:first-child) h2 ~ p { margin-left: 0; }
+    section:has(h3):not(:has(.numbers, .accordion)) .container > :not(p:has(img), h2, h3) { padding-left: 0; }
+}
+@media only screen and (max-width: 450px) {
+    :root { --root-font-size: 4vw; }
+}
