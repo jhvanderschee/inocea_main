@@ -1,5 +1,5 @@
 {{- /* {{< accordion >}} leest data/accordion.yml, {{< accordion "naam" >}} data/naam.yml; een tweede parameter geeft extra classes, bijv. "expanded tight". */ -}}
-{{ with index hugo.Data (.Get 0 | default "accordion") }}
+{{ with partial "data" (.Get 0 | default "accordion") }}
 <ul class="accordion {{ $.Get 1 }}">
     {{ range . }}
         <li>

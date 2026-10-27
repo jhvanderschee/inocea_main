@@ -1,5 +1,5 @@
 {{- /* Optionele parameter kiest het databestand: {{< crafts >}} leest data/crafts.yml, {{< crafts "federalfleet-fleet" >}} leest data/federalfleet-fleet.yml. */ -}}
-{{ with $crafts := index hugo.Data (.Get 0 | default "crafts") }}
+{{ with $crafts := partial "data" (.Get 0 | default "crafts") }}
 <div class="tabbable crafts">
     <div class="top">
         <ul class="tabs tabbable-nav">

@@ -41,7 +41,7 @@
             <nav>
                 <a href="/#top" class="logo">{{ partial "logo.html" . }}</a>
                 <ul>
-                    {{ range hugo.Data.navigation }}
+                    {{ range partial "data" "navigation" }}
                     <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }} onclick="document.body.classList.remove('menuopen')">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
@@ -55,17 +55,17 @@
     <footer id="footer">
         <div class="container">
             <div class="left">
-                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ with hugo.Data.footer.logo_image }} <img src="{{ .}}" alt="{{ site.Title }} logo">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
+                <a href="/{{ if .IsHome }}#top{{ end }}" aria-label='{{ site.Title }} logo' class="logo">{{ with (partial "data" "footer").logo_image }} <img src="{{ .}}" alt="{{ site.Title }} logo">{{ else }}{{ partial "logo.html" . }}{{ end }}</a>
                 <address>
-                    {{ hugo.Data.footer.text | safeHTML }}
+                    {{ (partial "data" "footer").text | safeHTML }}
                 </address>
                 <ul>
-                    {{ range hugo.Data.footer.companies }}
+                    {{ range (partial "data" "footer").companies }}
                         <li><a href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}><span>{{ .name }}</span></a></li>
                     {{ end }}
                 </ul>
             </div>
-            {{ with hugo.Data.footer }}
+            {{ with partial "data" "footer" }}
                 {{ range slice .large_link_top .large_link_bottom }}
                     {{ if and .name .url }}
                         <a class='large' href="{{ .url }}"{{ if hasPrefix (lower .url) "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
@@ -82,7 +82,7 @@
                     {{ range where site.RegularPages "Section" "legal" }}
                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                     {{ end }}
-                    {{ range hugo.Data.footer.postfooter_urls }}
+                    {{ range (partial "data" "footer").postfooter_urls }}
                         <li><a href="{{ .url }}">{{ .title }}</a></li>
                     {{ end }}
                 </ul>
