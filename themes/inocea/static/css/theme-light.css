@@ -32,6 +32,15 @@
     /* Logos */
     --logo-width: calc(2rem * 178 / 60);
     --footer-logo-width: calc(3.75rem * 178 / 60);
+
+    /* Footer */
+    --footer-color: var(--my-soft-white);
+    --footer-font-size: .85rem;
+    --footer-large-font-size: 3rem;
+    --footer-large-font-weight: 400;
+    --footer-large-padding: 3rem 8.5rem 3rem 3rem;
+    --postfooter-padding-block: 2rem;
+    --postfooter-font-size: .8rem;
 }
 
 /* =========================================================== */
@@ -128,7 +137,7 @@ header { font-size: .85rem; }
 /* =========================================================== */
 /* ========================= FOOTER ========================== */
 /* =========================================================== */
-footer { color: var(--my-soft-white); background: var(--my-full-black); border-top: 1px solid var(--my-white-40); font-size: .85rem; }
+footer { background: var(--my-full-black); border-top: 1px solid var(--my-white-40); }
 /* Rand op zwart, het bovenste deel over de hele breedte #1c1c1c. */
 footer > .container { background: var(--my-black); box-shadow: 0 0 0 100vmax var(--my-black); clip-path: inset(0 -100vmax); }
 footer .left { padding: 3rem 3rem 4rem 0; justify-content: space-between; line-height: 2; max-width: unset; }
@@ -138,10 +147,9 @@ footer .left > ul { padding-right: 6rem; }
 footer .left > ul > li { margin-bottom: 0; }
 footer .left > ul > li:first-of-type { font-size: 110%; }
 
-footer a.large { display: block; padding: 3rem 8.5rem 3rem 3rem; font-weight: 400; }
+footer a.large { display: block; }
 footer a.large::after { position: absolute; top: 3rem; right: 3.25rem; width: 4rem; height: 3.5rem; }
 
-footer .postfooter { padding-block: 2rem; font-size: .8rem; }
 footer .postfooter ul { gap: 1rem 2rem; }
 
 @media only screen and (min-width: 1001px) {
