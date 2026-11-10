@@ -8,10 +8,6 @@
     --label-margin-bottom: 2rem;
 }
 
-/* --------------- HEADER --------------- */
-/* De header lijnt uit met de inhoud; de hero-video houdt de brede maat van light. */
-header { --header-gutter-side: var(--gutter-side); --header-max-width: var(--max-width); }
-
 /* --------------- HOME DONKER --------------- */
 body:has(section.video-header) {
     --margin-y: 2.5rem;
