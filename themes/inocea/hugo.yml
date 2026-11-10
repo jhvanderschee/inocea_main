@@ -45,6 +45,9 @@ params:
     - title: has-crafts
       has: .crafts
       is:
+    - title: has-programs
+      has: div.programs
+      is:
     - title: has-tabs
       has: div.tabs
       is:
@@ -62,6 +65,9 @@ params:
       is:
     - title: has-deliveries
       has: table.deliveries
+      is:
+    - title: has-facilities
+      has: ul.facilities
       is:
     - title: has-team
       has: ul.team
@@ -96,12 +102,18 @@ params:
     - title: heading
       has: h2:first-child, h3
       is:
+    - title: featured-image
+      has: img:first-child, h2, h3
+      is:
     - title: has-outline
       has: .ship-outline
       is: 
     - title: text-and-video
       has: video, p
       is: 
+    - title: page-title
+      has: h1:first-child, ul:nth-child(2), ul:last-child
+      is: :first-child
     - title: intro
       has: h1
       is: :not(:first-child)

@@ -1,0 +1,27 @@
+{{- /* Faciliteiten als kaarten; een klik opent de specificaties in een dialog. {{< facilities >}} leest data/facilities.yml, {{< facilities "naam" >}} leest data/naam.yml. */ -}}
+{{ with partial "data" (.Get 0 | default "facilities") }}
+<ul class="facilities">
+    {{ range . }}
+        {{ $image := partial "image" .image }}
+        <li id="{{ .location | anchorize }}">
+            <button class="card" aria-haspopup="dialog">
+                <img src="{{ $image }}" alt="{{ .title }}">
+                <span class="focus">{{ delimit .focus " | " }}<span class="more">{{ i18n "view_specifications" }}</span></span>
+                <span class="caption"><strong>{{ .title }}</strong> | {{ .location }}{{ with .flag }}<img class="flag" src="/img/flags/{{ . }}.svg" alt="">{{ end }}</span>
+            </button>
+            <dialog data-lenis-prevent>
+                <button class="close" aria-label="{{ i18n "close" }}">{{ partial "render-svg" "/img/close.svg" }}</button>
+                <img src="{{ $image }}" alt="{{ .title }}">
+                <div>
+                    <p class="location">{{ .location }}</p>
+                    <h3>{{ .title }}</h3>
+                    <p class="focus">{{ delimit .focus " | " }}</p>
+                    <dl>
+                        {{ range .specs }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}
+                    </dl>
+                </div>
+            </dialog>
+        </li>
+    {{ end }}
+</ul>
+{{ end }}

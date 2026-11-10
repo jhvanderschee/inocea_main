@@ -1,0 +1,31 @@
+{{- /* Programma's als slider met teller en genummerde knoppen; {{< programs >}} leest data/programs.yml, {{< programs "naam" >}} leest data/naam.yml. */ -}}
+{{ with $programs := partial "data" (.Get 0 | default "programs") }}
+<div class="tabbable programs">
+    <ul class="tabbable-items">
+        {{ range $i, $program := $programs }}
+            <li {{ if eq $i 0 }}class='active' {{ end }}data-for='{{ $i }}'>
+                <figure>
+                    <span class="count">{{ printf "%02d/%02d" (add $i 1) (len $programs) }}</span>
+                    <img src="{{ partial "image" .image }}" alt="{{ .title }}">
+                </figure>
+                <div>
+                    {{ with .kicker }}<p class="kicker">{{ . }}</p>{{ end }}
+                    <h3>{{ .title }}</h3>
+                    {{ partial "md" .markdown }}
+                </div>
+            </li>
+        {{ end }}
+    </ul>
+    <div class="top">
+        <ul class="tabbable-nav">
+            {{ range $i, $program := $programs }}
+                <li><button {{ if eq $i 0 }}class='active' {{ end }}data-for='{{ $i }}' aria-label='{{ .title }}'>{{ printf "%02d" (add $i 1) }}</button></li>
+            {{ end }}
+        </ul>
+        <div class="buttons outline">
+            <button class='btn' data-dir='-1' aria-label='{{ i18n "view_previous_tab" }}'>{{ partial "render-svg" "/img/arrow-left.svg" }}</button>
+            <button class='btn' data-dir='1' aria-label='{{ i18n "view_next_tab" }}'>{{ partial "render-svg" "/img/arrow-right.svg" }}</button>
+        </div>
+    </div>
+</div>
+{{ end }}
