@@ -750,7 +750,7 @@ ul.facilities {
     & .card .focus { position: absolute; inset: 0 0 auto; height: calc(100% - 2rem); padding: .75rem; font-size: var(--font-size-tiny); background: rgba(28, 28, 28, .85); opacity: 0; transition: opacity 250ms; }
     & .card:is(:hover, :focus-visible) .focus { opacity: 1; }
     & .card .more { display: block; margin-top: 1rem; }
-    & .card .more::after { content: " →"; }
+    & .card .more::after { content: ""; display: inline-block; width: 1rem; height: 1rem; margin-left: .25rem; vertical-align: middle; background: url('/img/arrow-right-small-white.svg') 51% 50% / .9rem auto no-repeat; }
     & .caption { position: relative; display: block; padding: 0 3.5rem 0 .5rem; overflow: hidden; font-size: var(--font-size-tiny); line-height: 2rem; white-space: nowrap; text-overflow: ellipsis; background: var(--my-black); }
     & .caption strong { font-weight: var(--font-medium); }
     & .caption .flag { position: absolute; inset: 0 0 auto auto; width: auto; height: 100%; }
