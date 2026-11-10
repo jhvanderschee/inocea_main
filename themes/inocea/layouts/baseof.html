@@ -25,9 +25,9 @@
     <link rel="stylesheet" href="/css/fonts.css?version={{ now }}">
     <link rel="stylesheet" href="/css/style.css?version={{ now }}">
     <link rel="stylesheet" href="/css/carousel.css?version={{ now }}">
-    {{- with site.Params.theme_style }}
+    {{- with site.Params.theme_style }}{{ range cond (reflect.IsSlice .) . (slice .) }}
     <link rel="stylesheet" href="/css/theme-{{ . }}.css?version={{ now }}">
-    {{- end }}
+    {{- end }}{{ end }}
     <link rel="stylesheet" href="/css/custom.css?version={{ now }}">
 
 
