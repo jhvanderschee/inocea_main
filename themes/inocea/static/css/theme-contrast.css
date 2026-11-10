@@ -10,6 +10,7 @@
 
 /* --------------- HOME DONKER --------------- */
 body:has(section.video-header) {
+    --background-color: var(--my-black);
     --margin-y: 2.5rem;
     --section-padding-top: 3rem;
 
@@ -65,6 +66,8 @@ ul.facilities {
     margin-top: 0;
     & > li { min-width: 0; }
     & :is(.card .focus, .caption) { font-size: var(--font-size-small); }
+    & .caption { padding: .25rem 4.5rem .25rem .5rem; overflow: visible; line-height: 1.5rem; white-space: normal; text-overflow: clip; }
+    & .caption .flag { max-width: 4rem; object-fit: cover; }
 
     & dialog { width: min(33.5rem, calc(100% - 2rem)); }
     & dialog[open] { animation: facility-in 500ms var(--my-ease); }
@@ -108,4 +111,12 @@ section.featured-image {
     @media only screen and (min-width: 1201px) {
         & .container:last-child > div:first-child { padding-right: 2rem; }
     }
+}
+
+/* --------------- FOOTER --------------- */
+@media only screen and (min-width: 1001px) and (max-width: 1100px) {
+    footer .left > ul { padding-right: 0; }
+}
+@media only screen and (max-width: 1000px) {
+    footer .socials { justify-content: flex-start; padding-inline: 0; }
 }
