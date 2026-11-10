@@ -63,7 +63,7 @@ div.programs {
 
 /* --------------- FACILITIES --------------- */
 ul.facilities {
-    margin-top: 0;
+    margin-top: 0; grid-gap: 2rem; 
     & > li { min-width: 0; }
     & :is(.card .focus, .caption) { font-size: var(--font-size-small); }
     & .caption { padding: .25rem 4.5rem .25rem .5rem; overflow: visible; line-height: 1.5rem; white-space: normal; text-overflow: clip; }
