@@ -67,7 +67,6 @@ ul.facilities {
     margin-top: 0;
     & > li { min-width: 0; }
     & :is(.card .focus, .caption) { font-size: var(--font-size-small); }
-    & .caption .flag { top: .25rem; width: auto; height: 1.5rem; }
 
     & dialog { width: min(33.5rem, calc(100% - 2rem)); }
     & dialog[open] { animation: facility-in 500ms var(--my-ease); }
