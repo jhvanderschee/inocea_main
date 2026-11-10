@@ -48,7 +48,7 @@ section.overlay {
     & .container > div > p:first-child { font-family: var(--mono-font); font-size: var(--font-size-h6); text-transform: uppercase; letter-spacing: .1em; }
     & .container h2 { font-size: var(--font-size-h1); }
     & .container h2 + p { margin-block: 2rem; }
-    & a.btn { display: flex; width: fit-content; }
+    & a.btn { display: flex; width: fit-content; font-weight: var(--font-bold); }
 }
 
 /* --------------- PROGRAMS --------------- */
@@ -59,6 +59,7 @@ section.overlay {
 div.programs {
     & h3 { margin: .125rem 0 2rem; }
     & .tabbable-nav button { font-size: var(--font-size-body); }
+    & + p { font-size: var(--font-size-small); }
 }
 
 /* --------------- FACILITIES --------------- */
@@ -66,7 +67,7 @@ ul.facilities {
     margin-top: 0;
     & > li { min-width: 0; }
     & :is(.card .focus, .caption) { font-size: var(--font-size-small); }
-    & .caption .flag { aspect-ratio: 4 / 3; object-fit: contain; }
+    & .caption .flag { top: .25rem; width: auto; height: 1.5rem; }
 
     & dialog { width: min(33.5rem, calc(100% - 2rem)); }
     & dialog[open] { animation: facility-in 500ms var(--my-ease); }
@@ -74,8 +75,8 @@ ul.facilities {
     & dialog.closing { animation: facility-out 500ms var(--my-ease) reverse forwards; }
     & dialog.closing::backdrop { animation: facility-backdrop-out 500ms var(--my-ease) reverse forwards; }
     & dialog > div { padding: 1rem 1.2rem 1.5rem; }
-    & dialog .close { display: grid; place-items: center; top: 1rem; right: 1rem; border: 1px solid var(--my-white); border-radius: 50%; }
-    & dialog .close svg { width: 1rem; height: 1rem; fill: var(--my-white); }
+    & dialog .close { display: grid; place-items: center; top: 1rem; right: 1rem; border: 1px solid var(--my-black); border-radius: 50%; }
+    & dialog .close svg { width: 1rem; height: 1rem; fill: var(--my-black); }
     & dialog .location { font-size: var(--font-size-small); }
     & dialog h3 { font-size: var(--font-size-h5); font-weight: var(--font-regular); }
     & dialog .focus { font-weight: var(--font-light); }
