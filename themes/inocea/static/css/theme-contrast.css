@@ -22,7 +22,7 @@ body:has(section.video-header) {
     & main > section.has-facilities { --faded-color: var(--my-black-40); background: var(--my-soft-white); color: var(--main-color); }
     & section.video-header .media { margin-bottom: 0; }
     & section.video-header + section { --section-padding-top: 2rem; }
-    & main > section.wide:has(+ section.overlay) { padding-bottom: var(--label-margin-bottom); background: var(--my-full-black);
+    & main > section.wide:has(+ section.featured-image) { padding-bottom: var(--label-margin-bottom); background: var(--my-full-black);
         & h2 { margin-bottom: 0; }
     }
     & .programs .tabbable-nav button { color: var(--my-white-40); }
@@ -59,6 +59,16 @@ div.programs {
     & h3 { margin: .125rem 0 2rem; }
     & .tabbable-nav button { font-size: var(--font-size-body); }
     & + p { font-size: var(--font-size-small); }
+}
+/* Brede schermen: de slider blijft midden in beeld en de scroll schuift de kaarten door (js/programs.js). */
+@media only screen and (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+    div.programs {
+        --programs-pin: 1;
+        & .pin { position: sticky; top: var(--top, 0); }
+        & .tabbable-items { display: flex; gap: 4rem; translate: calc(var(--x, 0) * -1px) 0; will-change: translate; }
+        & .tabbable-items > li { flex: 0 0 calc(100% - 8rem); visibility: visible; opacity: .3; transition: opacity 500ms; }
+        & .tabbable-items > li.active { opacity: 1; }
+    }
 }
 
 /* --------------- FACILITIES --------------- */
@@ -110,6 +120,25 @@ section.featured-image {
 
     @media only screen and (min-width: 1201px) {
         & .container:last-child > div:first-child { padding-right: 2rem; }
+    }
+}
+
+/* --------------- BEDRIJVEN OP HOME --------------- */
+/* Foto sticky over de volle breedte, de tekst schuift er in een donker paneel overheen. */
+body:has(section.video-header) section.featured-image {
+    padding-block: 0;
+    & .container:last-child { display: block; width: 100%; max-width: none; margin: 0; }
+    & .container:last-child > div:first-child { position: sticky; top: 0; width: 100%; height: 100vh; height: 100svh; padding: 0; }
+    & .container:last-child > div:first-child img { height: 100%; aspect-ratio: auto; }
+    & .container:last-child > div:last-child { position: relative; display: flow-root; padding: 4rem max(var(--gutter-side), (100% - var(--max-width)) / 2) 5rem; background: rgb(0 0 0 / .5); backdrop-filter: blur(1rem); }
+    & .container:last-child > div:last-child > :is(h2, h3) { float: left; clear: left; width: 40%; }
+    & .container:last-child > div:last-child > p { margin-left: 50%; }
+    & a.btn::after { background-image: url('/img/arrow-right-small-white.svg'); }
+
+    @media only screen and (max-width: 768px) {
+        & .container:last-child > div:last-child { padding-block: 2.5rem 3rem; }
+        & .container:last-child > div:last-child > :is(h2, h3) { float: none; width: auto; }
+        & .container:last-child > div:last-child > p { margin-left: 0; }
     }
 }
 
