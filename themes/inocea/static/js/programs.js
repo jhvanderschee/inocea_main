@@ -1,23 +1,33 @@
-// Programma's: staat --programs-pin in de stijl aan, dan blijft de slider midden in beeld en schuift de scroll de kaarten door tot de laatste.
-// Een lege ruimte onder de slider, zo hoog als de verschuiving, maakt daar plaats voor; daarna scrolt de pagina verder.
+// Programma's: staat --programs-pin in de stijl aan, dan blijft de slider midden in beeld, met de secties ervoor en erna (samen in .programs-block, dat sticky staat),
+// en schuift de scroll de kaarten door tot de laatste. Wat niet in beeld past steekt boven en onder uit. Een lege ruimte onder het blok,
+// zo hoog als de verschuiving, maakt daar plaats voor; daarna scrolt de pagina verder.
 function setupProgramsPin() {
     document.querySelectorAll("div.programs").forEach(div => {
         const
             items = [...div.querySelectorAll("li[data-for]")],
             buttons = [...div.querySelectorAll("button[data-for]")],
-            pin = document.createElement("div"),
+            section = div.closest("section"),
+            parts = [section.previousElementSibling, section, section.nextElementSibling].filter(el => el?.tagName == "SECTION"),
+            stage = document.createElement("div"),
+            block = document.createElement("div"),
             room = document.createElement("div");
 
         let on = false, top = 0, step = 0, active = -1, queued = false;
 
-        pin.className = "pin";
+        block.className = "programs-block";
         room.setAttribute("aria-hidden", "true");
-        pin.append(...div.children);
-        div.append(pin, room);
 
         const
-            // Scrollpositie waarop de slider gaat vastzitten: hij staat dan midden in beeld.
-            start = () => room.getBoundingClientRect().top + window.scrollY - pin.offsetHeight - top,
+            // Het blok en de lege ruimte staan in een eigen stage: het blok staat sticky zolang de stage duurt.
+            wrap = () => {
+                parts[0].before(stage);
+                block.append(...parts);
+                stage.append(block, room);
+            },
+            unwrap = () => {
+                stage.before(...parts);
+                stage.remove();
+            },
             show = i => {
                 if (i == active) return;
                 active = i;
@@ -26,22 +36,29 @@ function setupProgramsPin() {
             },
             place = () => {
                 if (!on) return;
-                const x = Math.min(step * (items.length - 1), Math.max(0, window.scrollY - start()));
+                // Zonder sticky stond het blok direct boven de lege ruimte.
+                const x = Math.min(step * (items.length - 1), Math.max(0, top - room.getBoundingClientRect().top + block.offsetHeight));
                 div.style.setProperty("--x", x);
                 show(Math.round(x / step));
             },
             measure = () => {
-                on = getComputedStyle(div).getPropertyValue("--programs-pin").trim() == "1" && items.length > 1;
+                const pin = getComputedStyle(div).getPropertyValue("--programs-pin").trim() == "1" && items.length > 1;
+                if (pin != on) (on = pin) ? wrap() : unwrap();
                 active = -1;
                 step = on ? items[1].offsetLeft - items[0].offsetLeft : 0;
-                top = (window.innerHeight - pin.offsetHeight) / 2;
-                div.style.setProperty("--top", `${top}px`);
                 room.style.height = on ? `${step * (items.length - 1)}px` : "";
-                if (!on) div.style.removeProperty("--x");
+                if (!on) return div.style.removeProperty("--x");
+                // De slider midden in beeld (de header is weg tijdens het naar beneden scrollen); het blok mag boven het scherm beginnen,
+                // maar schuift op als er anders boven of onder een lege rand in beeld komt die het blok had kunnen vullen.
+                const
+                    above = div.getBoundingClientRect().top - block.getBoundingClientRect().top,
+                    over = innerHeight - block.offsetHeight;
+                top = Math.min(Math.max(0, over), Math.max(Math.min(0, over), (innerHeight - div.offsetHeight) / 2 - above));
+                block.style.setProperty("--top", `${top}px`);
                 place();
             },
             go = i => {
-                const y = start() + Math.max(0, Math.min(items.length - 1, i)) * step;
+                const y = stage.getBoundingClientRect().top + window.scrollY - top + Math.max(0, Math.min(items.length - 1, i)) * step;
                 window.lenis ? window.lenis.scrollTo(y) : window.scrollTo({ top: y, behavior: "smooth" });
             };
 
@@ -59,7 +76,7 @@ function setupProgramsPin() {
             requestAnimationFrame(() => { queued = false; place(); });
         }, { passive: true });
         window.addEventListener("resize", measure);
-        window.addEventListener("load", measure);
+        new ResizeObserver(() => on && measure()).observe(block);
         measure();
     });
 }

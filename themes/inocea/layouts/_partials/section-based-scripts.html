@@ -1,4 +1,4 @@
-{{/* Script en de strings waarvan er één in de gerenderde content moet staan, zodat elke schrijfwijze van een shortcode telt. */}}
+{{/* Script en de strings waarvan er één in de gerenderde content moet staan, zodat elke schrijfwijze van een shortcode telt; slow_sticky in de frontmatter laadt slow-sticky.js ook. */}}
 {{ $scripts := dict
     "carousel.js"         (slice `class="carousel`)
     "accordion.js"        (slice `class="accordion`)
@@ -14,11 +14,12 @@
     "facilities.js"       (slice `class="facilities"`)
     "multiselect.js"      (slice `[]" id=`)
     "programs.js"         (slice `class="tabbable programs"`)
+    "slow-sticky.js"      (slice `class="slow-sticky`)
 }}
 
 {{- $html := .Content }}
 {{- range $src, $matches := $scripts }}
-    {{- $nodig := false }}
+    {{- $nodig := and (eq $src "slow-sticky.js") $.Params.slow_sticky }}
     {{- range $matches }}{{ if in $html . }}{{ $nodig = true }}{{ end }}{{ end }}
     {{- if $nodig }}
     <script defer src="/js/{{ $src }}?version={{ now }}"></script>
