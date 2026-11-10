@@ -106,3 +106,30 @@ function setupProgramsPin() {
 
 // Na alle scripts, zodat js/slow-sticky.js er is.
 document.addEventListener("DOMContentLoaded", setupProgramsPin);
+
+// Smalle schermen: staat --programs-swipe in de stijl aan, dan is de rij kaarten native horizontaal scrollbaar met scroll-snap.
+// Dit script laat alleen de nummers meelopen met de kaart in beeld en laat een tik op een nummer (of pijl) naar die kaart scrollen.
+function setupProgramsSwipe() {
+    document.querySelectorAll("div.programs").forEach(div => {
+        const
+            items = [...div.querySelectorAll("li[data-for]")],
+            row = div.querySelector(".tabbable-items"),
+            buttons = [...div.querySelectorAll("button[data-for]")],
+            swipe = () => getComputedStyle(div).getPropertyValue("--programs-swipe").trim() == "1" && items.length > 1,
+            show = i => {
+                if (items[i].classList.contains("active")) return;
+                [items, buttons].forEach(array => array.forEach(el => el.classList.toggle("active", el.dataset.for == i)));
+                buttons[i].closest("ul").scrollTo(buttons[i].offsetLeft, 0);
+            },
+            index = () => Math.round(row.scrollLeft / (items[1].offsetLeft - items[0].offsetLeft));
+
+        row.addEventListener("scroll", () => swipe() && show(Math.max(0, Math.min(items.length - 1, index()))), { passive: true });
+        buttons.forEach(button => button.addEventListener("click", () => {
+            if (!swipe() || !button.dataset.for) return;
+            row.scrollTo({ left: items[button.dataset.for].offsetLeft - items[0].offsetLeft, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+        }));
+        window.addEventListener("resize", () => { if (!swipe()) row.scrollLeft = 0; });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", setupProgramsSwipe);

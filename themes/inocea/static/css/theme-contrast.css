@@ -70,6 +70,14 @@ div.programs {
         & .tabbable-items > li.active { opacity: 1; }
     }
 }
+/* Smalle schermen: de kaarten staan in één rij die je swipet (scroll-snap); js/programs.js laat de nummers meelopen. Lenis staat hier niet aan (alleen boven 1000px). */
+@media only screen and (max-width: 768px) {
+    div.programs {
+        --programs-swipe: 1;
+        & .tabbable-items { display: flex; gap: 1rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
+        & .tabbable-items > li { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; visibility: visible; opacity: 1; transition: none; }
+    }
+}
 
 /* --------------- FACILITIES --------------- */
 ul.facilities {
