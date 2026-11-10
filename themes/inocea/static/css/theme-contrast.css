@@ -1,0 +1,113 @@
+/* =========================================================== */
+/* ===================== THEME CONTRAST ====================== */
+/* =========================================================== */
+/* Bouwt voort op light (theme_style: [light, contrast]): donkere home, tegels, tekst over de foto, bedrijfsblokken. */
+:root {
+    --font-regular: 400;
+    --font-light: 300;
+    --label-margin-bottom: 2rem;
+}
+
+/* --------------- HOME DONKER --------------- */
+body:has(section.video-header) {
+    --margin-y: 2.5rem;
+    --section-padding-top: 3rem;
+
+    &, & header, & main > section:not(.has-facilities) { --faded-color: var(--my-white-40); background: var(--my-black); color: var(--my-soft-white); }
+    & header :is(.logo img, button) { filter: invert(1); }
+    & header::before { background: var(--my-black); }
+    & header a { color: var(--my-white); }
+    & main > section:is(:not(.reveal), .visible):not(.has-facilities) h2 { border-color: var(--my-soft-white); }
+    & main > section.has-facilities { --faded-color: var(--my-black-40); background: var(--my-soft-white); color: var(--main-color); }
+    & section.video-header .media { margin-bottom: 0; }
+    & section.video-header + section { --section-padding-top: 2rem; }
+    & main > section.wide:has(+ section.overlay) { padding-bottom: var(--label-margin-bottom); background: var(--my-full-black);
+        & h2 { margin-bottom: 0; }
+    }
+    & .programs .tabbable-nav button { color: var(--my-white-40); }
+    & .programs .tabbable-nav button:is(:hover, .active) { color: var(--my-white); border-color: var(--my-white); }
+}
+
+/* --------------- NUMBERS --------------- */
+ul.numbers {
+    grid-template-columns: repeat(3, 1fr); gap: .8rem;
+    & > li { padding: 1.33rem; background: var(--my-full-black); }
+    & h3 { font-size: var(--font-size-lead); white-space: nowrap; }
+    & p { max-width: none; font-family: var(--mono-font); font-size: var(--font-size-small); text-transform: uppercase; letter-spacing: .1em; color: inherit; }
+
+    @media only screen and (max-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+
+/* --------------- OVERLAY --------------- */
+/* Tekst over de foto, zoals de bedrijven op de home. */
+section.overlay {
+    display: grid;
+    & > img { grid-area: 1 / 1; height: 100%; object-fit: cover; filter: brightness(.3); }
+    & > .container { grid-area: 1 / 1; z-index: 1; align-self: center; }
+    & .container > div { max-width: 50rem; padding-block: 8rem; }
+    & .container > div > p:first-child { font-family: var(--mono-font); font-size: var(--font-size-h6); text-transform: uppercase; letter-spacing: .1em; }
+    & .container h2 { font-size: var(--font-size-h1); }
+    & .container h2 + p { margin-block: 2rem; }
+}
+
+/* --------------- PROGRAMS --------------- */
+/* Het label houdt hier de ruimte van light; in het design staat de slider zelfs verder van de streep. */
+@media only screen and (min-width: 1001px) {
+    section.has-programs { --label-margin-bottom: 3.5rem; }
+}
+div.programs {
+    & h3 { margin: .125rem 0 2rem; }
+    & .tabbable-nav button { font-size: var(--font-size-body); }
+}
+
+/* --------------- FACILITIES --------------- */
+ul.facilities {
+    margin-top: 0;
+    & > li { min-width: 0; }
+    & :is(.card .focus, .caption) { font-size: var(--font-size-small); }
+    & .caption .flag { aspect-ratio: 4 / 3; object-fit: contain; }
+
+    & dialog { width: min(33.5rem, calc(100% - 2rem)); }
+    & dialog[open] { animation: facility-in 500ms var(--my-ease); }
+    & dialog[open]::backdrop { animation: facility-backdrop-in 500ms var(--my-ease); }
+    & dialog.closing { animation: facility-out 500ms var(--my-ease) reverse forwards; }
+    & dialog.closing::backdrop { animation: facility-backdrop-out 500ms var(--my-ease) reverse forwards; }
+    & dialog > div { padding: 1rem 1.2rem 1.5rem; }
+    & dialog .close { display: grid; place-items: center; top: 1rem; right: 1rem; border: 1px solid var(--my-white); border-radius: 50%; }
+    & dialog .close svg { width: 1rem; height: 1rem; fill: var(--my-white); }
+    & dialog .location { font-size: var(--font-size-small); }
+    & dialog h3 { font-size: var(--font-size-h5); font-weight: var(--font-regular); }
+    & dialog .focus { font-weight: var(--font-light); }
+    & dialog dt { font-size: var(--font-size-small); }
+    & dialog dd { font-size: var(--font-size-body); }
+
+    @media (prefers-reduced-motion: reduce) {
+        & dialog:is([open], .closing), & dialog:is([open], .closing)::backdrop { animation: none; }
+    }
+}
+/* Sluiten speelt dezelfde animatie achteruit, onder een eigen naam; anders start hij niet opnieuw. */
+@keyframes facility-in { from { opacity: 0; transform: translateY(1rem); } }
+@keyframes facility-out { from { opacity: 0; transform: translateY(1rem); } }
+@keyframes facility-backdrop-in { from { opacity: 0; } }
+@keyframes facility-backdrop-out { from { opacity: 0; } }
+
+/* --------------- PAGE TITLE --------------- */
+section.page-title {
+    & .container { max-width: var(--max-width); }
+    & ul { border-color: var(--faded-color); }
+    & ul > li { padding: 0; &::before { content: none; } }
+}
+
+/* --------------- FEATURED IMAGE --------------- */
+section.featured-image {
+    & .container:first-child { display: none; }
+    & .container:last-child > div:first-child img { aspect-ratio: 3 / 2; object-fit: cover; }
+    & .container:last-child > div:last-child > h2 { margin-top: 0; padding-bottom: 0; margin-bottom: 0; border: 0; font-size: var(--font-size-body); }
+    & .container:last-child > div:last-child > h3 { margin-block: .25rem 2rem; font-size: var(--font-size-h2); }
+    & .container:last-child > div:last-child > p:first-child { font-size: inherit; font-weight: inherit; }
+    & a.btn + a.btn { margin-left: 1.75rem; }
+
+    @media only screen and (min-width: 1201px) {
+        & .container:last-child > div:first-child { padding-right: 2rem; }
+    }
+}
