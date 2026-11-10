@@ -39,7 +39,6 @@ ul.numbers {
 }
 
 /* --------------- OVERLAY --------------- */
-/* Tekst over de foto, zoals de bedrijven op de home. */
 section.overlay {
     display: grid;
     & > img { grid-area: 1 / 1; height: 100%; object-fit: cover; filter: brightness(.3); }
@@ -52,7 +51,6 @@ section.overlay {
 }
 
 /* --------------- PROGRAMS --------------- */
-/* Het label houdt hier de ruimte van light; in het design staat de slider zelfs verder van de streep. */
 @media only screen and (min-width: 1001px) {
     section.has-programs { --label-margin-bottom: 3.5rem; }
 }
@@ -86,7 +84,6 @@ ul.facilities {
         & dialog:is([open], .closing), & dialog:is([open], .closing)::backdrop { animation: none; }
     }
 }
-/* Sluiten speelt dezelfde animatie achteruit, onder een eigen naam; anders start hij niet opnieuw. */
 @keyframes facility-in { from { opacity: 0; transform: translateY(1rem); } }
 @keyframes facility-out { from { opacity: 0; transform: translateY(1rem); } }
 @keyframes facility-backdrop-in { from { opacity: 0; } }
