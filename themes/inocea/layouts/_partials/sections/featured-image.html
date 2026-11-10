@@ -1,4 +1,4 @@
-{{- /* De h1 wordt een label in een eigen container, de eerste foto gaat links, de rest van de content rechts. */ -}}
+{{- /* De h1 wordt een label in een eigen container, de eerste foto gaat links, de rest van de content rechts; slow_sticky in de frontmatter maakt de foto slow-sticky. */ -}}
 {{- $label := partial "section_label.html" .Content -}}
 {{- $content := string .Content -}}
 {{- $title := "" -}}
@@ -12,7 +12,7 @@
         {{ $title | safeHTML }}
     </div>
     <div class="container">
-        <div>
+        <div{{ if .Page.Params.slow_sticky }} class="slow-sticky"{{ end }}>
             {{ $image | safeHTML }}
         </div>
         <div>
