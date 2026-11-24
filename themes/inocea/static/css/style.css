@@ -580,13 +580,13 @@ section.featured-image {
 /* Logo-rij (brick logos): één regel, gelijke hoogte, wrapt op smalle schermen. */
 section.logos { padding-block: 3rem; background: var(--my-soft-white); border-top: 1px solid var(--my-white); }
 section.logos .container { max-width: var(--max-width-medium); }
-section.logos ul { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem 3rem; margin: 0; padding: 0; list-style: none; }
+main section.logos ul { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem 3rem; margin: 0; padding: 0; list-style: none; }
 main section.logos ul > li { margin: 0; padding: 0; }
 main section.logos ul > li::before { content: none; }
 section.logos img { display: block; width: auto; height: 2.75rem; }
 
 @media only screen and (max-width: 1000px) {
-    section.logos ul { justify-content: center; }
+    main section.logos ul { justify-content: center; }
     section.logos img { height: 2rem; }
 }
 
