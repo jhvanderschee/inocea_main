@@ -198,6 +198,11 @@ section:is(.video-header, .image-header) { padding-block: 0; background: var(--m
         & :is(video, .media img) { aspect-ratio: .9; }
     }
 }
+/* Vimeo-iframe als header-video: een iframe kent geen object-fit, dus vult 'ie de .media-uitsnede (zelfde verhoudingen als de <video>) met cover-maten op container-eenheden. */
+section.video-header .media:has(> iframe.vimeo) { aspect-ratio: 1.85; container-type: size; }
+section.video-header .media > iframe.vimeo { position: absolute; top: 50%; left: 50%; width: max(100cqw, 100cqh * 16 / 9); height: max(100cqh, 100cqw * 9 / 16); aspect-ratio: auto; translate: -50% -50%; pointer-events: none; }
+@media (max-width: 1000px) { section.video-header .media:has(> iframe.vimeo) { aspect-ratio: 1.9; } }
+@media (max-width: 600px) { section.video-header .media:has(> iframe.vimeo) { aspect-ratio: .9; } }
 /* Header met kop en tekst onder de foto; de sectie erna zet zijn inhoud rechts. */
 section.image-header { padding-bottom: 5rem;
     & h1 { margin-block: 5rem 2rem; }
@@ -261,7 +266,9 @@ section.has-numbers:nth-of-type(even) { background: var(--my-soft-white); }
 section.has-numbers:last-child .container { max-width: var(--max-width-medium); }
 ul.numbers {
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); margin: 0 1px 0 0; 
-    & > li { container-type: inline-size; padding: 2rem; background: var(--my-white-40); color: inherit; }
+    & > li { container-type: inline-size; padding: 2rem; background: var(--my-soft-white); color: inherit; }
+    /* Tegels contrasteren met de sectie: wit op een even (grijze) sectie; :where houdt het overschrijfbaar voor contrast. */
+    :where(section.has-numbers:nth-of-type(even)) & > li { background: var(--my-white); }
     & h3 { margin: 0; font-size: min(3.5rem, 30cqi); line-height: 1.1; }
     & p { max-width: 11em; margin: 0; color: var(--my-dark-gray); }
 

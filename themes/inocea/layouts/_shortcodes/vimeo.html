@@ -1,2 +1,5 @@
-{{- /* Vervangt Hugo's ingebouwde vimeo, die geen hash kent: {{< vimeo id=123 h=abc title="..." >}}; h is nodig voor een niet-openbare video. */ -}}
-<iframe class="vimeo" src="https://player.vimeo.com/video/{{ .Get "id" }}{{ with .Get "h" }}?h={{ . }}{{ end }}" title="{{ .Get "title" }}" allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+{{- /* Vervangt Hugo's ingebouwde vimeo (geen hash): {{< vimeo id=123 h=abc title="..." >}}; h voor een niet-openbare video, background=true voor Vimeo's achtergrondmodus (autoplay, muted, loop, geen bediening), als vervanger van een <video> in de header. */ -}}
+{{- $params := slice -}}
+{{- with .Get "h" }}{{ $params = $params | append (printf "h=%s" .) }}{{ end -}}
+{{- if eq (string (.Get "background")) "true" }}{{ $params = $params | append "background=1" }}{{ end -}}
+<iframe class="vimeo" src="{{ printf "https://player.vimeo.com/video/%s%s" (string (.Get "id")) (cond (gt (len $params) 0) (printf "?%s" (delimit $params "&")) "") | safeURL }}" title="{{ .Get "title" }}" allow="autoplay; fullscreen; picture-in-picture"{{ if ne (string (.Get "background")) "true" }} loading="lazy"{{ end }}></iframe>

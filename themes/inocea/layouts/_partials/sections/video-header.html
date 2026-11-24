@@ -1,6 +1,6 @@
-{{- /* .media wrapt de video zoals bij image-header, hier alleen om 'm buiten de fade van de copy te houden (geen zoom nodig, beeld beweegt al). */ -}}
+{{- /* .media wrapt de video (of een Vimeo-iframe) zoals bij image-header, hier alleen om 'm buiten de fade van de copy te houden. */ -}}
 {{- $label := partial "section_label.html" .Content -}}
-{{- $content := replaceRE `(?s)^(?:<p>\s*)?(<video\b.*?</video>)(?:\s*</p>)?` `<div class="media">${1}</div>` (string .Content) 1 -}}
+{{- $content := replaceRE `(?s)^(?:<p>\s*)?(<video\b.*?</video>|<iframe\b[^>]*class="vimeo"[^>]*></iframe>)(?:\s*</p>)?` `<div class="media">${1}</div>` (string .Content) 1 -}}
 <section class="video-header header"{{ with $label }} aria-labelledby="{{ . }}"{{ end }}>
     <div class="container">
         {{ if page.IsHome }}{{ with site.Params.header_icon }}{{ partial "svg" . }}{{ end }}{{ end }}
