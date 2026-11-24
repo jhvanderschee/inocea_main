@@ -46,6 +46,7 @@ function setupLineReveal() {
         /* Elementen die zelf al bewegen of als blok horen te blijven, niet in regels knippen. */
         skip = ".accordion, .tabs, .has-crafts, div.facility, ul.facilities, div.programs, section.page-title, .curtain-carousel, ul.publications, ul.news, ul.leadership, .blocks, ul.numbers, .large-list, section.page, .timeline, .tiles, .steps, div.projects, .deliveries-browser, body.posts section",
         original = new WeakMap(),
+        started = new WeakSet(),
         sections = [...document.querySelectorAll("main section")],
         observer = new IntersectionObserver(onIntersect, { threshold: .15 });
 
@@ -61,21 +62,27 @@ function setupLineReveal() {
     function prepare(section) {
         [...section.querySelectorAll(selector)].filter(revealable).forEach(wrapLines);
 
-        const lines = [...section.querySelectorAll(".line-inner")];
+        const
+            lines = [...section.querySelectorAll(".line-inner")],
+            /* Foto's en knoppen faden i.p.v. schuiven; /uploads is content, /img (chrome) blijft met rust.
+               Accordion-items faden als blok, omdat hun inhoud niet in regels geknipt wordt. */
+            faders = [
+                ...section.querySelectorAll('img[src^="/uploads/"]'),
+                ...[...section.querySelectorAll(".btn, ul.accordion > li")].filter(node => !node.parentElement.closest(skip) || node.matches("ul.accordion > li"))
+            ];
 
-        lines.forEach((line, i) => {
-            const delay = `${(lead + i * stagger).toFixed(2)}s`;
-            line.style.setProperty("--delay", delay);
-            /* Lijst-marker zit buiten de clip-wrap en heeft dus zijn eigen delay nodig. */
-            line.closest("li")?.style.setProperty("--delay", delay);
-        });
+        faders.forEach(node => node.classList.add("fade-in"));
 
-        /* Foto's faden i.p.v. schuiven; /uploads is content, /img (chrome) blijft met rust. */
-        [...section.querySelectorAll('img[src^="/uploads/"]')].forEach(image => {
-            const above = lines.filter(line => line.compareDocumentPosition(image) & Node.DOCUMENT_POSITION_FOLLOWING).length;
-            image.classList.add("fade-in");
-            image.style.setProperty("--delay", `${(lead + (above + 1) * stagger).toFixed(2)}s`);
-        });
+        /* Volgorde op positie (boven naar onder, dan links naar rechts), niet op DOM-volgorde: een zijkolom komt anders als blok voor of na de hoofdtekst. */
+        [...lines, ...faders]
+            .map(node => ({ node, box: node.getBoundingClientRect() }))
+            .sort((a, b) => Math.round(a.box.top) - Math.round(b.box.top) || a.box.left - b.box.left)
+            .forEach(({ node }, i) => {
+                const delay = `${(lead + i * stagger).toFixed(2)}s`;
+                node.style.setProperty("--delay", delay);
+                /* Lijst-marker zit buiten de clip-wrap en heeft dus zijn eigen delay nodig. */
+                if (node.classList.contains("line-inner")) node.closest("li")?.style.setProperty("--delay", delay);
+            });
 
         section.classList.add("reveal");
     }
@@ -90,16 +97,10 @@ function setupLineReveal() {
     function wrapLines(node) {
         const
             html = node.innerHTML,
-            breaks = /<br\s*\/?>/i.test(html),
-            inline = !!node.querySelector("a, strong, em, span");
+            breaks = /<br\s*\/?>/i.test(html);
 
         original.set(node, html);
 
-        if (inline) {
-            /* Bij inline opmaak knippen op <br>, anders gaat de opmaak verloren bij regel-meting. */
-            node.innerHTML = html.split(/<br\s*\/?>/i).map(wrap).join("");
-            return;
-        }
         if (!breaks && Math.round(node.scrollHeight / lineHeight(node)) <= 1) {
             node.innerHTML = wrap(html);
             return;
@@ -117,11 +118,13 @@ function setupLineReveal() {
         return parseFloat(style.lineHeight) || parseFloat(style.fontSize) * 1.5;
     }
 
+    /* Geeft per regel de HTML terug. Knipt met een Range op de tekenposities waar de browser afbreekt;
+       cloneContents sluit open tags netjes af, dus een link die over twee regels loopt blijft in beide regels een link. */
     function measureLines(node) {
         const
             range = document.createRange(),
             walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT),
-            lines = [];
+            starts = [];
 
         let lastTop = null;
 
@@ -133,17 +136,24 @@ function setupLineReveal() {
                 continue;
             }
             for (let i = 0; i < current.length; i++) {
+                if (/\s/.test(current.data[i])) continue;
                 range.setStart(current, i);
                 range.setEnd(current, i + 1);
                 const top = Math.round(range.getBoundingClientRect().top);
-                if (lastTop === null || Math.abs(top - lastTop) > 2) {
-                    lines.push("");
-                    lastTop = top;
-                }
-                lines[lines.length - 1] += current.textContent[i];
+                if (lastTop === null || Math.abs(top - lastTop) > 2) starts.push([current, i]);
+                lastTop = top;
             }
         }
-        return lines.map((line, i) => i < lines.length - 1 ? line.replace(/\s+$/, "") : line);
+
+        return starts.map(([container, offset], i) => {
+            range.setStart(container, offset);
+            if (starts[i + 1]) range.setEnd(...starts[i + 1]);
+            else range.setEnd(node, node.childNodes.length);
+            const holder = document.createElement("div");
+            holder.append(range.cloneContents());
+            holder.querySelectorAll("br").forEach(br => br.remove());
+            return holder.innerHTML.trim();
+        });
     }
 
     function unwrap(section) {
@@ -154,6 +164,8 @@ function setupLineReveal() {
                 node.innerHTML = original.get(node);
                 original.delete(node);
             });
+        /* Knoppen en accordion-items krijgen hun eigen transitions (hover) terug. */
+        section.querySelectorAll(".fade-in:not(img)").forEach(node => node.classList.remove("fade-in"));
     }
 
     function start() {
@@ -177,18 +189,21 @@ function setupLineReveal() {
         section.classList.add("visible");
         observer.unobserve(section);
 
-        const last = [...section.querySelectorAll(".line-inner")].pop();
-        if (instant) return unwrap(section);
-        if (!last) {
+        if (instant) {
             unwrap(section);
-            return handOff();
+            started.add(section);
+            return;
         }
 
-        /* Timer i.p.v. transitionend: die vuurt niet bij reduced motion of een verborgen laatste regel, en dan stokt de hele keten. */
+        /* Laatste animatie-start in deze sectie; dan mag de volgende sectie beginnen, zodat de cascade van boven naar onder doorloopt. */
+        const last = Math.max(0, ...[...section.querySelectorAll(".line-inner, .fade-in")].map(node => parseFloat(node.style.getPropertyValue("--delay")) || 0));
+
+        /* Timers i.p.v. transitionend: die vuurt niet bij reduced motion of een verborgen laatste regel, en dan stokt de hele keten. */
         setTimeout(() => {
-            unwrap(section);
+            started.add(section);
             handOff();
-        }, (parseFloat(last.style.getPropertyValue("--delay")) + 1) * 1000);
+        }, last * 1000);
+        setTimeout(() => unwrap(section), (last + 1) * 1000);
     }
 
     /* Wat intussen voorbij gescrold is direct tonen, dan de eerstvolgende sectie in beeld laten animeren. */
@@ -198,10 +213,11 @@ function setupLineReveal() {
         if (next) reveal(next);
     }
 
+    /* 'visible' komt er direct bij de start op; 'started' pas als de hele sectie in gang is gezet. */
     function settled(section) {
         return sections
             .slice(0, sections.indexOf(section))
-            .every(earlier => earlier.classList.contains("visible"));
+            .every(earlier => started.has(earlier));
     }
 
     function above(section) {

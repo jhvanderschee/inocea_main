@@ -982,9 +982,10 @@ section.has-timeline .top h2 { border-color: var(--my-white-20); }
 section.has-getintouch { padding-bottom: 6rem; background: var(--my-white);
     & .container { padding-top: 1rem; }
     & h1 ~ :not(div) { max-width: 30em; }
-    & .getintouch { float: right; max-width: 20rem; margin-left: 6.5rem; padding-left: 1.25rem; border-left: 1px solid var(--my-black-20); }
+    & .getintouch { float: right; width: 100%; max-width: 20rem; margin-left: 6.5rem; padding-left: 1.25rem; border-left: 1px solid var(--my-black-20); }
     & .getintouch h2 { max-width: none; margin: 0 0 .15em; padding-bottom: 0; border-bottom: none; font-family: var(--header-font); font-size: 1.5rem; font-weight: var(--font-medium); text-transform: none; letter-spacing: 0; color: var(--my-black); }
-    & .getintouch a:not(.btn) { color: inherit; transition: color 250ms; }
+    & .getintouch p { margin: 0; }
+    & .getintouch a:not(.btn) { color: inherit; text-decoration: none; transition: color 250ms; }
     & .getintouch a.btn { margin-top: 1rem; }
 
     @media only screen and (max-width: 768px) {
@@ -1103,7 +1104,7 @@ form { display: flex; flex-wrap: wrap; gap: 2rem; color-scheme: dark;
     & label .info { display: inline-flex; justify-content: center; align-items: center; width: 1.15em; aspect-ratio: 1; margin-left: .4em; padding: 0; border: 1px solid currentColor; border-radius: 50%; background: none; color: inherit; opacity: .6; font-family: inherit; font-size: .75em; font-style: italic; line-height: 1; vertical-align: middle; cursor: pointer; }
     & label .info:is(:hover, :focus-visible) { opacity: 1; }
     & .btn { min-width: 10rem; margin-top: 2rem; }
-    & .btn.reversed, & .btn.reversed:not(:hover) { padding: .75em 3rem .75em 1.5rem; border-radius: .3rem; background: var(--my-white); color: var(--my-black); }
+    & button.btn.reversed, & button.btn.reversed:not(:hover) { padding: .75em 3rem .75em 1.5rem; border-radius: .3rem; background: var(--my-white); color: var(--my-black); }
     & button.btn.reversed::after { right: 1.25rem; background-image: url('/img/arrow-right-black.svg'); }
     &.submitted > div:has(:invalid) :is(input, select, textarea) { border-color: #e05555 !important; }
     &.submitted > div:has(:invalid), &.submitted > div:has(:invalid) a { color: #e05555; text-decoration-color: #e0555577; }
@@ -1303,7 +1304,8 @@ body.posts section.intro time { font-family: var(--mono-font); color: var(--fade
 }
 
 
-.reveal .fade-in { opacity: 0; }
+/* Geen transition in de verborgen staat, anders fadet een element met eigen opacity-transition (.btn) uit en direct weer in. */
+.reveal .fade-in { opacity: 0; transition: none; }
 .reveal.visible .fade-in { opacity: 1; transition: opacity .8s ease var(--delay, 0s); }
 
 .reveal :is(h1, h2, h3) { border-color: transparent; }

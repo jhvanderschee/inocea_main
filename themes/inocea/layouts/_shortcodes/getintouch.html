@@ -2,7 +2,8 @@
 {{ with partial "data" (.Get 0 | default "get_in_touch") }}
 <div class="getintouch">
     <h2 class="h3">{{ .title }}</h2>
-    {{ .markdown | markdownify }}
+    {{- /* Als blok renderen (<p>), zodat de regels mee-animeren met de line-reveal. */}}
+    {{ page.RenderString (dict "display" "block") .markdown }}
     {{ if and .button_text .button_url }}<a href="{{ .button_url }}" class="btn reversed">{{ .button_text }}</a>{{ end }}
 </div>
 {{ end }}
